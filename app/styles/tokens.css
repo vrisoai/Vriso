@@ -1,0 +1,48 @@
+/**
+ * VRISO Design Tokens — single source of truth.
+ * No hex values anywhere else in the codebase. Always use var(--color-*).
+ */
+:root {
+  /* === BACKGROUNDS === */
+  --color-bg-primary: #121212;
+  --color-bg-section: #1A1A1A;
+  --color-bg-card: #1F1F1F;
+  --color-border: #262626;
+
+  /* === TYPOGRAPHY COLORS === */
+  --color-text-primary: #E5E7EB;
+  --color-text-secondary: #9CA3AF;
+  --color-text-tertiary: #6B7280;
+  --color-text-micro: #4B5563;
+
+  /* === BUTTONS === */
+  --color-btn-bg: #0F0F0F;
+  --color-btn-border: #1F2937;
+  --color-btn-text: #E5E7EB;
+  --color-btn-hover-bg: #161616;
+  --color-btn-hover-border: #374151;
+  --color-btn-hover-glow: rgba(55, 65, 81, 0.5);
+
+  /* === ACCENTS === */
+  --color-link: #3B82F6;
+  --color-action-accent: #2D5BFF;
+  --color-trust-amber: #FBBF24;
+  --color-trust-amber-alt: #F59E0B;
+
+  /* === DATA VIZ === */
+  --color-graph-bg: #1F1F1F;
+  --color-graph-line: #374151;
+  --color-graph-highlight: #FBBF24;
+  --color-grid-line: #262626;
+  --color-axis-label: #6B7280;
+
+  /* === GRADIENT === */
+  --gradient-headline: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+
+  /* === INTELLIGENCE ECOSYSTEM (P3 Wide-Gamut) === */
+  --color-eco-bg: oklch(12% 0.02 260);
+  --color-eco-card: oklch(18% 0.03 260 / 0.8);
+  --color-eco-accent: oklch(70% 0.15 190);
+  --color-eco-border: oklch(25% 0.03 260 / 0.4);
+  --color-eco-accent-glow: oklch(70% 0.15 190 / 0.2);
+}

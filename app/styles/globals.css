@@ -1,0 +1,135 @@
+/* Import order matters — tokens must come first */
+@import './tokens.css';
+@import './typography.css';
+@import './components.css';
+
+/* Tailwind — design system utilities */
+@import 'tailwindcss';
+
+@theme {
+  /* Expose tokens to Tailwind: bg-bg-primary, text-text-primary, etc. */
+  --color-bg-primary: #121212;
+  --color-bg-section: #1A1A1A;
+  --color-bg-card: #1F1F1F;
+  --color-border: #262626;
+  --color-text-primary: #E5E7EB;
+  --color-text-secondary: #9CA3AF;
+  --color-text-tertiary: #6B7280;
+  --color-text-micro: #4B5563;
+  --color-btn-bg: #0F0F0F;
+  --color-btn-border: #1F2937;
+  --color-btn-text: #E5E7EB;
+  --color-btn-hover-bg: #161616;
+  --color-btn-hover-border: #374151;
+  --color-link: #3B82F6;
+  --color-action-accent: #2D5BFF;
+  --color-trust-amber: #FBBF24;
+  --color-trust-amber-alt: #F59E0B;
+
+  /* Intelligence Ecosystem — P3 wide-gamut */
+  --color-eco-bg: oklch(12% 0.02 260);
+  --color-eco-card: oklch(18% 0.03 260 / 0.8);
+  --color-eco-accent: oklch(70% 0.15 190);
+  --color-eco-border: oklch(25% 0.03 260 / 0.4);
+  --color-eco-accent-glow: oklch(70% 0.15 190 / 0.2);
+}
+
+@property --glow-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font: inherit;
+}
+
+/* App keyframes (used by HeroSection, OrbitalCards) */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes status-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes glow-spin {
+  to {
+    --glow-angle: 360deg;
+  }
+}
+
+@keyframes network-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes data-flow {
+  0% { stroke-dashoffset: 20; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes node-ping {
+  0% { r: 3; opacity: 0.8; }
+  50% { r: 5; opacity: 1; }
+  100% { r: 3; opacity: 0.8; }
+}
+
+@keyframes beam-travel {
+  0% { stroke-dashoffset: 60; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes reasoning-progress {
+  0% { width: 0%; opacity: 1; }
+  60% { width: 85%; opacity: 1; }
+  90% { width: 100%; opacity: 1; }
+  95% { width: 100%; opacity: 0; }
+  100% { width: 0%; opacity: 0; }
+}
+
+/* Reduced motion — required for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

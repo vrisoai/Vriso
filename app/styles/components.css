@@ -1,0 +1,184 @@
+/**
+ * Core component styles — all colors via tokens. No hardcoded hex.
+ */
+
+/* === BUTTONS === */
+.btn-primary {
+  background: var(--color-btn-bg);
+  border: 1px solid var(--color-btn-border);
+  color: var(--color-btn-text);
+  border-radius: 8px;
+  padding: 0.625rem 1.25rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 200ms ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-primary:hover {
+  background: var(--color-btn-hover-bg);
+  border-color: var(--color-btn-hover-border);
+  box-shadow: 0 0 16px var(--color-btn-hover-glow);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid var(--color-action-accent);
+  outline-offset: 3px;
+}
+
+.btn-accent {
+  background: var(--color-action-accent);
+  border: 1px solid transparent;
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 200ms ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-accent:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 0 24px rgba(45, 91, 255, 0.4);
+}
+
+.btn-accent:focus-visible {
+  outline: 2px solid var(--color-action-accent);
+  outline-offset: 3px;
+}
+
+/* === CARDS === */
+.card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.card:hover,
+.card-hover:hover {
+  border-color: var(--color-btn-hover-border);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* === TRUST BADGE === */
+.badge-trust {
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid var(--color-trust-amber);
+  color: var(--color-trust-amber);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  border-radius: 4px;
+  padding: 2px 8px;
+  display: inline-block;
+  letter-spacing: 0.05em;
+}
+
+/* === LINKS === */
+a {
+  color: var(--color-link);
+  text-decoration: none;
+  transition: text-decoration 150ms ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-action-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* === LIQUID GLASS (Glassmorphism 2.0) === */
+.glass-card {
+  position: relative;
+  background: rgba(31, 31, 31, 0.80);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
+  transition: border-color 400ms ease, box-shadow 400ms ease, transform 400ms ease;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--glow-angle, 0deg),
+    transparent 0%,
+    transparent 70%,
+    rgba(251, 191, 36, 0.4) 80%,
+    rgba(59, 91, 219, 0.5) 90%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 400ms ease;
+  pointer-events: none;
+}
+
+.glass-card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 400ms ease;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(251, 191, 36, 0.06),
+    transparent 40%
+  );
+  pointer-events: none;
+}
+
+.glass-card:hover {
+  border-color: var(--color-btn-hover-border);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.06),
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(251, 191, 36, 0.06);
+  transform: translateY(-2px);
+}
+
+.glass-card:hover::before {
+  opacity: 1;
+  animation: glow-spin 3s linear infinite;
+}
+
+.glass-card:hover::after {
+  opacity: 1;
+}
+
+/* === SECTION WRAPPER === */
+.section {
+  background: var(--color-bg-section);
+  padding-block: 4rem;
+}
+
+/* === SELECTION === */
+::selection {
+  background: var(--color-action-accent);
+  color: #ffffff;
+}
