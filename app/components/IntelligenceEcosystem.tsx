@@ -1,8 +1,8 @@
 'use client';
 
 import Script from 'next/script';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { useRef, useCallback } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { useRef, useCallback, useState, useEffect } from 'react';
 
 const JSON_LD = {
   '@context': 'https://schema.org',
@@ -91,20 +91,29 @@ export function IntelligenceEcosystem() {
     e.currentTarget.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
   }, []);
 
-  const { scrollYProgress } = useScroll({
-    target: headerRef,
-    offset: ['start end', 'end start'],
-  });
-  const fontWeight = useTransform(scrollYProgress, [0, 0.4], [400, 700]);
+  const [fontWeight, setFontWeight] = useState(500);
+  useEffect(() => {
+    const el = headerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const ratio = entry ? entry.intersectionRatio : 0;
+        setFontWeight(Math.round(400 + (1 - Math.min(1, ratio * 2.5)) * 300));
+      },
+      { threshold: [0, 0.25, 0.5, 0.75, 1] }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section
       className="relative w-full bg-bg-primary"
       style={{
-        paddingTop: 'clamp(80px, 10vw, 140px)',
-        paddingBottom: 'clamp(80px, 10vw, 140px)',
-        paddingLeft: 'max(1.5rem, 5vw, env(safe-area-inset-left))',
-        paddingRight: 'max(1.5rem, 5vw, env(safe-area-inset-right))',
+        paddingTop: 'clamp(48px, 6vw, 80px)',
+        paddingBottom: 'clamp(48px, 6vw, 80px)',
+        paddingLeft: 'max(clamp(1.5rem, 5vw, 4rem), env(safe-area-inset-left))',
+        paddingRight: 'max(clamp(1.5rem, 5vw, 4rem), env(safe-area-inset-right))',
       }}
       aria-labelledby="ecosystem-heading"
     >
@@ -127,15 +136,15 @@ export function IntelligenceEcosystem() {
       />
 
       <div
-        className="relative mx-auto w-full max-w-6xl"
+        className="section-container relative w-full"
         style={{
-          paddingLeft: 'max(1rem, 4vw)',
-          paddingRight: 'max(1rem, 4vw)',
+          paddingLeft: 'max(1rem, clamp(1rem, 4vw, 3rem))',
+          paddingRight: 'max(1rem, clamp(1rem, 4vw, 3rem))',
         }}
       >
         {/* ── Section label ── */}
         <motion.p
-          className="font-mono text-text-tertiary"
+          className="font-mono text-text-tertiary text-center sm:text-left"
           style={{ fontSize: 12, letterSpacing: '0.14em', fontWeight: 500 }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -148,7 +157,7 @@ export function IntelligenceEcosystem() {
         {/* ── Headline with amber accent bar — matching Section 2 pattern ── */}
         <div ref={headerRef} style={{ marginTop: 32 }}>
           <motion.div
-            className="flex items-stretch"
+            className="flex items-stretch justify-center sm:justify-start"
             style={{ gap: 20 }}
             initial="hidden"
             whileInView="visible"
@@ -168,7 +177,7 @@ export function IntelligenceEcosystem() {
             />
             <motion.h2
               id="ecosystem-heading"
-              className="font-serif text-text-primary"
+              className="font-serif text-text-primary text-center sm:text-left"
               style={{
                 fontSize: 'clamp(36px, 4vw, 50px)',
                 lineHeight: 1.15,
@@ -184,7 +193,7 @@ export function IntelligenceEcosystem() {
           </motion.div>
 
           <motion.p
-            className="font-serif text-text-secondary"
+            className="font-serif text-text-secondary mx-auto text-center sm:text-left"
             style={{
               fontSize: 'clamp(18px, 2vw, 22px)',
               lineHeight: 1.6,

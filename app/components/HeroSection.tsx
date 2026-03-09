@@ -35,12 +35,12 @@ export function HeroSection() {
 
   return (
     <section
-      className="relative z-10 flex min-h-screen w-full items-center justify-center bg-bg-primary pt-12 pb-24 sm:pb-28 md:pt-16 md:pb-32 lg:pt-20 lg:pb-36 xl:pb-40"
+      className="relative z-10 flex w-full flex-col items-center justify-start bg-bg-primary pt-28 pb-12 sm:pt-32 sm:pb-16 md:min-h-screen md:flex-row md:items-center md:justify-center md:pt-32 md:pb-28 lg:pt-36 lg:pb-32 xl:pb-36"
       style={{
         background:
           'radial-gradient(ellipse 60% 80% at 75% 50%, rgba(59,91,219,0.10) 0%, transparent 70%), var(--color-bg-primary)',
-        paddingLeft: 'max(1.5rem, 5vw, env(safe-area-inset-left))',
-        paddingRight: 'max(1.5rem, 5vw, env(safe-area-inset-right))',
+        paddingLeft: 'max(clamp(1.5rem, 5vw, 4rem), env(safe-area-inset-left))',
+        paddingRight: 'max(clamp(1.5rem, 5vw, 4rem), env(safe-area-inset-right))',
         overflowX: 'clip',
       }}
       aria-label="Vriso AI hero"
@@ -53,13 +53,13 @@ export function HeroSection() {
         {JSON.stringify(JSON_LD)}
       </Script>
 
-      <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-12 pb-24 md:flex-row md:gap-10 md:pb-28 lg:gap-12 lg:pb-32"
+      <div className="section-container flex flex-col items-center gap-8 text-center sm:gap-10 md:flex-row md:items-center md:gap-10 md:text-left lg:gap-12"
            style={{
-             paddingLeft: 'max(1rem, 4vw)',
-             paddingRight: 'max(1rem, 4vw)',
+             paddingLeft: 'max(1rem, clamp(1rem, 4vw, 3rem))',
+             paddingRight: 'max(1rem, clamp(1rem, 4vw, 3rem))',
            }}>
         {/* Left column — copy */}
-        <div className="flex w-full flex-col items-start justify-center gap-8 md:w-[60%]">
+        <div className="flex w-full flex-col items-center justify-center gap-6 sm:gap-8 md:w-[60%] md:items-start">
           {/* System status badge */}
           <div className="flex items-center gap-2 font-mono">
             <span
@@ -75,7 +75,7 @@ export function HeroSection() {
           <AnimatedHeadline />
 
           <motion.p
-            className="max-w-xl text-[18px] text-text-secondary md:text-2xl font-serif"
+            className="max-w-xl text-[16px] text-text-secondary sm:text-[18px] md:text-2xl font-serif"
             variants={subtextReveal}
             initial="hidden"
             animate="visible"
@@ -112,10 +112,18 @@ export function HeroSection() {
           </button>
         </div>
 
-        {/* Right column — orbital cards around central monolith */}
-        <div className="relative hidden w-full justify-center sm:flex md:w-[40%] md:flex-none">
+        {/* Right column — orbital cards, visible on all sizes.
+            Negative my cancels the dead layout space left by transform:scale
+            formula: -(500 * (1 - scale) / 2)
+            0.48 → -130px | 0.58 → -105px | md+ → 0 (desktop row layout) */}
+        <div className="relative flex w-full min-w-0 justify-center md:w-[40%] md:flex-none">
           <div
-            className="origin-center scale-[0.55] sm:scale-[0.6] md:scale-[0.72] lg:scale-[0.82] xl:scale-[0.92] 2xl:scale-100"
+            className="orbital-scaler origin-center
+              -my-[63px] scale-[0.75]
+              sm:-my-[45px] sm:scale-[0.82]
+              md:my-0 md:scale-[0.72]
+              lg:scale-[0.82]
+              xl:scale-[0.92]"
             style={{ width: 500, height: 500 }}
           >
             <OrbitalCards onAmberPulseRef={setAmberPulseRef} />

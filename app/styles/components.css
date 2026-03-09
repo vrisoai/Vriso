@@ -146,19 +146,20 @@ a:focus-visible {
   opacity: 0;
   transition: opacity 400ms ease;
   background: radial-gradient(
-    min(250px, 60vw) circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(251, 191, 36, 0.05),
-    transparent 40%
+    min(280px, 60vw) circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(45, 91, 255, 0.10) 0%,
+    rgba(59, 91, 219, 0.05) 40%,
+    transparent 70%
   );
   pointer-events: none;
 }
 
 .glass-card:hover {
-  border-color: var(--color-btn-hover-border);
+  border-color: rgba(59, 91, 219, 0.45);
   box-shadow:
     inset 0 1px 0 0 rgba(255, 255, 255, 0.06),
     0 8px 32px rgba(0, 0, 0, 0.5),
-    0 0 20px rgba(251, 191, 36, 0.06);
+    0 0 24px rgba(45, 91, 255, 0.10);
   transform: translateY(-2px);
 }
 
@@ -175,6 +176,30 @@ a:focus-visible {
 .section {
   background: var(--color-bg-section);
   padding-block: 4rem;
+}
+
+/* Responsive container — centered on all viewports */
+.section-container {
+  width: 100%;
+  max-width: 72rem; /* 1152px — default */
+  margin-inline: auto;
+}
+@media (min-width: 1280px) {
+  .section-container {
+    max-width: 80rem; /* 1280px — xl */
+  }
+}
+@media (min-width: 1536px) {
+  .section-container {
+    max-width: 87.5rem; /* 1400px — 2xl */
+  }
+}
+
+/* Hero orbital — viewport-based scale only (avoids hydration mismatch from container queries) */
+.orbital-scaler {
+  width: 500px;
+  height: 500px;
+  transform-origin: center center;
 }
 
 /* === SELECTION === */

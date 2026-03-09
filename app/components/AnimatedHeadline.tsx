@@ -13,7 +13,7 @@ export function AnimatedHeadline() {
   return (
     <h1 className="flex flex-col gap-0 leading-[1.1] tracking-[-0.04em]">
       <motion.span
-        className="flex flex-wrap items-baseline gap-x-2 text-[#E5E7EB] text-[28px] font-extrabold sm:text-[40px] md:text-[64px] lg:text-[84px]"
+        className="flex flex-wrap items-baseline gap-x-2 text-[#E5E7EB] text-[36px] font-extrabold sm:text-[40px] md:text-[64px] lg:text-[84px]"
         style={{ fontFamily: 'var(--font-space-grotesk), system-ui, sans-serif' }}
         variants={headlineContainer}
         initial="hidden"
@@ -27,7 +27,7 @@ export function AnimatedHeadline() {
         ))}
       </motion.span>
       <motion.span
-        className="inline-block w-fit bg-gradient-to-r from-[#1E3A8A] to-[#3B82F6] bg-clip-text text-[28px] font-black tracking-[-0.04em] text-transparent sm:text-[40px] md:text-[64px] lg:text-[84px]"
+        className="inline-block w-fit bg-gradient-to-r from-[#1E3A8A] to-[#3B82F6] bg-clip-text text-[36px] font-black tracking-[-0.04em] text-transparent sm:text-[40px] md:text-[64px] lg:text-[84px]"
         style={{
           fontFamily: 'var(--font-space-grotesk), system-ui, sans-serif',
           WebkitBackgroundClip: 'text',

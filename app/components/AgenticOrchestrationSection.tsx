@@ -246,10 +246,10 @@ export function AgenticOrchestrationSection() {
     <section
       className="relative w-full bg-bg-primary"
       style={{
-        paddingTop: 'clamp(80px, 10vw, 140px)',
+        paddingTop: 'clamp(48px, 6vw, 80px)',
         paddingBottom: 'clamp(80px, 10vw, 140px)',
-        paddingLeft: 'max(1.5rem, 5vw, env(safe-area-inset-left))',
-        paddingRight: 'max(1.5rem, 5vw, env(safe-area-inset-right))',
+        paddingLeft: 'max(clamp(1.5rem, 5vw, 4rem), env(safe-area-inset-left))',
+        paddingRight: 'max(clamp(1.5rem, 5vw, 4rem), env(safe-area-inset-right))',
       }}
       aria-labelledby="orchestration-heading"
     >
@@ -273,15 +273,15 @@ export function AgenticOrchestrationSection() {
 
       <div
         ref={sectionRef}
-        className="relative mx-auto w-full max-w-6xl"
+        className="section-container relative w-full"
         style={{
-          paddingLeft: 'max(1rem, 4vw)',
-          paddingRight: 'max(1rem, 4vw)',
+          paddingLeft: 'max(1rem, clamp(1rem, 4vw, 3rem))',
+          paddingRight: 'max(1rem, clamp(1rem, 4vw, 3rem))',
         }}
       >
         {/* ── Section label ── */}
         <motion.p
-          className="font-mono text-text-tertiary"
+          className="font-mono text-text-tertiary text-center sm:text-left"
           style={{
             fontSize: 12,
             letterSpacing: '0.14em',
@@ -299,7 +299,7 @@ export function AgenticOrchestrationSection() {
 
         {/* ── Headline with amber accent bar ── */}
         <motion.div
-          className="flex items-stretch"
+          className="flex items-stretch justify-center sm:justify-start"
           style={{ marginTop: 32, gap: 20 }}
           initial="hidden"
           animate={sectionInView ? 'visible' : 'hidden'}
@@ -317,7 +317,7 @@ export function AgenticOrchestrationSection() {
           />
           <motion.h2
             id="orchestration-heading"
-            className="font-serif text-text-primary"
+            className="font-serif text-text-primary text-center sm:text-left"
             style={{
               fontSize: 'clamp(36px, 4vw, 48px)',
               fontWeight: 500,
@@ -332,7 +332,7 @@ export function AgenticOrchestrationSection() {
 
         {/* ── Supporting paragraph ── */}
         <motion.div
-          className="font-serif text-text-secondary"
+          className="font-serif text-text-secondary mx-auto text-center sm:text-left"
           style={{
             fontSize: 'clamp(17px, 1.4vw, 20px)',
             lineHeight: 1.8,
@@ -357,8 +357,9 @@ export function AgenticOrchestrationSection() {
         {/* ═══════════════════ WORKFLOW VISUALIZER CARD ═══════════════════ */}
         <motion.div
           ref={cardRef}
-          className="glass-card relative mt-16 overflow-hidden"
+          className="glass-card relative overflow-hidden"
           style={{
+            marginTop: 'clamp(28px, 3.5vw, 48px)',
             padding: 'clamp(16px, 3vw, 28px)',
             borderTop: '3px solid #3B82F6',
             borderRadius: 16,
@@ -393,7 +394,7 @@ export function AgenticOrchestrationSection() {
             className="pointer-events-none absolute inset-0"
             style={{
               background:
-                'radial-gradient(min(250px, 60vw) circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59,130,246,0.05), transparent 40%)',
+                'radial-gradient(min(280px, 60vw) circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(45,91,255,0.10) 0%, rgba(59,91,219,0.05) 40%, transparent 70%)',
             }}
             aria-hidden
           />
@@ -414,9 +415,9 @@ export function AgenticOrchestrationSection() {
             </div>
 
             {/* ── Row 2: Legal — Supervisor — Operations ── */}
-            <div className="relative z-10 flex w-full flex-col items-center gap-6 md:flex-row md:items-start md:justify-between">
+            <div className="relative z-10 flex w-full max-w-4xl flex-col items-center gap-6 md:mx-auto md:flex-row md:items-start md:justify-center md:gap-8 xl:gap-12">
               {/* Left agent (Legal) */}
-              <div className="w-full md:w-[28%]">
+              <div className="w-full shrink-0 md:w-auto">
                 <AgentNode agent={AGENTS[0]} delay={1} />
               </div>
 
@@ -493,7 +494,7 @@ export function AgenticOrchestrationSection() {
               </motion.div>
 
               {/* Right agent (Operations) */}
-              <div className="w-full md:w-[28%]">
+              <div className="w-full shrink-0 md:w-auto">
                 <AgentNode agent={AGENTS[2]} delay={3} />
               </div>
             </div>

@@ -107,9 +107,9 @@ export function FragmentationRisk() {
       className="relative w-full bg-bg-primary"
       style={{
         paddingTop: 'clamp(80px, 10vw, 140px)',
-        paddingBottom: 'clamp(80px, 10vw, 140px)',
-        paddingLeft: 'max(1.5rem, 5vw, env(safe-area-inset-left))',
-        paddingRight: 'max(1.5rem, 5vw, env(safe-area-inset-right))',
+        paddingBottom: 'clamp(48px, 6vw, 80px)',
+        paddingLeft: 'max(clamp(1.5rem, 5vw, 4rem), env(safe-area-inset-left))',
+        paddingRight: 'max(clamp(1.5rem, 5vw, 4rem), env(safe-area-inset-right))',
       }}
     >
       {/* F. Subtle warm radial gradient background */}
@@ -122,16 +122,16 @@ export function FragmentationRisk() {
       />
 
       <div
-        className="relative mx-auto w-full max-w-6xl"
+        className="section-container relative w-full"
         style={{
-          paddingLeft: 'max(1rem, 4vw)',
-          paddingRight: 'max(1rem, 4vw)',
+          paddingLeft: 'max(1rem, clamp(1rem, 4vw, 3rem))',
+          paddingRight: 'max(1rem, clamp(1rem, 4vw, 3rem))',
         }}
       >
 
         {/* ── Label ── */}
         <motion.p
-          className="font-mono text-text-tertiary"
+          className="font-mono text-text-tertiary text-center sm:text-left"
           style={{ fontSize: 12, letterSpacing: '0.14em', fontWeight: 500 }}
           variants={FADE_UP}
           initial="hidden"
@@ -144,7 +144,7 @@ export function FragmentationRisk() {
 
         {/* ── Headline — Animated amber accent bar (echoes monolith shard) ── */}
         <motion.div
-          className="flex items-stretch"
+          className="flex items-stretch justify-center sm:justify-start"
           style={{ marginTop: 32, gap: 20 }}
           initial="hidden"
           whileInView="visible"
@@ -162,7 +162,7 @@ export function FragmentationRisk() {
             transition={{ duration: 1.2, delay: 0.4, ease: 'easeOut' }}
           />
           <motion.h2
-            className="font-serif text-text-primary"
+            className="font-serif text-text-primary text-center sm:text-left"
             style={{
               fontSize: 'clamp(36px, 4vw, 50px)',
               fontWeight: 500,
@@ -177,7 +177,7 @@ export function FragmentationRisk() {
 
         {/* ── Subhead ── */}
         <motion.p
-          className="font-serif text-text-secondary"
+          className="font-serif text-text-secondary mx-auto text-center sm:text-left"
           style={{ fontSize: 'clamp(18px, 2vw, 22px)', lineHeight: 1.6, maxWidth: 720, marginTop: 24 }}
           variants={FADE_UP}
           initial="hidden"
