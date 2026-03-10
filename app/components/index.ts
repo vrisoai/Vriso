@@ -6,3 +6,4 @@ export { IntelligenceEcosystem } from './IntelligenceEcosystem';
 export { MonolithArtifact } from './MonolithArtifact';
 export { Navbar } from './Navbar';
 export { OrbitalCards } from './OrbitalCards';
+export { default as OutcomeVaultSection } from './OutcomeVaultSection';

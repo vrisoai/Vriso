@@ -3,6 +3,7 @@ import {
   FragmentationRisk,
   IntelligenceEcosystem,
   AgenticOrchestrationSection,
+  OutcomeVaultSection,
 } from '@/app/components';
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       <FragmentationRisk />
       <IntelligenceEcosystem />
       <AgenticOrchestrationSection />
+      <OutcomeVaultSection />
     </main>
   );
 }
