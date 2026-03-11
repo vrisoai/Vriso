@@ -3,6 +3,7 @@
 import Script from 'next/script';
 import { motion, useInView } from 'framer-motion';
 import { useRef, useCallback, useState, useEffect } from 'react';
+import { CARD_FADE, GRID_STAGGER } from '@/app/lib/animations';
 
 const JSON_LD = {
   '@context': 'https://schema.org',
@@ -37,24 +38,6 @@ const JSON_LD = {
           'Multi-agent systems with full reasoning transparency and auditable decision chains.',
       },
     ],
-  },
-};
-
-const CARD_FADE = {
-  hidden: { opacity: 0, y: 28, scale: 0.96 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
-const GRID_STAGGER = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
   },
 };
 
@@ -108,13 +91,7 @@ export function IntelligenceEcosystem() {
 
   return (
     <section
-      className="relative w-full bg-bg-primary"
-      style={{
-        paddingTop: 'clamp(48px, 6vw, 80px)',
-        paddingBottom: 'clamp(48px, 6vw, 80px)',
-        paddingLeft: 'max(clamp(1.5rem, 5vw, 4rem), env(safe-area-inset-left))',
-        paddingRight: 'max(clamp(1.5rem, 5vw, 4rem), env(safe-area-inset-right))',
-      }}
+      className="relative w-full overflow-x-hidden bg-bg-primary section-padding-tight"
       aria-labelledby="ecosystem-heading"
     >
       <Script
@@ -135,17 +112,10 @@ export function IntelligenceEcosystem() {
         aria-hidden
       />
 
-      <div
-        className="section-container relative w-full"
-        style={{
-          paddingLeft: 'max(1rem, clamp(1rem, 4vw, 3rem))',
-          paddingRight: 'max(1rem, clamp(1rem, 4vw, 3rem))',
-        }}
-      >
+      <div className="section-container section-inner relative w-full">
         {/* ── Section label ── */}
         <motion.p
-          className="font-mono text-text-tertiary text-center sm:text-left"
-          style={{ fontSize: 12, letterSpacing: '0.14em', fontWeight: 500 }}
+          className="section-label text-center sm:text-left"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
@@ -164,10 +134,10 @@ export function IntelligenceEcosystem() {
             viewport={{ once: true, margin: '-60px' }}
           >
             <motion.div
-              style={{
-                width: 3,
-                borderRadius: 2,
-                background: '#FBBF24',
+            style={{
+              width: 3,
+              borderRadius: 2,
+              background: 'var(--color-trust-amber)',
                 transformOrigin: 'top',
               }}
               initial={{ scaleY: 0, opacity: 0 }}

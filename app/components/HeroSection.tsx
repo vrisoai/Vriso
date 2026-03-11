@@ -1,135 +1,198 @@
 'use client';
 
 import Script from 'next/script';
-import { useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { AnimatedHeadline, OrbitalCards } from '@/app/components';
-import { subtextReveal } from '@/app/lib/animations';
+import {
+  EASE,
+  headlineContainer,
+  headlineWord,
+  subtextReveal,
+} from '@/app/lib/animations';
+import { DecisionEngineVis } from './hero/DecisionEngineVis';
+import { HeroTrustTicker } from './hero/HeroTrustTicker';
 
+/* ─── JSON-LD (Organization) ─── */
 const JSON_LD = {
   '@context': 'https://schema.org',
-  '@type': 'ConsultingService',
-  name: 'Vriso AI',
+  '@type': 'Organization',
+  name: 'VRISO',
   description:
-    'Architecting enterprise AI systems for durable advantage We design production-grade AI infrastructure that turns adoption into measurable, owned outcomes.',
-  serviceType: 'Enterprise AI Strategy & Infrastructure',
-  areaServed: ['US', 'EU'],
-  offers: {
-    '@type': 'Offer',
-    name: 'Strategic Audit',
-    description:
-      'Request a Strategic Audit to map your path from AI experimentation to Durable Advantage a Valuable, Rare, Inimitable, and Organized AI system outcome.',
+    'VRISO designs and deploys enterprise AI systems, agentic automation platforms, and intelligent infrastructure for businesses.',
+  url: 'https://vriso.com',
+  areaServed: 'Global',
+  foundingDate: '2026',
+  serviceType: [
+    'Enterprise AI Systems',
+    'AI Automation',
+    'Agentic Workflow Architecture',
+  ],
+};
+
+/* ─── Stagger wrapper for child sequencing ─── */
+const heroStagger = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08, delayChildren: 0.05 },
   },
 };
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 14 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: EASE },
+  },
+};
+
+/* ─── Headline words ─── */
+const LINE_A = 'Architecting Enterprise AI Systems';
+const LINE_B = 'for Durable Competitive Advantage';
+
 export function HeroSection() {
-  const amberPulseRef = useRef<{ triggerAmberPulse: () => void } | null>(null);
-
-  const handleCtaMouseEnter = useCallback(() => {
-    amberPulseRef.current?.triggerAmberPulse();
-  }, []);
-
-  const setAmberPulseRef = useCallback((api: { triggerAmberPulse: () => void }) => {
-    amberPulseRef.current = api;
-  }, []);
+  const wordsA = LINE_A.split(' ');
+  const wordsB = LINE_B.split(' ');
 
   return (
-    <section
-      className="relative z-10 flex w-full flex-col items-center justify-start bg-bg-primary pt-28 pb-12 sm:pt-32 sm:pb-16 md:min-h-screen md:flex-row md:items-center md:justify-center md:pt-32 md:pb-28 lg:pt-36 lg:pb-32 xl:pb-36"
-      style={{
-        background:
-          'radial-gradient(ellipse 60% 80% at 75% 50%, rgba(59,91,219,0.10) 0%, transparent 70%), var(--color-bg-primary)',
-        paddingLeft: 'max(clamp(1.5rem, 5vw, 4rem), env(safe-area-inset-left))',
-        paddingRight: 'max(clamp(1.5rem, 5vw, 4rem), env(safe-area-inset-right))',
-        overflowX: 'clip',
-      }}
-      aria-label="Vriso AI hero"
-    >
+    <header aria-label="VRISO homepage hero">
       <Script
-        id="hero-jsonld"
+        id="hero-org-jsonld"
         type="application/ld+json"
         strategy="afterInteractive"
       >
         {JSON.stringify(JSON_LD)}
       </Script>
 
-      <div className="section-container flex flex-col items-center gap-8 text-center sm:gap-10 md:flex-row md:items-center md:gap-10 md:text-left lg:gap-12"
-           style={{
-             paddingLeft: 'max(1rem, clamp(1rem, 4vw, 3rem))',
-             paddingRight: 'max(1rem, clamp(1rem, 4vw, 3rem))',
-           }}>
-        {/* Left column — copy */}
-        <div className="flex w-full flex-col items-center justify-center gap-6 sm:gap-8 md:w-[60%] md:items-start">
-          {/* System status badge */}
-          <div className="flex items-center gap-2 font-mono">
-            <span
-              className="h-3 w-3 rounded-full bg-trust-amber"
-              style={{ animation: 'status-pulse 2s ease-in-out infinite' }}
-              aria-hidden
-            />
-            <span className="text-[10px] font-medium tracking-[0.1em] text-text-tertiary md:text-xs">
-              SYSTEM · NODE ACTIVE
-            </span>
-          </div>
+      <section
+        className="relative z-10 w-full overflow-x-clip"
+        style={{
+          background:
+            'radial-gradient(circle at 70% 40%, rgba(59,130,246,0.12) 0%, transparent 60%), var(--color-bg-primary)',
+          paddingTop: 'clamp(6rem, 12vh, 10rem)',
+          paddingBottom: 'clamp(2rem, 5vh, 4rem)',
+          paddingLeft: 'max(clamp(1rem, 5vw, 4rem), env(safe-area-inset-left))',
+          paddingRight: 'max(clamp(1rem, 5vw, 4rem), env(safe-area-inset-right))',
+        }}
+      >
+        {/* Grid overlay */}
+        <div className="hero-grid-overlay" aria-hidden="true" />
 
-          <AnimatedHeadline />
+        {/* Ambient gradient drift */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(ellipse 50% 60% at 60% 30%, rgba(45,91,255,0.06) 0%, transparent 70%)',
+            animation: 'hero-ambient 20s ease-in-out infinite',
+            willChange: 'transform',
+          }}
+          aria-hidden="true"
+        />
 
-          <motion.p
-            className="max-w-xl text-[16px] text-text-secondary sm:text-[18px] md:text-2xl font-serif"
-            variants={subtextReveal}
+        {/* Main grid */}
+        <div className="section-container section-inner relative grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
+          {/* ── LEFT COLUMN — Copy ── */}
+          <motion.div
+            className="flex flex-col items-center gap-5 text-center sm:gap-6 md:items-start md:gap-7 md:text-left"
+            variants={heroStagger}
             initial="hidden"
             animate="visible"
           >
-            From fragmented experimentation to production grade AI infrastructure, we design systems that turn
-            adoption into measurable, owned outcomes.
-          </motion.p>
+            {/* Status indicator */}
+            <motion.div
+              className="flex items-center gap-2 font-mono"
+              variants={fadeUp}
+            >
+              <span className="status-dot" aria-hidden="true" />
+              <span className="text-[10px] font-medium tracking-[0.1em] text-text-tertiary md:text-xs">
+                SYSTEM · NODE ACTIVE
+              </span>
+            </motion.div>
 
-          <button
-            type="button"
-            className="group relative w-full cursor-pointer rounded-full text-xs font-medium uppercase tracking-[0.08em] text-btn-text transition-all duration-200 ease-out hover:-translate-y-px focus-visible:outline-2 focus-visible:outline-action-accent focus-visible:outline-offset-3 md:w-auto md:text-sm"
-            style={{
-              background: 'var(--color-btn-bg)',
-              border: '1px solid var(--color-btn-border)',
-              padding: '0.75rem 2.75rem',
-            }}
-            onClick={() => {}}
-            onMouseEnter={(e) => {
-              handleCtaMouseEnter();
-              const el = e.currentTarget;
-              el.style.background = 'var(--color-btn-hover-bg)';
-              el.style.borderColor = 'var(--color-action-accent)';
-              el.style.boxShadow = '0 0 24px rgba(45,91,255,0.25), 0 0 48px rgba(55,65,81,0.3)';
-            }}
-            onMouseLeave={(e) => {
-              const el = e.currentTarget;
-              el.style.background = 'var(--color-btn-bg)';
-              el.style.borderColor = 'var(--color-btn-border)';
-              el.style.boxShadow = 'none';
-            }}
-            onFocus={handleCtaMouseEnter}
+            {/* H1 — primary SEO signal */}
+            <h1 className="flex flex-col gap-0 leading-[1.08] tracking-[-0.04em]">
+              <motion.span
+                className="flex flex-wrap items-baseline justify-center gap-x-2 font-display text-4xl font-extrabold text-text-primary sm:text-5xl md:justify-start md:text-7xl xl:text-8xl"
+                variants={headlineContainer}
+                initial="hidden"
+                animate="visible"
+                aria-label={LINE_A}
+              >
+                {wordsA.map((word, i) => (
+                  <motion.span key={`a-${i}`} variants={headlineWord} className="inline-block">
+                    {word}
+                  </motion.span>
+                ))}
+              </motion.span>
+              <motion.span
+                className="flex flex-wrap items-baseline justify-center gap-x-2 font-display text-4xl font-black tracking-[-0.04em] sm:text-5xl md:justify-start md:text-7xl xl:text-8xl"
+                variants={headlineContainer}
+                initial="hidden"
+                animate="visible"
+                aria-label={LINE_B}
+              >
+                {wordsB.map((word, i) => (
+                  <motion.span
+                    key={`b-${i}`}
+                    variants={headlineWord}
+                    className="inline-block gradient-text"
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </motion.span>
+            </h1>
+
+            {/* Subtext — keyword-rich for SEO + GEO */}
+            <motion.p
+              className="max-w-[540px] font-serif text-lg leading-relaxed text-text-secondary"
+              variants={subtextReveal}
+              initial="hidden"
+              animate="visible"
+            >
+              VRISO designs and deploys enterprise AI systems, agentic automation
+              platforms, and intelligent infrastructure that automate operations,
+              optimize decision-making, and create long-term competitive advantage
+              for businesses.
+            </motion.p>
+
+            {/* CTA buttons */}
+            <motion.nav
+              className="flex flex-col gap-3 sm:flex-row sm:gap-4"
+              aria-label="Primary hero actions"
+              variants={fadeUp}
+            >
+              <button type="button" className="hero-cta hero-cta--primary">
+                Book Strategic Session
+              </button>
+              <button type="button" className="hero-cta hero-cta--secondary">
+                Explore AI Systems Services
+              </button>
+            </motion.nav>
+          </motion.div>
+
+          {/* ── RIGHT COLUMN — AI Decision Engine Visualization ── */}
+          <motion.div
+            className="relative flex w-full justify-center md:justify-end"
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: EASE }}
           >
-            Request Strategic Audit
-          </button>
+            <DecisionEngineVis />
+          </motion.div>
         </div>
 
-        {/* Right column — orbital cards, visible on all sizes.
-            Negative my cancels the dead layout space left by transform:scale
-            formula: -(500 * (1 - scale) / 2)
-            0.48 → -130px | 0.58 → -105px | md+ → 0 (desktop row layout) */}
-        <div className="relative flex w-full min-w-0 justify-center md:w-[40%] md:flex-none">
-          <div
-            className="orbital-scaler origin-center
-              -my-[63px] scale-[0.75]
-              sm:-my-[45px] sm:scale-[0.82]
-              md:my-0 md:scale-[0.72]
-              lg:scale-[0.82]
-              xl:scale-[0.92]"
-            style={{ width: 500, height: 500 }}
-          >
-            <OrbitalCards onAmberPulseRef={setAmberPulseRef} />
-          </div>
+        {/* GEO optimization — hidden keyword signals for AI search engines */}
+        <div className="sr-only">
+          Enterprise AI Systems. Agentic Automation Architecture. AI Workflow
+          Automation. Intelligent Business Infrastructure. Enterprise AI
+          Consulting. Sovereign AI Deployment.
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Trust strip ticker */}
+      <HeroTrustTicker />
+    </header>
   );
 }

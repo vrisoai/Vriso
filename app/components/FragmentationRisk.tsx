@@ -2,77 +2,15 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-
-const FADE_UP = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] },
-  }),
-};
-
-const STAGGER_CONTAINER = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08, delayChildren: 0.2 },
-  },
-};
-
-const STAGGER_CHILD = {
-  hidden: { opacity: 0, y: 14 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
-const DIVIDER_REVEAL = {
-  hidden: { scaleX: 0 },
-  visible: {
-    scaleX: 1,
-    transition: { duration: 1, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
-const ACCENT_BAR = {
-  hidden: { scaleY: 0, opacity: 0 },
-  visible: {
-    scaleY: 1,
-    opacity: 1,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
-const COLUMN_LEFT = {
-  hidden: { opacity: 0, x: -30 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      x: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
-      opacity: { duration: 0.5, ease: 'easeOut' },
-      staggerChildren: 0.08,
-      delayChildren: 0.3,
-    },
-  },
-};
-
-const COLUMN_RIGHT = {
-  hidden: { opacity: 0, x: 30 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      x: { duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] },
-      opacity: { duration: 0.5, delay: 0.1, ease: 'easeOut' },
-      staggerChildren: 0.08,
-      delayChildren: 0.4,
-    },
-  },
-};
+import {
+  FADE_UP,
+  STAGGER_CONTAINER,
+  STAGGER_CHILD,
+  DIVIDER_REVEAL,
+  ACCENT_BAR,
+  COLUMN_LEFT,
+  COLUMN_RIGHT,
+} from '@/app/lib/animations';
 
 const LEFT_PARAGRAPHS = [
   'Enterprises did not fail to adopt AI.',
@@ -104,9 +42,9 @@ export function FragmentationRisk() {
 
   return (
     <section
-      className="relative w-full bg-bg-primary"
+      className="relative w-full overflow-x-hidden bg-bg-primary"
       style={{
-        paddingTop: 'clamp(80px, 10vw, 140px)',
+        paddingTop: 'clamp(60px, 10vw, 140px)',
         paddingBottom: 'clamp(48px, 6vw, 80px)',
         paddingLeft: 'max(clamp(1.5rem, 5vw, 4rem), env(safe-area-inset-left))',
         paddingRight: 'max(clamp(1.5rem, 5vw, 4rem), env(safe-area-inset-right))',
@@ -121,18 +59,11 @@ export function FragmentationRisk() {
         }}
       />
 
-      <div
-        className="section-container relative w-full"
-        style={{
-          paddingLeft: 'max(1rem, clamp(1rem, 4vw, 3rem))',
-          paddingRight: 'max(1rem, clamp(1rem, 4vw, 3rem))',
-        }}
-      >
+      <div className="section-container section-inner relative w-full">
 
         {/* ── Label ── */}
         <motion.p
-          className="font-mono text-text-tertiary text-center sm:text-left"
-          style={{ fontSize: 12, letterSpacing: '0.14em', fontWeight: 500 }}
+          className="section-label text-center sm:text-left"
           variants={FADE_UP}
           initial="hidden"
           whileInView="visible"
@@ -142,10 +73,10 @@ export function FragmentationRisk() {
           [ STRATEGIC DIAGNOSIS · 2026 ]
         </motion.p>
 
-        {/* ── Headline — Animated amber accent bar (echoes monolith shard) ── */}
+        {/* ── Headline — Animated amber accent bar ── */}
         <motion.div
           className="flex items-stretch justify-center sm:justify-start"
-          style={{ marginTop: 32, gap: 20 }}
+          style={{ marginTop: 'clamp(20px, 3vw, 32px)', gap: 20 }}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
@@ -154,7 +85,7 @@ export function FragmentationRisk() {
             style={{
               width: 3,
               borderRadius: 2,
-              background: '#FBBF24',
+              background: 'var(--color-trust-amber)',
               transformOrigin: 'top',
             }}
             variants={ACCENT_BAR}
@@ -177,8 +108,8 @@ export function FragmentationRisk() {
 
         {/* ── Subhead ── */}
         <motion.p
-          className="font-serif text-text-secondary mx-auto text-center sm:text-left"
-          style={{ fontSize: 'clamp(18px, 2vw, 22px)', lineHeight: 1.6, maxWidth: 720, marginTop: 24 }}
+          className="section-subtext mx-auto text-center sm:text-left"
+          style={{ maxWidth: 720, marginTop: 'clamp(16px, 2.5vw, 24px)' }}
           variants={FADE_UP}
           initial="hidden"
           whileInView="visible"

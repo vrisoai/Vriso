@@ -3,6 +3,14 @@
 import Script from 'next/script';
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect, useCallback } from 'react';
+import {
+  EASE,
+  FADE_UP,
+  STAGGER,
+  STAGGER_CHILD,
+  DIVIDER_REVEAL,
+  NODE_REVEAL,
+} from '@/app/lib/animations';
 
 /* ────────────────────────────── JSON-LD ────────────────────────────── */
 
@@ -16,51 +24,6 @@ const JSON_LD = {
   description:
     'Enterprise-grade multi-agent orchestration with supervisor reasoning, task distribution, and operational control across legal, finance, and operations domains.',
   areaServed: ['EU', 'IN', 'US'],
-};
-
-/* ────────────────────────────── Animation variants ─────────────────── */
-
-const FADE_UP = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] },
-  }),
-};
-
-const STAGGER = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
-  },
-};
-
-const STAGGER_CHILD = {
-  hidden: { opacity: 0, y: 14 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
-const NODE_REVEAL = {
-  hidden: { opacity: 0, scale: 0.85 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
-const DIVIDER_REVEAL = {
-  hidden: { scaleX: 0 },
-  visible: {
-    scaleX: 1,
-    transition: { duration: 1, ease: [0.22, 1, 0.36, 1] },
-  },
 };
 
 /* ────────────────────────────── Rotating status labels ─────────────── */
@@ -244,7 +207,7 @@ export function AgenticOrchestrationSection() {
 
   return (
     <section
-      className="relative w-full bg-bg-primary"
+      className="relative w-full overflow-x-hidden bg-bg-primary"
       style={{
         paddingTop: 'clamp(48px, 6vw, 80px)',
         paddingBottom: 'clamp(80px, 10vw, 140px)',
@@ -271,24 +234,11 @@ export function AgenticOrchestrationSection() {
         aria-hidden
       />
 
-      <div
-        ref={sectionRef}
-        className="section-container relative w-full"
-        style={{
-          paddingLeft: 'max(1rem, clamp(1rem, 4vw, 3rem))',
-          paddingRight: 'max(1rem, clamp(1rem, 4vw, 3rem))',
-        }}
-      >
+      <div ref={sectionRef} className="section-container section-inner relative w-full">
         {/* ── Section label ── */}
         <motion.p
-          className="font-mono text-text-tertiary text-center sm:text-left"
-          style={{
-            fontSize: 12,
-            letterSpacing: '0.14em',
-            fontWeight: 500,
-            borderLeft: '2px solid var(--color-trust-amber)',
-            paddingLeft: 12,
-          }}
+          className="section-label text-center sm:text-left"
+          style={{ paddingLeft: 12 }}
           variants={FADE_UP}
           initial="hidden"
           animate={sectionInView ? 'visible' : 'hidden'}
@@ -300,7 +250,7 @@ export function AgenticOrchestrationSection() {
         {/* ── Headline with amber accent bar ── */}
         <motion.div
           className="flex items-stretch justify-center sm:justify-start"
-          style={{ marginTop: 32, gap: 20 }}
+          style={{ marginTop: 'clamp(20px, 3vw, 32px)', gap: 20 }}
           initial="hidden"
           animate={sectionInView ? 'visible' : 'hidden'}
         >
@@ -308,12 +258,12 @@ export function AgenticOrchestrationSection() {
             style={{
               width: 3,
               borderRadius: 2,
-              background: '#FBBF24',
+              background: 'var(--color-trust-amber)',
               transformOrigin: 'top',
             }}
             initial={{ scaleY: 0, opacity: 0 }}
             animate={sectionInView ? { scaleY: 1, opacity: 1 } : { scaleY: 0, opacity: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, ease: EASE }}
           />
           <motion.h2
             id="orchestration-heading"

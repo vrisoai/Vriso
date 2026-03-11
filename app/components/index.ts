@@ -1,5 +1,7 @@
 export { AgenticOrchestrationSection } from './AgenticOrchestrationSection';
 export { AnimatedHeadline } from './AnimatedHeadline';
+export { CoreServices } from './CoreServices';
+export { WhyVRISO } from './WhyVRISO';
 export { FragmentationRisk } from './FragmentationRisk';
 export { HeroSection } from './HeroSection';
 export { IntelligenceEcosystem } from './IntelligenceEcosystem';
@@ -7,3 +9,7 @@ export { MonolithArtifact } from './MonolithArtifact';
 export { Navbar } from './Navbar';
 export { OrbitalCards } from './OrbitalCards';
 export { default as OutcomeVaultSection } from './OutcomeVaultSection';
+export { default as StrategicCTASection } from './StrategicCTASection';
+export { ValueProposition } from './ValueProposition';
+export { VrisoLogo } from './VrisoLogo';
+export { VrisoLogoSection } from './VrisoLogoSection';

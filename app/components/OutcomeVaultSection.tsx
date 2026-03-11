@@ -2,51 +2,13 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect, useCallback } from 'react';
-
-/* ─────────────────────────── Animation variants ─────────────────────────── */
-
-const FADE_UP = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] },
-  }),
-};
-
-const STAGGER = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
-  },
-};
-
-const STAGGER_CHILD = {
-  hidden: { opacity: 0, y: 14 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
-const DIVIDER_REVEAL = {
-  hidden: { scaleX: 0 },
-  visible: {
-    scaleX: 1,
-    transition: { duration: 1, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
-const ACCENT_BAR = {
-  hidden: { scaleY: 0, opacity: 0 },
-  visible: {
-    scaleY: 1,
-    opacity: 1,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-  },
-};
+import {
+  FADE_UP,
+  STAGGER,
+  STAGGER_CHILD,
+  DIVIDER_REVEAL,
+  ACCENT_BAR,
+} from '@/app/lib/animations';
 
 /* ─────────────────────────── Outcome cards data ─────────────────────────── */
 
@@ -256,14 +218,7 @@ export default function OutcomeVaultSection() {
       />
 
       {/* ─── Inner container — mirrors .section-container pattern ─── */}
-      <div
-        ref={sectionRef}
-        className="section-container relative"
-        style={{
-          paddingLeft: 'max(1rem, clamp(1rem, 4vw, 3rem))',
-          paddingRight: 'max(1rem, clamp(1rem, 4vw, 3rem))',
-        }}
-      >
+      <div ref={sectionRef} className="section-container section-inner relative">
 
         {/* ══ SECTION LABEL ══ */}
         <motion.p
@@ -297,7 +252,7 @@ export default function OutcomeVaultSection() {
             style={{
               width: 3,
               borderRadius: 2,
-              background: '#FBBF24',
+              background: 'var(--color-trust-amber)',
               transformOrigin: 'top',
               flexShrink: 0,
             }}
