@@ -52,14 +52,16 @@ export function VrisoLogo({ size = 'sm' }: VrisoLogoProps) {
   }, [size, scanControls, amberGlowControls, pulseDotControls]);
 
   return (
-    <div className="flex items-center gap-3">
+    <div
+      className={`flex items-center gap-2 sm:gap-3 ${size === 'full' ? 'max-w-full min-w-0' : ''}`}
+    >
       {/* VRIS text */}
       <span
-        className="font-display font-medium tracking-[0.08em]"
+        className={`font-display font-medium tracking-[0.08em] ${size === 'full' ? 'shrink-0' : ''}`}
         style={{
           fontSize:
             size === 'full'
-              ? 'clamp(72px, 12vw, 160px)'
+              ? 'clamp(2rem, 12vw, 160px)'
               : size === 'lg'
                 ? 'clamp(42px, 6vw, 72px)'
                 : 'clamp(18px, 2.5vw, 24px)',
@@ -74,7 +76,7 @@ export function VrisoLogo({ size = 'sm' }: VrisoLogoProps) {
       <motion.div
         className={`relative flex shrink-0 items-center justify-center overflow-hidden rounded-full backdrop-blur-[20px] ${
           size === 'full'
-            ? 'h-16 w-[200px] sm:h-20 sm:w-[280px] md:h-24 md:w-[360px]'
+            ? 'vriso-logo-pill-full h-14 w-[min(200px,55vw)] sm:h-20 sm:w-[min(280px,70vw)] md:h-24 md:w-[min(360px,85vw)] lg:w-[360px]'
             : size === 'lg'
               ? 'w-[90px] h-9 sm:w-[120px] sm:h-11'
               : 'w-7 h-2.5 sm:w-8 sm:h-3'

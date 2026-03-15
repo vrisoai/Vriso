@@ -11,16 +11,19 @@ export function VrisoLogoSection() {
   return (
     <section
       ref={sectionRef}
-      className="flex w-full items-center justify-center bg-bg-primary py-12 md:py-16"
+      className="vriso-logo-section overflow-hidden bg-bg-primary py-12 md:py-16"
       aria-label="VRISO brand"
     >
-      <motion.div
-        initial={{ y: 60, opacity: 0 }}
-        animate={inView ? { y: 0, opacity: 1 } : { y: 60, opacity: 0 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <VrisoLogo size="full" />
-      </motion.div>
+      <div className="section-container section-inner flex w-full items-center justify-center">
+        <motion.div
+          className="vriso-logo-section__inner max-w-full min-w-0"
+          initial={{ y: 60, opacity: 0 }}
+          animate={inView ? { y: 0, opacity: 1 } : { y: 60, opacity: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <VrisoLogo size="full" />
+        </motion.div>
+      </div>
     </section>
   );
 }

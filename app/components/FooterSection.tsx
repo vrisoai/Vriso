@@ -2,8 +2,8 @@
 'use client';
 
 import Script from 'next/script';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 import { EASE } from '@/app/lib/animations';
 
 const JSON_LD_PROFESSIONAL_SERVICE = {
@@ -18,30 +18,12 @@ const JSON_LD_PROFESSIONAL_SERVICE = {
 };
 
 const footerColumns = {
-  services: [
-    'AI & Technology Strategy Consulting',
-    'Agent Orchestration & AI Workflows',
-    'RAG & Knowledge Retrieval Systems',
-    'AI Performance & Latency Optimization',
-    'AI-Native Product Development',
-    'Compliance-Ready AI Systems',
-  ],
   company: ['Home', 'Services', 'About', 'Contact'],
 } as const;
-
-const complianceTags = ['GDPR Compliant', 'SOC2 Ready', 'DPDP Ready'] as const;
 
 export default function FooterSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const inView = useInView(sectionRef, { once: true, margin: '-40px' });
-  const [servicesOpen, setServicesOpen] = useState(true);
-
-  useEffect(() => {
-    const mq = window.matchMedia('(max-width: 767px)');
-    if (mq.matches) {
-      setServicesOpen(false);
-    }
-  }, []);
 
   return (
     <footer
@@ -106,14 +88,14 @@ export default function FooterSection() {
             </p>
           </div>
 
-          {/* Quick Links column with Services dropdown underneath */}
+          {/* Quick Links column */}
           <nav aria-label="VRISO quick links" className="vriso-footer-column vriso-footer-quicklinks">
             <h3 className="vriso-footer-heading">Quick Links</h3>
             <ul className="vriso-footer-list">
               {footerColumns.company.map((item) => (
                 <li key={item}>
                   <a
-                    href="#"
+                    href={item === 'Services' ? '/services' : '#'}
                     className="vriso-footer-link vriso-footer-link--company"
                     aria-label={item}
                   >
@@ -122,47 +104,6 @@ export default function FooterSection() {
                 </li>
               ))}
             </ul>
-            <div className="vriso-footer-quicklinks-services">
-              <button
-                type="button"
-                className="vriso-footer-services-toggle"
-                onClick={() => setServicesOpen((o) => !o)}
-                aria-expanded={servicesOpen}
-                aria-controls="footer-services"
-                id="footer-services-trigger"
-              >
-                <span className="vriso-footer-services-label">Services</span>
-                <span className="vriso-footer-services-arrow" aria-hidden="true">
-                  {servicesOpen ? '▾' : '▸'}
-                </span>
-              </button>
-
-              <AnimatePresence initial={false}>
-                {servicesOpen && (
-                  <motion.ul
-                    id="footer-services"
-                    aria-labelledby="footer-services-trigger"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.25, ease: EASE }}
-                    className="vriso-footer-list vriso-footer-services-list"
-                  >
-                    {footerColumns.services.map((item) => (
-                      <li key={item}>
-                        <a
-                          href="#"
-                          className="vriso-footer-link vriso-footer-link--services"
-                          aria-label={item}
-                        >
-                          {item}
-                        </a>
-                      </li>
-                    ))}
-                  </motion.ul>
-                )}
-              </AnimatePresence>
-            </div>
           </nav>
 
           {/* Contact section */}
@@ -203,26 +144,6 @@ export default function FooterSection() {
             </div>
           </div>
         </motion.div>
-
-        {/* GEO row */}
-        <div className="vriso-footer-geo-row">
-          <p className="font-mono text-[11px] tracking-[0.16em] text-footer-muted">
-            GLOBAL OPERATIONS
-          </p>
-          <p className="font-serif text-sm text-footer-subtle">US • EU • India</p>
-        </div>
-
-        {/* Compliance row */}
-        <div className="vriso-footer-compliance-row" aria-label="Compliance readiness">
-          {complianceTags.map((tag) => (
-            <div key={tag} className="vriso-footer-compliance-tag glass-tag">
-              <span className="vriso-footer-compliance-dot" aria-hidden="true" />
-              <span className="font-mono text-[11px] tracking-[0.12em] text-footer-subtle">
-                {tag}
-              </span>
-            </div>
-          ))}
-        </div>
 
         {/* System status row */}
         <div className="vriso-footer-status-row" aria-label="VRISO system status">

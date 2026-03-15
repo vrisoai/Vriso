@@ -213,21 +213,7 @@ export default function HowWeWork() {
             [ HOW WE WORK ]
           </motion.p>
 
-          <motion.div
-            className="flex items-stretch justify-center"
-            style={{ marginTop: 'clamp(20px, 3vw, 32px)', gap: 20 }}
-          >
-            <motion.div
-              style={{
-                width: 3,
-                borderRadius: 2,
-                background: 'var(--color-trust-amber)',
-                transformOrigin: 'top',
-              }}
-              initial={{ scaleY: 0, opacity: 0 }}
-              animate={sectionInView ? { scaleY: 1, opacity: 1 } : { scaleY: 0, opacity: 0 }}
-              transition={{ duration: 0.6, ease: EASE }}
-            />
+          <motion.div style={{ marginTop: 'clamp(20px, 3vw, 32px)' }}>
             <motion.h2
               id="how-we-work-heading"
               className="font-serif"

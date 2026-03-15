@@ -1213,6 +1213,28 @@ a:focus-visible {
   color: #ffffff;
 }
 
+/* === Section 7: VRISO Logo === */
+.vriso-logo-section {
+  width: 100%;
+}
+
+.vriso-logo-section .section-container {
+  overflow: hidden;
+}
+
+.vriso-logo-section__inner {
+  width: fit-content;
+  max-width: 100%;
+}
+
+/* Pill "O" full size: ensure it never overflows on very small viewports */
+@media (max-width: 380px) {
+  .vriso-logo-pill-full {
+    width: min(180px, 52vw) !important;
+    height: 3rem !important;
+  }
+}
+
 /* === VRISO FOOTER (Section 8) === */
 .vriso-footer-section {
   background: #0a0a0a;
