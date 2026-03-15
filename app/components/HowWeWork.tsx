@@ -10,12 +10,12 @@ import { EASE, FADE_UP, CARD_FADE } from '@/app/lib/animations';
 const JSON_LD_HOWTO = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
-  name: 'VRISO Enterprise AI Development Process',
-  description: 'VRISO builds enterprise AI infrastructure through a structured methodology that aligns technology with business outcomes.',
+  name: 'How VRISO Builds Production-Ready AI Systems',
+  description: 'Building AI in a lab is easy. Making it work reliably in production is the hard part. VRISO analyzes business goals and infrastructure, designs scalable AI architectures, then deploys and optimizes for long-term reliability.',
   step: [
-    { '@type': 'HowToStep', name: 'Discover Your Needs', text: 'In-depth discovery to align AI systems with your organization\'s strategic goals, data infrastructure, and operational priorities.' },
-    { '@type': 'HowToStep', name: 'Craft a Tailored Plan', text: 'VRISO designs architecture, orchestration layers, and automation frameworks tailored to your business operations and infrastructure.' },
-    { '@type': 'HowToStep', name: 'Deliver and Iterate', text: 'Systems are deployed, monitored, and continuously optimized to ensure performance, scalability, and measurable operational impact.' },
+    { '@type': 'HowToStep', name: 'Understand the Problem', text: 'We analyze your business goals, existing infrastructure, and data environment to identify where AI systems can deliver real operational impact.' },
+    { '@type': 'HowToStep', name: 'Design the AI Architecture', text: 'Our team designs scalable AI architectures, orchestration layers, and knowledge systems using modern patterns like Retrieval-Augmented Generation and intelligent automation frameworks.' },
+    { '@type': 'HowToStep', name: 'Deploy, Monitor, and Optimize', text: 'AI systems are deployed into production environments with monitoring, performance tuning, and continuous optimization to ensure long-term reliability and scalability.' },
   ],
 };
 
@@ -32,21 +32,21 @@ const JSON_LD_SERVICE = {
 const STEPS = [
   {
     label: 'DISCOVERY_PHASE',
-    title: 'Discover Your Needs',
+    title: 'Understand the Problem',
     description:
-      'In-depth discovery to align AI systems with your organization\'s strategic goals, data infrastructure, and operational priorities.',
+      'We analyze your business goals, existing infrastructure, and data environment to identify where AI systems can deliver real operational impact.',
   },
   {
     label: 'ARCHITECTURE_DESIGN',
-    title: 'Craft a Tailored Plan',
+    title: 'Design the AI Architecture',
     description:
-      'VRISO designs architecture, orchestration layers, and automation frameworks tailored to your business operations and infrastructure.',
+      'Our team designs scalable AI architectures, orchestration layers, and knowledge systems using modern patterns like Retrieval-Augmented Generation and intelligent automation frameworks.',
   },
   {
     label: 'DEPLOYMENT_OPTIMIZATION',
-    title: 'Deliver and Iterate',
+    title: 'Deploy, Monitor, and Optimize',
     description:
-      'Systems are deployed, monitored, and continuously optimized to ensure performance, scalability, and measurable operational impact.',
+      'AI systems are deployed into production environments with monitoring, performance tuning, and continuous optimization to ensure long-term reliability and scalability.',
   },
 ];
 
@@ -230,7 +230,7 @@ export default function HowWeWork() {
               viewport={{ once: true, margin: '-60px' }}
               custom={1}
             >
-              Our Process for Building Enterprise AI Systems
+              How VRISO Builds Production-Ready AI Systems
             </motion.h2>
           </motion.div>
 
@@ -250,10 +250,8 @@ export default function HowWeWork() {
             viewport={{ once: true, margin: '-60px' }}
             custom={2}
           >
-            VRISO builds enterprise AI infrastructure through a structured methodology that aligns
-            technology with business outcomes. From discovery and architecture design to deployment
-            and continuous optimization, every system is engineered for reliability, transparency,
-            and measurable impact.
+            Building AI in a lab is easy. Making it work reliably in production is the hard part.
+            Here&apos;s how VRISO does it.
           </motion.p>
         </header>
 

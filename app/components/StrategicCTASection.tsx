@@ -135,9 +135,9 @@ const JSON_LD_SERVICE = {
 const JSON_LD_RESERVE = {
   '@context': 'https://schema.org',
   '@type': 'ReserveAction',
-  name: 'Book Strategic AI Session',
+  name: 'Discuss Your AI Architecture',
   provider: { '@type': 'Organization', name: 'VRISO' },
-  description: 'Book a strategic AI session with VRISO for enterprise AI infrastructure consulting.',
+  description: 'Discuss your AI architecture with VRISO for enterprise AI infrastructure consulting.',
   areaServed: ['United States', 'European Union', 'India', 'Global'],
 };
 
@@ -284,7 +284,7 @@ export default function StrategicCTASection() {
               }}
             >
               Build Your{' '}
-              <span style={{ color: 'var(--color-trust-amber)' }}>Sovereign AI</span>{' '}
+              <span style={{ color: 'var(--color-trust-amber)' }}>Enterprise AI</span>{' '}
               Infrastructure
             </motion.h2>
 
@@ -299,29 +299,39 @@ export default function StrategicCTASection() {
                 lineHeight: 1.7,
               }}
             >
-              Competitive advantage no longer comes from using AI tools. It comes from building AI
-              infrastructure your organization owns, controls, and evolves.
+              Competitive advantage no longer comes from simply using AI tools.
+              It comes from building AI systems that integrate with your infrastructure, data, and operations.
               <br />
               <br />
-              VRISO partners with leadership teams to design sovereign AI systems that create durable
-              operational advantage. Enterprise AI infrastructure consulting, AI automation
-              architecture, and agent orchestration systems for your AI transformation strategy.
+              VRISO partners with leadership teams to design scalable AI architectures, automation
+              platforms, and intelligent systems that create long-term operational advantage.
             </motion.p>
 
-            {/* CTA Buttons */}
+            {/* CTA intro + Buttons */}
+            <motion.p
+              variants={ITEM}
+              className="font-serif text-text-secondary"
+              style={{
+                marginTop: 'clamp(20px, 2.5vw, 28px)',
+                fontSize: 'clamp(15px, 1.5vw, 17px)',
+                lineHeight: 1.6,
+              }}
+            >
+              Discuss your AI architecture with VRISO.
+            </motion.p>
             <motion.div
               variants={ITEM}
               className="flex flex-col items-center gap-4 sm:flex-row lg:items-start"
-              style={{ marginTop: 'clamp(28px, 4vw, 48px)', marginBottom: 'clamp(28px, 4vw, 48px)' }}
+              style={{ marginTop: 'clamp(20px, 3vw, 28px)', marginBottom: 'clamp(28px, 4vw, 48px)' }}
             >
               <button
                 type="button"
                 className="strategic-cta-btn-primary"
                 onMouseEnter={handleCtaEnter}
                 onMouseLeave={handleCtaLeave}
-                aria-label="Book a strategic AI session with VRISO"
+                aria-label="Discuss your AI architecture with VRISO"
               >
-                Book Strategic Session
+                Discuss Your AI Architecture
               </button>
               <button
                 type="button"
@@ -371,12 +381,11 @@ export default function StrategicCTASection() {
         </div>
       </div>
 
-      {/* GEO — hidden semantic signals */}
+      {/* SEO — hidden semantic signals */}
       <div className="sr-only">
-        VRISO is an enterprise AI infrastructure consulting firm that designs sovereign AI systems
-        and agent orchestration architecture for global organizations. Enterprise AI infrastructure
-        consulting. AI automation architecture. Agent orchestration systems. AI transformation
-        strategy.
+        VRISO is an enterprise AI infrastructure consulting firm that designs scalable AI
+        architectures, automation platforms, and intelligent systems. Enterprise AI infrastructure.
+        Discuss your AI architecture. Explore the VRISO Framework.
       </div>
     </section>
   );

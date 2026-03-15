@@ -2,9 +2,12 @@
 'use client';
 
 import Script from 'next/script';
+import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { EASE } from '@/app/lib/animations';
+
+import vrisoLogo from '@/app/assets/VRISO LOGO.png';
 
 const JSON_LD_PROFESSIONAL_SERVICE = {
   '@context': 'https://schema.org',
@@ -56,31 +59,18 @@ export default function FooterSection() {
         >
           {/* Brand column */}
           <div className="vriso-footer-brand">
-            <div className="flex items-center gap-3">
-              <div className="vriso-footer-neural-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" className="h-6 w-6">
-                  <circle cx="12" cy="12" r="5" className="vriso-footer-neural-core" />
-                  <circle cx="6" cy="8" r="2" className="vriso-footer-neural-node" />
-                  <circle cx="18" cy="9" r="2" className="vriso-footer-neural-node" />
-                  <circle cx="8" cy="17" r="2" className="vriso-footer-neural-node" />
-                  <path
-                    d="M6 8 L9 11 M18 9 L14 11 M8 17 L11 13"
-                    className="vriso-footer-neural-link"
-                  />
-                </svg>
-              </div>
-              <div>
-                <p
-                  id="vriso-footer-heading"
-                  className="font-serif text-lg"
-                  style={{ fontFamily: 'var(--font-display)', letterSpacing: '0.04em' }}
-                >
-                  VRISO
-                </p>
-                <p className="font-serif text-xs text-footer-muted">
-                  Enterprise AI Infrastructure
-                </p>
-              </div>
+            <div className="vriso-footer-brand-top flex flex-col gap-2 items-start">
+              <Image
+                src={vrisoLogo}
+                alt="VRISO"
+                id="vriso-footer-heading"
+                className="vriso-footer-logo-img"
+                height={40}
+                width={150}
+              />
+              <p className="font-serif text-xs text-footer-muted">
+                Enterprise AI Infrastructure
+              </p>
             </div>
 
             <p className="vriso-footer-brand-desc font-serif">

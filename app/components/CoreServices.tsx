@@ -22,18 +22,18 @@ const JSON_LD = {
   '@type': 'Service',
   provider: { '@type': 'Organization', name: 'VRISO' },
   serviceType: 'Enterprise AI Systems',
-  description: 'VRISO builds the infrastructure layer for enterprise AI — from sovereign architecture and agent orchestration to global compliance and machine-indexed systems.',
+  description: 'VRISO helps organizations design, build, and scale enterprise AI systems — from architecture strategy and agent orchestration to knowledge retrieval and AI-native product development.',
   areaServed: ['US', 'EU', 'India'],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'Core Services',
+    name: 'Our Services',
     itemListElement: [
-      { '@type': 'Offer', name: 'Sovereign AI Architecture', description: 'Design private AI infrastructure that organizations fully own, control, and scale without vendor dependency.' },
-      { '@type': 'Offer', name: 'Agentic Orchestration', description: 'Deploy intelligent agents that autonomously execute business workflows across operations, finance, and compliance.' },
-      { '@type': 'Offer', name: 'Enterprise Automation Systems', description: 'Automate mission-critical workflows with intelligent decision systems and adaptive automation.' },
-      { '@type': 'Offer', name: 'AI Technology Consulting', description: 'Strategic consulting for organizations adopting AI infrastructure, automation systems, and intelligent enterprise platforms.' },
-      { '@type': 'Offer', name: 'Enterprise Knowledge Intelligence', description: 'Convert fragmented organizational knowledge into AI-ready intelligence layers for decision systems.' },
-      { '@type': 'Offer', name: 'Machine Experience Optimization', description: 'Structure digital infrastructure for discoverability by AI agents, search models, and autonomous systems.' },
+      { '@type': 'Offer', name: 'AI & Technology Strategy Consulting', description: 'Design the right AI architecture for your organization. We help teams plan AI adoption, infrastructure strategy, and scalable automation roadmaps.' },
+      { '@type': 'Offer', name: 'Agent Orchestration & AI Workflows', description: 'Build intelligent multi-agent systems that coordinate tasks, automate complex workflows, and power scalable AI-driven operations.' },
+      { '@type': 'Offer', name: 'RAG & Knowledge Retrieval Systems', description: 'Develop enterprise knowledge systems using Retrieval-Augmented Generation to deliver accurate, context-aware answers from internal data.' },
+      { '@type': 'Offer', name: 'AI-Native Product Development', description: 'Design and build AI-first applications, copilots, and intelligent platforms that integrate AI directly into user workflows.' },
+      { '@type': 'Offer', name: 'AI Performance & Latency Optimization', description: 'Optimize AI systems for speed, reliability, and cost efficiency by improving inference performance, latency, and infrastructure scalability.' },
+      { '@type': 'Offer', name: 'Compliance-Ready AI Systems', description: 'Build AI systems with governance, security, and regulatory compliance aligned with standards like General Data Protection Regulation.' },
     ],
   },
 };
@@ -43,37 +43,37 @@ const CARDS = [
     label: '[ STRATEGY ]',
     title: 'AI & Technology Strategy Consulting',
     description:
-      'Design the right AI architecture for your organization. We help leadership teams plan AI adoption, infrastructure strategy, and scalable automation roadmaps.',
+      'Design the right AI architecture for your organization. We help teams plan AI adoption, infrastructure strategy, and scalable automation roadmaps.',
   },
   {
     label: '[ ORCHESTRATION ]',
     title: 'Agent Orchestration & AI Workflows',
     description:
-      'Build intelligent multi-agent systems that coordinate tasks, automate workflows, and power complex AI-driven operations across your organization.',
+      'Build intelligent multi-agent systems that coordinate tasks, automate complex workflows, and power scalable AI-driven operations.',
   },
   {
     label: '[ KNOWLEDGE ]',
     title: 'RAG & Knowledge Retrieval Systems',
     description:
-      'Develop AI systems that securely access enterprise knowledge using advanced retrieval pipelines and Retrieval-Augmented Generation to deliver accurate, context-aware responses.',
-  },
-  {
-    label: '[ PERFORMANCE ]',
-    title: 'AI Performance & Latency Optimization',
-    description:
-      'Optimize AI infrastructure for speed, efficiency, and cost. We improve inference performance, reduce latency, and ensure reliable production-grade AI systems.',
+      'Develop enterprise knowledge systems using Retrieval-Augmented Generation to deliver accurate, context-aware answers from internal data.',
   },
   {
     label: '[ PRODUCTS ]',
     title: 'AI-Native Product Development',
     description:
-      'Design and build AI-first products, copilots, and intelligent applications that embed AI capabilities directly into your platform or business workflows.',
+      'Design and build AI-first applications, copilots, and intelligent platforms that integrate AI directly into user workflows.',
+  },
+  {
+    label: '[ PERFORMANCE ]',
+    title: 'AI Performance & Latency Optimization',
+    description:
+      'Optimize AI systems for speed, reliability, and cost efficiency by improving inference performance, latency, and infrastructure scalability.',
   },
   {
     label: '[ COMPLIANCE ]',
     title: 'Compliance-Ready AI Systems',
     description:
-      'Develop AI systems with built-in governance, security, and compliance aligned with regulations like the General Data Protection Regulation to support enterprise-grade deployment.',
+      'Build AI systems with governance, security, and regulatory compliance aligned with standards like General Data Protection Regulation.',
   },
 ];
 
@@ -267,13 +267,13 @@ export function CoreServices() {
         <div className="core-services-layout">
         <div className="core-services-left">
           <motion.p className="section-label font-mono" style={{ fontSize: 'clamp(10px, 2.5vw, 12px)', letterSpacing: '0.14em', fontWeight: 500, color: 'var(--color-text-tertiary)' }} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.6, ease: EASE }}>
-            [ CORE SERVICES ]
+            [ OUR SERVICES ]
           </motion.p>
           <motion.h2 id="core-services-heading" className="font-serif" style={{ fontSize: 'clamp(32px, 4vw, 48px)', fontWeight: 500, lineHeight: 1.15, marginTop: 'clamp(20px, 3vw, 28px)', color: 'var(--color-text-primary)' }} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.6, delay: 0.1, ease: EASE }}>
-            Infrastructure for <span className="gradient-text">Sovereign AI Systems</span>
+            Enterprise AI Systems &amp; Infrastructure
           </motion.h2>
           <motion.p className="font-serif" style={{ fontSize: 'clamp(15px, 1.3vw, 18px)', lineHeight: 1.7, marginTop: 'clamp(18px, 2.5vw, 28px)', color: 'var(--color-text-secondary)', maxWidth: 480 }} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.6, delay: 0.2, ease: EASE }}>
-            VRISO builds the infrastructure layer for enterprise AI — from sovereign architecture and agent orchestration to global compliance and machine-indexed systems.
+            VRISO helps organizations design, build, and scale enterprise AI systems — from architecture strategy and agent orchestration to knowledge retrieval and AI-native product development.
           </motion.p>
         </div>
 
@@ -335,7 +335,7 @@ export function CoreServices() {
       </div>
 
       <div className="sr-only">
-        Sovereign AI Architecture. Agentic Orchestration. Enterprise Automation Systems. AI Technology Consulting. Enterprise Knowledge Intelligence. Machine Experience Optimization.
+        Enterprise AI Architecture. Agent Orchestration Systems. Retrieval-Augmented Generation. AI Infrastructure Optimization. AI Product Development. AI Technology Consulting.
       </div>
     </section>
   );

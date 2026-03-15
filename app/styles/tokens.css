@@ -38,6 +38,14 @@
 
   /* === GRADIENT === */
   --gradient-headline: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+  --gradient-divider: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.25), transparent);
+
+  /* === ABOUT / CARDS === */
+  --color-bg-card-blur: rgba(31, 31, 31, 0.8);
+
+  /* Spacing tokens — section padding, used across about sections */
+  --section-px: max(1rem, 4vw);
+  --section-py: clamp(64px, 10vw, 140px);
 
   /* === INTELLIGENCE ECOSYSTEM (P3 Wide-Gamut) === */
   --color-eco-bg: oklch(12% 0.02 260);
@@ -45,4 +53,16 @@
   --color-eco-accent: oklch(70% 0.15 190);
   --color-eco-border: oklch(25% 0.03 260 / 0.4);
   --color-eco-accent-glow: oklch(70% 0.15 190 / 0.2);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --section-px: max(1.5rem, 5vw);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --section-px: max(2rem, 5vw);
+  }
 }

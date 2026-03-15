@@ -14,7 +14,7 @@ const JSON_LD_ORG = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'VRISO',
-  description: 'VRISO designs AI infrastructure that organizations own, control, and scale globally.',
+  description: 'VRISO builds AI systems your team owns, your security team approves, and your operations team can run at scale. Most AI projects stall because the infrastructure wasn\'t built for production.',
   url: 'https://vriso.com',
   areaServed: ['US', 'EU', 'India', 'Global'],
   serviceType: ['Enterprise AI Consulting', 'AI Infrastructure Systems', 'AI Automation Systems', 'Agent Orchestration Systems'],
@@ -25,27 +25,31 @@ const JSON_LD_SERVICE = {
   '@type': 'Service',
   name: 'VRISO AI Infrastructure',
   provider: { '@type': 'Organization', name: 'VRISO' },
-  description: 'Sovereign architecture, explainable AI systems, enterprise-grade security, and global deployment for AI infrastructure.',
+  description: 'AI infrastructure designed for production: you own your stack, every decision is auditable, built to pass security review, and scaled for real workloads.',
   areaServed: ['US', 'EU', 'India', 'Global'],
 };
 
 /* ─── Card data ─── */
 const CARDS = [
   {
-    title: 'Sovereign Architecture',
-    description: 'AI infrastructure designed for ownership, not vendor dependency.',
+    label: '[ INDEPENDENCE ]',
+    title: 'You Own Your AI Stack',
+    description: 'Architectures designed to avoid vendor lock-in so your organization keeps full control of its AI infrastructure.',
   },
   {
-    title: 'Explainable AI Systems',
-    description: 'Transparent reasoning layers that allow organizations to audit and trust autonomous systems.',
+    label: '[ TRANSPARENCY ]',
+    title: 'Every Decision Is Auditable',
+    description: 'AI systems designed with traceability and explainability so teams can monitor, audit, and trust automated decisions.',
   },
   {
-    title: 'Enterprise-Grade Security',
-    description: 'Infrastructure engineered with built-in governance, security, and enterprise protection.',
+    label: '[ SECURITY ]',
+    title: 'Built to Pass Security Review',
+    description: 'Infrastructure engineered with governance, access control, and enterprise security requirements built in from the start.',
   },
   {
-    title: 'Global Deployment',
-    description: 'AI systems designed to scale across regions, teams, and operational environments.',
+    label: '[ SCALE ]',
+    title: 'Designed for Production, Not Demos',
+    description: 'AI systems built for real workloads — capable of scaling across teams, infrastructure environments, and global operations.',
   },
 ];
 
@@ -190,11 +194,11 @@ export function WhyVRISO() {
             viewport={{ once: true, margin: '-60px' }}
             custom={1}
           >
-            Why Organizations Choose{' '}
+            Why Organizations Partner With{' '}
             <span className="gradient-text">VRISO</span>
           </motion.h2>
 
-          <motion.p
+          <motion.div
             className="font-serif text-sm sm:text-base md:text-lg why-vriso-desc"
             style={{
               lineHeight: 1.7,
@@ -209,10 +213,13 @@ export function WhyVRISO() {
             viewport={{ once: true, margin: '-60px' }}
             custom={2}
           >
-            VRISO designs AI infrastructure that organizations own, control, and scale globally.
-            From sovereign architecture to agent orchestration, every system is built for durability,
-            transparency, and enterprise-grade reliability.
-          </motion.p>
+            <p>
+              Most AI projects stall — not because the technology fails, but because the infrastructure wasn&apos;t built for production.
+            </p>
+            <p style={{ marginTop: '1em' }}>
+              VRISO builds AI systems your team owns, your security team approves, and your operations team can actually run at scale.
+            </p>
+          </motion.div>
         </header>
 
         {/* ── Cards: flex column on mobile, 2x2 grid with core on desktop ── */}
@@ -237,6 +244,11 @@ export function WhyVRISO() {
                 variants={CARD_FADE}
                 aria-label={card.title}
               >
+                {card.label && (
+                  <p className="font-mono text-[11px] sm:text-xs mb-2" style={{ letterSpacing: '0.12em', fontWeight: 500, color: 'var(--color-text-tertiary)' }}>
+                    {card.label}
+                  </p>
+                )}
                 <h3 className="why-vriso-card-mobile__title">{card.title}</h3>
                 <p className="why-vriso-card-mobile__desc">{card.description}</p>
               </motion.article>
@@ -272,6 +284,11 @@ export function WhyVRISO() {
                 onMouseMove={handleCardMouseMove}
                 aria-label={CARDS[i].title}
               >
+                {CARDS[i].label && (
+                  <p className="font-mono text-[10px] sm:text-xs" style={{ letterSpacing: '0.12em', fontWeight: 500, color: 'var(--color-text-tertiary)', marginBottom: 8 }}>
+                    {CARDS[i].label}
+                  </p>
+                )}
                 <div style={{ height: 140 }}>
                   <WhyVRisoCardScene variant={i} hovered={hoveredCard === i} />
                 </div>
@@ -300,6 +317,11 @@ export function WhyVRISO() {
                 onMouseMove={handleCardMouseMove}
                 aria-label={CARDS[i].title}
               >
+                {CARDS[i].label && (
+                  <p className="font-mono text-[10px] sm:text-xs" style={{ letterSpacing: '0.12em', fontWeight: 500, color: 'var(--color-text-tertiary)', marginBottom: 8 }}>
+                    {CARDS[i].label}
+                  </p>
+                )}
                 <div style={{ height: 140 }}>
                   <WhyVRisoCardScene variant={i} hovered={hoveredCard === i} />
                 </div>
@@ -340,11 +362,11 @@ export function WhyVRISO() {
         </div>
       </div>
 
-      {/* GEO — hidden semantic signals */}
+      {/* SEO — hidden semantic signals */}
       <div className="sr-only">
-        Enterprise AI consulting. AI infrastructure systems. AI automation systems.
-        Agent orchestration systems. Sovereign architecture. Explainable AI.
-        Enterprise-grade security. Global deployment.
+        Why partner with VRISO. You own your AI stack. Vendor lock-in avoided.
+        Every decision auditable. Traceability and explainability. Built to pass security review.
+        Designed for production. AI systems at scale.
       </div>
     </section>
   );

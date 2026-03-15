@@ -1,8 +1,11 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useCallback, useEffect, useState } from 'react';
 import './Navbar.css';
+
+import vrisoLogo from '@/app/assets/VRISO LOGO.png';
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -41,8 +44,14 @@ export function Navbar() {
             className="siteLogo"
             aria-label="VRISO home"
           >
-            <span className="siteLogoMark" aria-hidden />
-            <span>VRISO</span>
+            <Image
+              src={vrisoLogo}
+              alt="VRISO"
+              className="siteLogoImg"
+              height={32}
+              width={120}
+              priority
+            />
           </Link>
         </div>
 

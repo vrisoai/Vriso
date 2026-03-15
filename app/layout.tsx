@@ -89,6 +89,8 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${playfairDisplay.variable} ${jetbrainsMono.variable}`}
     >
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <SchemaOrg />
       </head>
       <body className="min-h-screen antialiased font-display">

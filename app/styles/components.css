@@ -1349,6 +1349,22 @@ a:focus-visible {
 
 .vriso-footer-brand {
   max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.vriso-footer-brand-top {
+  width: 100%;
+}
+
+.vriso-footer-logo-img {
+  width: auto;
+  height: 40px;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left center;
+  display: block;
 }
 
 .vriso-footer-neural-icon {
@@ -1757,4 +1773,198 @@ a:focus-visible {
     animation: none !important;
   }
 }
+
+/* === ABOUT PAGE (v2 responsive 320px → 1536px+) === */
+
+/* Section label — responsive, clear space below */
+.about-page .section-label {
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  border-left: 2px solid var(--color-trust-amber);
+  padding-left: 0.75rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  font-size: 0.625rem;
+}
+
+@media (min-width: 640px) {
+  .about-page .section-label {
+    font-size: 0.6875rem;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Spacing: label → heading → description (same specificity so they apply) */
+.about-page .about-heading {
+  margin-top: 1.25rem;
+  margin-bottom: 0;
+}
+
+@media (min-width: 640px) {
+  .about-page .about-heading {
+    margin-top: 1.5rem;
+  }
+}
+
+.about-page .about-description,
+.about-page .about-intro {
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .about-page .about-description,
+  .about-page .about-intro {
+    margin-top: 2rem;
+  }
+}
+
+.about-page .about-description-tight {
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .about-page .about-description-tight {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Space before next block (e.g. before divider, cards grid, buttons) */
+.about-page .about-block-spacing {
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .about-page .about-block-spacing {
+    margin-top: 3rem;
+  }
+}
+
+/* Section inner — use with section-wrapper for about */
+.about-page .section-inner {
+  padding-left: var(--section-px);
+  padding-right: var(--section-px);
+}
+
+/* Card system — responsive padding, hover only on hover devices */
+.card-base {
+  background: var(--color-bg-card-blur);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .card-base {
+    background: rgba(31, 31, 31, 0.95);
+  }
+}
+
+@media (min-width: 640px) {
+  .card-base { padding: 1.5rem; }
+}
+
+@media (min-width: 1024px) {
+  .card-base { padding: 2rem; }
+}
+
+.card-amber { border-top: 2px solid var(--color-trust-amber); }
+.card-blue { border-top: 2px solid var(--color-action-accent); }
+
+@media (hover: hover) {
+  .card-base:hover {
+    transform: translateY(-2px);
+    border-color: rgba(251, 191, 36, 0.4);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(251, 191, 36, 0.1);
+  }
+}
+
+/* About card (AnimatedCard) — legacy class for spotlight cards */
+.about-card {
+  position: relative;
+  overflow: hidden;
+}
+
+@media (hover: hover) {
+  .about-card:hover .about-card-number {
+    color: rgba(251, 191, 36, 0.08);
+  }
+}
+
+/* About card number — Philosophy / OurFocus background numbers */
+.about-card-number {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: rgba(251, 191, 36, 0.04);
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  font-size: 3.5rem;
+  transition: color 0.3s;
+}
+
+@media (min-width: 640px) {
+  .about-card-number { font-size: 4.5rem; }
+}
+
+@media (min-width: 1024px) {
+  .about-card-number { font-size: 6rem; }
+}
+
+/* Button base — responsive (full width mobile, auto sm+) */
+.btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  white-space: nowrap;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 640px) {
+  .btn-base {
+    width: auto;
+    padding: 0.875rem 2rem;
+    font-size: 0.9375rem;
+  }
+}
+
+.about-page .btn-primary {
+  background: #0F0F0F;
+  border: 1px solid #1F2937;
+  color: var(--color-text-primary);
+}
+
+.about-page .btn-secondary {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+@media (hover: hover) {
+  .about-page .btn-primary:hover {
+    background: #161616;
+    border-color: var(--color-action-accent);
+    box-shadow: 0 0 20px rgba(45, 91, 255, 0.2);
+  }
+  .about-page .btn-secondary:hover {
+    border-color: var(--color-trust-amber);
+    color: var(--color-trust-amber);
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.1);
+  }
+}
+
 

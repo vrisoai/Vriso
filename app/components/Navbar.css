@@ -84,6 +84,13 @@
   background: var(--gradient-headline);
 }
 
+.siteLogoImg {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
 .navToggle {
   display: none;
   width: 40px;
