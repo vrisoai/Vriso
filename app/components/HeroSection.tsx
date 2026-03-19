@@ -65,14 +65,10 @@ export function HeroSection() {
       </Script>
 
       <section
-        className="relative z-10 w-full overflow-x-clip"
+        className="home-hero relative z-10 flex w-full items-center overflow-x-clip"
         style={{
           background:
             'radial-gradient(circle at 70% 40%, rgba(59,130,246,0.12) 0%, transparent 60%), var(--color-bg-primary)',
-          paddingTop: 'clamp(6rem, 12vh, 10rem)',
-          paddingBottom: 'clamp(2rem, 5vh, 4rem)',
-          paddingLeft: 'max(clamp(1rem, 5vw, 4rem), env(safe-area-inset-left))',
-          paddingRight: 'max(clamp(1rem, 5vw, 4rem), env(safe-area-inset-right))',
         }}
       >
         {/* Grid overlay */}
@@ -91,10 +87,10 @@ export function HeroSection() {
         />
 
         {/* Main grid */}
-        <div className="section-container section-inner relative grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
+        <div className="section-container section-inner relative grid grid-cols-1 items-center gap-8 lg:grid-cols-[55fr_45fr] lg:gap-16">
           {/* ── LEFT COLUMN — Copy ── */}
           <motion.div
-            className="flex flex-col items-center gap-5 text-center sm:gap-6 md:items-start md:gap-7 md:text-left"
+            className="flex flex-col items-center gap-5 text-center sm:gap-6 lg:items-start lg:gap-7 lg:text-left"
             variants={heroStagger}
             initial="hidden"
             animate="visible"
@@ -111,9 +107,12 @@ export function HeroSection() {
             </motion.div>
 
             {/* H1 — primary SEO signal */}
-            <h1 className="flex flex-col gap-0 leading-[1.08] tracking-[-0.04em]">
+            <h1 className="flex flex-col gap-0 tracking-[-0.04em]" style={{ lineHeight: 1.05 }}>
               <motion.span
-                className="flex flex-wrap items-baseline justify-center gap-x-2 font-display text-4xl font-extrabold text-text-primary sm:text-5xl md:justify-start md:text-7xl xl:text-8xl"
+                className="flex flex-wrap items-baseline justify-center gap-x-2 font-display font-extrabold text-text-primary md:justify-start"
+                style={{
+                  fontSize: 'clamp(2rem, min(5vw, 6.8svh), 4.25rem)',
+                }}
                 variants={headlineContainer}
                 initial="hidden"
                 animate="visible"
@@ -126,7 +125,10 @@ export function HeroSection() {
                 ))}
               </motion.span>
               <motion.span
-                className="flex flex-wrap items-baseline justify-center gap-x-2 font-display text-4xl font-black tracking-[-0.04em] sm:text-5xl md:justify-start md:text-7xl xl:text-8xl"
+                className="flex flex-wrap items-baseline justify-center gap-x-2 font-display font-black md:justify-start"
+                style={{
+                  fontSize: 'clamp(2rem, min(5vw, 6.8svh), 4.25rem)',
+                }}
                 variants={headlineContainer}
                 initial="hidden"
                 animate="visible"
@@ -146,7 +148,7 @@ export function HeroSection() {
 
             {/* Subtext — keyword-rich for SEO + GEO */}
             <motion.p
-              className="max-w-[540px] font-serif text-lg leading-relaxed text-text-secondary"
+              className="max-w-[540px] font-serif text-base leading-relaxed text-text-secondary md:text-lg"
               variants={subtextReveal}
               initial="hidden"
               animate="visible"
@@ -159,27 +161,32 @@ export function HeroSection() {
 
             {/* CTA buttons */}
             <motion.nav
-              className="flex flex-col gap-3 sm:flex-row sm:gap-4"
+              className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4"
               aria-label="Primary hero actions"
               variants={fadeUp}
             >
-              <button type="button" className="hero-cta hero-cta--primary">
+              <button type="button" className="hero-cta hero-cta--primary w-full sm:w-auto">
                 Book Strategic Session
               </button>
-              <button type="button" className="hero-cta hero-cta--secondary">
-                Explore AI Systems Services
+              <button type="button" className="hero-cta hero-cta--secondary w-full sm:w-auto">
+                Explore AI Systems
               </button>
             </motion.nav>
           </motion.div>
 
           {/* ── RIGHT COLUMN — AI Decision Engine Visualization ── */}
           <motion.div
-            className="relative flex w-full justify-center md:justify-end"
+            className="relative hidden w-full items-center justify-center overflow-hidden pr-8 lg:flex xl:pr-16"
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4, ease: EASE }}
           >
-            <DecisionEngineVis />
+            <div
+              className="flex items-center justify-center overflow-hidden"
+              style={{ width: 'min(420px, 35vw)', aspectRatio: '1 / 1' }}
+            >
+              <DecisionEngineVis />
+            </div>
           </motion.div>
         </div>
 
@@ -189,10 +196,12 @@ export function HeroSection() {
           Automation. Intelligent Business Infrastructure. Enterprise AI
           Consulting. Sovereign AI Deployment.
         </div>
-      </section>
 
-      {/* Trust strip ticker */}
-      <HeroTrustTicker />
+        {/* Trust strip ticker (absolute so it doesn't add extra scroll height) */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0">
+          <HeroTrustTicker />
+        </div>
+      </section>
     </header>
   );
 }

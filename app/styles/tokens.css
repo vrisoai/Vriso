@@ -47,6 +47,9 @@
   --section-px: max(1rem, 4vw);
   --section-py: clamp(64px, 10vw, 140px);
 
+  /* Navbar height (used to offset sticky hero below) */
+  --nav-h: 64px;
+
   /* === INTELLIGENCE ECOSYSTEM (P3 Wide-Gamut) === */
   --color-eco-bg: oklch(12% 0.02 260);
   --color-eco-card: oklch(18% 0.03 260 / 0.8);

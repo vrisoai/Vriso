@@ -74,7 +74,7 @@ export function ValueProposition() {
     <section
       className="relative w-full overflow-x-hidden"
       style={{
-        background: 'var(--color-bg-primary)',
+        background: 'var(--color-bg-section)',
         paddingTop: 'clamp(80px, 10vw, 140px)',
         paddingBottom: 'clamp(80px, 10vw, 140px)',
         paddingLeft: 'max(clamp(1.5rem, 5vw, 4rem), env(safe-area-inset-left))',

@@ -31,8 +31,8 @@ const JSON_LD = {
       { '@type': 'Offer', name: 'AI & Technology Strategy Consulting', description: 'Design the right AI architecture for your organization. We help teams plan AI adoption, infrastructure strategy, and scalable automation roadmaps.' },
       { '@type': 'Offer', name: 'Agent Orchestration & AI Workflows', description: 'Build intelligent multi-agent systems that coordinate tasks, automate complex workflows, and power scalable AI-driven operations.' },
       { '@type': 'Offer', name: 'RAG & Knowledge Retrieval Systems', description: 'Develop enterprise knowledge systems using Retrieval-Augmented Generation to deliver accurate, context-aware answers from internal data.' },
-      { '@type': 'Offer', name: 'AI-Native Product Development', description: 'Design and build AI-first applications, copilots, and intelligent platforms that integrate AI directly into user workflows.' },
       { '@type': 'Offer', name: 'AI Performance & Latency Optimization', description: 'Optimize AI systems for speed, reliability, and cost efficiency by improving inference performance, latency, and infrastructure scalability.' },
+      { '@type': 'Offer', name: 'AI-Native Product Development', description: 'Design and build AI-first applications, copilots, and intelligent platforms that integrate AI directly into user workflows.' },
       { '@type': 'Offer', name: 'Compliance-Ready AI Systems', description: 'Build AI systems with governance, security, and regulatory compliance aligned with standards like General Data Protection Regulation.' },
     ],
   },
@@ -58,16 +58,16 @@ const CARDS = [
       'Develop enterprise knowledge systems using Retrieval-Augmented Generation to deliver accurate, context-aware answers from internal data.',
   },
   {
-    label: '[ PRODUCTS ]',
-    title: 'AI-Native Product Development',
-    description:
-      'Design and build AI-first applications, copilots, and intelligent platforms that integrate AI directly into user workflows.',
-  },
-  {
     label: '[ PERFORMANCE ]',
     title: 'AI Performance & Latency Optimization',
     description:
       'Optimize AI systems for speed, reliability, and cost efficiency by improving inference performance, latency, and infrastructure scalability.',
+  },
+  {
+    label: '[ PRODUCTS ]',
+    title: 'AI-Native Product Development',
+    description:
+      'Design and build AI-first applications, copilots, and intelligent platforms that integrate AI directly into user workflows.',
   },
   {
     label: '[ COMPLIANCE ]',
@@ -117,7 +117,10 @@ export function CoreServices() {
       const total = cards.length;
       if (total === 0) return;
 
-      ScrollTrigger.getAll().forEach(st => st.kill());
+      // Only kill triggers scoped to THIS section, not the whole page
+      ScrollTrigger.getAll()
+        .filter(st => st.trigger === section || st.pin === section)
+        .forEach(st => st.kill());
 
       // Setup all cards hidden below, first card visible
       gsap.set(cards, {
@@ -129,6 +132,7 @@ export function CoreServices() {
       let current = 0;
       let animating = false;
       let cooldown = false;          // blocks next scroll until cooldown expires
+      let entryLock = true;   // blocks wheel until section is fully pinned
       let accDelta = 0;              // accumulates trackpad delta
       let accTimer: ReturnType<typeof setTimeout> | null = null;
 
@@ -168,8 +172,27 @@ export function CoreServices() {
           start: 'top top',
           end: `+=${(total - 1) * 100}vh`,
           pin: true,
-          onUpdate: () => {
-            // Keep scroll locked while animating
+          pinnedContainer: section,
+          onEnter: () => {
+            // Section pinned — release entry lock after short delay
+            entryLock = true;
+            setTimeout(() => { entryLock = false; }, 400);
+          },
+          onLeave: () => {
+            cooldown = false;
+            animating = false;
+            entryLock = true; // re-lock for next entry
+          },
+          onEnterBack: () => {
+            // Re-entering from below — reset to last card state
+            entryLock = true;
+            cooldown = false;
+            setTimeout(() => { entryLock = false; }, 400);
+          },
+          onLeaveBack: () => {
+            entryLock = true; // leaving upward — re-lock
+            cooldown = false;
+            animating = false;
           },
         });
       }
@@ -178,40 +201,48 @@ export function CoreServices() {
         const rect = section.getBoundingClientRect();
         const inView = rect.top <= 10 && rect.bottom >= window.innerHeight - 10;
         if (!inView) return;
+        if (entryLock) return;
 
         const atStart = current === 0 && e.deltaY < 0;
         const atEnd = current === total - 1 && e.deltaY > 0;
-        if (atStart || atEnd) return;
+
+        // At boundaries — release scroll naturally, no preventDefault
+        if (atStart || atEnd) {
+          // Force unpin: nudge scroll position so ScrollTrigger releases
+          if (atEnd && e.deltaY > 0) {
+            // Temporarily disable the wheel listener so page can scroll freely
+            window.removeEventListener('wheel', onWheel);
+            setTimeout(() => {
+              window.addEventListener('wheel', onWheel, { passive: false });
+            }, 800);
+          }
+          return;
+        }
 
         e.preventDefault();
         if (animating || cooldown) return;
 
-        // Accumulate delta to distinguish intentional scroll from trackpad drift
         accDelta += e.deltaY;
 
-        // Reset accumulator after 150ms of no scroll
         if (accTimer) clearTimeout(accTimer);
         accTimer = setTimeout(() => {
           accDelta = 0;
         }, 150);
 
-        // Only trigger when accumulated delta passes threshold
         const THRESHOLD = 30;
         if (Math.abs(accDelta) < THRESHOLD) return;
 
-        // Trigger card change
         const direction = accDelta > 0 ? 1 : -1;
-        accDelta = 0; // reset immediately after trigger
+        accDelta = 0;
         if (accTimer) clearTimeout(accTimer);
         accTimer = null;
 
         goTo(current + direction);
 
-        // Cooldown: block further scroll for animation duration + buffer
         cooldown = true;
         setTimeout(() => {
           cooldown = false;
-        }, 900); // matches goTo animation duration (0.6s) + 300ms buffer
+        }, 900);
       };
 
       if (!isMobile) {

@@ -49,11 +49,10 @@ export function PhilosophySection({ reducedMotion = false }: PhilosophySectionPr
   return (
     <section
       ref={ref}
-      className="about-philosophy overflow-x-hidden"
+      id="section-2"
+      className="about-philosophy section-2-sheet overflow-x-hidden"
       style={{
-        background: 'var(--color-bg-primary)',
-        backgroundImage:
-          'radial-gradient(ellipse 40% 40% at 100% 100%, rgba(251,191,36,0.04) 0%, transparent 60%)',
+        background: 'var(--color-bg-section)',
       }}
       aria-labelledby="about-philosophy-heading"
     >

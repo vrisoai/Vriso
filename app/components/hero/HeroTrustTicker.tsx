@@ -28,11 +28,7 @@ function TickerSet() {
 export function HeroTrustTicker() {
   return (
     <motion.div
-      className="w-full overflow-hidden border-t border-border"
-      style={{
-        background: 'var(--color-bg-primary)',
-        paddingBlock: '0.875rem',
-      }}
+      className="hero-trust-ticker w-full overflow-hidden border-t border-border"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 1.0, ease: EASE }}

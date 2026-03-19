@@ -297,6 +297,25 @@ a:focus-visible {
   pointer-events: none;
 }
 
+/* === HOMEPAGE HERO VIEWPORT FIT === */
+.home-hero {
+  height: 100%;
+  /* ticker is a fixed-height strip at the bottom */
+  --hero-ticker-h: 56px;
+  padding-top: clamp(3.25rem, 8svh, 6rem);
+  padding-bottom: calc(clamp(1.25rem, 4svh, 3rem) + var(--hero-ticker-h));
+  padding-left: max(clamp(1rem, 5vw, 4rem), env(safe-area-inset-left));
+  padding-right: max(clamp(1rem, 5vw, 4rem), env(safe-area-inset-right));
+}
+
+/* Short viewports (small laptops / landscape phones): tighten vertical padding */
+@media (max-height: 740px) {
+  .home-hero {
+    padding-top: clamp(2.75rem, 6svh, 4.5rem);
+    padding-bottom: calc(clamp(1rem, 3svh, 2.25rem) + var(--hero-ticker-h));
+  }
+}
+
 /* === HERO CTA BUTTONS === */
 .hero-cta {
   display: inline-flex;
@@ -304,11 +323,10 @@ a:focus-visible {
   justify-content: center;
   gap: 0.5rem;
   font-family: var(--font-display);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   border-radius: 9999px;
-  padding: 0.75rem 1.75rem;
+  padding: 0.875rem 2rem;
   cursor: pointer;
   transition: border-color 200ms ease, box-shadow 200ms ease, background 200ms ease, transform 200ms ease;
   will-change: transform;
@@ -321,9 +339,9 @@ a:focus-visible {
 
 .hero-cta--primary {
   background: var(--color-btn-bg);
-  border: 1px solid var(--color-btn-border);
+  border: 1px solid #374151;
   color: var(--color-btn-text);
-  font-size: clamp(11px, 1.2vw, 14px);
+  font-size: 0.8125rem;
 }
 .hero-cta--primary:hover {
   border-color: var(--color-action-accent);
@@ -335,7 +353,7 @@ a:focus-visible {
   background: transparent;
   border: 1px solid var(--color-btn-border);
   color: var(--color-text-secondary);
-  font-size: clamp(11px, 1.2vw, 14px);
+  font-size: 0.8125rem;
 }
 .hero-cta--secondary:hover {
   border-color: var(--color-trust-amber);
@@ -345,6 +363,16 @@ a:focus-visible {
 }
 
 /* === HERO TRUST TICKER === */
+.hero-trust-ticker {
+  height: var(--hero-ticker-h, 56px);
+  display: flex;
+  align-items: center;
+  background: var(--color-bg-primary);
+  overflow: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
 .hero-ticker-track {
   display: flex;
   gap: 3rem;
@@ -945,6 +973,19 @@ a:focus-visible {
 .core-services-section {
   background: #121212;
   position: relative;
+}
+
+/* Controls the scroll distance for the desktop sticky card stack. */
+.core-services-outer {
+  position: relative;
+  height: calc(var(--core-services-total, 6) * 100svh);
+}
+
+/* Original design: on <=1023px we don't run the desktop sticky scroll effect. */
+@media (max-width: 1023px) {
+  .core-services-outer {
+    height: auto;
+  }
 }
 
 /* One viewport tall; GSAP ScrollTrigger pin adds the rest of the scroll space (end: +=600%) */
@@ -1775,6 +1816,34 @@ a:focus-visible {
 }
 
 /* === ABOUT PAGE (v2 responsive 320px → 1536px+) === */
+
+/* Sticky hero wrapper: pins hero for 100vh, then section 2 covers it */
+#sticky-wrapper {
+  position: relative;
+  height: 200svh;
+  overflow: hidden;
+}
+
+/* Hero pinned inside sticky wrapper */
+.about-page #hero {
+  transform-origin: center top;
+  will-change: transform;
+}
+
+/* Section 2 sheet: starts behind hero, slides up over it */
+.about-page .section-2-sheet {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  min-height: 100vh;
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transform: translateY(calc((1 - var(--about-sheet-progress, 0)) * 100svh));
+  transition: transform 50ms linear;
+}
 
 /* Section label — responsive, clear space below */
 .about-page .section-label {

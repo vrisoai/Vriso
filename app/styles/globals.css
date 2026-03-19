@@ -56,6 +56,51 @@ html {
   text-size-adjust: 100%;
 }
 
+/* ──────────────────────────────────────────────────────────────────────────
+ * Homepage: sticky hero cover effect (Hero pinned, Section 2 covers it)
+ * ────────────────────────────────────────────────────────────────────────── */
+
+/* Sticky hero wrapper — stays under content */
+.sticky-hero-wrapper {
+  position: sticky;
+  /* Navbar is sticky above hero; reserve its height */
+  top: var(--nav-h, 64px);
+  height: calc(100svh - var(--nav-h, 64px));
+  width: 100%;
+  z-index: 1;
+  overflow: visible; /* don't clip hero heading */
+}
+
+/* Content wrapper that flows over sticky hero */
+.content-over-hero {
+  position: relative;
+  z-index: 2;
+  background: var(--color-bg-section);
+}
+
+/* Section 2 sheet styling (first child of content wrapper) */
+.content-over-hero > *:first-child {
+  position: relative;
+  background: var(--color-bg-section);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.6), 0 -1px 0 rgba(251, 191, 36, 0.08);
+}
+
+/* Mobile: disable sticky, stack normally */
+@media (max-width: 767px) {
+  .sticky-hero-wrapper {
+    position: relative;
+    height: auto;
+    min-height: 100svh;
+  }
+  .content-over-hero > *:first-child {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+}
+
 img,
 video {
   max-width: 100%;
