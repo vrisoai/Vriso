@@ -50,10 +50,7 @@ export function PhilosophySection({ reducedMotion = false }: PhilosophySectionPr
     <section
       ref={ref}
       id="section-2"
-      className="about-philosophy section-2-sheet overflow-x-hidden"
-      style={{
-        background: '#121212',
-      }}
+      className="about-philosophy overflow-x-hidden"
       aria-labelledby="about-philosophy-heading"
     >
       <div className="section-wrapper">

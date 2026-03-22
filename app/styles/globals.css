@@ -101,6 +101,42 @@ html {
   }
 }
 
+/* ── Home (mobile): section snap + spacing — fewer “two sections at once” viewports ── */
+@media (max-width: 1023px) {
+  html:has(main.home-page) {
+    scroll-snap-type: y proximity;
+  }
+
+  main.home-page .home-mobile-content-sheet {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2.5rem, 10svh, 5rem);
+  }
+
+  main.home-page .home-mobile-section-snap {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+    scroll-margin-top: var(--nav-h, 64px);
+  }
+
+  main.home-page .home-mobile-hero-stage {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
+}
+
+@media (min-width: 1024px) {
+  html:has(main.home-page) {
+    scroll-snap-type: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(main.home-page) {
+    scroll-snap-type: none;
+  }
+}
+
 img,
 video {
   max-width: 100%;

@@ -39,7 +39,13 @@ export function WhyWeExist({ reducedMotion = false }: WhyWeExistProps) {
       style={{ background: '#121212' }}
       aria-labelledby="about-why-heading"
     >
-      <div className="section-wrapper pt-0">
+      <div
+        className="section-wrapper"
+        style={{
+          /* No extra top gap after sticky Philosophy — rhythm comes from label + heading */
+          paddingTop: 0,
+        }}
+      >
         <div className="section-inner-max section-inner">
           <div className="mx-auto w-full max-w-[720px] text-left">
             <SectionLabel text="[ OUR POSITION ]" reducedMotion={reducedMotion} />

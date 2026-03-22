@@ -174,6 +174,32 @@ a:focus-visible {
   opacity: 1;
 }
 
+/* Touch / coarse pointers: no real hover — keep cards in “hover” visual state (home + sections using .glass-card) */
+@media (hover: none) {
+  .glass-card {
+    border-color: rgba(59, 91, 219, 0.45);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.06),
+      0 8px 32px rgba(0, 0, 0, 0.5),
+      0 0 24px rgba(45, 91, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .glass-card::before {
+    opacity: 1;
+  }
+
+  .glass-card::after {
+    opacity: 1;
+  }
+}
+
+@media (hover: none) and (prefers-reduced-motion: no-preference) {
+  .glass-card::before {
+    animation: glow-spin 3s linear infinite;
+  }
+}
+
 /* === SECTION WRAPPER === */
 .section {
   background: var(--color-bg-section);
@@ -295,6 +321,20 @@ a:focus-visible {
   background-size: 80px 80px;
   opacity: 0.04;
   pointer-events: none;
+}
+
+/* Mobile home: hero fills sticky viewport shell (page.tsx home-mobile-hero-stage) */
+.home-mobile-hero-stage header {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+  height: 100%;
+}
+
+.home-mobile-hero-stage .home-hero {
+  flex: 1;
+  min-height: 0;
 }
 
 /* === HOMEPAGE HERO VIEWPORT FIT === */
@@ -651,6 +691,17 @@ a:focus-visible {
     transition: none !important;
     width: 100% !important;
     max-width: 100% !important;
+  }
+
+  /* Allow lifted “hover” glass state on phones (see @media (hover: none) .glass-card) */
+  @media (hover: none) {
+    .how-we-work-grid .how-we-work-card-tilt.glass-card {
+      transform: translateY(-4px) !important;
+      transition:
+        border-color 400ms ease,
+        box-shadow 400ms ease,
+        transform 400ms ease !important;
+    }
   }
 
   .how-we-work-card {
@@ -1830,38 +1881,18 @@ a:focus-visible {
 
 /* === ABOUT PAGE (v2 responsive 320px → 1536px+) === */
 
-/* Sticky hero wrapper: pins hero for 100vh, then section 2 covers it */
-#sticky-wrapper {
-  position: relative;
-  height: 135svh;
-  overflow: hidden;
+/*
+ * Do not set overflow-x: hidden on <main.about-page> — it breaks position:sticky on the hero.
+ * Clip horizontal bleed on siblings after the sticky stage only (clip ≠ scroll container).
+ */
+.about-page > *:not(:first-child) {
+  overflow-x: clip;
 }
 
-@media (max-width: 1023px) {
-  #sticky-wrapper {
-    height: 122svh;
-  }
-}
-
-/* Hero pinned inside sticky wrapper */
+/* Sticky hero shell — optional scale driven by scroll in page.tsx */
 .about-page #hero {
-  transform-origin: center top;
+  transform-origin: center center;
   will-change: transform;
-}
-
-/* Section 2 sheet: starts behind hero, slides up over it */
-.about-page .section-2-sheet {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  min-height: 100vh;
-  border-radius: 24px 24px 0 0;
-  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-  transform: translateY(calc((1 - var(--about-sheet-progress, 0)) * 100svh));
-  transition: transform 50ms linear;
 }
 
 /* Section label — responsive, clear space below */

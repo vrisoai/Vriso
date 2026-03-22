@@ -2,6 +2,7 @@
  * Shared Framer Motion variants — used across sections 1–6.
  * Easing: [0.22, 1, 0.36, 1] (cubic-bezier)
  */
+// app/lib/animations.ts
 
 export const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 

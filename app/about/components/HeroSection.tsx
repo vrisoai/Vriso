@@ -50,9 +50,9 @@ export function HeroSection({ reducedMotion = false }: HeroSectionProps) {
   return (
     <section
       ref={ref}
-      id="hero"
-      className="about-hero sticky top-0 z-[1] flex h-[100svh] flex-col items-center justify-center overflow-x-hidden px-4 py-16 sm:px-[var(--section-px)] sm:py-24"
+      className="about-hero flex min-h-0 w-full flex-col items-center justify-center overflow-x-clip px-4 py-16 sm:px-[var(--section-px)] sm:py-24"
       style={{
+        height: '100%',
         background: 'var(--color-bg-primary)',
         backgroundImage:
           'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(45,91,255,0.06) 0%, transparent 60%)',

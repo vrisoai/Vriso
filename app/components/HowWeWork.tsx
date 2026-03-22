@@ -100,6 +100,16 @@ export default function HowWeWork() {
   const gridRef = useRef<HTMLDivElement>(null);
   const carouselGridRef = useRef<HTMLDivElement>(null);
   const gridInView = useInView(gridRef, { once: true, margin: '-60px' });
+  /* Default true: avoid desktop flash; phones get (hover: none) after mount */
+  const [hasHover, setHasHover] = useState(true);
+  useEffect(() => {
+    const mq = window.matchMedia('(hover: hover)');
+    const sync = () => setHasHover(mq.matches);
+    sync();
+    mq.addEventListener('change', sync);
+    return () => mq.removeEventListener('change', sync);
+  }, []);
+
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [tappedCard, setTappedCard] = useState<number | null>(null);
   const handleEnter = useCallback((i: number) => () => setHoveredCard(i), []);
@@ -110,7 +120,11 @@ export default function HowWeWork() {
   }, []);
   const handleTap = useCallback((i: number) => () => setTappedCard((prev) => (prev === i ? null : i)), []);
 
-  const isRevealed = useCallback((i: number) => hoveredCard === i || tappedCard === i, [hoveredCard, tappedCard]);
+  /** Phones / touch: all cards stay in “hover” (description visible); desktop: hover or tap */
+  const isRevealed = useCallback(
+    (i: number) => !hasHover || hoveredCard === i || tappedCard === i,
+    [hasHover, hoveredCard, tappedCard]
+  );
 
   const handleCardMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -283,11 +297,13 @@ export default function HowWeWork() {
               onMouseEnter={handleEnter(i)}
               onMouseLeave={handleLeave}
               onMouseMove={handleCardMouseMove}
-              onClick={handleTap(i)}
+              onClick={hasHover ? handleTap(i) : undefined}
               aria-label={step.title}
             >
               {/* Entire card tilts — glass styling + transform on same element */}
-              <div className="how-we-work-card-tilt glass-card how-we-work-card cursor-pointer">
+              <div
+                className={`how-we-work-card-tilt glass-card how-we-work-card ${hasHover ? 'cursor-pointer' : ''}`}
+              >
               {/* Label */}
               <p className="how-we-work-card__label">{step.label}</p>
 
@@ -322,19 +338,21 @@ export default function HowWeWork() {
                 </motion.p>
               </div>
 
-              {/* Hint — desktop: hover, mobile: tap */}
-              <p
-                className="font-mono mt-4 text-[10px] transition-opacity duration-300 sm:block"
-                style={{
-                  color: 'var(--color-text-micro)',
-                  letterSpacing: '0.08em',
-                  opacity: isRevealed(i) ? 0 : 0.6,
-                }}
-                aria-hidden="true"
-              >
-                <span className="hidden sm:inline">Hover</span>
-                <span className="sm:hidden">Tap</span> for details
-              </p>
+              {/* Hint — only when hover is available (touch shows details by default) */}
+              {hasHover && (
+                <p
+                  className="font-mono mt-4 text-[10px] transition-opacity duration-300 sm:block"
+                  style={{
+                    color: 'var(--color-text-micro)',
+                    letterSpacing: '0.08em',
+                    opacity: isRevealed(i) ? 0 : 0.6,
+                  }}
+                  aria-hidden="true"
+                >
+                  <span className="hidden sm:inline">Hover</span>
+                  <span className="sm:hidden">Tap</span> for details
+                </p>
+              )}
               </div>
             </motion.div>
           ))}
