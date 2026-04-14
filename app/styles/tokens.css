@@ -70,9 +70,25 @@
   }
 }
 
+@media (min-width: 1536px) {
+  :root {
+    --section-px: max(2.5rem, 4vw);
+    --section-py: clamp(140px, 10vw, 200px);
+  }
+}
+
 /* Ultra-wide (≥1920px): cap horizontal padding so content fills more of the viewport */
 @media (min-width: 1920px) {
   :root {
-    --section-px: clamp(2rem, 4vw, 5rem);
+    --section-px: clamp(2.5rem, 3vw, 5rem);
+    --section-py: clamp(160px, 9vw, 280px);
+  }
+}
+
+/* 2K+ (≥2400px): let padding scale higher so content doesn't feel cramped */
+@media (min-width: 2400px) {
+  :root {
+    --section-px: clamp(3rem, 3vw, 7rem);
+    --section-py: clamp(200px, 9vw, 360px);
   }
 }

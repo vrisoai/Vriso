@@ -44,9 +44,9 @@ export function MagneticButton({
       style={{
         fontFamily: 'var(--font-display)',
         fontWeight: 500,
-        fontSize: '0.8125rem',
+        fontSize: 'clamp(0.8125rem, 0.75vw, 1.25rem)',
         letterSpacing: '0.04em',
-        padding: '0.875rem 2rem',
+        padding: 'clamp(0.875rem, 0.8vw, 1.5rem) clamp(2rem, 2.5vw, 3.5rem)',
         borderRadius: '9999px',
         cursor: 'pointer',
         outline: 'none',

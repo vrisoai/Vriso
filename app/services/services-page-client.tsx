@@ -103,11 +103,11 @@ function ColLabel({ children, amber }: { children: React.ReactNode; amber?: bool
     <div
       style={{
         fontFamily: 'var(--font-mono)',
-        fontSize: '10px',
+        fontSize: 'clamp(10px, 0.65vw, 14px)',
         letterSpacing: '0.1em',
         textTransform: 'uppercase',
         color: amber ? 'var(--color-trust-amber)' : 'var(--color-text-micro)',
-        marginBottom: '0.625rem',
+        marginBottom: 'clamp(0.625rem, 0.65vw, 1.25rem)',
       }}
     >
       {children}
@@ -123,7 +123,7 @@ function ColText({ children }: { children: React.ReactNode }) {
         color: 'var(--color-text-secondary)',
         lineHeight: 1.7,
         margin: 0,
-        fontSize: '0.875rem',
+        fontSize: 'clamp(0.875rem, 0.9vw, 1.75rem)',
       }}
     >
       {children}
@@ -172,11 +172,8 @@ function ServicesHero() {
       />
       <div className="mx-auto flex w-full flex-1 justify-center py-8 sm:py-10">
         <div
+          className="services-hero-content"
           style={{
-            boxSizing: 'border-box',
-            width: '100%',
-            maxWidth: 900,
-            margin: '0 auto',
             textAlign: 'center',
             paddingLeft: 'max(1.5rem, 5vw)',
             paddingRight: 'max(1.5rem, 5vw)',
@@ -206,7 +203,7 @@ function ServicesHero() {
             <span
               style={{
                 fontFamily: 'var(--font-mono)',
-                fontSize: '0.625rem',
+                fontSize: 'clamp(0.625rem, 0.55vw, 0.8125rem)',
                 letterSpacing: '0.1em',
                 textTransform: 'uppercase',
                 color: 'var(--color-text-tertiary)',
@@ -225,7 +222,7 @@ function ServicesHero() {
             <div
               style={{
                 fontFamily: 'var(--font-mono)',
-                fontSize: '0.625rem',
+                fontSize: 'clamp(0.625rem, 0.55vw, 0.8125rem)',
                 letterSpacing: '0.1em',
                 textTransform: 'uppercase',
                 color: 'var(--color-text-tertiary)',
@@ -251,7 +248,7 @@ function ServicesHero() {
               paddingBottom: '0.1em',
               color: 'var(--color-text-primary)',
             }}
-            className="text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] xl:text-[4rem]"
+            className="text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] xl:text-[4rem] 2xl:text-[5.5rem] min-[1920px]:text-[7rem]"
           >
             Enterprise AI Services That Go{' '}
             <span
@@ -273,9 +270,9 @@ function ServicesHero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: phase >= 3 ? 1 : 0, y: phase >= 3 ? 0 : 16 }}
             transition={{ duration: 0.7, ease: EASE }}
-            className="text-sm sm:text-base lg:text-[1.0625rem]"
+            className="text-sm sm:text-base lg:text-[1.0625rem] 2xl:text-[1.25rem] min-[1920px]:text-[1.625rem]"
             style={{
-              maxWidth: 560,
+              maxWidth: 'clamp(400px, 42vw, 960px)',
               margin: '0 auto 2.5rem',
               textAlign: 'center',
               lineHeight: 1.75,
@@ -291,8 +288,8 @@ function ServicesHero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: phase >= 4 ? 1 : 0, y: phase >= 4 ? 0 : 12 }}
             transition={{ duration: 0.5, ease: EASE }}
-            style={{ display: 'flex', justifyContent: 'center' }}
-            className="flex-col gap-3 sm:flex-row sm:gap-4"
+            style={{ display: 'flex', justifyContent: 'center', gap: 'clamp(0.75rem, 1.2vw, 2rem)' }}
+            className="flex-col sm:flex-row"
           >
             <MagneticButton primary>Start the Conversation</MagneticButton>
             <MagneticButton onClick={scrollToCoreServices}>Explore Services</MagneticButton>
@@ -335,13 +332,13 @@ function PositioningBlock() {
         style={{
           position: 'relative',
           zIndex: 1,
-          paddingTop: 'clamp(4rem, 7vw, 6rem)',
-          paddingBottom: 'clamp(4rem, 7vw, 6rem)',
+          paddingTop: 'clamp(4rem, 7vw, 16rem)',
+          paddingBottom: 'clamp(4rem, 7vw, 16rem)',
           paddingLeft: 'max(1.5rem, 5vw)',
           paddingRight: 'max(1.5rem, 5vw)',
         }}
       >
-        <div style={{ maxWidth: 720, width: '100%' }}>
+        <div className="services-positioning-content">
           <motion.h2
             initial={{ opacity: 0, x: -32 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -353,7 +350,7 @@ function PositioningBlock() {
               lineHeight: 1.1,
               margin: '0 0 1.5rem 0',
             }}
-            className="text-[2rem] sm:text-[2.5rem] lg:text-[3.25rem]"
+            className="text-[2rem] sm:text-[2.5rem] lg:text-[3.25rem] 2xl:text-[4.5rem] min-[1920px]:text-[6rem]"
           >
             Not Tools. Systems.
           </motion.h2>
@@ -368,7 +365,7 @@ function PositioningBlock() {
               lineHeight: 1.75,
               margin: '0 0 0.75rem 0',
             }}
-            className="text-sm sm:text-base"
+            className="text-sm sm:text-base 2xl:text-[1.125rem] min-[1920px]:text-[1.375rem]"
           >
             Most AI vendors sell tools, dashboards, or wrappers.
           </motion.p>
@@ -383,7 +380,7 @@ function PositioningBlock() {
               lineHeight: 1.75,
               margin: '0 0 2rem 0',
             }}
-            className="text-sm sm:text-base"
+            className="text-sm sm:text-base 2xl:text-[1.125rem] min-[1920px]:text-[1.375rem]"
           >
             Invisigent builds infrastructure — the systems that connect models, data, and workflows into something your
             organization can actually run.
@@ -440,7 +437,7 @@ function PositioningBlock() {
                     fontFamily: 'var(--font-display)',
                     color: 'var(--color-text-secondary)',
                   }}
-                  className="text-sm sm:text-base"
+                  className="text-sm sm:text-base 2xl:text-[1.125rem] min-[1920px]:text-[1.375rem]"
                 >
                   {line}
                 </span>
@@ -461,7 +458,7 @@ function PositioningBlock() {
               margin: 0,
               lineHeight: 1.65,
             }}
-            className="text-base sm:text-lg lg:text-[1.25rem]"
+            className="text-base sm:text-lg lg:text-[1.25rem] 2xl:text-[1.625rem] min-[1920px]:text-[2.125rem]"
           >
             Only systems designed for production.
           </motion.p>
@@ -491,14 +488,14 @@ function ServiceCards() {
           transition={{ duration: 0.7 }}
           style={{
             textAlign: 'center',
-            marginBottom: 'clamp(2rem, 4vw, 3rem)',
+            marginBottom: 'clamp(2rem, 4vw, 9rem)',
           }}
         >
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
             <div
               style={{
                 fontFamily: 'var(--font-mono)',
-                fontSize: '10px',
+                fontSize: 'clamp(10px, 0.6vw, 13px)',
                 letterSpacing: '0.1em',
                 textTransform: 'uppercase',
                 color: 'var(--color-text-tertiary)',
@@ -519,7 +516,7 @@ function ServiceCards() {
               lineHeight: 1.15,
               margin: '0 0 0.75rem 0',
             }}
-            className="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem]"
+            className="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] 2xl:text-[3.75rem] min-[1920px]:text-[5rem]"
           >
             Seven Ways We Help
           </h2>
@@ -528,12 +525,12 @@ function ServiceCards() {
             style={{
               fontFamily: 'var(--font-display)',
               color: 'var(--color-text-secondary)',
-              maxWidth: 420,
+              maxWidth: 'clamp(420px, 32vw, 720px)',
               margin: '0.75rem auto 0',
               textAlign: 'center',
               lineHeight: 1.7,
             }}
-            className="text-sm sm:text-base"
+            className="text-sm sm:text-base 2xl:text-[1.125rem] min-[1920px]:text-[1.375rem]"
           >
             Each engagement starts with a specific problem.
             <br />
@@ -548,7 +545,7 @@ function ServiceCards() {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: 'clamp(0.75rem, 1.5vw, 1rem)',
+            gap: 'clamp(0.75rem, 1.5vw, 3.5rem)',
           }}
         >
           {SERVICES.map((service, i) => (
@@ -616,7 +613,7 @@ function ServiceCard({ service, index }: { service: (typeof SERVICES)[number]; i
               ? 'rgba(251, 191, 36, 0.7)'
               : 'rgba(45, 91, 255, 0.7)'
         }`,
-        padding: 'clamp(1.25rem, 2.5vw, 1.75rem)',
+        padding: 'clamp(1.25rem, 2.5vw, 5rem)',
         transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
         boxShadow: isHovered
           ? isBorderAmber
@@ -721,13 +718,13 @@ function ServiceCard({ service, index }: { service: (typeof SERVICES)[number]; i
             display: 'flex',
             alignItems: 'center',
             gap: '0.75rem',
-            marginBottom: 'clamp(0.75rem, 2vw, 1.25rem)',
+            marginBottom: 'clamp(0.75rem, 2vw, 3.5rem)',
           }}
         >
           <span
             style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: '10px',
+              fontSize: 'clamp(10px, 0.6vw, 13px)',
               color: 'var(--color-text-micro)',
               letterSpacing: '0.04em',
             }}
@@ -737,7 +734,7 @@ function ServiceCard({ service, index }: { service: (typeof SERVICES)[number]; i
           <span
             style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: '10px',
+              fontSize: 'clamp(10px, 0.6vw, 13px)',
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
               color: 'var(--color-text-tertiary)',
@@ -755,9 +752,9 @@ function ServiceCard({ service, index }: { service: (typeof SERVICES)[number]; i
             fontWeight: 600,
             color: 'var(--color-text-primary)',
             lineHeight: 1.2,
-            margin: '0 0 clamp(1rem, 2vw, 1.5rem) 0',
+            margin: '0 0 clamp(1rem, 2vw, 4rem) 0',
           }}
-          className="text-base sm:text-lg lg:text-xl"
+          className="text-base sm:text-lg lg:text-xl 2xl:text-[1.75rem] min-[1920px]:text-[2.25rem]"
         >
           {service.name}
         </h3>
@@ -771,7 +768,7 @@ function ServiceCard({ service, index }: { service: (typeof SERVICES)[number]; i
         >
           <div
             style={{
-              paddingRight: isDesktop ? '1.5rem' : 0,
+              paddingRight: isDesktop ? 'clamp(1.5rem, 1.5vw, 4rem)' : 0,
               paddingBottom: isDesktop ? 0 : '1rem',
               borderRight: isDesktop ? SERVICE_GRID_SEP : 'none',
               borderBottom: isDesktop ? 'none' : SERVICE_GRID_SEP,
@@ -783,8 +780,8 @@ function ServiceCard({ service, index }: { service: (typeof SERVICES)[number]; i
 
           <div
             style={{
-              paddingLeft: isDesktop ? '1.5rem' : 0,
-              paddingRight: isDesktop ? '1.5rem' : 0,
+              paddingLeft: isDesktop ? 'clamp(1.5rem, 1.5vw, 4rem)' : 0,
+              paddingRight: isDesktop ? 'clamp(1.5rem, 1.5vw, 4rem)' : 0,
               paddingTop: isDesktop ? 0 : '1rem',
               paddingBottom: isDesktop ? 0 : '1rem',
               borderRight: isDesktop ? SERVICE_GRID_SEP : 'none',
@@ -797,7 +794,7 @@ function ServiceCard({ service, index }: { service: (typeof SERVICES)[number]; i
 
           <div
             style={{
-              paddingLeft: isDesktop ? '1.5rem' : 0,
+              paddingLeft: isDesktop ? 'clamp(1.5rem, 1.5vw, 4rem)' : 0,
               paddingTop: isDesktop ? 0 : '1rem',
             }}
           >
@@ -808,7 +805,7 @@ function ServiceCard({ service, index }: { service: (typeof SERVICES)[number]; i
                 fontWeight: 600,
                 lineHeight: 1.6,
                 margin: 0,
-                fontSize: '0.9375rem',
+                fontSize: 'clamp(0.9375rem, 0.95vw, 1.875rem)',
                 color:
                   isHovered && hasHover
                     ? isBorderAmber
@@ -871,7 +868,7 @@ function EngageCard({ item, index }: { item: (typeof ENGAGEMENTS)[number]; index
         border: `1px solid ${isHovered ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.06)'}`,
         borderTop: `2px solid ${isHovered ? accentColor : `rgba(${accentRgb},0.5)`}`,
         borderRadius: 12,
-        padding: 'clamp(1.25rem, 2.5vw, 1.75rem)',
+        padding: 'clamp(1.25rem, 2.5vw, 5rem)',
         boxShadow: isHovered
           ? `0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(${accentRgb},0.08)`
           : '0 2px 8px rgba(0,0,0,0.2)',
@@ -931,7 +928,7 @@ function EngageCard({ item, index }: { item: (typeof ENGAGEMENTS)[number]; index
         <div
           style={{
             fontFamily: "'JetBrains Mono', 'Courier New', monospace",
-            fontSize: '10px',
+            fontSize: 'clamp(10px, 0.6vw, 13px)',
             letterSpacing: '0.08em',
             textTransform: 'uppercase',
             color: 'var(--color-text-micro)',
@@ -963,7 +960,7 @@ function EngageCard({ item, index }: { item: (typeof ENGAGEMENTS)[number]; index
             color: isHovered ? '#FFFFFF' : 'var(--color-text-primary)',
             transition: 'color 0.3s ease',
           }}
-          className="text-base sm:text-lg"
+          className="text-base sm:text-lg 2xl:text-[1.375rem] min-[1920px]:text-[1.875rem]"
         >
           {item.title}
         </h3>
@@ -974,7 +971,7 @@ function EngageCard({ item, index }: { item: (typeof ENGAGEMENTS)[number]; index
             color: isHovered ? 'var(--color-text-secondary)' : '#6B7280',
             lineHeight: 1.7,
             margin: 0,
-            fontSize: '0.875rem',
+            fontSize: 'clamp(0.875rem, 0.9vw, 1.75rem)',
             transition: 'color 0.3s ease',
           }}
         >
@@ -995,24 +992,24 @@ function HowToEngage() {
       ref={ref}
       style={{
         background: '#121212',
-        paddingTop: 'clamp(4rem, 7vw, 6rem)',
-        paddingBottom: 'clamp(4rem, 7vw, 6rem)',
+        paddingTop: 'clamp(4rem, 7vw, 16rem)',
+        paddingBottom: 'clamp(4rem, 7vw, 16rem)',
         paddingLeft: 'max(1.5rem, 5vw)',
         paddingRight: 'max(1.5rem, 5vw)',
         scrollMarginTop: 'calc(var(--nav-h, 64px) + 1rem)',
       }}
     >
-      <div style={{ maxWidth: 1152, margin: '0 auto', width: '100%' }}>
+      <div className="section-inner-max" style={{ margin: '0 auto' }}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: EASE }}
-          style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}
+          style={{ marginBottom: 'clamp(2rem, 4vw, 9rem)', textAlign: 'center' }}
         >
           <div
             style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: '0.625rem',
+              fontSize: 'clamp(0.625rem, 0.55vw, 0.8125rem)',
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
               color: 'var(--color-text-tertiary)',
@@ -1033,7 +1030,7 @@ function HowToEngage() {
               lineHeight: 1.1,
               margin: '0 0 0.875rem 0',
             }}
-            className="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem]"
+            className="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] 2xl:text-[3.75rem] min-[1920px]:text-[5rem]"
           >
             How We Work With You
           </h2>
@@ -1043,10 +1040,10 @@ function HowToEngage() {
               fontFamily: 'var(--font-display)',
               color: 'var(--color-text-secondary)',
               lineHeight: 1.7,
-              margin: 0,
-              maxWidth: 520,
+              margin: '0 auto',
+              maxWidth: 'clamp(520px, 38vw, 900px)',
             }}
-            className="text-sm sm:text-base"
+            className="text-sm sm:text-base 2xl:text-[1.125rem] min-[1920px]:text-[1.375rem]"
           >
             Every engagement starts with understanding your environment. From there, we work in one of three ways
             depending on where you are.
@@ -1061,7 +1058,7 @@ function HowToEngage() {
             visible: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } },
           }}
           className="grid grid-cols-1 md:grid-cols-3"
-          style={{ gap: 'clamp(0.75rem, 2vw, 1.25rem)' }}
+          style={{ gap: 'clamp(0.75rem, 2vw, 4.5rem)' }}
         >
           {ENGAGEMENTS.map((item, i) => (
             <EngageCard key={item.num} item={item} index={i} />
@@ -1117,7 +1114,7 @@ function PersonaCard({ persona }: { persona: (typeof PERSONAS)[number] }) {
         borderBottom: `1px solid ${sideBorder}`,
         borderLeft: `2px solid ${leftAccent}`,
         borderRadius: 12,
-        padding: 'clamp(1.25rem, 2.5vw, 1.75rem)',
+        padding: 'clamp(1.25rem, 2.5vw, 5rem)',
         boxShadow: isHovered
           ? '0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(251,191,36,0.08)'
           : '0 2px 8px rgba(0,0,0,0.2)',
@@ -1162,7 +1159,7 @@ function PersonaCard({ persona }: { persona: (typeof PERSONAS)[number] }) {
             color: isHovered ? '#FFFFFF' : 'var(--color-text-primary)',
             transition: 'color 0.3s ease',
           }}
-          className="text-base sm:text-lg"
+          className="text-base sm:text-lg 2xl:text-[1.375rem] min-[1920px]:text-[1.875rem]"
         >
           {persona.title}
         </h3>
@@ -1172,7 +1169,7 @@ function PersonaCard({ persona }: { persona: (typeof PERSONAS)[number] }) {
             fontFamily: 'var(--font-display)',
             lineHeight: 1.7,
             margin: 0,
-            fontSize: '0.875rem',
+            fontSize: 'clamp(0.875rem, 0.9vw, 1.75rem)',
             color: isHovered ? 'var(--color-text-secondary)' : '#6B7280',
             transition: 'color 0.3s ease',
           }}
@@ -1193,27 +1190,27 @@ function WhoWeWorkWith() {
       ref={ref}
       style={{
         background: 'var(--color-bg-primary)',
-        paddingTop: 'clamp(4rem, 7vw, 6rem)',
-        paddingBottom: 'clamp(4rem, 7vw, 6rem)',
+        paddingTop: 'clamp(4rem, 7vw, 16rem)',
+        paddingBottom: 'clamp(4rem, 7vw, 16rem)',
         paddingLeft: 'max(1.5rem, 5vw)',
         paddingRight: 'max(1.5rem, 5vw)',
       }}
     >
-      <div style={{ maxWidth: 1152, margin: '0 auto', width: '100%' }}>
+      <div className="section-inner-max" style={{ margin: '0 auto' }}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: EASE }}
           style={{
             textAlign: 'center',
-            marginBottom: 'clamp(2rem, 4vw, 3rem)',
+            marginBottom: 'clamp(2rem, 4vw, 9rem)',
           }}
         >
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
             <div
               style={{
                 fontFamily: 'var(--font-mono)',
-                fontSize: '0.625rem',
+                fontSize: 'clamp(0.625rem, 0.55vw, 0.8125rem)',
                 letterSpacing: '0.1em',
                 textTransform: 'uppercase',
                 color: 'var(--color-text-tertiary)',
@@ -1235,7 +1232,7 @@ function WhoWeWorkWith() {
               lineHeight: 1.1,
               margin: 0,
             }}
-            className="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem]"
+            className="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] 2xl:text-[3.75rem] min-[1920px]:text-[5rem]"
           >
             Who We Work With
           </h2>
@@ -1249,7 +1246,7 @@ function WhoWeWorkWith() {
             visible: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
           }}
           className="grid grid-cols-1 md:grid-cols-3"
-          style={{ gap: 'clamp(0.75rem, 2vw, 1rem)' }}
+          style={{ gap: 'clamp(0.75rem, 2vw, 4.5rem)' }}
         >
           {PERSONAS.map((persona) => (
             <PersonaCard key={persona.title} persona={persona} />
@@ -1270,10 +1267,10 @@ function GlobalBlock() {
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-5 lg:gap-16">
           <motion.div initial={{ opacity: 0, x: -32 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7, ease: EASE }} className="lg:col-span-2">
             <div className="section-label">[ GLOBAL REACH ]</div>
-            <h2 className="mt-4 text-[1.75rem] font-serif font-medium leading-[1.1] text-text-primary sm:text-[2.25rem] lg:text-[2.75rem]">Built for Global Enterprise</h2>
+            <h2 className="mt-4 text-[1.75rem] font-serif font-medium leading-[1.1] text-text-primary sm:text-[2.25rem] lg:text-[2.75rem] 2xl:text-[3.75rem] min-[1920px]:text-[5rem]">Built for Global Enterprise</h2>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 32 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7, ease: EASE, delay: 0.15 }} className="lg:col-span-3">
-            <p className="text-sm leading-[1.8] text-text-secondary sm:text-base">
+            <p className="text-sm leading-[1.8] text-text-secondary sm:text-base 2xl:text-[1.125rem] min-[1920px]:text-[1.375rem]">
               Invisigent provides enterprise AI infrastructure consulting, AI automation systems, and agent orchestration architecture for organizations across India, the United States, and Europe. We design scalable AI systems, knowledge retrieval pipelines, and AI-native applications for global businesses building production AI capabilities — with compliance aligned to the EU AI Act, GDPR, and India&apos;s DPDP Act.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -1298,8 +1295,8 @@ function ServicesCTA() {
         background: 'var(--color-bg-primary)',
         position: 'relative',
         zIndex: 2,
-        paddingTop: 'clamp(4rem, 7vw, 6rem)',
-        paddingBottom: 'clamp(4rem, 7vw, 6rem)',
+        paddingTop: 'clamp(4rem, 7vw, 16rem)',
+        paddingBottom: 'clamp(4rem, 7vw, 16rem)',
         paddingLeft: 'max(1.5rem, 5vw)',
         paddingRight: 'max(1.5rem, 5vw)',
         overflow: 'hidden',
@@ -1313,16 +1310,7 @@ function ServicesCTA() {
         }}
       />
 
-      <div
-        style={{
-          maxWidth: 640,
-          margin: '0 auto',
-          width: '100%',
-          textAlign: 'center',
-          position: 'relative',
-          zIndex: 1,
-        }}
-      >
+      <div className="services-cta-content">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -1332,7 +1320,7 @@ function ServicesCTA() {
           <div
             style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: '0.625rem',
+              fontSize: 'clamp(0.625rem, 0.55vw, 0.8125rem)',
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
               color: 'var(--color-text-tertiary)',
@@ -1357,7 +1345,7 @@ function ServicesCTA() {
             margin: '0 0 1.5rem 0',
             textAlign: 'center',
           }}
-          className="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem]"
+          className="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] 2xl:text-[3.75rem] min-[1920px]:text-[5rem]"
         >
           Ready to Build AI Systems
           <br />
@@ -1374,9 +1362,9 @@ function ServicesCTA() {
             lineHeight: 1.75,
             margin: '0 auto 2.5rem',
             textAlign: 'center',
-            maxWidth: 500,
+            maxWidth: 'clamp(500px, 40vw, 900px)',
           }}
-          className="text-balance text-sm sm:text-base"
+          className="text-balance text-sm sm:text-base 2xl:text-[1.125rem] min-[1920px]:text-[1.375rem]"
         >
           If you are moving beyond AI experiments and want production-ready systems that integrate with how your
           organization actually operates — let&apos;s talk about what you are building.
@@ -1390,7 +1378,7 @@ function ServicesCTA() {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            gap: '0.875rem',
+            gap: 'clamp(0.875rem, 1.2vw, 2rem)',
             flexWrap: 'wrap',
           }}
         >
@@ -1399,9 +1387,9 @@ function ServicesCTA() {
             style={{
               fontFamily: 'var(--font-display)',
               fontWeight: 500,
-              fontSize: '0.875rem',
+              fontSize: 'clamp(0.875rem, 0.8vw, 1.375rem)',
               letterSpacing: '0.02em',
-              padding: '0.875rem 2rem',
+              padding: 'clamp(0.875rem, 0.8vw, 1.5rem) clamp(2rem, 2.5vw, 3.5rem)',
               borderRadius: '9999px',
               background: 'var(--color-btn-bg)',
               border: '1px solid rgba(255,255,255,0.15)',
@@ -1430,9 +1418,9 @@ function ServicesCTA() {
             style={{
               fontFamily: 'var(--font-display)',
               fontWeight: 500,
-              fontSize: '0.875rem',
+              fontSize: 'clamp(0.875rem, 0.8vw, 1.375rem)',
               letterSpacing: '0.02em',
-              padding: '0.875rem 2rem',
+              padding: 'clamp(0.875rem, 0.8vw, 1.5rem) clamp(2rem, 2.5vw, 3.5rem)',
               borderRadius: '9999px',
               background: 'transparent',
               border: '1px solid rgba(255,255,255,0.1)',
@@ -1477,7 +1465,7 @@ function ServicesCTA() {
             marginTop: '1.5rem',
             marginBottom: 0,
             fontFamily: 'var(--font-mono)',
-            fontSize: '10px',
+            fontSize: 'clamp(10px, 0.6vw, 13px)',
             letterSpacing: '0.06em',
             color: 'var(--color-text-micro)',
           }}

@@ -149,7 +149,7 @@ export function HeroSection() {
 
             {/* Subtext — keyword-rich for SEO + GEO */}
             <motion.p
-              className="max-w-[540px] font-serif text-base leading-relaxed text-text-secondary md:text-lg"
+              className="max-w-[540px] xl:max-w-[700px] 2xl:max-w-[900px] font-serif text-base leading-relaxed text-text-primary/75 md:text-lg"
               variants={subtextReveal}
               initial="hidden"
               animate="visible"
@@ -191,7 +191,7 @@ export function HeroSection() {
           >
             <div
               className="flex items-center justify-center overflow-hidden"
-              style={{ width: 'min(420px, 35vw)', aspectRatio: '1 / 1' }}
+              style={{ width: 'min(800px, 44vw)', aspectRatio: '1 / 1' }}
             >
               <DecisionEngineVis />
             </div>

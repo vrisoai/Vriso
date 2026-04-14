@@ -57,9 +57,7 @@ function SovereignIntelligenceCore({ inView, ctaHovered }: { inView: boolean; ct
     height: SIZE,
     backfaceVisibility: 'hidden',
     border: '1px solid rgba(59, 91, 219, 0.4)',
-    background: 'rgba(31, 31, 31, 0.4)',
-    backdropFilter: 'blur(8px)',
-    WebkitBackdropFilter: 'blur(8px)',
+    background: 'rgba(31, 31, 31, 0.6)',
   };
   return (
     <div className="strategic-cta-core" aria-hidden="true">
@@ -225,8 +223,8 @@ export default function StrategicCTASection() {
       className="strategic-cta-section relative w-full overflow-hidden"
       style={{
         background: 'var(--color-bg-primary)',
-        paddingTop: 'clamp(100px, 12vw, 160px)',
-        paddingBottom: 'clamp(100px, 12vw, 160px)',
+        paddingTop: 'clamp(100px, 12vw, 280px)',
+        paddingBottom: 'clamp(100px, 12vw, 280px)',
         paddingLeft: 'max(clamp(1.5rem, 5vw, 4rem), env(safe-area-inset-left))',
         paddingRight: 'max(clamp(1.5rem, 5vw, 4rem), env(safe-area-inset-right))',
       }}
@@ -275,7 +273,7 @@ export default function StrategicCTASection() {
               <p
                 className="font-mono text-text-tertiary"
                 style={{
-                  fontSize: 11,
+                  fontSize: 'clamp(11px, 0.9vw, 16px)',
                   letterSpacing: '0.14em',
                   textTransform: 'uppercase',
                   fontWeight: 500,
@@ -287,7 +285,7 @@ export default function StrategicCTASection() {
                 <span className="status-dot-sm shrink-0" aria-hidden />
                 <span
                   className="font-mono text-text-tertiary"
-                  style={{ fontSize: 10, letterSpacing: '0.1em' }}
+                  style={{ fontSize: 'clamp(10px, 0.8vw, 18px)', letterSpacing: '0.1em' }}
                 >
                   NODE READY
                 </span>
@@ -301,7 +299,7 @@ export default function StrategicCTASection() {
               className="font-serif text-text-primary"
               style={{
                 marginTop: 'clamp(20px, 3vw, 28px)',
-                fontSize: 'clamp(32px, 4.5vw, 52px)',
+                fontSize: 'clamp(32px, 4.5vw, 80px)',
                 fontWeight: 400,
                 lineHeight: 1.15,
               }}
@@ -317,8 +315,8 @@ export default function StrategicCTASection() {
               className="font-serif text-text-secondary"
               style={{
                 marginTop: 'clamp(16px, 2.5vw, 24px)',
-                maxWidth: 560,
-                fontSize: 'clamp(15px, 1.8vw, 18px)',
+                maxWidth: 'clamp(560px, 46vw, 900px)',
+                fontSize: 'clamp(15px, 1.3vw, 24px)',
                 lineHeight: 1.7,
               }}
             >
@@ -336,7 +334,7 @@ export default function StrategicCTASection() {
               className="font-serif text-text-secondary"
               style={{
                 marginTop: 'clamp(20px, 2.5vw, 28px)',
-                fontSize: 'clamp(15px, 1.5vw, 17px)',
+                fontSize: 'clamp(15px, 1.1vw, 20px)',
                 lineHeight: 1.6,
               }}
             >
@@ -376,7 +374,7 @@ export default function StrategicCTASection() {
                   <span className="status-dot-sm shrink-0" aria-hidden />
                   <span
                     className="font-mono text-text-tertiary"
-                    style={{ fontSize: 10, letterSpacing: '0.06em' }}
+                    style={{ fontSize: 'clamp(10px, 0.8vw, 18px)', letterSpacing: '0.06em' }}
                   >
                     {signal}
                   </span>
@@ -388,7 +386,7 @@ export default function StrategicCTASection() {
           {/* ═══ RIGHT COLUMN — Sovereign Intelligence Core ═══ */}
           <motion.div
             className="relative flex shrink-0 items-center justify-center"
-            style={{ width: 280, height: 280 }}
+            style={{ width: 'clamp(280px, 22vw, 500px)', height: 'clamp(280px, 22vw, 500px)' }}
             initial={{ opacity: 1, scale: 0.92 }}
             animate={inView ? { opacity: 1, scale: 1 } : { opacity: 1, scale: 0.92 }}
             transition={{ duration: 0.9, delay: 0.35, ease: EASE }}

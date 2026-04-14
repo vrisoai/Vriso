@@ -3,7 +3,10 @@
 
 import Script from 'next/script';
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState, useCallback, useMemo, useEffect } from 'react';
+import { useRef, useState, useCallback, useMemo, useEffect, useLayoutEffect } from 'react';
+
+/* Runs as useLayoutEffect on client (before paint) and useEffect on server (SSR-safe) */
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 import { EASE, FADE_UP, CARD_FADE } from '@/app/lib/animations';
 
 /* ─── JSON-LD ─── */
@@ -100,14 +103,11 @@ export default function HowWeWork() {
   const gridRef = useRef<HTMLDivElement>(null);
   const carouselGridRef = useRef<HTMLDivElement>(null);
   const gridInView = useInView(gridRef, { once: true, margin: '-60px' });
-  /* Default true: avoid desktop flash; phones get (hover: none) after mount */
+  /* useIsomorphicLayoutEffect fires before paint on client — sets hasHover synchronously
+     so mobile never sees the heading→description flash that useEffect caused */
   const [hasHover, setHasHover] = useState(true);
-  useEffect(() => {
-    const mq = window.matchMedia('(hover: hover)');
-    const sync = () => setHasHover(mq.matches);
-    sync();
-    mq.addEventListener('change', sync);
-    return () => mq.removeEventListener('change', sync);
+  useIsomorphicLayoutEffect(() => {
+    setHasHover(window.matchMedia('(hover: hover)').matches);
   }, []);
 
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -166,8 +166,8 @@ export default function HowWeWork() {
       className="how-we-work-section relative w-full overflow-hidden"
       style={{
         background: 'var(--color-bg-primary)',
-        paddingTop: 'clamp(80px, 10vw, 140px)',
-        paddingBottom: 'clamp(80px, 10vw, 140px)',
+        paddingTop: 'clamp(80px, 10vw, 240px)',
+        paddingBottom: 'clamp(80px, 10vw, 240px)',
         paddingLeft: 'max(clamp(1.5rem, 5vw, 4rem), env(safe-area-inset-left))',
         paddingRight: 'max(clamp(1.5rem, 5vw, 4rem), env(safe-area-inset-right))',
       }}
@@ -203,7 +203,7 @@ export default function HowWeWork() {
             flexDirection: 'column',
             alignItems: 'center',
             textAlign: 'center',
-            maxWidth: 720,
+            maxWidth: 'clamp(720px, 54vw, 1280px)',
             marginInline: 'auto',
           }}
         >
@@ -232,7 +232,7 @@ export default function HowWeWork() {
               id="how-we-work-heading"
               className="font-serif"
               style={{
-                fontSize: 'clamp(32px, 4vw, 48px)',
+                fontSize: 'clamp(32px, 4vw, 80px)',
                 fontWeight: 500,
                 lineHeight: 1.15,
                 color: 'var(--color-text-primary)',
@@ -251,10 +251,10 @@ export default function HowWeWork() {
           <motion.p
             className="font-serif"
             style={{
-              fontSize: 'clamp(16px, 1.3vw, 20px)',
+              fontSize: 'clamp(16px, 1.3vw, 28px)',
               lineHeight: 1.7,
-              maxWidth: 680,
-              marginTop: 'clamp(18px, 2.5vw, 28px)',
+              maxWidth: 'clamp(680px, 54vw, 1280px)',
+              marginTop: 'clamp(18px, 2.5vw, 48px)',
               color: 'var(--color-text-secondary)',
               width: '100%',
             }}
@@ -312,7 +312,7 @@ export default function HowWeWork() {
                 <motion.h3
                   className="font-serif absolute inset-0 flex items-center"
                   style={{
-                    fontSize: 'clamp(20px, 1.8vw, 24px)',
+                    fontSize: 'clamp(20px, 1.8vw, 44px)',
                     fontWeight: 600,
                     lineHeight: 1.3,
                     color: 'var(--color-text-primary)',
@@ -326,7 +326,7 @@ export default function HowWeWork() {
                 <motion.p
                   className="font-serif absolute inset-0 flex items-start pt-1"
                   style={{
-                    fontSize: 'clamp(14px, 1.1vw, 16px)',
+                    fontSize: 'clamp(14px, 1.1vw, 26px)',
                     lineHeight: 1.65,
                     color: 'var(--color-text-secondary)',
                   }}
@@ -370,7 +370,7 @@ export default function HowWeWork() {
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.6, ease: EASE }}
         >
-          <p className="text-center font-serif text-text-secondary" style={{ fontSize: 'clamp(14px, 1.6vw, 18px)', lineHeight: 1.7, maxWidth: 640, marginInline: 'auto' }}>
+          <p className="text-center font-serif text-text-secondary" style={{ fontSize: 'clamp(14px, 1.6vw, 32px)', lineHeight: 1.7, maxWidth: 900, marginInline: 'auto' }}>
             AI transformation is not a single deployment. It is an{' '}
             <span className="text-trust-amber" style={{ fontWeight: 700 }}>
               evolving infrastructure

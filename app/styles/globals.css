@@ -107,9 +107,11 @@ html {
   z-index: 13 !important;
 }
 
-/* Home How We Work: drop backdrop-filter on all .glass-card — blur layers composite over the next slab in Chromium */
+/* Home: drop backdrop-filter on glass cards in slabs that animate or composite — blur layers cause flicker on mobile */
 .content-over-hero .home-over-hero-slab--4 .glass-card,
-main.home-page .home-mobile-content-sheet .home-mobile-slab--4 .glass-card {
+main.home-page .home-mobile-content-sheet .home-mobile-slab--3 .glass-card,
+main.home-page .home-mobile-content-sheet .home-mobile-slab--4 .glass-card,
+main.home-page .home-mobile-content-sheet .home-mobile-slab--5 .glass-card {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
@@ -1423,6 +1425,23 @@ button {
 .text-label { font-size: clamp(0.625rem, 0.5vw + 0.25rem, 0.6875rem); }
 .text-pullquote { font-size: clamp(1rem, 2vw + 0.25rem, 1.25rem); }
 
+/* Ultra-wide (≥1536px): scale typography so text doesn't look small against the wider container */
+@media (min-width: 1536px) {
+  .text-hero        { font-size: clamp(5rem,   5.5vw, 7rem);   }
+  .text-section-h   { font-size: clamp(3rem,   3.5vw, 4.5rem); }
+  .text-card-title  { font-size: clamp(1.25rem, 1.4vw, 1.75rem); }
+  .text-body        { font-size: clamp(1rem,    1vw,   1.25rem); }
+  .text-pullquote   { font-size: clamp(1.25rem, 1.5vw, 1.5rem); }
+}
+
+@media (min-width: 1920px) {
+  .text-hero        { font-size: clamp(6rem,   5vw,   8rem);   }
+  .text-section-h   { font-size: clamp(4rem,   3.2vw, 5.5rem); }
+  .text-card-title  { font-size: clamp(1.5rem, 1.3vw, 2rem);   }
+  .text-body        { font-size: clamp(1.125rem, 0.9vw, 1.375rem); }
+  .text-pullquote   { font-size: clamp(1.375rem, 1.4vw, 1.75rem); }
+}
+
 /* About page — section wrapper (padding + safe area) */
 .section-wrapper {
   width: 100%;
@@ -1436,6 +1455,24 @@ button {
   width: 100%;
   max-width: 1152px;
   margin: 0 auto;
+}
+
+@media (min-width: 1536px) {
+  .section-inner-max {
+    max-width: 1400px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .section-inner-max {
+    max-width: 1680px;
+  }
+}
+
+@media (min-width: 2400px) {
+  .section-inner-max {
+    max-width: 2200px;
+  }
 }
 
 /* Search Visibility + Market Intelligence — obsidian page + glass panel (tokens only) */
@@ -2034,6 +2071,84 @@ main.ecommerce-assistant-page {
   }
 }
 
+@media (min-width: 1536px) {
+  .services-page .section-wrapper {
+    padding-top: clamp(7rem, 8vw, 10rem);
+    padding-bottom: clamp(7rem, 8vw, 10rem);
+  }
+}
+
+@media (min-width: 1920px) {
+  .services-page .section-wrapper {
+    padding-top: clamp(8rem, 7vw, 16rem);
+    padding-bottom: clamp(8rem, 7vw, 16rem);
+  }
+}
+
+@media (min-width: 2400px) {
+  .services-page .section-wrapper {
+    padding-top: clamp(10rem, 7vw, 18rem);
+    padding-bottom: clamp(10rem, 7vw, 18rem);
+  }
+}
+
+/* Services page — ultra-wide responsive containers */
+.services-hero-content {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+@media (min-width: 1536px) {
+  .services-hero-content { max-width: 1100px; }
+}
+@media (min-width: 1920px) {
+  .services-hero-content { max-width: 1300px; }
+}
+@media (min-width: 2400px) {
+  .services-hero-content { max-width: 1700px; }
+}
+
+.services-positioning-content {
+  max-width: 720px;
+  width: 100%;
+}
+@media (min-width: 1536px) {
+  .services-positioning-content { max-width: 900px; }
+}
+@media (min-width: 1920px) {
+  .services-positioning-content { max-width: 1080px; }
+}
+@media (min-width: 2400px) {
+  .services-positioning-content { max-width: 1400px; }
+}
+
+.services-cta-content {
+  max-width: 640px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 1536px) {
+  .services-cta-content { max-width: 780px; }
+}
+@media (min-width: 1920px) {
+  .services-cta-content { max-width: 920px; }
+}
+@media (min-width: 2400px) {
+  .services-cta-content { max-width: 1300px; }
+}
+
+/* Services page — typography scaling at 2400px+ */
+@media (min-width: 2400px) {
+  .services-page h1 { font-size: clamp(7rem, 6.5vw, 11rem) !important; }
+  .services-page h2 { font-size: clamp(5rem, 5vw, 8.5rem) !important; }
+  .services-page h3 { font-size: clamp(2.25rem, 2.2vw, 3.75rem) !important; }
+  .services-page p  { font-size: clamp(1.375rem, 1.1vw, 2rem) !important; }
+}
+
 /* Reduced motion — required for accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -2469,4 +2584,72 @@ main.ecommerce-assistant-page {
 /* Success icon */
 .lets-talk-success-icon {
   color: var(--color-action-accent);
+}
+
+/* ── Wide-screen (1920px+) overrides ─────────────────────────────────────── */
+@media (min-width: 1920px) {
+  /* Section header max-widths — override inline style maxWidth: 672 */
+  .section-container header {
+    max-width: min(900px, 65%) !important;
+  }
+
+  /* Hero heading — keep svh constraint so heading never pushes subtext off-screen */
+  .home-hero h1 span {
+    font-size: clamp(4.25rem, min(4.5vw, 6.8svh), 7rem) !important;
+  }
+
+  .home-hero p {
+    font-size: 1.175rem;
+    max-width: min(860px, 55vw);
+  }
+
+  /* ValueProposition section heading & description */
+  [id="vriso-value-heading"] {
+    font-size: clamp(48px, 4vw, 80px) !important;
+  }
+
+  .section-container header p.font-serif {
+    font-size: clamp(18px, 1.3vw, 26px) !important;
+  }
+
+  /* VP card min-height for wide screens */
+  .vp-card {
+    min-height: 220px;
+  }
+  .vp-card__inner {
+    min-height: 220px;
+  }
+}
+
+@media (min-width: 2200px) {
+  .section-container header {
+    max-width: min(1100px, 60%) !important;
+  }
+
+  .home-hero h1 span {
+    font-size: clamp(4.25rem, min(5vw, 6.8svh), 8rem) !important;
+  }
+
+  .home-hero p {
+    font-size: clamp(1.175rem, 1.1vw, 1.75rem);
+    max-width: min(1000px, 52vw);
+  }
+
+  [id="vriso-value-heading"] {
+    font-size: clamp(60px, 4.5vw, 100px) !important;
+  }
+
+  .section-container header p.font-serif {
+    font-size: clamp(20px, 1.5vw, 32px) !important;
+  }
+
+  .vp-card {
+    min-height: 280px;
+  }
+  .vp-card__inner {
+    min-height: 280px;
+  }
+  .vp-card__label {
+    font-size: 13px;
+  }
 }

@@ -183,6 +183,9 @@ a:focus-visible {
       0 8px 32px rgba(0, 0, 0, 0.5),
       0 0 24px rgba(45, 91, 255, 0.1);
     transform: translateY(-2px);
+    /* Reduce blur cost on mobile — blur(20px) forces per-card GPU compositing layers */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
   .glass-card::before {
@@ -194,11 +197,8 @@ a:focus-visible {
   }
 }
 
-@media (hover: none) and (prefers-reduced-motion: no-preference) {
-  .glass-card::before {
-    animation: glow-spin 3s linear infinite;
-  }
-}
+/* glow-spin intentionally omitted on touch devices — continuous conic-gradient repaint
+   causes persistent flickering in scroll containers on mobile GPUs */
 
 /* === SECTION WRAPPER === */
 .section {
@@ -300,7 +300,12 @@ a:focus-visible {
 }
 @media (min-width: 1536px) {
   .section-container {
-    max-width: 87.5rem; /* 1400px — 2xl */
+    max-width: 100rem; /* 1600px — 2xl */
+  }
+}
+@media (min-width: 1920px) {
+  .section-container {
+    max-width: clamp(110rem, 85vw, 145rem); /* scales with viewport at ultra-wide */
   }
 }
 
@@ -536,7 +541,7 @@ a:focus-visible {
 
 .vp-card__title {
   font-family: var(--font-display);
-  font-size: clamp(18px, 1.6vw, 22px);
+  font-size: clamp(18px, 1.6vw, 42px);
   font-weight: 600;
   color: var(--color-text-primary);
   margin: 0;
@@ -544,7 +549,7 @@ a:focus-visible {
 
 .vp-card__desc {
   font-family: var(--font-serif);
-  font-size: clamp(14px, 1.2vw, 16px);
+  font-size: clamp(14px, 1.2vw, 28px);
   line-height: 1.65;
   color: var(--color-text-secondary);
   margin: 0;
@@ -573,7 +578,7 @@ a:focus-visible {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  max-width: 720px;
+  max-width: clamp(720px, 54vw, 1280px);
   margin-inline: auto;
   padding-inline: 0.25rem;
 }
@@ -602,6 +607,15 @@ a:focus-visible {
 }
 
 /* === WHY VRISO — Mobile cards (no 3D, lightweight) === */
+
+/* Bypass Framer Motion CARD_FADE on mobile — prevents opacity/transform animation flickering */
+@media (max-width: 639px) {
+  .why-vriso-section .glass-card {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 .why-vriso-card-mobile {
   padding: 1.25rem 1.25rem;
   min-height: 0;
@@ -627,7 +641,7 @@ a:focus-visible {
   padding: clamp(28px, 3vw, 40px);
   min-height: 200px;
   width: 100%;
-  max-width: 360px; /* narrower, more rectangular card */
+  max-width: clamp(360px, 28vw, 700px);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -726,6 +740,26 @@ a:focus-visible {
   .how-we-work-insight {
     margin-left: 1.5rem !important;
     margin-right: 1.5rem !important;
+  }
+
+  /* Stop glow-spin on mobile — conic-gradient repaint in a scroll container causes continuous flickering */
+  .how-we-work-section .glass-card::before {
+    animation: none !important;
+  }
+
+  /* Bypass Framer Motion CARD_FADE entrance animation on mobile to avoid transform/opacity fights */
+  .how-we-work-card-wrapper {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Always show description, always hide title — no JS-driven opacity toggle needed */
+  .how-we-work-card__content h3 {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+  .how-we-work-card__content p {
+    opacity: 1 !important;
   }
 }
 
@@ -827,6 +861,31 @@ a:focus-visible {
   }
 }
 
+@media (min-width: 1920px) {
+  .how-we-work-card {
+    min-height: 340px;
+    padding: clamp(40px, 3vw, 56px);
+  }
+  .how-we-work-card__content {
+    min-height: 220px;
+  }
+  .how-we-work-card__label {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 2200px) {
+  .how-we-work-card {
+    min-height: 420px;
+  }
+  .how-we-work-card__content {
+    min-height: 280px;
+  }
+  .how-we-work-card__label {
+    font-size: 15px;
+  }
+}
+
 /* Connection beam from card to center Process Engine */
 .how-we-work-card-with-beam .how-we-work-beam {
   display: none;
@@ -886,6 +945,15 @@ a:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .section-grid-overlay {
     animation: none;
+  }
+}
+
+/* Mobile: disable the continuous grid-drift animation — it creates a persistent compositor layer
+   that fights with slab entrance animations and glass cards, causing flicker */
+@media (max-width: 639px) {
+  .section-grid-overlay {
+    animation: none;
+    will-change: auto;
   }
 }
 
@@ -993,10 +1061,10 @@ a:focus-visible {
   background: var(--color-btn-bg);
   border: 1px solid var(--color-link);
   color: var(--color-text-primary);
-  padding: 14px 28px;
+  padding: clamp(14px, 0.85vw, 22px) clamp(28px, 2.2vw, 48px);
   border-radius: 9999px;
   font-family: var(--font-display);
-  font-size: 15px;
+  font-size: clamp(15px, 0.9vw, 22px);
   font-weight: 500;
   cursor: pointer;
   transition: background 200ms ease, box-shadow 200ms ease, transform 200ms ease;
@@ -1018,7 +1086,7 @@ a:focus-visible {
   background: transparent;
   border: 1px solid var(--color-border);
   color: var(--color-text-secondary);
-  padding: 14px 28px;
+  padding: clamp(14px, 0.85vw, 22px) clamp(28px, 2.2vw, 48px);
   border-radius: 9999px;
   font-family: var(--font-display);
   font-size: 15px;
@@ -1030,6 +1098,18 @@ a:focus-visible {
   border-color: var(--color-trust-amber);
   color: var(--color-text-primary);
   transform: translateY(-2px);
+}
+
+@media (min-width: 1920px) {
+  .strategic-cta-core {
+    transform: scale(1.4);
+  }
+}
+
+@media (min-width: 2200px) {
+  .strategic-cta-core {
+    transform: scale(1.8);
+  }
 }
 
 /* === CORE SERVICES — Sticky left, scroll-driven card transitions (one card per 100vh) === */
@@ -1070,7 +1150,7 @@ a:focus-visible {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
   gap: clamp(1.5rem, 3vw, 4rem);
   align-items: start;
-  max-width: 80rem;
+  max-width: clamp(80rem, 82vw, 145rem);
   margin-inline: auto;
   padding: clamp(40px, 6vw, 80px) max(clamp(1rem, 4vw, 4rem), env(safe-area-inset-left));
   padding-right: max(clamp(1rem, 4vw, 4rem), env(safe-area-inset-right));
@@ -1148,10 +1228,10 @@ a:focus-visible {
   transform: translateY(-50%) translateZ(0); /* force GPU layer */
   left: 0;
   right: 0;
-  height: clamp(280px, 45vh, 380px);
+  height: clamp(280px, 45vh, 560px);
   min-height: 280px;
-  max-height: 380px;
-  padding: clamp(16px, 2vw, 28px);
+  max-height: 560px;
+  padding: clamp(16px, 2vw, 40px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1349,9 +1429,9 @@ a:focus-visible {
   }
 }
 
-.core-services-stack-card .font-mono { font-size: clamp(9px, 2.2vw, 10px) !important; }
-.core-services-stack-card h3 { font-size: clamp(16px, 3.5vw, 22px) !important; }
-.core-services-stack-card p:not(.font-mono) { font-size: clamp(13px, 2vw, 16px) !important; }
+.core-services-stack-card .font-mono { font-size: clamp(9px, 2.2vw, 13px) !important; }
+.core-services-stack-card h3 { font-size: clamp(16px, 1.5vw, 42px) !important; }
+.core-services-stack-card p:not(.font-mono) { font-size: clamp(13px, 1vw, 28px) !important; }
 
 /* === SELECTION === */
 ::selection {
@@ -1511,12 +1591,38 @@ a:focus-visible {
 }
 
 .vriso-footer-logo-img {
-  width: auto;
-  height: 40px;
+  width: min(45vw, 160px);
+  height: auto;
   max-width: 100%;
+  min-width: 90px;
   object-fit: contain;
   object-position: left center;
   display: block;
+}
+
+@media (min-width: 1536px) {
+  .vriso-footer-logo-img {
+    width: min(16vw, 190px);
+  }
+}
+
+@media (min-width: 1920px) {
+  .vriso-footer-logo-img {
+    width: min(14vw, 220px);
+  }
+}
+
+@media (min-width: 2200px) {
+  .vriso-footer-logo-img {
+    width: min(12vw, 240px);
+  }
+}
+
+@media (max-width: 767px) {
+  .vriso-footer-logo-img {
+    width: min(52vw, 120px);
+    min-width: 80px;
+  }
 }
 
 .vriso-footer-neural-icon {
@@ -1787,6 +1893,21 @@ a:focus-visible {
   }
 }
 
+/* Wide screens: scale footer text */
+@media (min-width: 1920px) {
+  .vriso-footer-heading { font-size: 1.1rem; }
+  .vriso-footer-link { font-size: 1.05rem; }
+  .vriso-footer-email { font-size: 1.05rem; }
+  .vriso-footer-brand-desc { font-size: 1.05rem; }
+}
+
+@media (min-width: 2200px) {
+  .vriso-footer-heading { font-size: 1.3rem; }
+  .vriso-footer-link { font-size: 1.2rem; }
+  .vriso-footer-email { font-size: 1.2rem; }
+  .vriso-footer-brand-desc { font-size: 1.2rem; }
+}
+
 /* Mobile: single column, stacked layout */
 @media (max-width: 767px) {
   .vriso-footer-grid {
@@ -2009,12 +2130,18 @@ a:focus-visible {
 
 /* Philosophy section — extra space between heading group and cards grid */
 .about-page .about-philosophy-cards {
-  margin-top: 3.5rem;
+  margin-top: 5rem;
+}
+
+@media (min-width: 640px) {
+  .about-page .about-philosophy-cards {
+    margin-top: 6rem;
+  }
 }
 
 @media (min-width: 1024px) {
   .about-page .about-philosophy-cards {
-    margin-top: 4.5rem;
+    margin-top: 7rem;
   }
 }
 
@@ -2047,6 +2174,14 @@ a:focus-visible {
 
 @media (min-width: 1024px) {
   .card-base { padding: 2rem; }
+}
+
+@media (min-width: 1536px) {
+  .card-base { padding: 2.5rem; }
+}
+
+@media (min-width: 1920px) {
+  .card-base { padding: 3rem; }
 }
 
 .card-amber { border-top: 2px solid var(--color-trust-amber); }

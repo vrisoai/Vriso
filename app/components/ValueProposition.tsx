@@ -75,8 +75,8 @@ export function ValueProposition() {
       className="relative w-full overflow-x-hidden"
       style={{
         background: '#121212',
-        paddingTop: 'clamp(80px, 10vw, 140px)',
-        paddingBottom: 'clamp(80px, 10vw, 140px)',
+        paddingTop: 'clamp(80px, 10vw, 240px)',
+        paddingBottom: 'clamp(80px, 10vw, 240px)',
         paddingLeft: 'max(clamp(1.5rem, 5vw, 4rem), env(safe-area-inset-left))',
         paddingRight: 'max(clamp(1.5rem, 5vw, 4rem), env(safe-area-inset-right))',
       }}
@@ -101,7 +101,7 @@ export function ValueProposition() {
             flexDirection: 'column',
             alignItems: 'center',
             textAlign: 'center',
-            maxWidth: 672,
+            maxWidth: 'clamp(672px, 52vw, 1200px)',
             marginInline: 'auto',
           }}
         >
@@ -129,7 +129,7 @@ export function ValueProposition() {
             id="vriso-value-heading"
             className="font-serif"
             style={{
-              fontSize: 'clamp(36px, 4vw, 48px)',
+              fontSize: 'clamp(36px, 4vw, 96px)',
               fontWeight: 500,
               lineHeight: 1.15,
               marginTop: 'clamp(20px, 3vw, 32px)',
@@ -150,10 +150,10 @@ export function ValueProposition() {
           <motion.p
             className="font-serif"
             style={{
-              fontSize: 'clamp(16px, 1.3vw, 20px)',
+              fontSize: 'clamp(16px, 1.3vw, 28px)',
               lineHeight: 1.7,
-              maxWidth: 680,
-              marginTop: 'clamp(18px, 2.5vw, 28px)',
+              maxWidth: 'clamp(680px, 52vw, 1200px)',
+              marginTop: 'clamp(18px, 2.5vw, 48px)',
               textAlign: 'center',
               color: 'var(--color-text-secondary)',
               width: '100%',
@@ -174,8 +174,8 @@ export function ValueProposition() {
         {/* ── Value cards grid ── */}
         <motion.div
           ref={gridRef}
-          className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
-          style={{ marginTop: 'clamp(40px, 5vw, 64px)' }}
+          className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 2xl:gap-12 min-[1920px]:gap-16"
+          style={{ marginTop: 'clamp(40px, 5vw, 120px)' }}
           variants={cardStagger}
           initial="hidden"
           animate={gridInView ? 'visible' : 'hidden'}

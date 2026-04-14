@@ -297,13 +297,13 @@ export function CoreServices() {
 
         <div className="core-services-layout">
         <div className="core-services-left">
-          <motion.p className="section-label font-mono" style={{ fontSize: 'clamp(10px, 2.5vw, 12px)', letterSpacing: '0.14em', fontWeight: 500, color: 'var(--color-text-tertiary)' }} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.6, ease: EASE }}>
+          <motion.p className="section-label font-mono" style={{ fontSize: 'clamp(10px, 2.5vw, 14px)', letterSpacing: '0.14em', fontWeight: 500, color: 'var(--color-text-tertiary)' }} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.6, ease: EASE }}>
             [ OUR SERVICES ]
           </motion.p>
-          <motion.h2 id="core-services-heading" className="font-serif" style={{ fontSize: 'clamp(32px, 4vw, 48px)', fontWeight: 500, lineHeight: 1.15, marginTop: 'clamp(20px, 3vw, 28px)', color: 'var(--color-text-primary)' }} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.6, delay: 0.1, ease: EASE }}>
+          <motion.h2 id="core-services-heading" className="font-serif" style={{ fontSize: 'clamp(32px, 4vw, 80px)', fontWeight: 500, lineHeight: 1.15, marginTop: 'clamp(20px, 3vw, 28px)', color: 'var(--color-text-primary)' }} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.6, delay: 0.1, ease: EASE }}>
             Enterprise AI Systems &amp; Infrastructure
           </motion.h2>
-          <motion.p className="font-serif" style={{ fontSize: 'clamp(15px, 1.3vw, 18px)', lineHeight: 1.7, marginTop: 'clamp(18px, 2.5vw, 28px)', color: 'var(--color-text-secondary)', maxWidth: 480 }} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.6, delay: 0.2, ease: EASE }}>
+          <motion.p className="font-serif" style={{ fontSize: 'clamp(15px, 1.3vw, 28px)', lineHeight: 1.7, marginTop: 'clamp(18px, 2.5vw, 28px)', color: 'var(--color-text-secondary)', maxWidth: 680 }} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.6, delay: 0.2, ease: EASE }}>
             Invisigent helps organizations design, build, and scale enterprise AI systems — from architecture strategy and agent orchestration to knowledge retrieval and AI-native product development.
           </motion.p>
         </div>
@@ -316,13 +316,13 @@ export function CoreServices() {
               className="core-services-stack-card glass-card"
               style={{ zIndex: i + 1 }}
             >
-              <p className="font-mono" style={{ fontSize: 'clamp(9px, 2.2vw, 10px)', letterSpacing: '0.14em', fontWeight: 500, color: 'var(--color-text-micro)', borderLeft: '2px solid var(--color-trust-amber)', paddingLeft: 10 }}>
+              <p className="font-mono" style={{ fontSize: 'clamp(9px, 2.2vw, 13px)', letterSpacing: '0.14em', fontWeight: 500, color: 'var(--color-text-micro)', borderLeft: '2px solid var(--color-trust-amber)', paddingLeft: 10 }}>
                 {card.label}
               </p>
-              <h3 className="font-serif" style={{ fontSize: 'clamp(18px, 1.5vw, 22px)', fontWeight: 600, lineHeight: 1.3, marginTop: 12, color: 'var(--color-text-primary)' }}>
+              <h3 className="font-serif" style={{ fontSize: 'clamp(18px, 1.5vw, 42px)', fontWeight: 600, lineHeight: 1.3, marginTop: 12, color: 'var(--color-text-primary)' }}>
                 {card.title}
               </h3>
-              <p className="font-serif" style={{ fontSize: 'clamp(14px, 1vw, 16px)', lineHeight: 1.7, marginTop: 10, color: 'var(--color-text-secondary)' }}>
+              <p className="font-serif" style={{ fontSize: 'clamp(14px, 1vw, 28px)', lineHeight: 1.7, marginTop: 10, color: 'var(--color-text-secondary)' }}>
                 {card.description}
               </p>
             </article>

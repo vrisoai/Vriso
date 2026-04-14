@@ -3,7 +3,7 @@
 import Script from 'next/script';
 import dynamic from 'next/dynamic';
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState, useCallback, useMemo } from 'react';
+import { useRef, useState, useCallback } from 'react';
 import { EASE, FADE_UP, CARD_FADE } from '@/app/lib/animations';
 
 const WhyVRisoCardScene = dynamic(() => import('./3d/WhyVRisoCardSceneWrapper'), { ssr: false });
@@ -68,13 +68,6 @@ const PARTICLES: { x: number; y: number; delay: number; duration: number }[] = [
   { x: 95, y: 10, delay: 1, duration: 9 },
 ];
 
-/* ─── Beam endpoints (card center → core center) in viewBox % ─── */
-const BEAM_POSITIONS = [
-  { from: { x: 25, y: 22 }, to: { x: 50, y: 50 } },
-  { from: { x: 75, y: 22 }, to: { x: 50, y: 50 } },
-  { from: { x: 25, y: 78 }, to: { x: 50, y: 50 } },
-  { from: { x: 75, y: 78 }, to: { x: 50, y: 50 } },
-];
 
 /* ─── Neural particles background ─── */
 function NeuralParticles({ visible }: { visible: boolean }) {
@@ -112,8 +105,8 @@ export function WhyVRISO() {
   const sectionRef = useRef<HTMLElement>(null);
   const sectionInView = useInView(sectionRef, { once: true, margin: '-100px' });
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-  const handleEnter = useCallback((i: number) => () => setHoveredCard(i), []);
   const handleLeave = useCallback(() => setHoveredCard(null), []);
+  const handleEnter = useCallback((i: number) => () => setHoveredCard(i), []);
 
   const handleCardMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -127,8 +120,8 @@ export function WhyVRISO() {
       className="why-vriso-section relative w-full overflow-hidden"
       style={{
         background: 'var(--color-bg-primary)',
-        paddingTop: 'clamp(40px, 8vw, 140px)',
-        paddingBottom: 'clamp(40px, 8vw, 140px)',
+        paddingTop: 'clamp(40px, 8vw, 240px)',
+        paddingBottom: 'clamp(40px, 8vw, 240px)',
         paddingLeft: 'max(clamp(0.75rem, 3vw, 4rem), env(safe-area-inset-left))',
         paddingRight: 'max(clamp(0.75rem, 3vw, 4rem), env(safe-area-inset-right))',
       }}
@@ -180,10 +173,11 @@ export function WhyVRISO() {
 
           <motion.h2
             id="why-vriso-heading"
-            className="font-serif text-2xl sm:text-4xl md:text-5xl"
+            className="font-serif"
             style={{
               fontWeight: 500,
               lineHeight: 1.2,
+              fontSize: 'clamp(28px, 4vw, 80px)',
               marginTop: 'clamp(12px, 2vw, 32px)',
               color: 'var(--color-text-primary)',
               width: '100%',
@@ -199,10 +193,11 @@ export function WhyVRISO() {
           </motion.h2>
 
           <motion.div
-            className="font-serif text-sm sm:text-base md:text-lg why-vriso-desc"
+            className="font-serif why-vriso-desc"
             style={{
               lineHeight: 1.7,
-              maxWidth: 680,
+              fontSize: 'clamp(15px, 1.3vw, 28px)',
+              maxWidth: 'clamp(680px, 54vw, 1280px)',
               marginTop: 'clamp(12px, 2vw, 28px)',
               color: 'var(--color-text-secondary)',
               width: '100%',
@@ -279,6 +274,13 @@ export function WhyVRISO() {
                 className={`glass-card ${i === 0 ? 'sm:col-start-1' : 'sm:col-start-2'} sm:row-start-1`}
                 style={{ padding: 'clamp(24px, 2.5vw, 32px)' }}
                 variants={CARD_FADE}
+                animate={{
+                  opacity: hoveredCard !== null && hoveredCard !== i ? 0.55 : 1,
+                  boxShadow: hoveredCard === i
+                    ? '0 0 0 1.5px rgba(59,91,219,0.7), 0 0 48px rgba(59,91,219,0.14)'
+                    : undefined,
+                }}
+                transition={{ duration: 0.25 }}
                 onMouseEnter={handleEnter(i)}
                 onMouseLeave={handleLeave}
                 onMouseMove={handleCardMouseMove}
@@ -289,13 +291,13 @@ export function WhyVRISO() {
                     {CARDS[i].label}
                   </p>
                 )}
-                <div style={{ height: 140 }}>
+                <div style={{ height: 'clamp(140px, 12vw, 260px)' }}>
                   <WhyVRisoCardScene variant={i} hovered={hoveredCard === i} />
                 </div>
-                <h3 className="font-serif mt-4" style={{ fontSize: 'clamp(18px, 1.5vw, 22px)', fontWeight: 600, color: 'var(--color-text-primary)' }}>
+                <h3 className="font-serif mt-4" style={{ fontSize: 'clamp(18px, 1.5vw, 42px)', fontWeight: 600, color: 'var(--color-text-primary)' }}>
                   {CARDS[i].title}
                 </h3>
-                <p className="font-serif mt-2" style={{ fontSize: 'clamp(14px, 1vw, 16px)', lineHeight: 1.7, color: 'var(--color-text-secondary)' }}>
+                <p className="font-serif mt-2" style={{ fontSize: 'clamp(14px, 1vw, 26px)', lineHeight: 1.7, color: 'var(--color-text-secondary)' }}>
                   {CARDS[i].description}
                 </p>
               </motion.article>
@@ -304,6 +306,19 @@ export function WhyVRISO() {
               className="relative col-span-2 flex items-center justify-center sm:row-start-2 h-70"
               variants={CARD_FADE}
             >
+              {/* Pulse rings — expand outward from core when a card is hovered */}
+              {[0, 1, 2].map((ring) => (
+                <motion.span
+                  key={ring}
+                  className="pointer-events-none absolute rounded-full"
+                  style={{ width: 96, height: 96, border: '1px solid rgba(59,91,219,0.45)' }}
+                  initial={{ scale: 1, opacity: 0 }}
+                  animate={hoveredCard !== null
+                    ? { scale: [1, 2.6 + ring * 0.7], opacity: [0.55, 0] }
+                    : { scale: 1, opacity: 0 }}
+                  transition={{ duration: 1.6, delay: ring * 0.42, ease: 'easeOut', repeat: hoveredCard !== null ? Infinity : 0 }}
+                />
+              ))}
               <IntelligenceCore cardHovered={hoveredCard} />
             </motion.div>
             {[2, 3].map((i) => (
@@ -312,6 +327,13 @@ export function WhyVRISO() {
                 className={`glass-card ${i === 2 ? 'sm:col-start-1' : 'sm:col-start-2'} sm:row-start-3`}
                 style={{ padding: 'clamp(24px, 2.5vw, 32px)' }}
                 variants={CARD_FADE}
+                animate={{
+                  opacity: hoveredCard !== null && hoveredCard !== i ? 0.55 : 1,
+                  boxShadow: hoveredCard === i
+                    ? '0 0 0 1.5px rgba(59,91,219,0.7), 0 0 48px rgba(59,91,219,0.14)'
+                    : undefined,
+                }}
+                transition={{ duration: 0.25 }}
                 onMouseEnter={handleEnter(i)}
                 onMouseLeave={handleLeave}
                 onMouseMove={handleCardMouseMove}
@@ -322,43 +344,19 @@ export function WhyVRISO() {
                     {CARDS[i].label}
                   </p>
                 )}
-                <div style={{ height: 140 }}>
+                <div style={{ height: 'clamp(140px, 12vw, 260px)' }}>
                   <WhyVRisoCardScene variant={i} hovered={hoveredCard === i} />
                 </div>
-                <h3 className="font-serif mt-4" style={{ fontSize: 'clamp(18px, 1.5vw, 22px)', fontWeight: 600, color: 'var(--color-text-primary)' }}>
+                <h3 className="font-serif mt-4" style={{ fontSize: 'clamp(18px, 1.5vw, 42px)', fontWeight: 600, color: 'var(--color-text-primary)' }}>
                   {CARDS[i].title}
                 </h3>
-                <p className="font-serif mt-2" style={{ fontSize: 'clamp(14px, 1vw, 16px)', lineHeight: 1.7, color: 'var(--color-text-secondary)' }}>
+                <p className="font-serif mt-2" style={{ fontSize: 'clamp(14px, 1vw, 26px)', lineHeight: 1.7, color: 'var(--color-text-secondary)' }}>
                   {CARDS[i].description}
                 </p>
               </motion.article>
             ))}
           </motion.div>
 
-          {/* Beams overlay — from cards to center, visible on hover (desktop only) */}
-          <svg
-            className="pointer-events-none absolute inset-0 hidden h-full w-full sm:block"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-            style={{ zIndex: 5 }}
-            aria-hidden="true"
-          >
-            {BEAM_POSITIONS.map((beam, i) => (
-              <motion.line
-                key={i}
-                x1={`${beam.from.x}%`}
-                y1={`${beam.from.y}%`}
-                x2={`${beam.to.x}%`}
-                y2={`${beam.to.y}%`}
-                stroke="var(--color-action-accent)"
-                strokeWidth={0.2}
-                strokeDasharray="2 3"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: hoveredCard === i ? 0.5 : 0 }}
-                transition={{ duration: 0.3 }}
-              />
-            ))}
-          </svg>
         </div>
       </div>
 

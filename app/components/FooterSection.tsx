@@ -65,8 +65,9 @@ export default function FooterSection() {
                 alt="Invisigent"
                 id="vriso-footer-heading"
                 className="vriso-footer-logo-img"
-                height={56}
-                width={200}
+                height={100}
+                width={360}
+                sizes="(max-width: 480px) 58vw, (max-width: 1024px) 42vw, 280px"
               />
               <p className="font-serif text-xs text-footer-muted">
                 Enterprise AI Infrastructure

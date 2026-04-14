@@ -48,9 +48,10 @@ export function Navbar() {
               src={vrisoLogo}
               alt="Invisigent"
               className="siteLogoImg"
-              height={44}
-              width={160}
+              height={90}
+              width={320}
               priority
+              sizes="(max-width: 480px) 38vw, (max-width: 1024px) 30vw, 220px"
             />
           </Link>
         </div>

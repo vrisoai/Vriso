@@ -54,7 +54,7 @@ export function OurFocus({ reducedMotion = false }: OurFocusProps) {
               Our Focus Areas
             </motion.h2>
             <motion.p
-              className="about-description text-body mx-auto max-w-[560px] font-display leading-[1.75] text-[var(--color-text-secondary)]"
+              className="about-description text-body mx-auto max-w-[560px] 2xl:max-w-[700px] font-display leading-[1.75] text-[var(--color-text-secondary)]"
               variants={reducedMotion ? undefined : fadeUp}
               initial="hidden"
               whileInView={reducedMotion ? undefined : 'visible'}
@@ -66,7 +66,7 @@ export function OurFocus({ reducedMotion = false }: OurFocusProps) {
           </div>
 
           <motion.div
-            className="about-block-spacing grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:gap-6 xl:gap-8"
+            className="about-block-spacing grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:gap-6 xl:gap-8 2xl:gap-10 min-[1920px]:gap-12"
             variants={
               reducedMotion
                 ? undefined

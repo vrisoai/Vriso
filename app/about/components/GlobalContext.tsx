@@ -38,7 +38,7 @@ export function GlobalContext({ reducedMotion = false }: GlobalContextProps) {
       />
       <div className="section-wrapper relative">
         <div className="section-inner-max section-inner">
-          <div className="grid grid-cols-1 gap-10 sm:gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
+          <div className="grid grid-cols-1 gap-10 sm:gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center 2xl:gap-24 min-[1920px]:gap-32">
             <motion.div
               variants={leftVariants}
               initial="hidden"

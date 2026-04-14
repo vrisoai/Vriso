@@ -59,7 +59,7 @@ export function HeroSection({ reducedMotion = false }: HeroSectionProps) {
       }}
       aria-labelledby="about-hero-heading"
     >
-      <div className="section-container mx-auto flex w-full max-w-[1152px] flex-col items-center text-center">
+      <div className="section-container mx-auto flex w-full max-w-[1152px] 2xl:max-w-[1400px] min-[1920px]:max-w-[1680px] flex-col items-center text-center">
         <motion.p
           aria-hidden="true"
           initial={reducedMotion ? false : { opacity: 0, y: 12 }}
@@ -72,7 +72,7 @@ export function HeroSection({ reducedMotion = false }: HeroSectionProps) {
 
         <motion.h1
           id="about-hero-heading"
-          className="about-heading font-serif font-semibold leading-[1.1] text-[var(--color-text-primary)] text-hero mx-auto max-w-[900px]"
+          className="about-heading font-serif font-semibold leading-[1.1] text-[var(--color-text-primary)] text-hero mx-auto max-w-[900px] 2xl:max-w-[1200px]"
           variants={reducedMotion ? undefined : headingVariants}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
@@ -123,7 +123,7 @@ export function HeroSection({ reducedMotion = false }: HeroSectionProps) {
         </motion.h1>
 
         <motion.p
-          className="about-description text-body mx-auto max-w-[600px] font-display leading-[1.75] text-[var(--color-text-secondary)]"
+          className="about-description text-body mx-auto max-w-[600px] 2xl:max-w-[780px] font-display leading-[1.75] text-[var(--color-text-secondary)]"
           initial={reducedMotion ? false : { opacity: 0, y: 20 }}
           animate={inView && !reducedMotion ? { opacity: 1, y: 0 } : undefined}
           transition={{ duration: 0.6, delay: 0.5, ease: EASE }}

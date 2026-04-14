@@ -46,7 +46,7 @@ export function WhyWeExist({ reducedMotion = false }: WhyWeExistProps) {
         }}
       >
         <div className="section-inner-max section-inner">
-          <div className="mx-auto w-full max-w-[720px] text-left">
+          <div className="mx-auto w-full max-w-[720px] 2xl:max-w-[960px] text-left">
             <SectionLabel text="[ OUR POSITION ]" reducedMotion={reducedMotion} />
             <motion.h2
               id="about-why-heading"

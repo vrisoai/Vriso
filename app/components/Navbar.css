@@ -24,15 +24,27 @@
 }
 
 .siteHeaderInner {
-  max-width: 1120px;
+  max-width: min(100%, 90rem);
   margin-inline: auto;
-  padding: 0.75rem 1.5rem;
+  padding: 0.15rem clamp(1.5rem, 4vw, 5rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
   position: relative;
   z-index: 2;
+}
+
+@media (min-width: 1536px) {
+  .siteHeaderInner {
+    max-width: min(100%, 110rem);
+  }
+}
+
+@media (min-width: 1920px) {
+  .siteHeaderInner {
+    max-width: clamp(110rem, 88vw, 150rem);
+  }
 }
 
 .navLeft,
@@ -69,6 +81,8 @@
   font-weight: 600;
   color: var(--color-text-primary);
   text-decoration: none;
+  max-width: min(32vw, 160px);
+  min-width: 72px;
 }
 
 .siteLogo:hover {
@@ -85,10 +99,33 @@
 }
 
 .siteLogoImg {
-  height: 32px;
-  width: auto;
+  width: 100%;
+  height: auto;
+  max-width: min(32vw, 160px);
+  min-width: 72px;
   object-fit: contain;
+  object-position: left center;
   display: block;
+}
+
+@media (min-width: 1536px) {
+  .siteLogo, .siteLogoImg { max-width: 180px; }
+}
+
+@media (min-width: 1920px) {
+  .siteLogo, .siteLogoImg { max-width: 220px; }
+}
+
+@media (min-width: 2200px) {
+  .siteLogo, .siteLogoImg { max-width: 300px; }
+}
+
+@media (max-width: 767px) {
+  .siteLogo,
+  .siteLogoImg {
+    min-width: 64px;
+    max-width: min(40vw, 100px);
+  }
 }
 
 .navToggle {
@@ -237,6 +274,16 @@
 .navCta:focus-visible {
   outline: 2px solid var(--color-action-accent);
   outline-offset: 2px;
+}
+
+@media (min-width: 1920px) {
+  .primaryNavLink { font-size: 1.1rem; }
+  .navCta { font-size: 1rem; padding: 0.55rem 1.75rem; }
+}
+
+@media (min-width: 2200px) {
+  .primaryNavLink { font-size: 1.25rem; }
+  .navCta { font-size: 1.125rem; padding: 0.65rem 2rem; }
 }
 
 @media (max-width: 1024px) {

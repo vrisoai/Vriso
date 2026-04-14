@@ -68,7 +68,7 @@ export function PhilosophySection({ reducedMotion = false }: PhilosophySectionPr
               Our Philosophy
             </motion.h2>
             <motion.p
-              className="about-description text-body mx-auto max-w-[480px] font-display leading-[1.75] text-[var(--color-text-secondary)] mb-10 lg:mb-12"
+              className="about-description text-body mx-auto max-w-[480px] font-display leading-[1.75] text-[var(--color-text-secondary)]"
               variants={reducedMotion ? undefined : fadeUp}
               initial="hidden"
               whileInView={reducedMotion ? undefined : 'visible'}
@@ -80,7 +80,7 @@ export function PhilosophySection({ reducedMotion = false }: PhilosophySectionPr
           </div>
 
           <motion.div
-            className="about-philosophy-cards grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6"
+            className="about-philosophy-cards grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6 2xl:gap-8 min-[1920px]:gap-10"
             variants={
               reducedMotion
                 ? undefined

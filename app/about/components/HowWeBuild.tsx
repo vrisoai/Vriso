@@ -58,7 +58,7 @@ export function HowWeBuild({ reducedMotion = false }: HowWeBuildProps) {
       <div className="section-wrapper">
         <div className="section-inner-max section-inner">
           {/* Grid: 2 columns from md (768px). Left: heading. Right: steps. No third column. */}
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-5 md:gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-5 md:gap-12 lg:gap-16 2xl:gap-20 min-[1920px]:gap-28">
             {/* LEFT COLUMN: heading + intro */}
             <motion.div
               className="mb-10 md:col-span-2 md:mb-0 md:sticky md:top-24 md:self-start xl:top-32"

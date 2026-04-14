@@ -31,7 +31,7 @@ export function AboutCTA({ reducedMotion = false }: AboutCTAProps) {
       <div className="section-wrapper">
         <div className="section-inner-max section-inner flex flex-col items-center text-center">
           <motion.div
-            className="mx-auto w-full max-w-[640px] text-center"
+            className="mx-auto w-full max-w-[640px] 2xl:max-w-[860px] text-center"
             initial={reducedMotion ? false : { opacity: 0, scale: 0.96 }}
             animate={inView && !reducedMotion ? { opacity: 1, scale: 1 } : undefined}
             transition={{ duration: 0.6, ease: EASE }}
@@ -73,7 +73,7 @@ export function AboutCTA({ reducedMotion = false }: AboutCTAProps) {
                 </>
               )}
             </h2>
-            <p className="about-description text-body mx-auto max-w-[480px] font-display leading-[1.75] text-[var(--color-text-secondary)]">
+            <p className="about-description text-body mx-auto max-w-[480px] 2xl:max-w-[640px] font-display leading-[1.75] text-[var(--color-text-secondary)]">
               If your organization is ready to move from AI experimentation to production-ready AI
               systems, we would like to hear about what you are building.
             </p>
