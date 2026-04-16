@@ -3,11 +3,37 @@
 import { motion } from 'framer-motion';
 import { EASE } from '@/app/lib/animations';
 
-/* Label positions as % of half-container (label.x / 160 * 50 = label.x / 3.2) */
+/**
+ * Labels positioned using container-relative left/top so they sit near
+ * their respective beam-endpoint nodes without overlapping each other.
+ *
+ * Node positions in % of root div from center:
+ *   top  (0, -110 SVG)      → (50%, ~16%)
+ *   left (-95.263, 55 SVG)  → (~20%, ~67%)
+ *   right (95.263, 55 SVG)  → (~80%, ~67%)
+ */
 const LABELS = [
-  { text: 'REASONING_ENGINE',    x: 43.75,   y: 0       },
-  { text: 'KNOWLEDGE_GRAPH',     x: -21.875, y: 37.8125 },
-  { text: 'AUTONOMOUS_WORKFLOWS',x: -21.875, y: -37.8125},
+  {
+    text: 'AUTONOMOUS_WORKFLOWS',
+    // near top node — centered horizontally, above the node
+    left: '50%',
+    top: '7%',
+    transform: 'translate(-50%, 0)',
+  },
+  {
+    text: 'KNOWLEDGE_GRAPH',
+    // near left node — flush to the left edge
+    left: '2%',
+    top: '67%',
+    transform: 'translate(0, -50%)',
+  },
+  {
+    text: 'REASONING_ENGINE',
+    // near right node — flush to the right edge
+    left: '98%',
+    top: '62%',
+    transform: 'translate(-100%, -50%)',
+  },
 ] as const;
 
 const beamPaths = [
@@ -116,16 +142,16 @@ export function DecisionEngineVis() {
         </div>
       </div>
 
-      {/* Floating system labels — percentage-based offsets from center */}
+      {/* Floating system labels — placed near each beam-endpoint node */}
       {LABELS.map((label, i) => (
         <motion.span
           key={label.text}
           className="pointer-events-none absolute whitespace-nowrap font-mono text-text-tertiary"
           style={{
             fontSize: 'clamp(8px, 1vw, 11px)',
-            left: '50%',
-            top: '50%',
-            transform: `translate(calc(-50% + ${label.x}%), calc(-50% + ${label.y}%))`,
+            left: label.left,
+            top: label.top,
+            transform: label.transform,
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

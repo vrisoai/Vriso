@@ -50,164 +50,109 @@ const WHAT_HAPPENS = [
   },
 ];
 
-const TRUST = [
-  'Response within 24 hours',
-  'Limited to 4 engagements per quarter',
-  'No cold-call follow-ups',
-  'NDA available on request before scoping call',
-];
-
 export default function ContactPage() {
   return (
     <>
-      <main className="lets-talk-page relative min-h-screen overflow-hidden bg-bg-primary">
-        <div className="lets-talk-orb" aria-hidden="true" />
-        <div className="section-grid-overlay" aria-hidden="true" />
+      <main className="contact-page">
+        {/* Background layers */}
+        <div className="contact-ambient-orb" aria-hidden="true" />
+        <div className="contact-dot-grid" aria-hidden="true" />
+        <div className="contact-scan-line" aria-hidden="true" />
 
-        <div className="lets-talk-shell section-wrapper">
+        <div className="contact-shell">
 
-          {/* ── Hero ───────────────────────────────────────────────── */}
-          <header className="lets-talk-hero">
-            <p className="lets-talk-eyebrow">
-              <span className="lets-talk-eyebrow-dot" aria-hidden="true" />
-              Invisigent · Engagements
+          {/* ── Left column ────────────────────────────────────────── */}
+          <aside className="contact-left">
+
+            {/* Eyebrow */}
+            <p className="contact-eyebrow">
+              <span className="contact-status-dot" aria-hidden="true" />
+              Invisigent · Engagement Intake
             </p>
-            <h1 className="lets-talk-heading font-serif">
-              Start an AI Infrastructure Engagement
-              <span className="lets-talk-heading-accent font-mono">
-                // start a conversation
-              </span>
+
+            {/* Giant heading */}
+            <h1 className="contact-heading font-serif">
+              Let&apos;s Build<br />
+              Something<br />
+              <span className="gradient-text">Real.</span>
             </h1>
-            <p className="lets-talk-subheading font-serif">
-              Tell us what you&apos;re building. We&apos;ll tell you if we can help — and what it would look like if we did.
+
+            {/* Subtext */}
+            <p className="contact-subtext font-serif">
+              Tell us what you&apos;re building. We&apos;ll tell you if we can help — and exactly what it would look like if we did.
             </p>
-          </header>
 
-          {/* ── Two-column body ─────────────────────────────────────── */}
-          <div className="lets-talk-body">
+            {/* Stats bento 2×2 */}
+            <div className="contact-stats-grid">
+              <div className="contact-stat-card">
+                <p className="contact-stat-num">
+                  4<span className="contact-stat-unit">/qtr</span>
+                </p>
+                <p className="contact-stat-label">Engagements</p>
+              </div>
 
-            {/* Left: trust + timeline */}
-            <aside className="lets-talk-left">
+              <div className="contact-stat-card">
+                <p className="contact-stat-num">24h</p>
+                <p className="contact-stat-label">Response time</p>
+              </div>
 
-              <ul className="lets-talk-trust-list">
-                {TRUST.map(label => (
-                  <li key={label} className="lets-talk-trust-item">
-                    <span className="lets-talk-trust-dot" aria-hidden="true" />
-                    <span className="font-display text-sm text-text-secondary">{label}</span>
+              <div className="contact-stat-card contact-stat-card--amber">
+                <p className="contact-stat-icon">◈</p>
+                <p className="contact-stat-label">NDA available on request</p>
+                <p className="contact-stat-label" style={{ fontSize: '0.75rem', opacity: 0.6 }}>before scoping call</p>
+              </div>
+
+              <div className="contact-stat-card">
+                <p className="contact-stat-icon" style={{ color: 'var(--color-text-tertiary)' }}>✗</p>
+                <p className="contact-stat-label">No cold follow-ups</p>
+              </div>
+            </div>
+
+            <hr className="contact-divider" />
+
+            {/* Process timeline */}
+            <div className="contact-process">
+              <p className="contact-process-label">[ WHAT HAPPENS NEXT ]</p>
+              <ol className="contact-process-list">
+                {WHAT_HAPPENS.map(item => (
+                  <li key={item.step} className="contact-process-item">
+                    <span className="contact-process-num">{item.step}</span>
+                    <div>
+                      <p className="contact-process-title">{item.title}</p>
+                      <p className="contact-process-body">{item.body}</p>
+                    </div>
                   </li>
                 ))}
-              </ul>
+              </ol>
+            </div>
 
-              <hr className="lets-talk-divider" />
+            <hr className="contact-divider" />
 
-              <div>
-                <p className="font-mono text-[0.6875rem] tracking-[0.2em] text-text-tertiary uppercase mb-5">
-                  What happens next
-                </p>
-                <ol className="lets-talk-timeline">
-                  {WHAT_HAPPENS.map(item => (
-                    <li key={item.step} className="lets-talk-timeline-item">
-                      <span className="lets-talk-timeline-step">{item.step}</span>
-                      <div>
-                        <p className="font-display text-sm font-semibold text-text-primary leading-snug">
-                          {item.title}
-                        </p>
-                        <p className="font-display text-sm text-text-secondary leading-relaxed mt-1">
-                          {item.body}
-                        </p>
-                      </div>
-                    </li>
-                  ))}
-                </ol>
-              </div>
+            {/* Direct line */}
+            <div className="contact-direct">
+              <p className="font-mono text-[0.6rem] tracking-[0.2em] uppercase" style={{ color: 'var(--color-text-tertiary)' }}>
+                DIRECT LINE
+              </p>
+              <a
+                href="mailto:hello@vriso.ai"
+                className="contact-email"
+                aria-label="Email Invisigent at hello@vriso.ai"
+              >
+                hello@vriso.ai
+              </a>
+            </div>
 
-              <hr className="lets-talk-divider" />
+          </aside>
 
-              <div className="flex flex-col gap-1">
-                <p className="font-mono text-[0.6875rem] tracking-[0.2em] text-text-tertiary uppercase">
-                  Direct line
-                </p>
-                <a
-                  href="mailto:hello@vriso.ai"
-                  className="font-display text-sm text-text-secondary hover:text-text-primary transition-colors duration-200"
-                  aria-label="Email Invisigent at hello@vriso.ai"
-                >
-                  hello@vriso.ai
-                </a>
-              </div>
-            </aside>
-
-            {/* Right: form */}
-            <div className="lets-talk-right">
+          {/* ── Right column: form ───────────────────────────────── */}
+          <div className="contact-right">
+            <div className="contact-form-wrapper">
               <LetsTalkForm />
             </div>
           </div>
 
         </div>
       </main>
-
-      {/* Engagement Types */}
-      <section
-        aria-labelledby="engagement-types-heading"
-        style={{
-          background: '#121212',
-          paddingTop: 'clamp(60px, 8vw, 120px)',
-          paddingBottom: 'clamp(60px, 8vw, 120px)',
-          paddingLeft: 'max(clamp(1.5rem, 5vw, 4rem), env(safe-area-inset-left))',
-          paddingRight: 'max(clamp(1.5rem, 5vw, 4rem), env(safe-area-inset-right))',
-        }}
-      >
-        <div className="section-container section-inner">
-          <p
-            className="font-mono text-center"
-            style={{ fontSize: 12, letterSpacing: '0.14em', fontWeight: 500, color: 'var(--color-text-tertiary)', textTransform: 'uppercase', marginBottom: '1.5rem' }}
-          >
-            [ ENGAGEMENT TYPES ]
-          </p>
-          <h2
-            id="engagement-types-heading"
-            className="font-serif text-center"
-            style={{ fontSize: 'clamp(24px, 3vw, 56px)', fontWeight: 500, color: 'var(--color-text-primary)', marginBottom: 'clamp(32px, 4vw, 56px)' }}
-          >
-            How Organizations Engage With Invisigent
-          </h2>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-            {[
-              {
-                label: '[ AI STRATEGY ]',
-                title: 'Strategy & Architecture Review',
-                body: 'A focused engagement to audit your current AI infrastructure, identify gaps, and produce a prioritized technical roadmap. Ideal for organizations planning their first production AI deployment.',
-              },
-              {
-                label: '[ SYSTEM BUILD ]',
-                title: 'Full System Build',
-                body: 'End-to-end design, development, and deployment of a production AI system — from orchestration architecture to monitoring infrastructure. Our most common engagement type.',
-              },
-              {
-                label: '[ PARTNERSHIP ]',
-                title: 'Ongoing AI Partnership',
-                body: 'Continuous optimization, monitoring, and expansion of AI systems already in production. Includes monthly performance reviews, model updates, and architecture evolution as your usage scales.',
-              },
-            ].map((card) => (
-              <div
-                key={card.label}
-                className="glass-card"
-                style={{ padding: 'clamp(24px, 2.5vw, 36px)' }}
-              >
-                <p className="font-mono" style={{ fontSize: 11, letterSpacing: '0.12em', fontWeight: 500, color: 'var(--color-text-tertiary)', marginBottom: 12 }}>
-                  {card.label}
-                </p>
-                <h3 className="font-serif" style={{ fontSize: 'clamp(18px, 1.6vw, 32px)', fontWeight: 600, color: 'var(--color-text-primary)', marginBottom: 12 }}>
-                  {card.title}
-                </h3>
-                <p className="font-serif" style={{ fontSize: 'clamp(14px, 1.1vw, 22px)', lineHeight: 1.7, color: 'var(--color-text-secondary)' }}>
-                  {card.body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <InvisigentLogoSection />
       <FooterSection />

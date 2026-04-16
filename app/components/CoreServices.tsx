@@ -110,7 +110,7 @@ export function CoreServices() {
     let pinTrigger: ScrollTrigger | null = null;
     let onWheel: (e: WheelEvent) => void = () => {};
 
-    const isMobile = window.innerWidth < 1024;
+    const isMobile = window.innerWidth < 1280;
 
     const ctx = gsap.context(() => {
       const cards = gsap.utils.toArray<HTMLElement>('.core-services-stack-card', section);
@@ -264,8 +264,24 @@ export function CoreServices() {
     if (!carousel) return;
 
     const onScroll = () => {
-      const index = Math.round(carousel.scrollLeft / carousel.offsetWidth);
-      setActiveCard(index);
+      const cards = Array.from(
+        carousel.querySelectorAll<HTMLElement>('.core-services-carousel-card')
+      );
+      if (!cards.length) return;
+
+      // Find the card whose center is closest to the carousel's visible center
+      const carouselCenter = carousel.scrollLeft + carousel.offsetWidth / 2;
+      let closestIndex = 0;
+      let closestDist = Infinity;
+      cards.forEach((card, i) => {
+        const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+        const dist = Math.abs(cardCenter - carouselCenter);
+        if (dist < closestDist) {
+          closestDist = dist;
+          closestIndex = i;
+        }
+      });
+      setActiveCard(closestIndex);
     };
 
     carousel.addEventListener('scroll', onScroll, { passive: true });

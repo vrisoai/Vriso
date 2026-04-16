@@ -1159,7 +1159,7 @@ a:focus-visible {
   min-height: 100vh;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1279px) {
   .core-services-section--sticky-scroll {
     min-height: 0;
   }
@@ -1189,7 +1189,7 @@ a:focus-visible {
   min-width: 0;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1279px) {
   .core-services-left {
     position: relative;
     top: 0;
@@ -1243,7 +1243,7 @@ a:focus-visible {
 }
 
 /* Mobile: no sticky scroll, show all cards as list */
-@media (max-width: 1023px) {
+@media (max-width: 1279px) {
   .core-services-cards-column {
     min-height: 0;
     position: relative;
@@ -1261,7 +1261,7 @@ a:focus-visible {
 }
 
 /* Mobile/tablet: hide desktop cards, show horizontal carousel */
-@media (max-width: 1023px) {
+@media (max-width: 1279px) {
   .core-services-cards-desktop {
     display: none !important;
   }
@@ -1331,6 +1331,19 @@ a:focus-visible {
     .core-services-carousel-card {
       flex: 0 0 calc(65% - 2rem);
       margin-right: 1.25rem;
+    }
+  }
+
+  /* iPad Pro portrait (1024px) and landscape (1194px) — wider single card */
+  @media (min-width: 1024px) {
+    .core-services-carousel {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+    .core-services-carousel-card {
+      flex: 0 0 calc(55% - 3rem);
+      margin-right: 1.5rem;
+      min-height: 260px;
     }
   }
 
