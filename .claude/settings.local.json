@@ -3,7 +3,9 @@
     "allow": [
       "Bash(grep -l \"export const metadata\" /d/C/VRISO/app/**/page.tsx)",
       "Bash(ls /d/C/VRISO/app/components/*.tsx)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(xargs ls:*)",
+      "Bash(find /d/C/VRISO -type f \\\\\\( -name \"*.tsx\" -o -name \"*.ts\" -o -name \"*.jsx\" -o -name \"*.js\" \\\\\\) ! -path \"*/node_modules/*\" ! -path \"*/.next/*\" -exec grep -l \"book\\\\|cover\\\\|Architecting\" {} \\\\;)"
     ]
   }
 }

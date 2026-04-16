@@ -4,8 +4,6 @@ import Script from 'next/script';
 import { motion } from 'framer-motion';
 import {
   EASE,
-  headlineContainer,
-  headlineWord,
   subtextReveal,
 } from '@/app/lib/animations';
 import { DecisionEngineVis } from './hero/DecisionEngineVis';
@@ -51,7 +49,6 @@ const LINE_A = 'Architecting Production AI Systems';
 const LINE_B = "for Enterprises That Can't Afford to Fail";
 
 export function HeroSection() {
-  const wordsA = LINE_A.split(' ');
   const wordsB = LINE_B.split(' ');
 
   return (
@@ -106,44 +103,30 @@ export function HeroSection() {
               </span>
             </motion.div>
 
-            {/* H1 — primary SEO signal */}
-            <h1 className="flex flex-col gap-0 tracking-[-0.04em]" style={{ lineHeight: 1.05 }}>
-              <motion.span
+            {/* H1 — primary SEO signal + LCP element.
+                Rendered as static HTML (no opacity:0 initial state) so the
+                browser counts it as LCP at FCP time (~1.8 s) instead of
+                waiting for JS hydration + Framer Motion animation (~5 s). */}
+            <h1
+              className="hero-headline flex flex-col gap-0 tracking-[-0.04em]"
+              style={{ lineHeight: 1.05 }}
+            >
+              <span
                 className="flex flex-wrap items-baseline justify-center gap-x-2 font-display font-extrabold text-text-primary md:justify-start"
-                style={{
-                  fontSize: 'clamp(2rem, min(5vw, 6.8svh), 4.25rem)',
-                }}
-                variants={headlineContainer}
-                initial="hidden"
-                animate="visible"
-                aria-label={LINE_A}
+                style={{ fontSize: 'clamp(2rem, min(5vw, 6.8svh), 4.25rem)' }}
               >
-                {wordsA.map((word, i) => (
-                  <motion.span key={`a-${i}`} variants={headlineWord} className="inline-block">
-                    {word}
-                  </motion.span>
-                ))}
-              </motion.span>
-              <motion.span
+                {LINE_A}
+              </span>
+              <span
                 className="flex flex-wrap items-baseline justify-center gap-x-2 font-display font-black md:justify-start"
-                style={{
-                  fontSize: 'clamp(2rem, min(5vw, 6.8svh), 4.25rem)',
-                }}
-                variants={headlineContainer}
-                initial="hidden"
-                animate="visible"
-                aria-label={LINE_B}
+                style={{ fontSize: 'clamp(2rem, min(5vw, 6.8svh), 4.25rem)' }}
               >
                 {wordsB.map((word, i) => (
-                  <motion.span
-                    key={`b-${i}`}
-                    variants={headlineWord}
-                    className="inline-block gradient-text"
-                  >
+                  <span key={`b-${i}`} className="inline-block gradient-text">
                     {word}
-                  </motion.span>
+                  </span>
                 ))}
-              </motion.span>
+              </span>
             </h1>
 
             {/* Subtext — keyword-rich for SEO + GEO */}
