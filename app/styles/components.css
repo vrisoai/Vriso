@@ -1342,75 +1342,22 @@ a:focus-visible {
 
   .core-services-carousel {
     display: flex;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    gap: 0;
     width: 100%;
-    /* Padding so first and last card appear centered */
-    padding-left: 1rem;
-    padding-right: 1rem;
-    box-sizing: border-box;
-  }
-
-  .core-services-carousel::-webkit-scrollbar {
-    display: none;
+    transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
   }
 
   .core-services-carousel-card {
-    flex: 0 0 calc(100% - 2rem); /* full width minus padding */
-    scroll-snap-align: center;
+    flex: 0 0 100%;
+    width: 100%;
     padding: clamp(20px, 4vw, 28px);
     min-height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-right: 1rem;
     box-sizing: border-box;
-    /* Ensure text never overflows */
     overflow: hidden;
     word-break: break-word;
-  }
-
-  .core-services-carousel-card:last-child {
-    margin-right: 0;
-  }
-
-  /* Tablet: show peek of next card */
-  @media (min-width: 640px) {
-    .core-services-carousel {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
-    .core-services-carousel-card {
-      flex: 0 0 calc(80% - 1.5rem);
-      margin-right: 1rem;
-    }
-  }
-
-  @media (min-width: 768px) {
-    .core-services-carousel {
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
-    .core-services-carousel-card {
-      flex: 0 0 calc(65% - 2rem);
-      margin-right: 1.25rem;
-    }
-  }
-
-  /* iPad Pro portrait (1024px) and landscape (1194px) — wider single card */
-  @media (min-width: 1024px) {
-    .core-services-carousel {
-      padding-left: 3rem;
-      padding-right: 3rem;
-    }
-    .core-services-carousel-card {
-      flex: 0 0 calc(55% - 3rem);
-      margin-right: 1.5rem;
-      min-height: 260px;
-    }
   }
 
   /* Dot indicators */
@@ -1504,21 +1451,8 @@ a:focus-visible {
     padding-top: 6px; /* prevents overflow:hidden from clipping card top shadow */
   }
 
-  .core-services-carousel {
-    padding-left: 1rem;
-    padding-right: 2.5rem;
-    gap: 0.75rem;
-    scroll-snap-type: x mandatory;
-    scroll-padding-left: 1rem;
-  }
-
   .core-services-carousel-card {
-    flex: 0 0 calc(100vw - 5.5rem);
-    width: calc(100vw - 5.5rem);
-    max-width: calc(100vw - 5.5rem);
-    min-height: 280px;
-    margin-right: 0;
-    scroll-snap-align: start;
+    min-height: 240px;
   }
 
   .core-services-mobile-stack {

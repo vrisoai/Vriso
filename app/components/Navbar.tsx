@@ -90,6 +90,11 @@ export function Navbar() {
                 </Link>
               </li>
               <li>
+                <Link href="/insights" className="primaryNavLink" onClick={() => setOpenState(false)}>
+                  Insights
+                </Link>
+              </li>
+              <li>
                 <Link href="/interactive-demo" className="primaryNavLink" onClick={() => setOpenState(false)}>
                   Interactive Demo
                 </Link>

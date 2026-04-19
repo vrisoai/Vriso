@@ -92,7 +92,7 @@ export function ValueProposition() {
 
       ScrollTrigger.create({
         trigger: heading,
-        start: 'top 82%',
+        start: 'top 95%',
         once: true,
         onEnter: () => {
           gsap.to(split.words, {

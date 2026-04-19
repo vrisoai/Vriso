@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useId } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useId, useRef, useEffect } from 'react';
+import gsap from 'gsap';
 
 /* ── All countries with dial codes ──────────────────────────────────────── */
 /* Priority tier shown first, rest alphabetical */
@@ -262,12 +262,21 @@ function validate(f: Field): Errors {
 
 const EMPTY: Field = { name: '', email: '', dialCode: '+1', phone: '', company: '', brief: '' };
 
+const CIRCLE_LEN = 2 * Math.PI * 31;
+
 /* ── Component ──────────────────────────────────────────────────────────── */
 export function LetsTalkForm() {
   const uid = useId();
-  const [fields, setFields]   = useState<Field>(EMPTY);
-  const [errors, setErrors]   = useState<Errors>({});
-  const [status, setStatus]   = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [fields, setFields] = useState<Field>(EMPTY);
+  const [errors, setErrors] = useState<Errors>({});
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+
+  // Animation refs
+  const successRef  = useRef<HTMLDivElement>(null);
+  const iconRef     = useRef<HTMLDivElement>(null);
+  const circleRef   = useRef<SVGCircleElement>(null);
+  const pathRef     = useRef<SVGPathElement>(null);
+  const spinnerRef  = useRef<HTMLSpanElement>(null);
 
   const set = (key: keyof Field) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -298,40 +307,65 @@ export function LetsTalkForm() {
     }
   };
 
+  const handleReset = () => {
+    setStatus('idle');
+    setFields(EMPTY);
+    setErrors({});
+  };
+
+  // Success screen animations — fire after React commits the success DOM
+  useEffect(() => {
+    if (status !== 'success') return;
+    const successEl = successRef.current;
+    const iconEl    = iconRef.current;
+    const circleEl  = circleRef.current;
+    const pathEl    = pathRef.current;
+    if (!successEl) return;
+
+    gsap.set(successEl, { opacity: 0, y: 16 });
+    if (iconEl)   gsap.set(iconEl,   { scale: 0.6, opacity: 0 });
+    if (circleEl) gsap.set(circleEl, { strokeDashoffset: CIRCLE_LEN });
+    if (pathEl)   gsap.set(pathEl,   { strokeDashoffset: 36 });
+
+    gsap.timeline()
+      .to(successEl, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' })
+      .to(iconEl,    { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(1.7)' }, '-=0.3')
+      .to(circleEl,  { strokeDashoffset: 0, duration: 0.8, ease: 'power2.out' }, '-=0.3')
+      .to(pathEl,    { strokeDashoffset: 0, duration: 0.4, ease: 'power2.out' }, '+=0.1');
+  }, [status]);
+
+  // Spinner rotation while sending
+  useEffect(() => {
+    if (status !== 'sending' || !spinnerRef.current) return;
+    const tween = gsap.to(spinnerRef.current, { rotation: 360, duration: 0.9, repeat: -1, ease: 'linear' });
+    return () => { tween.kill(); };
+  }, [status]);
+
   const currentEntry = DIAL_CODES.find(c => c.dial === fields.dialCode) ?? DIAL_CODES[0];
 
   return (
-    <AnimatePresence mode="wait">
-
+    <>
       {/* ══════════════════════════════════════ SUCCESS ══════════════════════ */}
-      {status === 'success' ? (
-        <motion.div
-          key="success"
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      {status === 'success' && (
+        <div
+          ref={successRef}
           className="lets-talk-success flex flex-col items-center justify-center gap-6 text-center"
           style={{ padding: 'clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 4vw, 2.5rem)' }}
         >
-          <motion.div
-            className="lets-talk-success-icon"
-            initial={{ scale: 0.6, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          >
+          <div ref={iconRef} className="lets-talk-success-icon">
             <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
               <circle cx="32" cy="32" r="31" stroke="var(--color-action-accent)" strokeWidth="1" opacity="0.2" />
-              <motion.circle
+              <circle
+                ref={circleRef}
                 cx="32" cy="32" r="31"
                 stroke="var(--color-action-accent)"
                 strokeWidth="1.5"
-                strokeDasharray={2 * Math.PI * 31}
-                strokeDashoffset={2 * Math.PI * 31}
-                animate={{ strokeDashoffset: 0 }}
-                transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
+                strokeDasharray={CIRCLE_LEN}
+                strokeDashoffset={CIRCLE_LEN}
                 fill="none"
               />
-              <motion.path
+              <path
+                ref={pathRef}
                 d="M20 32l9 9 15-17"
                 stroke="var(--color-action-accent)"
                 strokeWidth="2"
@@ -339,11 +373,9 @@ export function LetsTalkForm() {
                 strokeLinejoin="round"
                 strokeDasharray="36"
                 strokeDashoffset="36"
-                animate={{ strokeDashoffset: 0 }}
-                transition={{ delay: 0.75, duration: 0.4, ease: 'easeOut' }}
               />
             </svg>
-          </motion.div>
+          </div>
 
           <div className="flex flex-col gap-2">
             <p className="font-mono text-[0.625rem] tracking-[0.22em] text-text-tertiary uppercase">
@@ -358,26 +390,22 @@ export function LetsTalkForm() {
           </div>
 
           <button
-            onClick={() => { setStatus('idle'); setFields(EMPTY); setErrors({}); }}
+            onClick={handleReset}
             className="btn-primary text-sm"
             style={{ marginTop: '0.5rem' }}
           >
             Send another brief
           </button>
-        </motion.div>
+        </div>
+      )}
 
-      ) : (
-        /* ══════════════════════════════════════ FORM ════════════════════════ */
-        <motion.form
-          key="form"
+      {/* ══════════════════════════════════════ FORM ════════════════════════ */}
+      {status !== 'success' && (
+        <form
           onSubmit={handleSubmit}
           noValidate
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
           className="lets-talk-form"
         >
-
           {/* ── Terminal chrome ── */}
           <div className="contact-form-chrome">
             <div className="contact-form-chrome-dots">
@@ -404,7 +432,6 @@ export function LetsTalkForm() {
 
           {/* ── Row 1 : Name + Email ── */}
           <div className="lets-talk-row">
-            {/* Name */}
             <div className="lets-talk-field">
               <label htmlFor={`${uid}-name`} className="lets-talk-label">
                 <span className="lets-talk-label-index">01</span>
@@ -426,7 +453,6 @@ export function LetsTalkForm() {
               )}
             </div>
 
-            {/* Email */}
             <div className="lets-talk-field">
               <label htmlFor={`${uid}-email`} className="lets-talk-label">
                 <span className="lets-talk-label-index">02</span>
@@ -458,16 +484,12 @@ export function LetsTalkForm() {
             </label>
 
             <div className={`lets-talk-phone-group${errors.phone ? ' lets-talk-phone-group--error' : ''}`}>
-
-              {/* Country picker */}
               <div className="lets-talk-dial-wrapper">
-                {/* Visible display */}
                 <span className="lets-talk-dial-flag" aria-hidden="true">{currentEntry.flag}</span>
                 <span className="lets-talk-dial-code" aria-hidden="true">{fields.dialCode}</span>
                 <svg className="lets-talk-dial-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
                   <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                {/* Real invisible select on top */}
                 <select
                   value={fields.dialCode}
                   onChange={set('dialCode')}
@@ -482,10 +504,8 @@ export function LetsTalkForm() {
                 </select>
               </div>
 
-              {/* Divider line */}
               <span className="lets-talk-phone-divider" aria-hidden="true" />
 
-              {/* Number input */}
               <input
                 id={`${uid}-phone`}
                 type="tel"
@@ -560,9 +580,8 @@ export function LetsTalkForm() {
             >
               {status === 'sending' ? (
                 <>
-                  <motion.span
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 0.9, repeat: Infinity, ease: 'linear' }}
+                  <span
+                    ref={spinnerRef}
                     style={{
                       display: 'inline-block', width: 14, height: 14,
                       border: '2px solid rgba(255,255,255,0.25)',
@@ -579,8 +598,8 @@ export function LetsTalkForm() {
             </p>
           </div>
 
-        </motion.form>
+        </form>
       )}
-    </AnimatePresence>
+    </>
   );
 }

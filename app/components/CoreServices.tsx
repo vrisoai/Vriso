@@ -10,7 +10,7 @@
 
 import Script from 'next/script';
 import { motion } from 'framer-motion';
-import { useRef, useState, useLayoutEffect, useEffect } from 'react';
+import { useRef, useState, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { EASE } from '@/app/lib/animations';
@@ -99,9 +99,11 @@ const NEURAL_EDGES = (() => {
 })();
 
 export function CoreServices() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const sectionRef    = useRef<HTMLElement>(null);
+  const carouselRef   = useRef<HTMLDivElement>(null);
   const [activeCard, setActiveCard] = useState(0);
+  const touchStartX   = useRef(0);
+  const touchStartY   = useRef(0);
 
   useLayoutEffect(() => {
     const section = sectionRef.current;
@@ -269,35 +271,19 @@ export function CoreServices() {
     };
   }, []);
 
-  useEffect(() => {
-    const carousel = carouselRef.current;
-    if (!carousel) return;
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
 
-    const onScroll = () => {
-      const cards = Array.from(
-        carousel.querySelectorAll<HTMLElement>('.core-services-carousel-card')
-      );
-      if (!cards.length) return;
-
-      // Find the card whose center is closest to the carousel's visible center
-      const cRect = carousel.getBoundingClientRect();
-      const carouselCenter = cRect.left + cRect.width / 2;
-      let closestIndex = 0;
-      let closestDist = Infinity;
-      cards.forEach((card, i) => {
-        const r = card.getBoundingClientRect();
-        const dist = Math.abs(r.left + r.width / 2 - carouselCenter);
-        if (dist < closestDist) {
-          closestDist = dist;
-          closestIndex = i;
-        }
-      });
-      setActiveCard(closestIndex);
-    };
-
-    carousel.addEventListener('scroll', onScroll, { passive: true });
-    return () => carousel.removeEventListener('scroll', onScroll);
-  }, []);
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    const dy = e.changedTouches[0].clientY - touchStartY.current;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+      if (dx < 0) setActiveCard(c => Math.min(CARDS.length - 1, c + 1));
+      else        setActiveCard(c => Math.max(0, c - 1));
+    }
+  };
 
   return (
     <section
@@ -356,10 +342,18 @@ export function CoreServices() {
           ))}
         </div>
 
-        {/* MOBILE/TABLET: horizontal carousel */}
-        <div className="core-services-carousel-wrapper">
-          <div className="core-services-carousel" ref={carouselRef}>
-            {CARDS.map((card, i) => (
+        {/* MOBILE/TABLET: swipe carousel (translateX — no native scroll, no iOS sticking) */}
+        <div
+          className="core-services-carousel-wrapper"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div
+            ref={carouselRef}
+            className="core-services-carousel"
+            style={{ transform: `translateX(-${activeCard * 100}%)` }}
+          >
+            {CARDS.map((card) => (
               <article key={card.title} className="core-services-carousel-card glass-card">
                 <p className="font-mono" style={{ fontSize: 'clamp(9px, 2.2vw, 10px)', letterSpacing: '0.14em', fontWeight: 500, color: 'var(--color-text-micro)', borderLeft: '2px solid var(--color-trust-amber)', paddingLeft: 10 }}>
                   {card.label}
@@ -380,10 +374,7 @@ export function CoreServices() {
               <button
                 key={i}
                 className={`core-services-carousel-dot${i === activeCard ? ' active' : ''}`}
-                onClick={() => {
-                  carouselRef.current?.scrollTo({ left: i * carouselRef.current.offsetWidth, behavior: 'smooth' });
-                  setActiveCard(i);
-                }}
+                onClick={() => setActiveCard(i)}
                 aria-label={`Go to card ${i + 1}`}
               />
             ))}

@@ -21,7 +21,7 @@ const JSON_LD_PROFESSIONAL_SERVICE = {
 };
 
 const footerColumns = {
-  company: ['Home', 'Services', 'About', 'Contact'],
+  company: ['Home', 'About', 'Services', 'Insights', 'Contact'],
 } as const;
 
 export default function FooterSection() {
