@@ -91,7 +91,7 @@ export function ChatbotWidget() {
       gsap.to(panel, {
         opacity: 0, scale: 0.88, y: 18,
         duration: 0.22, ease: 'power2.in',
-        onComplete: () => gsap.set(panel, { display: 'none' }),
+        onComplete: () => { gsap.set(panel, { display: 'none' }); },
       });
     }
   }, [open]);
