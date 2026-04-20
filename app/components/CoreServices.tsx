@@ -125,6 +125,7 @@ export function CoreServices() {
 
     const mm = gsap.matchMedia();
     mm.add('(min-width: 1024px) and (prefers-reduced-motion: no-preference)', () => {
+      if (!card) return;
       function onMove(e: MouseEvent) {
         const rect = card.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width - 0.5;   // -0.5 → 0.5
