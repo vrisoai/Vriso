@@ -2073,9 +2073,13 @@ a:focus-visible {
 }
 .about-page .about-cta .about-description,
 .about-page .about-focus .about-description,
-.about-page .about-philosophy .about-description,
-.about-page .about-hero .about-description {
+.about-page .about-philosophy .about-description {
   text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.about-page .about-hero .about-description {
+  text-align: left !important;
   margin-left: auto !important;
   margin-right: auto !important;
 }
