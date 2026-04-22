@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { SearchVisibilityAnalyzerForm } from '@/app/components/SearchVisibilityAnalyzerForm';
 import { InvisigentLogoSection } from '@/app/components/InvisigentLogoSection';
 import FooterSection from '@/app/components/FooterSection';
+import Breadcrumb from '@/app/components/Breadcrumb';
 
 const CANONICAL = 'https://invisigent.ai/search-visibility-analyzer';
 const OG_IMAGE = 'https://invisigent.ai/og-image.png';
@@ -99,6 +100,7 @@ export default function SearchVisibilityAnalyzerPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
       />
+      <Breadcrumb items={[{ label: 'Interactive Demos', href: '/interactive-demo' }, { label: 'Search Visibility Analyzer' }]} />
       <main className="search-visibility-page">
         <div className="section-wrapper search-visibility-page-inner">
           <div className="search-visibility-page-grid">

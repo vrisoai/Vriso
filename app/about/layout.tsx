@@ -82,6 +82,8 @@ const aboutPageSchema = {
   ],
 };
 
+import Breadcrumb from '@/app/components/Breadcrumb';
+
 export default function AboutLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
@@ -89,6 +91,7 @@ export default function AboutLayout({ children }: { children: React.ReactNode })
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }}
       />
+      <Breadcrumb items={[{ label: 'About' }]} />
       {children}
     </>
   );

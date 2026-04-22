@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { FooterSection, InvisigentLogoSection } from '@/app/components';
 import BlogCard from '@/app/components/BlogCard';
+import Breadcrumb from '@/app/components/Breadcrumb';
 
 const CANONICAL = 'https://invisigent.ai/insights';
 const OG_IMAGE = 'https://invisigent.ai/og-image.png';
@@ -113,6 +114,7 @@ export default function InsightsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(insightsBlogSchema) }}
       />
+      <Breadcrumb items={[{ label: 'Insights' }]} />
       <main
         style={{
           minHeight: '70vh',

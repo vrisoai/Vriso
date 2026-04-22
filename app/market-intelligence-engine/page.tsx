@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { MarketIntelligenceStockSearch } from '@/app/components/MarketIntelligenceStockSearch';
 import { InvisigentLogoSection } from '@/app/components/InvisigentLogoSection';
 import FooterSection from '@/app/components/FooterSection';
+import Breadcrumb from '@/app/components/Breadcrumb';
 
 const CANONICAL = 'https://invisigent.ai/market-intelligence-engine';
 const OG_IMAGE = 'https://invisigent.ai/og-image.png';
@@ -93,6 +94,7 @@ export default function MarketIntelligenceEnginePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
       />
+      <Breadcrumb items={[{ label: 'Interactive Demos', href: '/interactive-demo' }, { label: 'Market Intelligence Engine' }]} />
       <main className="market-intelligence-page">
         <div className="section-wrapper market-intelligence-page-inner">
           <div className="market-intelligence-page-grid">

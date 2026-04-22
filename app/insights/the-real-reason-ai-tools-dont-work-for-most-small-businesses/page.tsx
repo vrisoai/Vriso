@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FooterSection } from '@/app/components';
+import Breadcrumb from '@/app/components/Breadcrumb';
 
 const CANONICAL =
   'https://invisigent.ai/insights/the-real-reason-ai-tools-dont-work-for-most-small-businesses';
@@ -125,6 +126,7 @@ export default function BlogPost() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
+      <Breadcrumb items={[{ label: 'Insights', href: '/insights' }, { label: 'The Real Reason AI Tools Don\'t Work for Most Small Businesses' }]} />
       <main style={{ background: 'var(--color-bg-primary)', minHeight: '100vh' }}>
 
         {/* ── Hero image ── */}
@@ -164,24 +166,6 @@ export default function BlogPost() {
             padding: 'clamp(2.5rem, 6vw, 4rem) clamp(1.25rem, 5vw, 2rem)',
           }}
         >
-          {/* Back link */}
-          <Link
-            href="/insights"
-            className="font-mono"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              fontSize: '0.6875rem',
-              letterSpacing: '0.14em',
-              textTransform: 'uppercase',
-              color: 'var(--color-text-tertiary)',
-              textDecoration: 'none',
-              marginBottom: '2.5rem',
-            }}
-          >
-            ← Back to Insights
-          </Link>
 
           {/* Category + read time */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>

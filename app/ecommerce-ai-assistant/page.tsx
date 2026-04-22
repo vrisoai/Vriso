@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { EcommerceAssistantChat } from '@/app/components/EcommerceAssistantChat';
 import { InvisigentLogoSection } from '@/app/components/InvisigentLogoSection';
 import FooterSection from '@/app/components/FooterSection';
+import Breadcrumb from '@/app/components/Breadcrumb';
 
 const CANONICAL = 'https://invisigent.ai/ecommerce-ai-assistant';
 const OG_IMAGE = 'https://invisigent.ai/og-image.png';
@@ -100,6 +101,7 @@ export default function EcommerceAiAssistantPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
       />
+      <Breadcrumb items={[{ label: 'Interactive Demos', href: '/interactive-demo' }, { label: 'E-commerce AI Assistant' }]} />
       <main className="ecommerce-assistant-page">
         <div className="section-wrapper ecommerce-assistant-page-inner">
           <div className="ecommerce-assistant-page-grid">

@@ -2,6 +2,7 @@
 import type { Metadata } from 'next';
 import { TOOLS } from './tools-data';
 import { InteractiveDemoClient } from './InteractiveDemoClient';
+import Breadcrumb from '@/app/components/Breadcrumb';
 
 const DEMO_CANONICAL = 'https://invisigent.ai/interactive-demo';
 const DEMO_OG_IMAGE = 'https://invisigent.ai/og-image.png';
@@ -106,6 +107,7 @@ export default function InteractiveDemoPage() {
 
   return (
     <>
+      <Breadcrumb items={[{ label: 'Interactive Demos' }]} />
       <InteractiveDemoClient />
 
       <script

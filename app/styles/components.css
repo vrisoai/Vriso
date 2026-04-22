@@ -1,8 +1,50 @@
-﻿/**
+/**
  * components.css
 
  * Core component styles — all colors via tokens. No hardcoded hex.
  */
+
+/* === BREADCRUMB === */
+.breadcrumb-link {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  text-decoration: none;
+  transition: color 150ms ease;
+  white-space: nowrap;
+}
+
+.breadcrumb-link:hover {
+  color: var(--color-link);
+}
+
+.breadcrumb-link:focus-visible {
+  outline: 2px solid var(--color-action-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.breadcrumb-sep {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  color: var(--color-text-micro);
+  margin: 0 0.5rem;
+  user-select: none;
+}
+
+.breadcrumb-current {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  max-width: clamp(10rem, 38vw, 26rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 /* === BUTTONS === */
 .btn-primary {

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { ContactClient } from './ContactClient';
+import Breadcrumb from '@/app/components/Breadcrumb';
 
 const CANONICAL = 'https://invisigent.ai/contact';
 const OG_IMAGE = 'https://invisigent.ai/og-image.png';
@@ -119,6 +120,7 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
       />
+      <Breadcrumb items={[{ label: "Let's Talk" }]} />
       <ContactClient />
     </>
   );

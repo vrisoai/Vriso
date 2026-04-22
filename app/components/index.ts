@@ -1,4 +1,6 @@
 export { AgenticOrchestrationSection } from './AgenticOrchestrationSection';
+export { default as Breadcrumb } from './Breadcrumb';
+export type { BreadcrumbItem } from './Breadcrumb';
 export { AnimatedHeadline } from './AnimatedHeadline';
 export { CoreServices } from './CoreServices';
 export { WhyInvisigent } from './WhyInvisigent';

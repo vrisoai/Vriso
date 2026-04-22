@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ServicesPageClient from './services-page-client';
+import Breadcrumb from '@/app/components/Breadcrumb';
 
 const CANONICAL = 'https://invisigent.ai/services';
 const OG_IMAGE = 'https://invisigent.ai/og-image.png';
@@ -197,6 +198,7 @@ export default function ServicesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }}
       />
+      <Breadcrumb items={[{ label: 'Services' }]} />
       <ServicesPageClient />
     </>
   );
