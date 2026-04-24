@@ -1,0 +1,35 @@
+# Invisigent
+
+> Invisigent builds enterprise-grade AI infrastructure — multi-agent systems, document intelligence pipelines, and intelligent automation — for businesses that need production-ready AI, not prototypes.
+
+Invisigent is an AI development company based in Jaipur, India. We design and deploy custom AI systems: agentic pipelines, RAG-based document intelligence, real-time streaming AI applications, and AI automation workflows. Our work spans legal AI, finance AI, enterprise automation, and small-business AI strategy.
+
+## Services
+
+- [AI Infrastructure & Agent Systems](https://invisigent.ai/services): Custom multi-agent systems, LangGraph/LangChain pipelines, real-time streaming AI applications, RAG architectures, and full-stack AI product development.
+- [Interactive Demo](https://invisigent.ai/interactive-demo): Live demonstration of Invisigent's multi-agent document intelligence platform — upload a PDF contract and watch three AI agents analyze it in real time.
+
+## Case Studies
+
+- [Multi-Agent Document Intelligence Platform](https://invisigent.ai/case-studies/multi-agent-document-intelligence): A three-agent AI pipeline that analyzed a 12-page SaaS vendor agreement in 73 seconds, flagged 5 contract risks including 2 GDPR violations, and prevented a $180,000 contract signature. Built with LangGraph, Claude, real-time token streaming.
+- [IPO Prospectus Intelligence Platform](https://invisigent.ai/case-studies/ipo-prospectus-intelligence): AI platform that cut DRHP/RHP review from days to under 10 minutes — 70% reduction in manual effort, 90% change-detection accuracy across 300-page filings, board-ready PDF/Word exports, and interactive plain-language Q&A.
+
+## Insights
+
+- [Why Your Business Is Losing Customers While You Sleep](https://invisigent.ai/insights/why-your-business-is-losing-customers-while-you-sleep): How always-on AI agents close the gap between business hours and 24/7 customer demand.
+- [The Real Reason AI Tools Don't Work for Most Small Businesses](https://invisigent.ai/insights/the-real-reason-ai-tools-dont-work-for-most-small-businesses): Why buying AI tools without an AI strategy fails — and what to do instead.
+- [How a 2-Person Team Can Compete With a 20-Person Company Using AI](https://invisigent.ai/insights/how-a-2-person-team-can-compete-with-a-20-person-company-using-ai): How intelligent automation lets small teams punch above their weight.
+
+## About
+
+- [About Invisigent](https://invisigent.ai/about): Who we are, what we build, and how we approach AI infrastructure.
+- [Contact](https://invisigent.ai/contact): Reach out to discuss a project, engagement, or partnership.
+
+## Technical Profile
+
+- Primary AI frameworks: LangGraph, LangChain, Claude API (Anthropic), OpenAI API
+- Deployment: Vercel, AWS, GCP
+- Specializations: multi-agent orchestration, RAG pipelines, real-time streaming, document intelligence, RBAC, audit trail logging
+- Compliance experience: GDPR Article 28, SEBI ICDR, EU AI Act, SOC 2 alignment
+- Location: Jaipur, Rajasthan, India
+- Website: https://invisigent.ai
