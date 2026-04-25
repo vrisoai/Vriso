@@ -108,7 +108,7 @@ const contactPageSchema = {
         availableLanguage: ['English'],
         url: CANONICAL,
       },
-      sameAs: ['https://linkedin.com/company/invisigent'],
+      sameAs: ['https://www.linkedin.com/company/invisigent/', 'https://x.com/InvisigentAI'],
     },
   ],
 };

@@ -147,7 +147,7 @@ export default function FooterSection() {
                   <span>Instagram</span>
                 </a>
                 <a
-                  href="https://x.com/invisigent_ai"
+                  href="https://x.com/InvisigentAI"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Invisigent on X (Twitter)"

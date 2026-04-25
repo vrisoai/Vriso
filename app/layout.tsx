@@ -1,11 +1,14 @@
 // app/layout.tsx
 import type { Metadata } from 'next';
 import { Space_Grotesk, Playfair_Display, JetBrains_Mono } from 'next/font/google';
+import Script from 'next/script';
 import { Navbar } from '@/app/components';
 import { CustomCursor } from '@/app/components/CustomCursor';
 import { ChatbotWidget } from '@/app/components/ChatbotWidget';
 import SchemaOrg from '@/app/components/SchemaOrg';
 import '@/app/styles/globals.css';
+
+const GA_ID = 'G-WNNNJCTFS1';
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -76,6 +79,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://invisigent.ai',
     languages: {
+      'x-default': 'https://invisigent.ai',
       'en-US': 'https://invisigent.ai',
       'en-IN': 'https://invisigent.ai',
     },
@@ -145,6 +149,13 @@ export default function RootLayout({
         <SchemaOrg />
       </head>
       <body className="min-h-screen overflow-x-hidden antialiased font-display">
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}
+        </Script>
         <CustomCursor />
         <Navbar />
         {children}

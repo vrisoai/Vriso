@@ -50,8 +50,8 @@ export default function SchemaOrg() {
           { '@type': 'EducationalOccupationalCredential', credentialCategory: 'SOC2' },
         ],
         sameAs: [
-          'https://linkedin.com/company/invisigent',
-          'https://linkedin.com/company/invisigent',
+          'https://www.linkedin.com/company/invisigent/',
+          'https://x.com/InvisigentAI',
         ],
       },
       {
