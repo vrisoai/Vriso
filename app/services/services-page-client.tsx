@@ -1164,12 +1164,12 @@ function HowToEngage() {
     gsap.set(headerRef.current, { opacity: 0, y: 24 });
     gsap.to(headerRef.current, {
       opacity: 1, y: 0, duration: 0.7, ease: 'power2.out',
-      scrollTrigger: { trigger: headerRef.current, start: 'top 85%', once: true },
+      scrollTrigger: { trigger: headerRef.current, start: 'top 100%', once: true },
     });
     if (isDesktop) {
       gsap.set('.engage-card', { opacity: 0, y: 32 });
       ScrollTrigger.batch('.engage-card', {
-        start: 'top 88%',
+        start: 'top 100%',
         once: true,
         onEnter: batch => gsap.to(batch, {
           opacity: 1, y: 0, duration: 0.65, ease: 'back.out(1.2)', stagger: 0.12,
@@ -1179,7 +1179,7 @@ function HowToEngage() {
       gsap.set(carouselRef.current, { opacity: 0, y: 32 });
       gsap.to(carouselRef.current, {
         opacity: 1, y: 0, duration: 0.65, ease: 'back.out(1.2)',
-        scrollTrigger: { trigger: carouselRef.current, start: 'top 88%', once: true },
+        scrollTrigger: { trigger: carouselRef.current, start: 'top 100%', once: true },
       });
     }
   }, { scope: ref, dependencies: [reducedMotion, isDesktop] });
@@ -1204,8 +1204,8 @@ function HowToEngage() {
       ref={ref}
       style={{
         background: '#121212',
-        paddingTop: 'clamp(4rem, 7vw, 16rem)',
-        paddingBottom: 'clamp(4rem, 7vw, 16rem)',
+        paddingTop: 'clamp(2.5rem, 7vw, 16rem)',
+        paddingBottom: 'clamp(2.5rem, 7vw, 16rem)',
         paddingLeft: 'max(1.5rem, 5vw)',
         paddingRight: 'max(1.5rem, 5vw)',
         scrollMarginTop: 'calc(var(--nav-h, 64px) + 1rem)',
@@ -1421,7 +1421,7 @@ function ServicesCTA() {
     gsap.set(children, { opacity: 0, y: 20 });
     gsap.to(children, {
       opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', stagger: 0.1,
-      scrollTrigger: { trigger: contentRef.current, start: 'top 80%', once: true },
+      scrollTrigger: { trigger: contentRef.current, start: 'top 100%', once: true },
     });
   }, { scope: ref, dependencies: [reducedMotion] });
 
@@ -1432,8 +1432,8 @@ function ServicesCTA() {
         background: 'var(--color-bg-primary)',
         position: 'relative',
         zIndex: 2,
-        paddingTop: 'clamp(4rem, 7vw, 16rem)',
-        paddingBottom: 'clamp(4rem, 7vw, 16rem)',
+        paddingTop: 'clamp(2.5rem, 7vw, 16rem)',
+        paddingBottom: 'clamp(2.5rem, 7vw, 16rem)',
         paddingLeft: 'max(1.5rem, 5vw)',
         paddingRight: 'max(1.5rem, 5vw)',
         overflow: 'hidden',
@@ -1633,11 +1633,11 @@ function ComplianceDeepDive() {
     gsap.set(headerRef.current, { opacity: 0, y: 24 });
     gsap.to(headerRef.current, {
       opacity: 1, y: 0, duration: 0.7, ease: 'power2.out',
-      scrollTrigger: { trigger: headerRef.current, start: 'top 85%', once: true },
+      scrollTrigger: { trigger: headerRef.current, start: 'top 100%', once: true },
     });
     gsap.set('.compliance-row', { opacity: 0, x: -24 });
     ScrollTrigger.batch('.compliance-row', {
-      start: 'top 90%',
+      start: 'top 100%',
       once: true,
       onEnter: batch => gsap.to(batch, {
         opacity: 1, x: 0, duration: 0.5, ease: 'power2.out', stagger: 0.09,
@@ -1650,8 +1650,8 @@ function ComplianceDeepDive() {
       ref={ref}
       style={{
         background: 'var(--color-bg-primary)',
-        paddingTop: 'clamp(4rem, 7vw, 16rem)',
-        paddingBottom: 'clamp(4rem, 7vw, 16rem)',
+        paddingTop: 'clamp(2.5rem, 7vw, 16rem)',
+        paddingBottom: 'clamp(2.5rem, 7vw, 16rem)',
         paddingLeft: 'max(1.5rem, 5vw)',
         paddingRight: 'max(1.5rem, 5vw)',
       }}
@@ -1775,14 +1775,14 @@ function ServicesFAQ() {
     gsap.set(headerRef.current, { opacity: 0, y: 24 });
     gsap.to(headerRef.current, {
       opacity: 1, y: 0, duration: 0.7, ease: 'power2.out',
-      scrollTrigger: { trigger: headerRef.current, start: 'top 85%', once: true },
+      scrollTrigger: { trigger: headerRef.current, start: 'top 100%', once: true },
     });
     itemRefs.current.forEach((item, i) => {
       if (!item) return;
       gsap.set(item, { opacity: 0, y: 20 });
       gsap.to(item, {
         opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', delay: i * 0.08,
-        scrollTrigger: { trigger: item, start: 'top 90%', once: true },
+        scrollTrigger: { trigger: item, start: 'top 100%', once: true },
       });
     });
   }, { scope: ref, dependencies: [reducedMotion] });
@@ -1792,8 +1792,8 @@ function ServicesFAQ() {
       ref={ref}
       style={{
         background: '#121212',
-        paddingTop: 'clamp(4rem, 7vw, 16rem)',
-        paddingBottom: 'clamp(4rem, 7vw, 16rem)',
+        paddingTop: 'clamp(2.5rem, 7vw, 16rem)',
+        paddingBottom: 'clamp(2.5rem, 7vw, 16rem)',
         paddingLeft: 'max(1.5rem, 5vw)',
         paddingRight: 'max(1.5rem, 5vw)',
       }}
