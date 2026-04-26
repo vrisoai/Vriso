@@ -4,8 +4,8 @@ import { InvisigentLogoSection } from '@/app/components/InvisigentLogoSection';
 import FooterSection from '@/app/components/FooterSection';
 import Breadcrumb from '@/app/components/Breadcrumb';
 
-const CANONICAL = 'https://invisigent.ai/ecommerce-ai-assistant';
-const OG_IMAGE = 'https://invisigent.ai/og-image.png';
+const CANONICAL = 'https://www.invisigent.ai/ecommerce-ai-assistant';
+const OG_IMAGE = 'https://www.invisigent.ai/og-image.png';
 const TITLE = 'E-commerce AI Assistant — Personalized Shopping Support at Scale';
 const DESCRIPTION =
   'Virtual shopping assistant demo for recommendations, orders, and catalog help. See how Invisigent builds brand-aligned AI customer service that handles queries 24/7 at scale.';
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     'AI retail assistant',
     'customer service automation',
   ],
-  authors: [{ name: 'Invisigent', url: 'https://invisigent.ai' }],
+  authors: [{ name: 'Invisigent', url: 'https://www.invisigent.ai' }],
   creator: 'Invisigent',
   robots: {
     index: true,
@@ -72,7 +72,7 @@ const pageSchema = {
       applicationCategory: 'BusinessApplication',
       operatingSystem: 'Web',
       inLanguage: 'en-US',
-      creator: { '@id': 'https://invisigent.ai/#organization' },
+      creator: { '@id': 'https://www.invisigent.ai/#organization' },
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Free demo' },
       featureList: [
         'Personalized product recommendations',
@@ -86,8 +86,8 @@ const pageSchema = {
       '@type': 'BreadcrumbList',
       '@id': `${CANONICAL}#breadcrumb`,
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://invisigent.ai' },
-        { '@type': 'ListItem', position: 2, name: 'Interactive Demos', item: 'https://invisigent.ai/interactive-demo' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.invisigent.ai' },
+        { '@type': 'ListItem', position: 2, name: 'Interactive Demos', item: 'https://www.invisigent.ai/interactive-demo' },
         { '@type': 'ListItem', position: 3, name: 'E-commerce AI Assistant', item: CANONICAL },
       ],
     },

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
-const CANONICAL = 'https://invisigent.ai/about';
-const OG_IMAGE = 'https://invisigent.ai/og-image.png';
+const CANONICAL = 'https://www.invisigent.ai/about';
+const OG_IMAGE = 'https://www.invisigent.ai/og-image.png';
 const TITLE = 'About Invisigent — Who We Are & How We Build';
 const DESCRIPTION =
   'Invisigent is an enterprise AI systems firm building sovereign, multi-agent infrastructure for organizations in India, the US, and Europe. We architect AI that is governed, observable, and production-ready.';
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     'production AI systems',
     'Invisigent team',
   ],
-  authors: [{ name: 'Invisigent', url: 'https://invisigent.ai' }],
+  authors: [{ name: 'Invisigent', url: 'https://www.invisigent.ai' }],
   creator: 'Invisigent',
   robots: {
     index: true,
@@ -66,16 +66,16 @@ const aboutPageSchema = {
       name: TITLE,
       description: DESCRIPTION,
       inLanguage: 'en-US',
-      isPartOf: { '@id': 'https://invisigent.ai/#website' },
+      isPartOf: { '@id': 'https://www.invisigent.ai/#website' },
       breadcrumb: { '@id': `${CANONICAL}#breadcrumb` },
       dateModified: '2026-04-23',
-      about: { '@id': 'https://invisigent.ai/#organization' },
+      about: { '@id': 'https://www.invisigent.ai/#organization' },
     },
     {
       '@type': 'BreadcrumbList',
       '@id': `${CANONICAL}#breadcrumb`,
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://invisigent.ai' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.invisigent.ai' },
         { '@type': 'ListItem', position: 2, name: 'About', item: CANONICAL },
       ],
     },

@@ -5,8 +5,8 @@ import { FooterSection, InvisigentLogoSection } from '@/app/components';
 import Breadcrumb from '@/app/components/Breadcrumb';
 
 const CANONICAL =
-  'https://invisigent.ai/insights/how-a-2-person-team-can-compete-with-a-20-person-company-using-ai';
-const OG_IMAGE = 'https://invisigent.ai/blog-2-person-team-compete-with-ai.png';
+  'https://www.invisigent.ai/insights/how-a-2-person-team-can-compete-with-a-20-person-company-using-ai';
+const OG_IMAGE = 'https://www.invisigent.ai/blog-2-person-team-compete-with-ai.png';
 const PUBLISHED = '2026-04-23T10:00:00.000Z';
 const TITLE = 'How a 2-Person Team Can Compete With a 20-Person Company Using AI';
 const DESCRIPTION =
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     'AI competitive advantage',
     'Invisigent AI strategy',
   ],
-  authors: [{ name: 'Invisigent', url: 'https://invisigent.ai' }],
+  authors: [{ name: 'Invisigent', url: 'https://www.invisigent.ai' }],
   creator: 'Invisigent',
   category: 'Growth',
   robots: {
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     url: CANONICAL,
     publishedTime: PUBLISHED,
     modifiedTime: PUBLISHED,
-    authors: ['https://invisigent.ai'],
+    authors: ['https://www.invisigent.ai'],
     section: 'Growth',
     tags: [
       'AI automation',
@@ -127,15 +127,15 @@ const articleSchema = {
   author: {
     '@type': 'Organization',
     name: 'Invisigent',
-    url: 'https://invisigent.ai',
+    url: 'https://www.invisigent.ai',
   },
   publisher: {
     '@type': 'Organization',
     name: 'Invisigent',
-    url: 'https://invisigent.ai',
+    url: 'https://www.invisigent.ai',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://invisigent.ai/logo.png',
+      url: 'https://www.invisigent.ai/logo.png',
     },
   },
   mainEntityOfPage: {
@@ -147,7 +147,7 @@ const articleSchema = {
   inLanguage: 'en-US',
   isPartOf: {
     '@type': 'Blog',
-    '@id': 'https://invisigent.ai/insights#blog',
+    '@id': 'https://www.invisigent.ai/insights#blog',
     name: 'AI Infrastructure Insights',
     publisher: { '@type': 'Organization', name: 'Invisigent' },
   },

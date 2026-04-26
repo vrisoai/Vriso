@@ -5,8 +5,8 @@ import { FooterSection, InvisigentLogoSection } from '@/app/components';
 import Breadcrumb from '@/app/components/Breadcrumb';
 
 const CANONICAL =
-  'https://invisigent.ai/insights/why-your-business-is-losing-customers-while-you-sleep';
-const OG_IMAGE = 'https://invisigent.ai/blog-losing-customers-while-you-sleep.png';
+  'https://www.invisigent.ai/insights/why-your-business-is-losing-customers-while-you-sleep';
+const OG_IMAGE = 'https://www.invisigent.ai/blog-losing-customers-while-you-sleep.png';
 const PUBLISHED = '2026-04-23T08:00:00.000Z';
 const TITLE = 'Why Your Business Is Losing Customers While You Sleep';
 const DESCRIPTION =
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     'lead conversion rate',
     'Invisigent AI',
   ],
-  authors: [{ name: 'Invisigent', url: 'https://invisigent.ai' }],
+  authors: [{ name: 'Invisigent', url: 'https://www.invisigent.ai' }],
   creator: 'Invisigent',
   category: 'AI Mistakes',
   robots: {
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     url: CANONICAL,
     publishedTime: PUBLISHED,
     modifiedTime: PUBLISHED,
-    authors: ['https://invisigent.ai'],
+    authors: ['https://www.invisigent.ai'],
     section: 'AI Mistakes',
     tags: [
       'AI chatbot',
@@ -93,15 +93,15 @@ const articleSchema = {
   author: {
     '@type': 'Organization',
     name: 'Invisigent',
-    url: 'https://invisigent.ai',
+    url: 'https://www.invisigent.ai',
   },
   publisher: {
     '@type': 'Organization',
     name: 'Invisigent',
-    url: 'https://invisigent.ai',
+    url: 'https://www.invisigent.ai',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://invisigent.ai/logo.png',
+      url: 'https://www.invisigent.ai/logo.png',
     },
   },
   mainEntityOfPage: {
@@ -113,7 +113,7 @@ const articleSchema = {
   inLanguage: 'en-US',
   isPartOf: {
     '@type': 'Blog',
-    '@id': 'https://invisigent.ai/insights#blog',
+    '@id': 'https://www.invisigent.ai/insights#blog',
     name: 'AI Infrastructure Insights',
     publisher: { '@type': 'Organization', name: 'Invisigent' },
   },

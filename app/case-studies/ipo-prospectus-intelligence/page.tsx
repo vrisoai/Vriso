@@ -3,8 +3,8 @@ import { FooterSection, InvisigentLogoSection } from '@/app/components';
 import Breadcrumb from '@/app/components/Breadcrumb';
 import CaseStudyIpoClient from './CaseStudyIpoClient';
 
-const CANONICAL = 'https://invisigent.ai/case-studies/ipo-prospectus-intelligence';
-const OG_IMAGE = 'https://invisigent.ai/og-image.png';
+const CANONICAL = 'https://www.invisigent.ai/case-studies/ipo-prospectus-intelligence';
+const OG_IMAGE = 'https://www.invisigent.ai/og-image.png';
 
 export const metadata: Metadata = {
   title: 'IPO Prospectus Intelligence: DRHP/RHP Review in Minutes, Not Days | Invisigent',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     'IPO filing analysis',
     'Invisigent',
   ],
-  authors: [{ name: 'Invisigent', url: 'https://invisigent.ai' }],
+  authors: [{ name: 'Invisigent', url: 'https://www.invisigent.ai' }],
   creator: 'Invisigent',
   robots: {
     index: true,
@@ -63,16 +63,16 @@ const articleSchema = {
       description:
         'An AI-powered IPO prospectus intelligence platform reduced DRHP and RHP review time by 70%, achieved 90% change-detection accuracy across 300-page filings, and gave investment teams plain-language Q&A on any section in under 10 minutes.',
       inLanguage: 'en-US',
-      author: { '@id': 'https://invisigent.ai/#organization' },
-      publisher: { '@id': 'https://invisigent.ai/#organization' },
-      isPartOf: { '@id': 'https://invisigent.ai/case-studies#collection' },
+      author: { '@id': 'https://www.invisigent.ai/#organization' },
+      publisher: { '@id': 'https://www.invisigent.ai/#organization' },
+      isPartOf: { '@id': 'https://www.invisigent.ai/case-studies#collection' },
     },
     {
       '@type': 'BreadcrumbList',
       '@id': `${CANONICAL}#breadcrumb`,
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://invisigent.ai' },
-        { '@type': 'ListItem', position: 2, name: 'Case Studies', item: 'https://invisigent.ai/case-studies' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.invisigent.ai' },
+        { '@type': 'ListItem', position: 2, name: 'Case Studies', item: 'https://www.invisigent.ai/case-studies' },
         { '@type': 'ListItem', position: 3, name: 'IPO Prospectus Intelligence Platform', item: CANONICAL },
       ],
     },

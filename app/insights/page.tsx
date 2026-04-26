@@ -3,8 +3,8 @@ import { FooterSection, InvisigentLogoSection } from '@/app/components';
 import BlogCard from '@/app/components/BlogCard';
 import Breadcrumb from '@/app/components/Breadcrumb';
 
-const CANONICAL = 'https://invisigent.ai/insights';
-const OG_IMAGE = 'https://invisigent.ai/og-image.png';
+const CANONICAL = 'https://www.invisigent.ai/insights';
+const OG_IMAGE = 'https://www.invisigent.ai/og-image.png';
 
 export const metadata: Metadata = {
   title: 'AI Infrastructure Insights ? Field Notes & Patterns',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     'multi-agent AI patterns',
     'AI implementation guide',
   ],
-  authors: [{ name: 'Invisigent', url: 'https://invisigent.ai' }],
+  authors: [{ name: 'Invisigent', url: 'https://www.invisigent.ai' }],
   creator: 'Invisigent',
   robots: {
     index: true,
@@ -70,29 +70,29 @@ const insightsBlogSchema = {
       description:
         'Field notes, patterns, and thinking from Invisigent on enterprise AI infrastructure and automation.',
       inLanguage: 'en-US',
-      publisher: { '@id': 'https://invisigent.ai/#organization' },
-      isPartOf: { '@id': 'https://invisigent.ai/#website' },
+      publisher: { '@id': 'https://www.invisigent.ai/#organization' },
+      isPartOf: { '@id': 'https://www.invisigent.ai/#website' },
       blogPost: [
         {
           '@type': 'BlogPosting',
           headline: 'Why Your Business Is Losing Customers While You Sleep',
-          url: 'https://invisigent.ai/insights/why-your-business-is-losing-customers-while-you-sleep',
+          url: 'https://www.invisigent.ai/insights/why-your-business-is-losing-customers-while-you-sleep',
           datePublished: '2026-04-23',
-          image: 'https://invisigent.ai/blog-losing-customers-while-you-sleep.png',
+          image: 'https://www.invisigent.ai/blog-losing-customers-while-you-sleep.png',
         },
         {
           '@type': 'BlogPosting',
           headline: "The Real Reason AI Tools Don't Work for Most Small Businesses",
-          url: 'https://invisigent.ai/insights/the-real-reason-ai-tools-dont-work-for-most-small-businesses',
+          url: 'https://www.invisigent.ai/insights/the-real-reason-ai-tools-dont-work-for-most-small-businesses',
           datePublished: '2026-04-23',
-          image: 'https://invisigent.ai/blog-ai-tools-dont-work-small-businesses.png',
+          image: 'https://www.invisigent.ai/blog-ai-tools-dont-work-small-businesses.png',
         },
         {
           '@type': 'BlogPosting',
           headline: 'How a 2-Person Team Can Compete With a 20-Person Company Using AI',
-          url: 'https://invisigent.ai/insights/how-a-2-person-team-can-compete-with-a-20-person-company-using-ai',
+          url: 'https://www.invisigent.ai/insights/how-a-2-person-team-can-compete-with-a-20-person-company-using-ai',
           datePublished: '2026-04-23',
-          image: 'https://invisigent.ai/blog-2-person-team-compete-with-ai.png',
+          image: 'https://www.invisigent.ai/blog-2-person-team-compete-with-ai.png',
         },
       ],
     },
@@ -100,7 +100,7 @@ const insightsBlogSchema = {
       '@type': 'BreadcrumbList',
       '@id': `${CANONICAL}#breadcrumb`,
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://invisigent.ai' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.invisigent.ai' },
         { '@type': 'ListItem', position: 2, name: 'Insights', item: CANONICAL },
       ],
     },

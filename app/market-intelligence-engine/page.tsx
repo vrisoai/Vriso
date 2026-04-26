@@ -4,8 +4,8 @@ import { InvisigentLogoSection } from '@/app/components/InvisigentLogoSection';
 import FooterSection from '@/app/components/FooterSection';
 import Breadcrumb from '@/app/components/Breadcrumb';
 
-const CANONICAL = 'https://invisigent.ai/market-intelligence-engine';
-const OG_IMAGE = 'https://invisigent.ai/og-image.png';
+const CANONICAL = 'https://www.invisigent.ai/market-intelligence-engine';
+const OG_IMAGE = 'https://www.invisigent.ai/og-image.png';
 const TITLE = 'Market Intelligence Engine — AI-Powered Stock & Market Analysis';
 const DESCRIPTION =
   'Search a stock by name or symbol for AI-assisted market context — news aggregation, trend detection, and insight workflows. A live demo by Invisigent.';
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     'AI data workflows',
     'real-time market AI',
   ],
-  authors: [{ name: 'Invisigent', url: 'https://invisigent.ai' }],
+  authors: [{ name: 'Invisigent', url: 'https://www.invisigent.ai' }],
   creator: 'Invisigent',
   robots: {
     index: true,
@@ -72,15 +72,15 @@ const pageSchema = {
       applicationCategory: 'BusinessApplication',
       operatingSystem: 'Web',
       inLanguage: 'en-US',
-      creator: { '@id': 'https://invisigent.ai/#organization' },
+      creator: { '@id': 'https://www.invisigent.ai/#organization' },
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Free demo' },
     },
     {
       '@type': 'BreadcrumbList',
       '@id': `${CANONICAL}#breadcrumb`,
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://invisigent.ai' },
-        { '@type': 'ListItem', position: 2, name: 'Interactive Demos', item: 'https://invisigent.ai/interactive-demo' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.invisigent.ai' },
+        { '@type': 'ListItem', position: 2, name: 'Interactive Demos', item: 'https://www.invisigent.ai/interactive-demo' },
         { '@type': 'ListItem', position: 3, name: 'Market Intelligence Engine', item: CANONICAL },
       ],
     },

@@ -3,8 +3,8 @@ import { FooterSection, InvisigentLogoSection } from '@/app/components';
 import CaseStudyCard from '@/app/components/CaseStudyCard';
 import Breadcrumb from '@/app/components/Breadcrumb';
 
-const CANONICAL = 'https://invisigent.ai/case-studies';
-const OG_IMAGE = 'https://invisigent.ai/og-image.png';
+const CANONICAL = 'https://www.invisigent.ai/case-studies';
+const OG_IMAGE = 'https://www.invisigent.ai/og-image.png';
 
 export const metadata: Metadata = {
   title: 'Case Studies — AI Builds & Solutions | Invisigent',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     'legal AI tools',
     'PDF contract analysis AI',
   ],
-  authors: [{ name: 'Invisigent', url: 'https://invisigent.ai' }],
+  authors: [{ name: 'Invisigent', url: 'https://www.invisigent.ai' }],
   creator: 'Invisigent',
   robots: {
     index: true,
@@ -60,14 +60,14 @@ const caseStudiesSchema = {
       name: 'Case Studies — Invisigent',
       description: 'Real-world AI applications and builds by Invisigent.',
       inLanguage: 'en-US',
-      publisher: { '@id': 'https://invisigent.ai/#organization' },
-      isPartOf: { '@id': 'https://invisigent.ai/#website' },
+      publisher: { '@id': 'https://www.invisigent.ai/#organization' },
+      isPartOf: { '@id': 'https://www.invisigent.ai/#website' },
     },
     {
       '@type': 'BreadcrumbList',
       '@id': `${CANONICAL}#breadcrumb`,
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://invisigent.ai' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.invisigent.ai' },
         { '@type': 'ListItem', position: 2, name: 'Case Studies', item: CANONICAL },
       ],
     },

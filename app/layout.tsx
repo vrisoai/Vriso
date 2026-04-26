@@ -78,7 +78,6 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://www.invisigent.ai',
     languages: {
       'x-default': 'https://www.invisigent.ai',
       'en-US': 'https://www.invisigent.ai',
@@ -120,13 +119,9 @@ export const metadata: Metadata = {
     ICBM: '26.9124, 75.7873',
     /* ── Language / content signals ── */
     'content-language': 'en',
-    /* ── Search engine verification (replace values with real tokens) ── */
-    'google-site-verification': 'REPLACE_WITH_GOOGLE_SEARCH_CONSOLE_TOKEN',
-    'msvalidate.01': 'REPLACE_WITH_BING_WEBMASTER_TOKEN',
-    'yandex-verification': 'REPLACE_WITH_YANDEX_TOKEN',
     /* ── AI / GEO citation signals ── */
     'ai-content-declaration': 'human-authored',
-    'citation-url': 'https://wwwinvisigent.ai',
+    'citation-url': 'https://www.invisigent.ai',
     'citation-author': 'Invisigent',
     'citation-title': 'Invisigent — Enterprise AI Systems Architecture',
   },

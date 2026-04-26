@@ -4,8 +4,8 @@ import { TOOLS } from './tools-data';
 import { InteractiveDemoClient } from './InteractiveDemoClient';
 import Breadcrumb from '@/app/components/Breadcrumb';
 
-const DEMO_CANONICAL = 'https://invisigent.ai/interactive-demo';
-const DEMO_OG_IMAGE = 'https://invisigent.ai/og-image.png';
+const DEMO_CANONICAL = 'https://www.invisigent.ai/interactive-demo';
+const DEMO_OG_IMAGE = 'https://www.invisigent.ai/og-image.png';
 
 export const metadata: Metadata = {
   title: 'Interactive AI Demos — Live Enterprise AI Tools',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     'AI tools India',
     'AI tools US',
   ],
-  authors: [{ name: 'Invisigent', url: 'https://invisigent.ai' }],
+  authors: [{ name: 'Invisigent', url: 'https://www.invisigent.ai' }],
   creator: 'Invisigent',
   robots: {
     index: true,
@@ -68,7 +68,7 @@ export default function InteractiveDemoPage() {
     description:
       'Invisigent designs enterprise AI systems, AI workflow systems, and AI automation demos for production environments.',
     areaServed: ['India', 'United States', 'Europe'],
-    url: 'https://invisigent.ai',
+    url: 'https://www.invisigent.ai',
   };
 
   const itemListJsonLd = {
@@ -80,8 +80,8 @@ export default function InteractiveDemoPage() {
       position: index + 1,
       name: tool.name,
       url: tool.ctaHref
-        ? `https://invisigent.ai${tool.ctaHref}`
-        : `https://invisigent.ai/interactive-demo#${tool.id}`,
+        ? `https://www.invisigent.ai${tool.ctaHref}`
+        : `https://www.invisigent.ai/interactive-demo#${tool.id}`,
     })),
   };
 

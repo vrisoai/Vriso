@@ -17,7 +17,7 @@ const JSON_LD_PROFESSIONAL_SERVICE = {
   description:
     'Enterprise AI infrastructure and automation architecture consulting specializing in scalable AI systems and agent orchestration.',
   areaServed: 'Global',
-  url: 'https://invisigent.ai',
+  url: 'https://www.invisigent.ai',
 };
 
 const footerColumns = {

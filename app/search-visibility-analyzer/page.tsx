@@ -4,8 +4,8 @@ import { InvisigentLogoSection } from '@/app/components/InvisigentLogoSection';
 import FooterSection from '@/app/components/FooterSection';
 import Breadcrumb from '@/app/components/Breadcrumb';
 
-const CANONICAL = 'https://invisigent.ai/search-visibility-analyzer';
-const OG_IMAGE = 'https://invisigent.ai/og-image.png';
+const CANONICAL = 'https://www.invisigent.ai/search-visibility-analyzer';
+const OG_IMAGE = 'https://www.invisigent.ai/og-image.png';
 const TITLE = 'Search Visibility Analyzer — Free SEO Audit Tool by Invisigent';
 const DESCRIPTION =
   'Submit your keyword, location, and website for a tailored search visibility snapshot. Analyze Google rankings, Google Business Profile visibility, and on-page SEO — receive a structured PDF report.';
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     'keyword visibility analysis',
     'search ranking audit',
   ],
-  authors: [{ name: 'Invisigent', url: 'https://invisigent.ai' }],
+  authors: [{ name: 'Invisigent', url: 'https://www.invisigent.ai' }],
   creator: 'Invisigent',
   robots: {
     index: true,
@@ -72,7 +72,7 @@ const pageSchema = {
       applicationCategory: 'BusinessApplication',
       operatingSystem: 'Web',
       inLanguage: 'en-US',
-      creator: { '@id': 'https://invisigent.ai/#organization' },
+      creator: { '@id': 'https://www.invisigent.ai/#organization' },
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Free tool' },
       featureList: [
         'Google ranking analysis',
@@ -85,8 +85,8 @@ const pageSchema = {
       '@type': 'BreadcrumbList',
       '@id': `${CANONICAL}#breadcrumb`,
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://invisigent.ai' },
-        { '@type': 'ListItem', position: 2, name: 'Interactive Demos', item: 'https://invisigent.ai/interactive-demo' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.invisigent.ai' },
+        { '@type': 'ListItem', position: 2, name: 'Interactive Demos', item: 'https://www.invisigent.ai/interactive-demo' },
         { '@type': 'ListItem', position: 3, name: 'Search Visibility Analyzer', item: CANONICAL },
       ],
     },

@@ -15,7 +15,7 @@ const JSON_LD_ORG = {
   '@type': 'Organization',
   name: 'Invisigent',
   description: 'Invisigent builds AI systems your team owns, your security team approves, and your operations team can run at scale. Most AI projects stall because the infrastructure wasn\'t built for production.',
-  url: 'https://invisigent.ai',
+  url: 'https://www.invisigent.ai',
   areaServed: ['US', 'EU', 'India', 'Global'],
   serviceType: ['Enterprise AI Consulting', 'AI Infrastructure Systems', 'AI Automation Systems', 'Agent Orchestration Systems'],
 };

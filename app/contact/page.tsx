@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { ContactClient } from './ContactClient';
 import Breadcrumb from '@/app/components/Breadcrumb';
 
-const CANONICAL = 'https://invisigent.ai/contact';
-const OG_IMAGE = 'https://invisigent.ai/og-image.png';
+const CANONICAL = 'https://www.invisigent.ai/contact';
+const OG_IMAGE = 'https://www.invisigent.ai/og-image.png';
 const TITLE = "Let's Talk — Start an AI Project With Invisigent";
 const DESCRIPTION =
   'Start a conversation with Invisigent about enterprise AI systems, automation workflows, and intelligent infrastructure for your business. Book a free strategy call today.';
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     'AI retainer inquiry',
     'multi-agent AI project',
   ],
-  authors: [{ name: 'Invisigent', url: 'https://invisigent.ai' }],
+  authors: [{ name: 'Invisigent', url: 'https://www.invisigent.ai' }],
   creator: 'Invisigent',
   robots: {
     index: true,
@@ -68,7 +68,7 @@ const contactPageSchema = {
       name: TITLE,
       description: DESCRIPTION,
       inLanguage: 'en-US',
-      isPartOf: { '@id': 'https://invisigent.ai/#website' },
+      isPartOf: { '@id': 'https://www.invisigent.ai/#website' },
       breadcrumb: { '@id': `${CANONICAL}#breadcrumb` },
       dateModified: '2026-04-23',
     },
@@ -76,15 +76,15 @@ const contactPageSchema = {
       '@type': 'BreadcrumbList',
       '@id': `${CANONICAL}#breadcrumb`,
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://invisigent.ai' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.invisigent.ai' },
         { '@type': 'ListItem', position: 2, name: 'Contact', item: CANONICAL },
       ],
     },
     {
       '@type': 'LocalBusiness',
-      '@id': 'https://invisigent.ai/#localbusiness',
+      '@id': 'https://www.invisigent.ai/#localbusiness',
       name: 'Invisigent',
-      url: 'https://invisigent.ai',
+      url: 'https://www.invisigent.ai',
       description: 'Enterprise AI systems architecture firm serving India, US, and Europe.',
       address: {
         '@type': 'PostalAddress',

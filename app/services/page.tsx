@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import ServicesPageClient from './services-page-client';
 import Breadcrumb from '@/app/components/Breadcrumb';
 
-const CANONICAL = 'https://invisigent.ai/services';
-const OG_IMAGE = 'https://invisigent.ai/og-image.png';
+const CANONICAL = 'https://www.invisigent.ai/services';
+const OG_IMAGE = 'https://www.invisigent.ai/og-image.png';
 
 export const metadata: Metadata = {
   title: 'Services — Enterprise AI Infrastructure & Agent Orchestration',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     'AI consulting Europe',
     'AI consulting US',
   ],
-  authors: [{ name: 'Invisigent', url: 'https://invisigent.ai' }],
+  authors: [{ name: 'Invisigent', url: 'https://www.invisigent.ai' }],
   creator: 'Invisigent',
   robots: {
     index: true,
@@ -71,29 +71,29 @@ const servicesJsonLd = {
   '@graph': [
     {
       '@type': 'WebPage',
-      '@id': 'https://invisigent.ai/services#webpage',
-      url: 'https://invisigent.ai/services',
+      '@id': 'https://www.invisigent.ai/services#webpage',
+      url: 'https://www.invisigent.ai/services',
       name: 'Services — Enterprise AI Infrastructure | Invisigent',
       description:
         'Enterprise AI infrastructure consulting, LangGraph agent orchestration, Pinecone RAG systems, and compliance-ready AI for global organizations.',
       dateModified: '2026-04-18',
       inLanguage: 'en',
-      isPartOf: { '@id': 'https://invisigent.ai/#website' },
-      breadcrumb: { '@id': 'https://invisigent.ai/services#breadcrumb' },
+      isPartOf: { '@id': 'https://www.invisigent.ai/#website' },
+      breadcrumb: { '@id': 'https://www.invisigent.ai/services#breadcrumb' },
     },
     {
       '@type': 'BreadcrumbList',
-      '@id': 'https://invisigent.ai/services#breadcrumb',
+      '@id': 'https://www.invisigent.ai/services#breadcrumb',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://invisigent.ai' },
-        { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://invisigent.ai/services' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.invisigent.ai' },
+        { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://www.invisigent.ai/services' },
       ],
     },
     {
       '@type': 'OfferCatalog',
-      '@id': 'https://invisigent.ai/services#catalog',
+      '@id': 'https://www.invisigent.ai/services#catalog',
       name: 'Enterprise AI Infrastructure Services',
-      provider: { '@id': 'https://invisigent.ai/#organization' },
+      provider: { '@id': 'https://www.invisigent.ai/#organization' },
       numberOfItems: 7,
       itemListElement: [
         {
@@ -142,7 +142,7 @@ const servicesJsonLd = {
     },
     {
       '@type': 'HowTo',
-      '@id': 'https://invisigent.ai/services#engagement',
+      '@id': 'https://www.invisigent.ai/services#engagement',
       name: 'How Invisigent Engages With Clients',
       description: 'Three engagement models for enterprise AI infrastructure: Strategy Engagement, System Build, and Ongoing Partnership.',
       step: [
@@ -168,7 +168,7 @@ const servicesJsonLd = {
     },
     {
       '@type': 'FAQPage',
-      '@id': 'https://invisigent.ai/services#faq',
+      '@id': 'https://www.invisigent.ai/services#faq',
       mainEntity: [
         {
           '@type': 'Question',
