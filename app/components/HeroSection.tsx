@@ -55,7 +55,8 @@ const fadeUp = {
 const LINE_A = 'Architecting Production AI Systems';
 const LINE_B = "for Enterprises That Can't Afford to Fail";
 
-export function HeroSection() {
+export function HeroSection({ headingLevel = 'h1' }: { headingLevel?: 'h1' | 'div' }) {
+  const HeadingTag    = headingLevel;
   const wordsB        = LINE_B.split(' ');
   const heroRef       = useRef<HTMLElement>(null);
   const statusRef     = useRef<HTMLSpanElement>(null);
@@ -173,10 +174,13 @@ export function HeroSection() {
             {/* H1 — primary SEO signal + LCP element.
                 Rendered as static HTML (no opacity:0 initial state) so the
                 browser counts it as LCP at FCP time (~1.8 s) instead of
-                waiting for JS hydration + Framer Motion animation (~5 s). */}
-            <h1
+                waiting for JS hydration + Framer Motion animation (~5 s).
+                headingLevel="div" used for the duplicate mobile render to
+                avoid two <h1> tags in the HTML source. */}
+            <HeadingTag
               className="hero-headline flex flex-col gap-0 tracking-[-0.04em]"
               style={{ lineHeight: 1.05 }}
+              {...(headingLevel === 'div' ? { 'aria-hidden': true } : {})}
             >
               <span
                 className="flex flex-wrap items-baseline justify-center gap-x-2 font-display font-extrabold text-text-primary md:justify-start"
@@ -194,7 +198,7 @@ export function HeroSection() {
                   </span>
                 ))}
               </span>
-            </h1>
+            </HeadingTag>
 
             {/* Subtext — keyword-rich for SEO + GEO */}
             <motion.p

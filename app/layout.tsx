@@ -35,11 +35,11 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://invisigent.ai'),
   title: {
-    default: 'Invisigent — Enterprise AI Systems Architecture',
+    default: 'Invisigent — Enterprise AI Systems Architecture Firm',
     template: '%s | Invisigent',
   },
   description:
-    'Invisigent architects sovereign, multi-agent AI systems for enterprise workflow automation, governance, and execution. Strategic AI retainers for EU, India, and US markets.',
+    'Invisigent architects sovereign, multi-agent AI systems for enterprise workflow automation and governance. Strategic AI retainers for EU, India, and US markets.',
   keywords: [
     'Enterprise AI Architecture',
     'Agentic Orchestration',
@@ -78,6 +78,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
+    canonical: 'https://invisigent.ai',
     languages: {
       'x-default': 'https://invisigent.ai',
       'en-US': 'https://invisigent.ai',

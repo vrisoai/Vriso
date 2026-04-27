@@ -141,7 +141,7 @@ export default function Home() {
                 flexDirection: 'column',
               }}
             >
-              <HeroSection />
+              <HeroSection headingLevel="div" />
             </div>
           </div>
         </div>
