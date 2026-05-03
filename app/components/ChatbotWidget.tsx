@@ -276,7 +276,7 @@ export function ChatbotWidget() {
 
       {/* ── WhatsApp button ─────────────────────────────────────────────── */}
       <a
-        href="https://wa.me/919982346893?text=Hey%20i%20need%20help%20with%20tech%20solution%20.%20Let's%20talk"
+        href="https://wa.me/919982346893?text=Hey%2C%20i%20need%20help%20with%20tech%20solution.%20Let's%20talk!"
         target="_blank"
         rel="noopener noreferrer"
         className="whatsapp-trigger"
