@@ -94,6 +94,13 @@ const insightsBlogSchema = {
           datePublished: '2026-04-23',
           image: 'https://invisigent.ai/blog-2-person-team-compete-with-ai.png',
         },
+        {
+          '@type': 'BlogPosting',
+          headline: '7 AI Implementation Mistakes That Burn Budget (And How to Avoid Them)',
+          url: 'https://invisigent.ai/insights/7-ai-implementation-mistakes-that-burn-budget-and-how-to-avoid-them',
+          datePublished: '2026-05-04',
+          image: 'https://invisigent.ai/blog-ai-implementation-mistakes.png',
+        },
       ],
     },
     {
@@ -208,6 +215,16 @@ export default function InsightsPage() {
             excerpt="Headcount used to determine capacity. AI has changed that. Here's how small teams are using intelligent automation to punch well above their weight and win."
             author="Invisigent Research"
             href="/insights/how-a-2-person-team-can-compete-with-a-20-person-company-using-ai"
+          />
+          <BlogCard
+            imageSrc="/blog-ai-implementation-mistakes.svg"
+            imageAlt="Executive reviewing a dashboard showing failed AI initiatives, broken automations, and budget overruns"
+            category="AI Strategy"
+            readTime="8 min read"
+            heading="7 AI Implementation Mistakes That Burn Budget (And How to Avoid Them)"
+            excerpt="AI isn't failing — execution is. From missing guardrails to no clear ROI model, these are the seven most expensive mistakes B2B companies make when implementing AI."
+            author="Invisigent Research"
+            href="/insights/7-ai-implementation-mistakes-that-burn-budget-and-how-to-avoid-them"
           />
         </div>
       </main>
