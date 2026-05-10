@@ -2431,7 +2431,7 @@ a:focus-visible {
   position: fixed;
   bottom: calc(clamp(1.25rem, 3vw, 2rem) + 56px + 12px);
   right: clamp(1.25rem, 3vw, 2rem);
-  z-index: 8999;
+  z-index: 9001;
   width: clamp(300px, 90vw, 380px);
   height: clamp(420px, 60vh, 540px);
   background: rgba(20, 20, 20, 0.95);
