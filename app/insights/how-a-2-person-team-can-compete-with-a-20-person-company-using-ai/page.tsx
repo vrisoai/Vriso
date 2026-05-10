@@ -8,28 +8,29 @@ const CANONICAL =
   'https://invisigent.ai/insights/how-a-2-person-team-can-compete-with-a-20-person-company-using-ai';
 const OG_IMAGE = 'https://invisigent.ai/blog-2-person-team-compete-with-ai.png';
 const PUBLISHED = '2026-04-23T10:00:00.000Z';
-const TITLE = 'How a 2-Person Team Can Compete With a 20-Person Company Using AI';
+const TITLE =
+  'How Mid-Market Companies Build Operational Leverage Against Larger Competitors Using AI Infrastructure';
 const DESCRIPTION =
-  "The gap between a small business and a well-funded competitor used to be headcount. In 2025, it's automation. And the good news: it's closeable.";
+  'The competitive gap between a mid-market company and an enterprise used to be headcount and budget. In 2026, it is infrastructure and it is closeable faster than most organizations realize.';
 
 export const metadata: Metadata = {
   title: `${TITLE} | Invisigent`,
   description: DESCRIPTION,
   keywords: [
-    'small team AI automation',
-    'compete with larger companies using AI',
-    'AI for small business growth',
-    'workflow automation small business',
-    'lead qualification automation',
-    'proposal generation AI',
-    'AI business efficiency',
-    'startup AI tools',
-    'AI competitive advantage',
+    'AI competitive advantage mid-market',
+    'operational leverage AI infrastructure',
+    'AI workflow automation enterprise',
+    'mid-market vs enterprise AI',
+    'AI infrastructure deployment',
+    'agentic workflow automation',
+    'RAG knowledge retrieval operations',
+    'GDPR DPDP compliance AI',
+    'AI operations efficiency',
     'Invisigent AI strategy',
   ],
   authors: [{ name: 'Invisigent', url: 'https://invisigent.ai' }],
   creator: 'Invisigent',
-  category: 'Growth',
+  category: 'AI Infrastructure',
   robots: {
     index: true,
     follow: true,
@@ -42,18 +43,18 @@ export const metadata: Metadata = {
     siteName: 'Invisigent',
     title: TITLE,
     description:
-      "The gap used to be headcount. In 2025, it's automation — and it's closeable.",
+      'The competitive gap used to be headcount and budget. In 2026, it is infrastructure and mid-market organizations can close it faster than enterprise competitors can respond.',
     url: CANONICAL,
     publishedTime: PUBLISHED,
     modifiedTime: PUBLISHED,
     authors: ['https://invisigent.ai'],
-    section: 'Growth',
+    section: 'AI Infrastructure',
     tags: [
-      'AI automation',
-      'small business growth',
+      'AI infrastructure',
+      'operational leverage',
+      'mid-market AI',
       'workflow automation',
-      'lead qualification',
-      'AI competitive advantage',
+      'competitive advantage',
     ],
     images: [
       {
@@ -71,44 +72,10 @@ export const metadata: Metadata = {
     creator: '@invisigent_ai',
     title: TITLE,
     description:
-      "The gap used to be headcount. In 2025, it's automation — and it's closeable.",
+      'The competitive gap used to be headcount. In 2026, it is infrastructure and it is closeable.',
     images: [{ url: OG_IMAGE, alt: TITLE }],
   },
 };
-
-const WORKFLOWS = [
-  {
-    n: '01',
-    title: 'Lead intake and qualification',
-    body: "An AI chatbot or form collects context, asks the right questions, scores the lead, and routes it to the right person. No more wasting an hour on a discovery call with someone who was never going to buy.",
-  },
-  {
-    n: '02',
-    title: 'Follow-up automation',
-    body: "Proposals sent, no reply? A structured automation sequence follows up at day 2, day 5, and day 10 — personalised, on-brand, without a single manual email.",
-  },
-  {
-    n: '03',
-    title: 'Proposal and document generation',
-    body: "Feed client intake data into a template. AI assembles a first-draft proposal in minutes, ready for human review. Cuts proposal time from 3 hours to 20 minutes.",
-  },
-  {
-    n: '04',
-    title: 'Customer support on repeat questions',
-    body: "70% of support queries are the same questions. Train an AI on your knowledge base. It handles those. You handle the 30% that actually need you.",
-  },
-  {
-    n: '05',
-    title: 'Internal operations and reporting',
-    body: "Weekly status summaries, data entry across tools, CRM updates. All things that eat 30–60 minutes daily and produce nothing new.",
-  },
-];
-
-const STATS = [
-  { stat: '12 hrs', label: 'average time saved per week per team member with targeted automation' },
-  { stat: '3.1×', label: 'faster proposal turnaround with AI-assisted document generation' },
-  { stat: '40%', label: 'of operational work in a 5-person business is automatable today' },
-];
 
 const articleSchema = {
   '@context': 'https://schema.org',
@@ -142,8 +109,9 @@ const articleSchema = {
     '@type': 'WebPage',
     '@id': CANONICAL,
   },
-  articleSection: 'Growth',
-  keywords: 'AI automation, small business growth, workflow automation, lead qualification, AI competitive advantage',
+  articleSection: 'AI Infrastructure',
+  keywords:
+    'AI infrastructure, operational leverage, mid-market AI, workflow automation, competitive advantage',
   inLanguage: 'en-US',
   isPartOf: {
     '@type': 'Blog',
@@ -153,6 +121,50 @@ const articleSchema = {
   },
 };
 
+const h2Style = {
+  fontSize: 'clamp(1.125rem, 2.5vw, 1.4rem)',
+  fontWeight: 700,
+  color: 'var(--color-text-primary)',
+  marginBottom: '-0.25rem',
+} as const;
+
+const monoLabelStyle = {
+  fontFamily: 'var(--font-mono)',
+  fontSize: '0.625rem',
+  letterSpacing: '0.12em',
+  textTransform: 'uppercase' as const,
+  color: 'var(--color-trust-amber)',
+  marginBottom: '0.3rem',
+};
+
+const OPERATIONAL_AREAS = [
+  {
+    num: '01',
+    title: 'Inbound Request Triage and Routing',
+    body: 'Enterprise organizations have dedicated intake teams. Mid-market organizations have the same volume of inbound complexity with a fraction of the routing capacity. AI infrastructure handles this through agentic classification systems that receive inbound requests, identify type and priority, retrieve relevant context from internal knowledge systems, and route with full context attached without a human coordinator managing the queue. The compounding effect: response times that match or exceed enterprise competitors, without the overhead of a coordination team.',
+  },
+  {
+    num: '02',
+    title: 'Internal Knowledge Retrieval',
+    body: 'One of the largest hidden operational costs in mid-market organizations is the time spent finding information that already exists inside the business. Past proposals, compliance documents, technical specifications, client history, internal policies scattered across inboxes, shared drives, and institutional memory. RAG infrastructure connected to your actual internal documents and databases delivers accurate, context-grounded answers in under three seconds. Your team stops spending forty minutes finding a document and starts spending forty minutes using it.',
+  },
+  {
+    num: '03',
+    title: 'Compliance Documentation and Audit Preparation',
+    body: 'For mid-market organizations operating in regulated industries or preparing for enterprise procurement, compliance overhead is a genuine operational constraint. Manual audit trail maintenance, policy documentation updates, and governance reporting consume significant team capacity. AI infrastructure with built-in observability every agent decision logged, every retrieval event traced, every workflow execution auditable produces compliance documentation as a byproduct of normal operations rather than as a separate overhead.',
+  },
+  {
+    num: '04',
+    title: 'Cross-System Data Coordination',
+    body: 'Mid-market organizations typically operate across multiple systems CRMs, ERPs, project management platforms, financial tools with manual data movement between them. This creates lag, errors, and the kind of operational friction that slows every downstream decision. Automation infrastructure connected to your existing stack eliminates manual data movement and ensures that information is where it needs to be when decisions require it.',
+  },
+  {
+    num: '05',
+    title: 'Operational Reporting and Performance Monitoring',
+    body: 'Weekly performance summaries, system health reports, SLA monitoring, and exception flagging these are high-frequency, low-judgment tasks that consume hours of operational capacity every week and produce nothing new. AI infrastructure handles these as automated outputs. Your leadership team receives accurate, timely operational intelligence without anyone spending time compiling it.',
+  },
+];
+
 export default function BlogPost() {
   return (
     <>
@@ -160,7 +172,12 @@ export default function BlogPost() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
-      <Breadcrumb items={[{ label: 'Insights', href: '/insights' }, { label: 'How a 2-Person Team Can Compete With a 20-Person Company Using AI' }]} />
+      <Breadcrumb
+        items={[
+          { label: 'Insights', href: '/insights' },
+          { label: 'How Mid-Market Companies Build Operational Leverage Against Larger Competitors' },
+        ]}
+      />
       <main style={{ background: 'var(--color-bg-primary)', minHeight: '100vh' }}>
 
         {/* ── Hero image ── */}
@@ -175,7 +192,7 @@ export default function BlogPost() {
         >
           <Image
             src="/blog-2-person-team-compete-with-ai.png"
-            alt="Two-person team powered by glowing AI agent network competing with a large grey corporate floor"
+            alt="Mid-market operations team building AI infrastructure to compete with enterprise competitors"
             fill
             sizes="100vw"
             style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
@@ -202,7 +219,9 @@ export default function BlogPost() {
         >
 
           {/* Category + read time */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+          <div
+            style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}
+          >
             <span
               className="font-mono"
               style={{
@@ -216,7 +235,7 @@ export default function BlogPost() {
                 padding: '0.2rem 0.55rem',
               }}
             >
-              Growth
+              AI Infrastructure
             </span>
             <span
               className="font-mono"
@@ -226,7 +245,7 @@ export default function BlogPost() {
                 color: 'var(--color-text-tertiary)',
               }}
             >
-              5 min read
+              9 min read
             </span>
           </div>
 
@@ -238,11 +257,28 @@ export default function BlogPost() {
               fontWeight: 700,
               lineHeight: 1.15,
               color: 'var(--color-text-primary)',
+              marginBottom: '1rem',
+            }}
+          >
+            How Mid-Market Companies Build Operational Leverage Against Larger Competitors Using AI
+            Infrastructure
+          </h1>
+
+          {/* Lead */}
+          <p
+            className="font-serif"
+            style={{
+              fontSize: 'clamp(1rem, 2vw, 1.125rem)',
+              lineHeight: 1.7,
+              color: 'var(--color-text-secondary)',
+              fontStyle: 'italic',
               marginBottom: '2rem',
             }}
           >
-            How a 2-Person Team Can Compete With a 20-Person Company Using AI
-          </h1>
+            The competitive gap between a 50-person mid-market company and a 500-person enterprise
+            used to be headcount and budget. In 2026, it is infrastructure. And it is closeable
+            faster than most organizations realize.
+          </p>
 
           {/* Divider */}
           <div
@@ -266,51 +302,60 @@ export default function BlogPost() {
               gap: '1.5rem',
             }}
           >
-            <p>
-              The gap between a small business and a well-funded competitor used to be headcount. In
-              2025, it&apos;s automation. And the good news: it&apos;s closeable.
-            </p>
 
-            <p>
-              There&apos;s a myth that AI is for big companies — the ones with tech teams, data
-              scientists, and million-dollar budgets. It&apos;s a myth that larger competitors are very
-              happy to let you believe.
-            </p>
-
-            <p>
-              The truth is more interesting. Small businesses that move first on AI automation are
-              compressing what used to be a 20-person workload into a team of two or three — and
-              they&apos;re doing it at a fraction of the cost of hiring.
-            </p>
-
-            <h2
-              className="font-serif"
-              style={{
-                fontSize: 'clamp(1.125rem, 2.5vw, 1.4rem)',
-                fontWeight: 700,
-                color: 'var(--color-text-primary)',
-                marginBottom: '-0.5rem',
-              }}
-            >
-              What your competitor is actually doing
+            {/* Section 1 */}
+            <h2 className="font-serif" style={h2Style}>
+              The Myth That Protects Larger Competitors
             </h2>
 
             <p>
-              When a fast-growing competitor seems to handle everything — fast replies, consistent
-              follow-ups, polished proposals, smooth onboarding — it&apos;s not always because they
-              have a bigger team.
+              There is a widely held belief in mid-market organizations that enterprise-grade AI
+              infrastructure requires enterprise-scale resources dedicated data science teams,
+              multi-year implementation timelines, and budgets measured in the millions.
+            </p>
+
+            <p>Larger competitors are comfortable letting that belief persist.</p>
+
+            <p>
+              The reality is that mid-market organizations that move deliberately on AI
+              infrastructure are compressing what previously required significantly larger operational
+              teams into leaner, faster, more responsive organizations and doing it at a fraction
+              of the cost of scaling headcount to match the same output.
             </p>
 
             <p>
-              Increasingly, it&apos;s because they&apos;ve automated the operational layer of their
-              business. The parts that aren&apos;t creative or strategic — but that still eat 40% of
-              working hours.
+              The window to build this advantage is open. It will not stay open indefinitely.
+            </p>
+
+            {/* Section 2 */}
+            <h2 className="font-serif" style={{ ...h2Style, marginTop: '0.5rem' }}>
+              What Your Larger Competitor Is Actually Running
+            </h2>
+
+            <p>
+              When an enterprise competitor appears to handle higher volume with apparent operational
+              ease faster responses, consistent follow-through, smoother internal coordination
+              it is not always because they have more people.
             </p>
 
             <p>
-              Lead qualification. Follow-up sequences. Proposal generation. Client status updates.
-              Invoice reminders. Meeting summaries. These things don&apos;t require judgment — they
-              require consistency. And that&apos;s exactly what AI does well.
+              Increasingly it is because they have automated the operational layer of their
+              business. The workflows that are not strategic or creative but that consume forty
+              percent or more of operational capacity every week.
+            </p>
+
+            <p>
+              Request triage and routing. Internal knowledge retrieval. Compliance documentation.
+              Data movement between systems. Status updates and escalation management. Report
+              generation. These workflows do not require judgment. They require consistency, speed,
+              and accuracy at volume. That is precisely what production AI infrastructure delivers.
+            </p>
+
+            <p>
+              The mid-market organizations building competitive leverage right now are not waiting
+              for AI to become more accessible. They are building the infrastructure layer while
+              their larger competitors are still in procurement approval cycles and their smaller
+              competitors are still running manual operations.
             </p>
 
             {/* Pull quote */}
@@ -318,155 +363,81 @@ export default function BlogPost() {
               style={{
                 margin: '0.5rem 0',
                 padding: '1.25rem 1.5rem',
-                background: 'rgba(59,130,246,0.06)',
-                borderLeft: '3px solid var(--color-link)',
+                background: 'rgba(251,191,36,0.04)',
+                borderLeft: '3px solid var(--color-trust-amber)',
                 borderRadius: '0 0.5rem 0.5rem 0',
               }}
             >
               <p
                 className="font-serif"
                 style={{
-                  fontSize: 'clamp(1rem, 2vw, 1.2rem)',
+                  fontSize: 'clamp(1rem, 2vw, 1.175rem)',
                   fontStyle: 'italic',
                   color: 'var(--color-text-primary)',
                   margin: 0,
                   lineHeight: 1.6,
                 }}
               >
-                &ldquo;Your competitor doesn&apos;t have more hours. They&apos;ve just stopped doing
-                the things that don&apos;t require a human.&rdquo;
+                The competitive advantage in the next five years does not go to the organization
+                with the largest team. It goes to the organization whose infrastructure handles the
+                most operational volume without adding headcount.
               </p>
             </blockquote>
 
-            <h2
-              className="font-serif"
-              style={{
-                fontSize: 'clamp(1.125rem, 2.5vw, 1.4rem)',
-                fontWeight: 700,
-                color: 'var(--color-text-primary)',
-                marginBottom: '-0.5rem',
-              }}
-            >
-              The 5 workflows where a small team wins back 10+ hours a week
+            {/* Section 3 heading */}
+            <h2 className="font-serif" style={{ ...h2Style, marginTop: '0.5rem' }}>
+              Five Operational Areas Where AI Infrastructure Creates Compounding Advantage
             </h2>
           </div>
 
-          {/* Workflow cards */}
+          {/* Operational area cards */}
           <div
             style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '1rem',
-              margin: '1.75rem 0',
+              gap: '0.75rem',
+              margin: '1.75rem 0 2rem',
             }}
           >
-            {WORKFLOWS.map(({ n, title, body }) => (
+            {OPERATIONAL_AREAS.map(({ num, title, body }) => (
               <div
-                key={n}
+                key={num}
                 style={{
                   background: 'var(--color-bg-card)',
-                  border: '1px solid var(--color-border)',
-                  borderRadius: '0.75rem',
-                  padding: 'clamp(1rem, 2.5vw, 1.5rem)',
-                  display: 'flex',
-                  gap: '1.25rem',
-                  alignItems: 'flex-start',
+                  border: '1px solid rgba(255,255,255,0.06)',
+                  borderLeft: '3px solid var(--color-trust-amber)',
+                  borderRadius: '0 0.5rem 0.5rem 0',
+                  padding: '1.25rem 1.5rem',
                 }}
               >
-                <span
-                  className="font-mono"
-                  style={{
-                    fontSize: '0.625rem',
-                    letterSpacing: '0.12em',
-                    color: 'var(--color-trust-amber)',
-                    background: 'rgba(251,191,36,0.08)',
-                    border: '1px solid rgba(251,191,36,0.2)',
-                    borderRadius: '0.25rem',
-                    padding: '0.25rem 0.5rem',
-                    flexShrink: 0,
-                    marginTop: '0.2rem',
-                  }}
-                >
-                  {n}
-                </span>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                  <p
-                    className="font-serif"
-                    style={{
-                      fontSize: 'clamp(0.9375rem, 1.8vw, 1.0625rem)',
-                      fontWeight: 700,
-                      color: 'var(--color-text-primary)',
-                      margin: 0,
-                      lineHeight: 1.4,
-                    }}
-                  >
-                    {title}
-                  </p>
-                  <p
-                    className="font-serif"
-                    style={{
-                      fontSize: 'clamp(0.875rem, 1.6vw, 1rem)',
-                      color: 'var(--color-text-secondary)',
-                      margin: 0,
-                      lineHeight: 1.7,
-                    }}
-                  >
-                    {body}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Stats grid */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-              gap: '1rem',
-              margin: '2rem 0',
-            }}
-          >
-            {STATS.map(({ stat, label }) => (
-              <div
-                key={stat}
-                style={{
-                  background: 'var(--color-bg-card)',
-                  border: '1px solid var(--color-border)',
-                  borderTop: '2px solid var(--color-trust-amber)',
-                  borderRadius: '0.75rem',
-                  padding: '1.25rem 1rem',
-                  textAlign: 'center',
-                }}
-              >
+                <div style={monoLabelStyle}>{num}</div>
                 <p
                   className="font-serif"
                   style={{
-                    fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
+                    fontSize: 'clamp(0.9375rem, 1.7vw, 1rem)',
                     fontWeight: 700,
-                    color: 'var(--color-trust-amber)',
-                    lineHeight: 1,
+                    color: 'var(--color-text-primary)',
+                    lineHeight: 1.4,
                     marginBottom: '0.5rem',
                   }}
                 >
-                  {stat}
+                  {title}
                 </p>
                 <p
-                  className="font-mono"
+                  className="font-serif"
                   style={{
-                    fontSize: '0.6875rem',
-                    letterSpacing: '0.06em',
-                    color: 'var(--color-text-tertiary)',
-                    lineHeight: 1.5,
+                    fontSize: 'clamp(0.875rem, 1.6vw, 0.9375rem)',
+                    lineHeight: 1.7,
+                    color: 'var(--color-text-secondary)',
+                    margin: 0,
                   }}
                 >
-                  {label}
+                  {body}
                 </p>
               </div>
             ))}
           </div>
 
-          {/* Final body */}
           <div
             className="font-serif"
             style={{
@@ -478,57 +449,121 @@ export default function BlogPost() {
               gap: '1.5rem',
             }}
           >
-            <h2
-              className="font-serif"
-              style={{
-                fontSize: 'clamp(1.125rem, 2.5vw, 1.4rem)',
-                fontWeight: 700,
-                color: 'var(--color-text-primary)',
-                marginBottom: '-0.5rem',
-              }}
-            >
-              Why small businesses actually have an advantage here
+
+            {/* Section 4 */}
+            <h2 className="font-serif" style={{ ...h2Style, marginTop: '0.5rem' }}>
+              Why Mid-Market Organizations Have a Structural Advantage Right Now
             </h2>
 
             <p>
-              Large companies move slowly. They have legacy systems, procurement cycles, and 6-month
-              implementation timelines. A two-person business can go from &ldquo;we want to automate
-              X&rdquo; to &ldquo;it&apos;s live and working&rdquo; in two weeks.
+              Enterprise organizations move slowly. Legacy systems, procurement cycles, change
+              management requirements, and organizational complexity mean that an enterprise AI
+              infrastructure initiative that begins today may take eighteen to twenty-four months to
+              reach production.
             </p>
 
             <p>
-              That&apos;s a compounding advantage. Every month you&apos;re running AI-assisted
-              workflows, you&apos;re accumulating data, refining the system, and freeing up capacity
-              to grow. Your 20-person competitor is still in committee approvals.
+              A mid-market organization that has made a deliberate decision to build AI
+              infrastructure can go from architecture design to production deployment in six to
+              sixteen weeks.
             </p>
 
             <p>
-              The window to move first doesn&apos;t stay open forever. But right now, for a small
-              business willing to make one or two smart automation decisions, the leverage is
-              extraordinary.
+              That is not a small difference. That is a compounding advantage that grows every month
+              the infrastructure is running.
             </p>
 
-            <h2
-              className="font-serif"
+            <p>Every month your AI infrastructure is in production, your organization is:</p>
+
+            <ul
               style={{
-                fontSize: 'clamp(1.125rem, 2.5vw, 1.4rem)',
-                fontWeight: 700,
-                color: 'var(--color-text-primary)',
-                marginBottom: '-0.5rem',
+                paddingLeft: '1.25rem',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.6rem',
+                margin: '-0.5rem 0',
               }}
             >
-              Where to start
+              {[
+                'Accumulating operational data that improves system performance',
+                'Freeing team capacity that redirects toward higher-value work',
+                'Building institutional knowledge about what AI infrastructure can and cannot handle in your specific environment',
+                'Extending the lead on competitors who have not yet started',
+              ].map((item) => (
+                <li key={item} style={{ color: 'var(--color-text-secondary)' }}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <p>
+              The organizations that build this infrastructure in 2026 will look structurally
+              different from their competitors by 2028. The gap will not be team size. It will be
+              operational leverage.
+            </p>
+
+            {/* Section 5 */}
+            <h2 className="font-serif" style={{ ...h2Style, marginTop: '0.5rem' }}>
+              The Mistake That Eliminates the Advantage
             </h2>
 
             <p>
-              Don&apos;t try to automate everything. Pick the single most repetitive, time-consuming
-              thing your team does that doesn&apos;t require creative judgment. Build one clean
-              automation around that. Get comfortable with the feedback loop. Then expand.
+              The most common mistake mid-market organizations make when building AI infrastructure
+              is treating it as a tool selection exercise rather than an architecture decision.
             </p>
 
             <p>
-              The biggest mistake is waiting until you have &ldquo;more resources&rdquo; to start. The
-              automation is what creates the resources.
+              A team selects a platform. Connects it to the most visible workflow. Measures results
+              against unrealistic expectations. Concludes the technology is not ready.
+            </p>
+
+            <p>
+              What actually happened is that the process audit was skipped. The wrong workflow was
+              selected. The infrastructure was not designed for production reliability. And the
+              system that was built cannot be extended, audited, or owned by the team that operates
+              it.
+            </p>
+
+            <p>
+              The organizations that build durable competitive advantage from AI infrastructure
+              start differently. They start with a structured analysis of which operational
+              workflows are genuine automation candidates repeatable logic, measurable output
+              quality, definable success criteria. They design the architecture before selecting the
+              tools. They build for production from the first sprint, not for the demo.
+            </p>
+
+            <p>
+              And they build infrastructure they own not a dependency on a vendor platform that
+              can be repriced, deprecated, or discontinued.
+            </p>
+
+            {/* Section 6 */}
+            <h2 className="font-serif" style={{ ...h2Style, marginTop: '0.5rem' }}>
+              Where to Start — And What to Build First
+            </h2>
+
+            <p>
+              The highest-impact starting point is rarely the most visible workflow. It is the
+              workflow where delay or inconsistency has a direct, measurable cost and where the
+              logic is definable enough that AI infrastructure can execute it reliably.
+            </p>
+
+            <p>
+              For most mid-market organizations, this is one of three areas: inbound request
+              handling and routing, internal knowledge retrieval, or cross-system data coordination.
+              The discovery process identifies which one creates the most leverage for your specific
+              operational environment.
+            </p>
+
+            <p>
+              The principle is consistent: start with the workflow where the cost of not automating
+              is clearest, build it correctly for production, get the feedback loop running, then
+              extend.
+            </p>
+
+            <p>
+              The mistake is waiting for more resources before starting. The infrastructure is what
+              creates the resources.
             </p>
           </div>
 
@@ -536,17 +571,98 @@ export default function BlogPost() {
           <div
             style={{
               height: '1px',
-              background: 'linear-gradient(90deg, rgba(59,130,246,0.3), transparent)',
+              background: 'linear-gradient(90deg, rgba(251,191,36,0.3), transparent)',
               margin: '3rem 0',
             }}
             aria-hidden
           />
 
-          {/* CTA block */}
+          {/* ── FAQ ── */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+            <div
+              className="font-mono"
+              style={{
+                fontSize: '0.625rem',
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                color: 'var(--color-text-tertiary)',
+                marginBottom: '1.5rem',
+              }}
+            >
+              Frequently Asked Questions
+            </div>
+
+            {[
+              {
+                q: 'How long does it realistically take to go from no AI infrastructure to something running in production?',
+                a: 'For a focused first system a single agentic workflow or a RAG knowledge retrieval pipeline typically six to ten weeks from architecture design through production deployment. Engagements that include multiple integrated systems or complex compliance requirements run ten to sixteen weeks. The discovery and architecture phase runs two to four weeks before development begins and produces a documented plan your team can evaluate before committing to a full build.',
+              },
+              {
+                q: 'We are a mid-market company based in India. Are there specific infrastructure considerations for our market?',
+                a: "Yes. Indian mid-market organizations deploying AI systems that handle personal data are subject to India's Digital Personal Data Protection Act 2023. This affects any system that processes customer records, employee data, or vendor information. Every system we build for Indian organizations includes DPDP-compliant architecture consent management, data fiduciary controls, and purpose-limitation design from the first sprint. This is not an add-on. It is standard.",
+              },
+              {
+                q: 'We operate across India and international markets including the EU. Can one infrastructure handle both compliance frameworks?',
+                a: 'Yes. We design systems with jurisdiction-specific data residency controls that meet GDPR requirements for EU data and DPDP Act requirements for Indian data simultaneously. The compliance architecture is configured at the infrastructure layer so one system operates correctly across both jurisdictions without architectural compromise or duplicate builds.',
+              },
+              {
+                q: 'How do we know which workflow to build first?',
+                a: 'This is the primary output of the discovery phase. We analyze your operational environment, map your highest-volume repeatable workflows, identify where delay or inconsistency has a measurable cost, and produce a prioritized build sequence. The discovery engagement delivers this analysis as a documented architecture plan actionable whether or not you proceed to a full build with Invisigent.',
+              },
+              {
+                q: 'What if our existing systems are outdated or fragmented?',
+                a: 'This is common in mid-market organizations and it does not prevent a successful AI infrastructure build. We design around your existing stack rather than replacing it. Where components of your current infrastructure are creating genuine bottlenecks, we identify that during discovery and include remediation in the architecture plan. The goal is infrastructure that integrates with how your organization actually operates not a greenfield rebuild.',
+              },
+            ].map(({ q, a }, i) => (
+              <div
+                key={i}
+                style={{
+                  borderTop: '1px solid rgba(255,255,255,0.07)',
+                  padding: '1.25rem 0',
+                }}
+              >
+                <p
+                  className="font-serif"
+                  style={{
+                    fontSize: 'clamp(0.9375rem, 1.8vw, 1rem)',
+                    fontWeight: 700,
+                    color: 'var(--color-text-primary)',
+                    lineHeight: 1.45,
+                    marginBottom: '0.625rem',
+                  }}
+                >
+                  {q}
+                </p>
+                <p
+                  className="font-serif"
+                  style={{
+                    fontSize: 'clamp(0.875rem, 1.6vw, 0.9375rem)',
+                    lineHeight: 1.75,
+                    color: 'var(--color-text-secondary)',
+                    margin: 0,
+                  }}
+                >
+                  {a}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Divider */}
+          <div
+            style={{
+              height: '1px',
+              background: 'linear-gradient(90deg, rgba(251,191,36,0.3), transparent)',
+              margin: '3rem 0',
+            }}
+            aria-hidden
+          />
+
+          {/* ── CTA block ── */}
           <div
             style={{
               background: 'var(--color-bg-card)',
-              border: '1px solid var(--color-border)',
+              border: '1px solid rgba(251,191,36,0.15)',
               borderRadius: '1rem',
               padding: 'clamp(1.75rem, 4vw, 2.5rem)',
               textAlign: 'center',
@@ -565,7 +681,7 @@ export default function BlogPost() {
                 color: 'var(--color-text-tertiary)',
               }}
             >
-              Ready to reclaim 10 hours a week for your team?
+              Book Your Architecture Review
             </p>
             <h3
               className="font-serif"
@@ -573,32 +689,32 @@ export default function BlogPost() {
                 fontSize: 'clamp(1.125rem, 2.5vw, 1.5rem)',
                 fontWeight: 700,
                 color: 'var(--color-text-primary)',
-                maxWidth: '440px',
+                maxWidth: '480px',
                 lineHeight: 1.3,
                 margin: 0,
               }}
             >
-              Tell us how your business works.
+              Building the Infrastructure Layer Your Operations Need
             </h3>
             <p
               className="font-serif"
               style={{
                 fontSize: 'clamp(0.875rem, 1.6vw, 1rem)',
                 color: 'var(--color-text-secondary)',
-                maxWidth: '420px',
+                maxWidth: '440px',
                 lineHeight: 1.65,
                 margin: 0,
               }}
             >
-              We&apos;ll show you exactly where automation fits — and build it for you in weeks, not
-              months.
+              30 minutes. We will identify your highest-leverage automation opportunity and tell you
+              honestly what it would take to build it correctly.
             </p>
             <Link
               href="/contact"
               className="btn-accent"
               style={{ textDecoration: 'none', marginTop: '0.5rem' }}
             >
-              Start the conversation →
+              Book Your Architecture Review →
             </Link>
           </div>
         </article>

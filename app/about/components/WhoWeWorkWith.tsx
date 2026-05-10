@@ -11,18 +11,21 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const PERSONAS = [
   {
-    title: 'Builders Moving to Production',
-    body: 'Startups and product teams who have validated their AI idea and need infrastructure that can scale beyond the prototype — with proper observability, failure handling, and deployment architecture.',
+    title: 'Your Prototype Works. Now It Needs to Survive Real Users.',
+    body: 'Startups and product teams who have validated their AI concept and hit the ceiling of what a prototype can do. You need production infrastructure observability, failure handling, deployment architecture built by people who have shipped AI systems at scale, not just demoed them.',
+    bestFor: 'Product teams at Series A–B stage or growth-phase startups preparing for enterprise customers.',
   },
   {
-    title: 'Companies Integrating AI Into Operations',
-    body: 'Established businesses embedding AI into workflows, products, and decision-making — who need systems that actually integrate with what they already run, not a separate AI layer bolted on top.',
+    title: "You're Running AI Experiments. You Need AI Systems.",
+    body: 'Established businesses embedding AI into workflows, products, and decision-making who need systems that integrate with what you already run, not a separate AI layer bolted on top and maintained by an outside vendor indefinitely.',
+    bestFor: 'Operations-heavy mid-market companies with existing tech stacks and manual workflows that AI should already be running.',
   },
   {
-    title: 'Enterprises with Compliance Requirements',
-    body: 'Organizations in regulated industries or global markets where AI governance, security controls, and auditability are non-negotiable from the first sprint — not added at deployment review.',
+    title: 'Your Compliance Team Has Questions. We Have Answers Ready.',
+    body: 'Organizations in FinTech, HealthTech, Legal, or global markets where AI governance, security controls, and auditability are non-negotiable. We design compliance in from sprint one so by the time your security team reviews the system, there is nothing left to flag.',
+    bestFor: 'Companies in regulated industries where a failed compliance review means a delayed or cancelled deployment.',
   },
-] as const;
+];
 
 interface WhoWeWorkWithProps {
   reducedMotion?: boolean;
@@ -64,8 +67,14 @@ export function WhoWeWorkWith({ reducedMotion = false }: WhoWeWorkWithProps) {
               id="about-who-heading"
               className="about-heading text-section-h font-serif font-medium text-[var(--color-text-primary)]"
             >
-              Who We Work With — Enterprise AI Clients
+              Who We Work With
             </h2>
+            <p
+              className="about-description text-body mx-auto max-w-[560px] 2xl:max-w-[700px] min-[2800px]:max-w-[980px] font-display leading-[1.75] text-[var(--color-text-secondary)] text-center"
+              style={{ textAlign: 'center' }}
+            >
+              Invisigent works with a specific type of organization one that has moved past AI curiosity and is ready to build infrastructure that runs the business.
+            </p>
           </div>
 
           <div className="about-block-spacing grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5 lg:gap-6 2xl:gap-8">
@@ -81,6 +90,21 @@ export function WhoWeWorkWith({ reducedMotion = false }: WhoWeWorkWithProps) {
                 </h3>
                 <p className="text-body font-display leading-[1.7] text-[var(--color-text-secondary)]">
                   {persona.body}
+                </p>
+                <p
+                  className="font-mono text-[var(--color-text-tertiary)]"
+                  style={{
+                    marginTop: 'clamp(12px, 1.5vw, 18px)',
+                    fontSize: 'clamp(11px, 0.8vw, 13px)',
+                    fontWeight: 500,
+                    letterSpacing: '0.03em',
+                    lineHeight: 1.55,
+                    borderLeft: '2px solid var(--color-trust-amber)',
+                    paddingLeft: 10,
+                  }}
+                >
+                  <span style={{ color: 'var(--color-text-micro)', textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.85em' }}>Best for: </span>
+                  {persona.bestFor}
                 </p>
               </AnimatedCard>
             ))}

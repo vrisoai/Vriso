@@ -53,8 +53,8 @@ const fadeUp = {
 };
 
 /* ─── Headline words ─── */
-const LINE_A = 'Architecting Production AI Systems';
-const LINE_B = "for Enterprises That Can't Afford to Fail";
+const LINE_A = 'AI Infrastructure Built to Be Owned,';
+const LINE_B = 'Not Rented';
 
 export function HeroSection({ headingLevel = 'h1' }: { headingLevel?: 'h1' | 'div' }) {
   const router        = useRouter();
@@ -202,15 +202,14 @@ export function HeroSection({ headingLevel = 'h1' }: { headingLevel?: 'h1' | 'di
               </span>
             </HeadingTag>
 
-            {/* Subtext — keyword-rich for SEO + GEO */}
+            {/* Subheading — keyword-rich for SEO + GEO */}
             <motion.p
               className="max-w-[540px] xl:max-w-[700px] 2xl:max-w-[900px] font-serif text-base leading-relaxed text-text-primary/75 md:text-lg"
               variants={subtextReveal}
               initial="hidden"
               animate="visible"
             >
-              Invisigent is a founder-led AI infrastructure practice. We design multi-agent orchestration systems, RAG knowledge pipelines,
-              and compliance ready AI architecture  and hand you infrastructure your team owns and operates, not a black box you depend on us to maintain.
+              Invisigent builds multi-agent systems, RAG pipelines, and compliance-ready AI architecture for mid-market companies that have outgrown off-the-shelf tools.
             </motion.p>
 
             {/* CTA buttons */}

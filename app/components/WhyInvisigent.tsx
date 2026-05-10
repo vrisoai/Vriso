@@ -33,23 +33,23 @@ const JSON_LD_SERVICE = {
 const CARDS = [
   {
     label: '[ INDEPENDENCE ]',
-    title: 'You Own Your Entire Stack',
-    description: 'Model-agnostic infrastructure — switch from OpenAI to Claude to Llama without rebuilding your orchestration layer. No API lock-in. No platform dependency. Full portability guaranteed.',
+    title: 'Your Stack. Your Models. Zero Lock-In.',
+    description: 'Model-agnostic infrastructure means you switch from OpenAI to Claude to Llama without rebuilding your orchestration layer. No platform dependency. No renegotiation. Full portability from day one — because your AI strategy shouldn\'t be held hostage by a vendor\'s pricing change.',
   },
   {
     label: '[ TRANSPARENCY ]',
-    title: 'Every Decision Is Logged and Replayable',
-    description: 'Full LangSmith tracing across every agent run — every tool call, every decision branch, every retrieval event is logged, auditable, and replayable. Your compliance team will actually be satisfied.',
+    title: 'Every Agent Decision. Logged. Replayable. Auditable.',
+    description: 'Full tracing across every agent run — every tool call, every decision branch, every retrieval event logged and replayable on demand. When your compliance team asks what the AI did and why, you have a complete answer. Not a shrug.',
   },
   {
     label: '[ SECURITY ]',
-    title: 'Security-First, Not Security-Retrofitted',
-    description: 'RBAC, audit trails, data residency controls, and GDPR/DPDP-compliant system architecture designed in from day one — not patched on after your security team raises a flag at deployment.',
+    title: 'Security Designed In. Not Bolted On.',
+    description: 'RBAC, audit trails, data residency controls, and GDPR/DPDP-compliant architecture from sprint one. By the time your security team reviews the system, there\'s nothing left to flag — because we designed for their objections before they raised them.',
   },
   {
     label: '[ SCALE ]',
-    title: 'Production Load, Not Demo Load',
-    description: 'Systems designed with defined SLAs, performance baselines, monitoring pipelines, and operational runbooks — because demonstrating AI in a boardroom is easy. Running it reliably for 10,000 requests a day is the hard part.',
+    title: 'Built for 10,000 Requests a Day. Not 10.',
+    description: 'Every system ships with defined SLAs, performance baselines, monitoring pipelines, and operational runbooks. Because running AI reliably at production load — day after day, without babysitting — is the only version of AI that actually moves your business forward.',
   },
 ];
 
@@ -209,8 +209,9 @@ export function WhyInvisigent() {
             viewport={{ once: true, margin: '-60px' }}
             custom={1}
           >
-            Why Organizations Partner With{' '}
-            <span className="gradient-text">Invisigent</span>
+            Why Mid-Market Teams Choose{' '}
+            <span className="gradient-text">Invisigent</span>{' '}
+            Over Every Other AI Agency
           </motion.h2>
 
           <motion.div
@@ -230,7 +231,7 @@ export function WhyInvisigent() {
             custom={2}
           >
             <p>
-              Invisigent builds AI systems your team owns, your security team approves, and your operations team can actually run at scale.
+              Most AI agencies hand you a system and a dependency. Invisigent hands you infrastructure your team owns, your security team can approve, and your operations team can run — without us in the room.
             </p>
           </motion.div>
         </header>

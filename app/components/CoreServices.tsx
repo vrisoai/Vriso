@@ -37,21 +37,24 @@ const JSON_LD = {
 const CARDS = [
   {
     label: '[ AI SYSTEMS ARCHITECTURE ]',
-    title: 'AI Systems Architecture',
+    title: 'AI Systems Architecture & Roadmap',
     description:
-      'We design the right infrastructure before anything is built. Architecture reviews, roadmap planning, build-vs-buy decisions — senior-level technical guidance from day one.',
+      'Before you build anything, we make sure you\'re building the right thing. Architecture reviews, infrastructure planning, and build-vs-buy decisions delivered as a senior-level technical engagement, not a junior consultant\'s slide deck.',
+    trigger: 'Best for teams that have a budget, a problem, and no clear technical path forward.',
   },
   {
     label: '[ AGENT ORCHESTRATION & KNOWLEDGE ]',
-    title: 'Agent Orchestration & Knowledge Systems',
+    title: 'Agent Orchestration & Knowledge Retrieval',
     description:
-      'Multi-agent pipelines that run real workflows. RAG retrieval connected to your internal data. Optimized for production latency, cost, and reliability — not demo conditions.',
+      'Multi-agent pipelines built for real operational workflows — not demos. RAG retrieval connected to your internal documents and databases, optimized for production latency, cost efficiency, and reliability your team can monitor and maintain.',
+    trigger: 'Best for operations teams replacing manual workflows or broken automation.',
   },
   {
     label: '[ AI-NATIVE PRODUCT & COMPLIANCE ]',
-    title: 'AI-Native Product & Compliance',
+    title: 'AI-Native Products Built for Regulated Environments',
     description:
-      'AI-first products, copilots, and intelligent platforms — built with governance, RBAC, audit trails, and regulatory compliance designed in from the first sprint.',
+      'Copilots, intelligent platforms, and AI-first internal tools built with governance from sprint one — RBAC, audit trails, and regulatory compliance designed in, not bolted on.',
+    trigger: 'Best for companies in regulated industries or those preparing for enterprise procurement.',
   },
 ];
 
@@ -100,6 +103,7 @@ export function CoreServices() {
   const labelRef        = useRef<HTMLParagraphElement>(null);
   const titleRef        = useRef<HTMLHeadingElement>(null);
   const descRef         = useRef<HTMLParagraphElement>(null);
+  const triggerRef      = useRef<HTMLParagraphElement>(null);
   const currentIndexRef = useRef(0);
   const animatingRef    = useRef(false);
   const dotsRef         = useRef<(HTMLButtonElement | null)[]>([]);
@@ -169,6 +173,7 @@ export function CoreServices() {
     const titleEl    = titleRef.current;
     const descEl     = descRef.current;
     const labelEl    = labelRef.current;
+    const triggerEl  = triggerRef.current;
     if (!titleEl || !descEl || !labelEl) { animatingRef.current = false; return; }
 
     /*
@@ -191,6 +196,7 @@ export function CoreServices() {
         titleEl.textContent = card.title;
         descEl.textContent  = card.description;
         labelEl.textContent = card.label;
+        if (triggerEl) triggerEl.textContent = card.trigger;
         currentIndexRef.current = nextIndex;
         dotsRef.current.forEach((dot, i) => {
           if (dot) dot.className = `cs-dot${i === nextIndex ? ' active' : ''}`;
@@ -260,7 +266,7 @@ export function CoreServices() {
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
           >
-            Enterprise AI Systems &amp; Infrastructure
+            Three Ways We Build AI Into Your Business
           </motion.h2>
           <motion.p
             className="font-serif"
@@ -268,7 +274,7 @@ export function CoreServices() {
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
           >
-            Invisigent helps organizations design, build, and scale enterprise AI systems — from architecture strategy and agent orchestration to knowledge retrieval and AI-native product development.
+            Whether you&apos;re starting from zero, fixing a failed pilot, or scaling what&apos;s already working — Invisigent delivers production AI systems built around your operations, your data, and your team&apos;s ability to own them.
           </motion.p>
         </header>
 
@@ -307,6 +313,13 @@ export function CoreServices() {
                   style={{ fontSize: 'clamp(14px, 1.05vw, 20px)', lineHeight: 1.75, color: 'var(--color-text-secondary)' }}
                 >
                   {CARDS[0].description}
+                </p>
+                <p
+                  ref={triggerRef}
+                  className="font-mono"
+                  style={{ fontSize: 'clamp(11px, 0.85vw, 14px)', fontWeight: 500, letterSpacing: '0.03em', color: 'var(--color-text-tertiary)', marginTop: 'clamp(12px, 1.5vw, 20px)', borderLeft: '2px solid var(--color-trust-amber)', paddingLeft: 12 }}
+                >
+                  {CARDS[0].trigger}
                 </p>
               </div>
             </article>
@@ -356,6 +369,9 @@ export function CoreServices() {
                 </h3>
                 <p className="font-serif" style={{ fontSize: 'clamp(14px, 3.5vw, 16px)', lineHeight: 1.7, marginTop: 10, color: 'var(--color-text-secondary)' }}>
                   {card.description}
+                </p>
+                <p className="font-mono" style={{ fontSize: 'clamp(11px, 2.5vw, 13px)', fontWeight: 500, letterSpacing: '0.03em', color: 'var(--color-text-tertiary)', marginTop: 14, borderLeft: '2px solid var(--color-trust-amber)', paddingLeft: 10 }}>
+                  {card.trigger}
                 </p>
               </article>
             ))}

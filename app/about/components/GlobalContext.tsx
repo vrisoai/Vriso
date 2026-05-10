@@ -136,25 +136,23 @@ export function GlobalContext({ reducedMotion = false }: GlobalContextProps) {
                 id="about-global-heading"
                 className="about-heading text-section-h font-serif font-medium leading-tight text-[var(--color-text-primary)]"
               >
-                Built for Global Organizations
+                Compliance-Ready by Design. Not by Request.
               </h2>
             </div>
 
             <div ref={rightRef}>
               <p className="text-body font-display leading-[1.8] text-[var(--color-text-secondary)]">
-                Although founded in Jaipur, Invisigent works with organizations building AI systems across
-                global markets. Our focus is helping companies design AI infrastructure that integrates
-                with modern technology stacks and scales across teams, regions, and operational
-                environments without performance or compliance constraints.
+                Every Invisigent system is architected to meet the compliance requirements of the jurisdictions it operates in from day one, not at deployment review.
               </p>
               <p className="text-body font-display leading-[1.8] text-[var(--color-text-secondary)]" style={{ marginTop: '1em' }}>
-                All systems are designed to meet applicable compliance requirements for the jurisdictions
-                they operate in — including GDPR for EU deployments, DPDP Act for Indian operations,
-                and EU AI Act frameworks for organizations subject to that regulation.
+                We build for GDPR requirements in EU deployments, DPDP Act obligations for Indian operations, and EU AI Act frameworks for organizations subject to that regulation. Audit trails, data residency controls, RBAC, and governance architecture are standard inclusions not add-ons triggered by a security team&apos;s objection.
+              </p>
+              <p className="text-body font-display leading-[1.8] text-[var(--color-text-secondary)]" style={{ marginTop: '1em' }}>
+                Invisigent is founded and operated in Jaipur, India and works with organizations building AI infrastructure across global markets. Senior-level expertise, direct founder engagement, and delivery standards built for the most demanding regulatory environments anywhere we operate.
               </p>
               <p
                 className="about-description flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[var(--color-text-micro)] text-label sm:text-xs"
-                style={{ letterSpacing: '0.08em' }}
+                style={{ letterSpacing: '0.08em', marginTop: '1.5em' }}
               >
                 <span
                   className="h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-trust-amber)]"

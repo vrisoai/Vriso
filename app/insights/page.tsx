@@ -75,28 +75,28 @@ const insightsBlogSchema = {
       blogPost: [
         {
           '@type': 'BlogPosting',
-          headline: 'Why Your Business Is Losing Customers While You Sleep',
+          headline: 'Why Mid-Market Companies Lose Revenue to Slow Internal Operations — And How AI Infrastructure Fixes It Permanently',
           url: 'https://invisigent.ai/insights/why-your-business-is-losing-customers-while-you-sleep',
           datePublished: '2026-04-23',
           image: 'https://invisigent.ai/blog-losing-customers-while-you-sleep.png',
         },
         {
           '@type': 'BlogPosting',
-          headline: "The Real Reason AI Tools Don't Work for Most Small Businesses",
+          headline: 'The Real Reason AI Infrastructure Projects Fail — And It Has Nothing to Do With the Technology',
           url: 'https://invisigent.ai/insights/the-real-reason-ai-tools-dont-work-for-most-small-businesses',
           datePublished: '2026-04-23',
           image: 'https://invisigent.ai/blog-ai-tools-dont-work-small-businesses.png',
         },
         {
           '@type': 'BlogPosting',
-          headline: 'How a 2-Person Team Can Compete With a 20-Person Company Using AI',
+          headline: 'How Mid-Market Companies Build Operational Leverage Against Larger Competitors Using AI Infrastructure',
           url: 'https://invisigent.ai/insights/how-a-2-person-team-can-compete-with-a-20-person-company-using-ai',
           datePublished: '2026-04-23',
           image: 'https://invisigent.ai/blog-2-person-team-compete-with-ai.png',
         },
         {
           '@type': 'BlogPosting',
-          headline: '7 AI Implementation Mistakes That Burn Budget (And How to Avoid Them)',
+          headline: '7 AI Infrastructure Mistakes That Burn Budget — And How Mid-Market Organizations Avoid Them',
           url: 'https://invisigent.ai/insights/7-ai-implementation-mistakes-that-burn-budget-and-how-to-avoid-them',
           datePublished: '2026-05-04',
           image: 'https://invisigent.ai/blog-ai-implementation-mistakes.png',
@@ -188,41 +188,41 @@ export default function InsightsPage() {
         >
           <BlogCard
             imageSrc="/blog-losing-customers-while-you-sleep.png"
-            imageAlt="City skyline at night with customer icons drifting away while a businessperson sleeps at their laptop"
-            category="AI Mistakes"
-            readTime="5 min read"
-            heading="Why Your Business Is Losing Customers While You Sleep"
-            excerpt="Every unanswered query after hours is a customer quietly walking to your competitor. Discover how always-on AI agents close the gap between business hours and customer demand."
+            imageAlt="Mid-market operations dashboard showing slow internal workflows and revenue leakage points across departments"
+            category="AI Infrastructure"
+            readTime="10 min read"
+            heading="Why Mid-Market Companies Lose Revenue to Slow Internal Operations — And How AI Infrastructure Fixes It Permanently"
+            excerpt="Slow internal operations are a structural tax on revenue. Most mid-market companies feel it but can't locate it. AI infrastructure doesn't speed up broken processes — it rebuilds the layer beneath them."
             author="Invisigent Research"
             href="/insights/why-your-business-is-losing-customers-while-you-sleep"
           />
           <BlogCard
             imageSrc="/blog-ai-tools-dont-work-small-businesses.png"
-            imageAlt="Frustrated business owner surrounded by broken, disconnected AI tool interfaces showing errors and loading states"
-            category="Common Mistakes"
-            readTime="6 min read"
-            heading="The Real Reason AI Tools Don't Work for Most Small Businesses"
-            excerpt="Most small businesses are buying AI tools, not AI strategy. The problem isn't the technology ? it's that no one told you how to make it actually fit your business."
+            imageAlt="Architecture diagram showing the gap between AI tool adoption and AI infrastructure — processes feeding tools with no underlying system"
+            category="AI Infrastructure"
+            readTime="9 min read"
+            heading="The Real Reason AI Infrastructure Projects Fail — And It Has Nothing to Do With the Technology"
+            excerpt="Most AI projects fail in the first 90 days — not because the model was wrong, but because the process feeding it was never mapped. The failure is always upstream of the tool."
             author="Invisigent Research"
             href="/insights/the-real-reason-ai-tools-dont-work-for-most-small-businesses"
           />
           <BlogCard
             imageSrc="/blog-2-person-team-compete-with-ai.png"
-            imageAlt="Two-person team powered by glowing AI agent network competing with a large grey corporate floor through a glass wall"
-            category="Growth"
-            readTime="5 min read"
-            heading="How a 2-Person Team Can Compete With a 20-Person Company Using AI"
-            excerpt="Headcount used to determine capacity. AI has changed that. Here's how small teams are using intelligent automation to punch well above their weight and win."
+            imageAlt="Mid-market operations team running AI-orchestrated workflows competing with enterprise headcount through structured infrastructure"
+            category="AI Infrastructure"
+            readTime="9 min read"
+            heading="How Mid-Market Companies Build Operational Leverage Against Larger Competitors Using AI Infrastructure"
+            excerpt="Larger competitors don't win because they have better people. They win because they have systems that compound. AI infrastructure gives mid-market companies the same structural advantage — without the headcount."
             author="Invisigent Research"
             href="/insights/how-a-2-person-team-can-compete-with-a-20-person-company-using-ai"
           />
           <BlogCard
             imageSrc="/blog-ai-implementation-mistakes.svg"
-            imageAlt="Executive reviewing a dashboard showing failed AI initiatives, broken automations, and budget overruns"
-            category="AI Strategy"
-            readTime="8 min read"
-            heading="7 AI Implementation Mistakes That Burn Budget (And How to Avoid Them)"
-            excerpt="AI isn't failing — execution is. From missing guardrails to no clear ROI model, these are the seven most expensive mistakes B2B companies make when implementing AI."
+            imageAlt="Executive reviewing AI infrastructure architecture with highlighted failure points and budget burn indicators across seven decision layers"
+            category="AI Infrastructure"
+            readTime="10 min read"
+            heading="7 AI Infrastructure Mistakes That Burn Budget — And How Mid-Market Organizations Avoid Them"
+            excerpt="Most AI budget failures trace back to seven structural mistakes made before a single line of code is written. The organizations that avoid them share one thing in common: they build infrastructure before they build features."
             author="Invisigent Research"
             href="/insights/7-ai-implementation-mistakes-that-burn-budget-and-how-to-avoid-them"
           />

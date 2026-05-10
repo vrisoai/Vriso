@@ -20,12 +20,17 @@ import gsap from 'gsap';
 gsap.registerPlugin(useGSAP);
 
 const HERO_WORDS = [
-  { text: 'Building',       accent: false, gradient: false },
-  { text: 'the',            accent: false, gradient: false },
-  { text: 'Infrastructure', accent: true,  gradient: false },
-  { text: 'Behind',         accent: false, gradient: false },
-  { text: 'Enterprise',     accent: false, gradient: true  },
-  { text: 'AI',             accent: false, gradient: true  },
+  { text: 'Why',         accent: false, gradient: false },
+  { text: 'I',           accent: false, gradient: false },
+  { text: 'Started',     accent: false, gradient: false },
+  { text: 'Invisigent',  accent: false, gradient: true  },
+  { text: 'And',         accent: false, gradient: false },
+  { text: 'What',        accent: false, gradient: false },
+  { text: "I've",        accent: false, gradient: false },
+  { text: 'Seen',        accent: false, gradient: false },
+  { text: 'Break',       accent: true,  gradient: false },
+  { text: 'Without',     accent: false, gradient: false },
+  { text: 'It',          accent: false, gradient: false },
 ];
 
 interface HeroSectionProps {
@@ -161,12 +166,13 @@ export function HeroSection({ reducedMotion = false }: HeroSectionProps) {
           style={{ lineHeight: 'clamp(1.55, 2.5svh, 1.75)' }}
         >
           <p>
-            Most AI prototypes look impressive — until they hit production. No failure handling,
-            hallucinations on edge cases, compliance blocks. Months of work, restarted.
+            Most AI prototypes look impressive until they hit production. No failure handling. Hallucinations on edge cases. Compliance blocks no one planned for. Months of work, restarted.
           </p>
           <p style={{ marginTop: 'clamp(0.5em, 1.5svh, 1em)' }}>
-            Invisigent designs the infrastructure that survives production before a single agent
-            is built. Founder-led — every engagement handled directly, not delegated.
+            I built Invisigent because I kept seeing the same failure organizations investing in AI models before investing in the infrastructure to run them. The model was never the problem. The architecture was.
+          </p>
+          <p style={{ marginTop: 'clamp(0.5em, 1.5svh, 1em)' }}>
+            Every Invisigent engagement is handled directly by me. No junior team. No handoffs after the first call. You get senior level attention from architecture review through production deployment because that&apos;s the only way this works.
           </p>
         </div>
 

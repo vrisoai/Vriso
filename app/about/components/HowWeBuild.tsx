@@ -21,22 +21,26 @@ const STEPS = [
   {
     num: '01', label: 'DISCOVERY_PHASE',
     title: 'Discovery & AI Strategy',
-    body: "We analyze your existing infrastructure, data environment, and operational priorities to identify where AI systems can deliver real business impact — and where they won't.",
+    what: 'We analyze your existing infrastructure, data environment, and operational workflows to identify exactly where AI systems will create measurable business impact and where they won\'t. No assumptions. No generic roadmaps.',
+    get: 'A clear AI infrastructure strategy, prioritized by business impact, with a defined build plan your team can evaluate before any development begins.',
   },
   {
     num: '02', label: 'ARCHITECTURE_DESIGN',
     title: 'Architecture Design',
-    body: 'Our team designs the full system architecture — LangGraph orchestration layers, Pinecone vector retrieval pipelines, n8n or FastAPI automation frameworks, and the Docker/cloud infrastructure scaffolding required for production deployment. Every architectural decision is documented and explained.',
+    what: 'We design the full system architecture orchestration layers, retrieval pipelines, automation frameworks, and cloud infrastructure before a single line of code is written. Every decision is documented and explained in plain language.',
+    get: 'A production ready architecture blueprint your engineering team understands, your security team can review, and your leadership team can approve with confidence.',
   },
   {
     num: '03', label: 'DEPLOYMENT_INTEGRATION',
     title: 'Deployment & Integration',
-    body: 'Systems are deployed with LangSmith monitoring, defined performance baselines, and operational runbooks — not handed over as a black box. Security controls, RBAC configuration, and audit trail setup are included in every deployment, not added later.',
+    what: 'Systems are deployed with full monitoring, defined performance baselines, RBAC access controls, audit trails, and operational runbooks built in from day one, not retrofitted at handoff.',
+    get: 'A live production system with zero black boxes. Your team receives full documentation, monitoring access, and the operational knowledge to run it without us.',
   },
   {
     num: '04', label: 'OPTIMIZATION_SCALING',
     title: 'Optimization & Scaling',
-    body: 'After deployment, systems are continuously monitored, optimized for performance, and scaled as usage grows — ensuring long-term reliability and operational stability with defined SLAs.',
+    what: 'Post-deployment, we monitor system performance against defined SLAs, identify optimization opportunities, and scale infrastructure as your usage grows.',
+    get: 'Long-term reliability without long-term dependency. Systems that improve over time and a team that knows how to run them.',
   },
 ];
 
@@ -138,14 +142,13 @@ export function HowWeBuild({ reducedMotion = false }: HowWeBuildProps) {
                 id="about-how-heading"
                 className="about-heading text-section-h font-serif font-medium text-[var(--color-text-primary)]"
               >
-                How We Build AI Systems
+                How a Typical Invisigent Engagement Works
               </h2>
               <p
                 className="about-description text-body font-display text-[var(--color-text-secondary)]"
                 style={{ lineHeight: 1.75 }}
               >
-                Every engagement follows a four-phase process — from understanding your environment
-                to optimizing systems already running in production.
+                Four phases. From understanding your environment to handing over infrastructure your team owns and operates.
               </p>
             </div>
 
@@ -213,15 +216,49 @@ export function HowWeBuild({ reducedMotion = false }: HowWeBuildProps) {
                         {step.title}
                       </h3>
                       <p
+                        className="font-mono text-[var(--color-text-micro)] uppercase mb-1"
+                        style={{ fontSize: 'clamp(9px, 0.7vw, 11px)', letterSpacing: '0.1em' }}
+                      >
+                        What we do
+                      </p>
+                      <p
                         className="text-body font-display text-sm sm:text-base text-[var(--color-text-secondary)]"
                         style={{ lineHeight: 1.75, margin: 0 }}
                       >
-                        {step.body}
+                        {step.what}
+                      </p>
+                      <p
+                        className="font-mono text-[var(--color-text-micro)] uppercase mt-3 mb-1"
+                        style={{ fontSize: 'clamp(9px, 0.7vw, 11px)', letterSpacing: '0.1em' }}
+                      >
+                        What you get
+                      </p>
+                      <p
+                        className="text-body font-display text-sm sm:text-base"
+                        style={{ lineHeight: 1.75, margin: 0, color: 'var(--color-trust-amber)', opacity: 0.85 }}
+                      >
+                        {step.get}
                       </p>
                     </div>
                   </div>
                 ))}
               </div>
+
+              {/* Closing line */}
+              <p
+                className="font-mono text-[var(--color-text-tertiary)]"
+                style={{
+                  marginTop: 'clamp(32px, 4vw, 56px)',
+                  fontSize: 'clamp(12px, 0.9vw, 15px)',
+                  fontWeight: 500,
+                  letterSpacing: '0.03em',
+                  lineHeight: 1.6,
+                  borderLeft: '2px solid var(--color-trust-amber)',
+                  paddingLeft: 16,
+                }}
+              >
+                Every phase has a defined deliverable. You always know what you are getting, when you are getting it, and what it means for your operations.
+              </p>
             </div>
 
           </div>

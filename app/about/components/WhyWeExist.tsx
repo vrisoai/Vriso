@@ -12,19 +12,19 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 const PARAGRAPHS = [
   {
     editorial: true,
-    text: 'The next wave of competitive advantage will not come from which AI tools an organization uses. It will come from how deeply AI is embedded into their infrastructure, operations, and decision-making.',
+    text: 'We spent years building agentic AI systems in production and kept seeing the same failure organizations investing in AI models while skipping the infrastructure to run them. Pilots that looked impressive in demos and collapsed quietly on a Tuesday.',
   },
   {
     editorial: false,
-    text: 'Most organizations are not there yet. They are running AI experiments, not AI systems. They are using models, not owning infrastructure.',
+    text: 'The problem was never the model. It was always the infrastructure underneath it.',
   },
   {
     editorial: false,
-    text: 'Invisigent exists to close that gap — helping organizations move from AI experimentation to AI infrastructure that operates reliably, scales globally, and creates durable operational advantage.',
+    text: 'Most organizations are running AI experiments, not AI systems. That gap between experimenting with AI and operating it reliably is where competitive advantage is being won and lost right now.',
   },
   {
     editorial: false,
-    text: 'Invisigent was founded by engineers who spent years building agentic AI systems in production — and became frustrated watching organizations spend six months building the wrong architecture. We built Invisigent to give enterprises a faster, more reliable path to AI systems that actually work.',
+    text: 'Invisigent exists to close that gap. We give mid-market organizations a faster, more reliable path to AI systems that run in production, survive compliance review, and are owned by your team not held together by the agency that built them.',
   },
 ];
 
@@ -121,7 +121,7 @@ export function WhyWeExist({ reducedMotion = false }: WhyWeExistProps) {
               id="about-why-heading"
               className="about-heading text-section-h font-serif font-medium text-[var(--color-text-primary)]"
             >
-              Why Invisigent Exists
+             Why Invisigent Exists And What We Kept Seeing Break
             </h2>
 
             <GradientDivider reducedMotion={reducedMotion} className="mt-6 mb-8 sm:mt-8 sm:mb-10" />

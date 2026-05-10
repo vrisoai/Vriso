@@ -19,8 +19,8 @@ import { MagneticLinkButton } from './shared/MagneticLinkButton';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-// Split "Ready to Build Your AI Infrastructure?" into words for the blur reveal
-const CTA_WORDS = ['Ready', 'to', 'Build', 'Your', 'AI', 'Infrastructure?'];
+// Split heading into words for the blur reveal
+const CTA_WORDS = ['This', 'Is', 'Where', 'It', 'Starts.'];
 
 interface AboutCTAProps {
   reducedMotion?: boolean;
@@ -149,8 +149,9 @@ export function AboutCTA({ reducedMotion = false }: AboutCTAProps) {
                 lineHeight: 1.75,
               }}
             >
-              If your organization is ready to move from AI experimentation to production-ready AI
-              systems, we would like to hear about what you are building.
+              Invisigent works with 4 organizations per quarter by design. Every engagement gets full senior-level attention from architecture through production deployment, handled directly by our founder.
+              <br /><br />
+              If you are ready to move from AI experiments to infrastructure your team owns and operates  book a 30-minute architecture review. No pitch. No obligation. Just an honest assessment of where your AI infrastructure stands and what it would take to build it right.
             </p>
 
             {/* Buttons */}

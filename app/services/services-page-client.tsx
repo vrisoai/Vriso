@@ -14,52 +14,52 @@ import { useMediaQuery } from '@/app/hooks/useMediaQuery';
 const SERVICES = [
   {
     label: '[ AI STRATEGY CONSULTING ]',
-    name: 'AI & Technology Strategy Consulting',
-    when: "You don't know where AI fits in your business or what to build first.",
-    what: 'We design your AI roadmap, infrastructure strategy, and architecture direction aligned with your actual business constraints — not a generic AI adoption template. We identify where multi-agent systems make sense vs. where a simpler pipeline will outperform them.',
-    outcome: 'A clear, executable architecture plan — documented, prioritized, and ready to build.',
+    name: 'AI Strategy & Architecture Roadmap',
+    when: 'You have budget committed to AI but no clear picture of what to build, what to prioritize, or whether your current thinking will survive contact with production.',
+    what: 'We work with your team to understand your operational environment, existing infrastructure, and actual business constraints — then design an AI architecture and delivery roadmap that maps to your specific system, not a generic AI adoption template. We scope what to build first, what to defer, and where complexity is justified vs. where a simpler approach will outperform an expensive one.',
+    outcome: 'A documented architecture plan, prioritized delivery roadmap, and infrastructure strategy your team can execute — with no ambiguity about what gets built, in what order, and why.',
   },
   {
     label: '[ AGENTIC ORCHESTRATION ]',
-    name: 'Agentic Orchestration & AI Workflows',
-    when: 'You want AI systems that automate real workflows, not just generate outputs.',
-    what: 'We build multi-agent systems using LangGraph with LangSmith observability throughout. Supervisor agents, specialist subagents, shared memory layers, tool-calling pipelines — the full orchestration stack, designed for production reliability and full decision traceability. Built with LangGraph state machines, full LangSmith observability, and defined failure recovery — not just connected API calls.',
-    outcome: 'End-to-end automation where AI systems run workflows autonomously — not just assist them. Every decision logged and replayable.',
+    name: 'Agentic AI Systems & Workflow Automation',
+    when: 'You need AI that runs real workflows autonomously not a chatbot that generates text and stops.',
+    what: 'We design and build multi-agent systems using LangGraph state machines with full LangSmith observability. Supervisor agents coordinating specialist subagents, shared memory layers, tool-calling pipelines, and defined failure recovery the full orchestration stack built for production reliability and complete decision traceability. Every agent action is logged and replayable. Not just connected API calls.',
+    outcome: 'End-to-end workflow automation where AI systems operate autonomously, handle failure gracefully, and give you full visibility into every decision the system makes.',
   },
   {
     label: '[ RAG KNOWLEDGE SYSTEMS ]',
-    name: 'RAG & Knowledge Retrieval Systems',
-    when: 'Your AI needs access to internal data, documents, or knowledge bases.',
-    what: 'We design retrieval pipelines using Pinecone vector stores, Cohere re-ranking, and chunking strategies tuned for your document types — PDFs, databases, internal wikis, or structured data. Built with sub-3-second retrieval targets and hybrid search for accuracy at scale. Pinecone vector retrieval with hybrid search, reranking layers, and retrieval trace logging — not a chatbot wrapper over your documents.',
-    outcome: 'Context-aware AI responses grounded in your internal data — accurate, fast, and hallucination-resistant.',
+    name: 'RAG & Enterprise Knowledge Retrieval',
+    when: 'Your AI needs to work with internal data documents, databases, wikis, or proprietary knowledge and generic LLM responses are not good enough.',
+    what: 'We design and build retrieval pipelines using Pinecone vector stores with hybrid search, Cohere reranking layers, and chunking strategies tuned for your specific document types PDFs, structured databases, internal wikis, or mixed-format data. Sub-3-second retrieval targets, retrieval trace logging, and accuracy validation built in. Not a chatbot wrapper over your documents.',
+    outcome: 'Context-aware AI responses grounded in your internal knowledge accurate, fast, hallucination-resistant, and with retrieval you can audit.',
   },
   {
     label: '[ AI PERFORMANCE OPTIMIZATION ]',
-    name: 'AI Performance & Latency Optimization',
-    when: 'Your AI system is slow, expensive, or unreliable in production.',
-    what: 'We audit your current AI system architecture, identify the bottlenecks — inference latency, over-retrieval, redundant API calls, cold-start delays — and redesign the pipeline for production-grade speed and cost efficiency. We also design caching layers that reduce repeat inference costs significantly.',
-    outcome: 'AI systems that perform under real production load — faster responses, lower operating costs, and infrastructure that scales without degrading.',
+    name: 'AI Performance & Cost Optimization',
+    when: 'Your AI system works in development but is too slow, too expensive, or degrading under real production load.',
+    what: 'We audit your current AI architecture end-to-end inference latency, retrieval pipeline performance, over-calling patterns, cold-start delays, caching gaps and redesign the components creating the bottleneck. We also design semantic caching layers and batching strategies that reduce redundant inference costs significantly.',
+    outcome: 'AI infrastructure that performs under real load measurably faster response times, reduced operating costs, and a system that scales without degrading.',
   },
   {
     label: '[ AI-NATIVE PRODUCT DEVELOPMENT ]',
     name: 'AI-Native Product Development',
-    when: 'You want to build an AI-first product, copilot, or intelligent platform.',
-    what: 'We design and develop AI-first products using FastAPI or Node.js/Express backends, MongoDB for operational data, and Docker for portable deployment. AI is embedded into the product\'s core logic — not bolted on as a feature after the product was already built without it.',
-    outcome: 'AI-powered products with embedded intelligence, automated internal workflows, and production-grade infrastructure built for scale.',
+    when: 'You are building a product, copilot, or platform where AI is the core not a feature added to something that already exists.',
+    what: 'We design and develop AI-first products from the ground up FastAPI or Node.js/Express backends, MongoDB for operational data, Docker for portable deployment. AI is embedded into the product\'s core logic and architecture from the first sprint not retrofitted after the product was already built without it. Internal automation workflows included as standard.',
+    outcome: 'An AI-native product with embedded intelligence, production-grade infrastructure, and the internal automation that makes the product defensible not just functional.',
   },
   {
     label: '[ COMPLIANCE-READY AI SYSTEMS ]',
-    name: 'Compliance-Ready AI Systems',
-    when: 'You are deploying AI in regulated or enterprise environments where governance matters.',
-    what: 'We build AI systems with governance designed into the architecture from day one — not retrofitted at deployment. This means: data residency controls at the vector store layer, RBAC from the first sprint, audit logs that satisfy enterprise security review, and system design aligned with EU AI Act risk classification requirements before a line of code is written. RBAC at the orchestration layer, append-only audit logs, data residency controls, and GDPR/DPDP/EU AI Act alignment documented in writing before deployment.',
-    outcome: "AI systems that pass your compliance team's review — aligned with EU AI Act, GDPR, India's DPDP Act, ISO 42001, and SOC2. Regulated industry ready.",
+    name: 'Compliance-Ready AI Infrastructure',
+    when: 'You are deploying AI in a regulated industry FinTech, HealthTech, Legal, or enterprise and governance, auditability, and data residency are non-negotiable.',
+    what: 'We build AI systems with compliance architecture designed in from sprint one not reviewed at deployment. Data residency controls at the vector store layer, RBAC from the first infrastructure decision, append-only audit logs that satisfy enterprise security review, and system design aligned with EU AI Act risk classification requirements. GDPR, India\'s DPDP Act, and ISO 42001 alignment documented in writing before a line of code is written.',
+    outcome: 'AI infrastructure that passes your compliance team\'s review aligned with EU AI Act, GDPR, DPDP Act, SOC2, and ISO 42001. No last-minute redesigns at the security gate.',
   },
   {
     label: '[ ADVISORY ]',
-    name: 'Technology Consulting',
-    when: 'You need senior-level technical guidance before committing to a direction, vendor, or build.',
-    what: 'We act as your technical partner — architecture reviews, build-vs-buy decisions, system design, and scaling strategy for AI infrastructure.',
-    outcome: 'Decisions made with confidence. Architecture chosen for the right reasons. No expensive rebuilds six months later.',
+    name: 'Technology Advisory',
+    when: 'You need senior-level technical judgment before committing to an architecture direction, vendor contract, build-vs-buy decision, or scaling strategy and the cost of getting it wrong is high.',
+    what: 'We act as your technical partner for decisions that matter architecture reviews, stack evaluation, system design critique, and infrastructure scaling strategy. Direct founder-level engagement. No junior consultants running the analysis.',
+    outcome: 'Decisions made with confidence and documented reasoning. Architecture chosen for the right reasons. No expensive rebuilds six months later because the wrong call was made under pressure.',
   },
 ];
 
@@ -69,20 +69,32 @@ const SERVICE_GRID_SEP = '1px solid rgba(255, 255, 255, 0.08)';
 const ENGAGEMENTS = [
   {
     num: '01',
-    title: 'Strategy Engagement',
-    body: 'Short-term advisory to define your AI architecture, roadmap, and infrastructure strategy. Typically 2–4 weeks. Ends with a clear, actionable plan your team can execute.',
+    title: 'Strategy & Architecture Engagement',
+    who: 'Organizations with a defined AI problem but no clear infrastructure plan — or teams that have started building and need a senior review before going further.',
+    what: 'We analyze your environment, constraints, and operational priorities. We design your AI infrastructure strategy, architecture direction, and build sequence — documented and ready to execute.',
+    receive: 'A complete architecture plan, build-vs-buy recommendations, and a prioritized roadmap your team can act on immediately — with or without us.',
+    timeline: 'Typically 2–4 weeks.',
+    note: undefined as string | undefined,
   },
   {
     num: '02',
-    title: 'System Build',
-    body: 'End-to-end design and development of your AI system — from architecture to production deployment. We own the build and hand over a system your team can run.',
+    title: 'End-to-End System Build',
+    who: 'Organizations ready to move from plan to production with a defined problem, committed budget, and a team prepared to own what gets built.',
+    what: 'We design, build, and deploy your AI system from orchestration architecture through production deployment. Every phase has defined milestones and deliverables. You are never waiting to find out what is happening or when.',
+    receive: 'A fully deployed, documented production AI system — with monitoring pipelines, operational runbooks, RBAC access controls, and everything your team needs to run it without us.',
+    timeline: 'Typically 6–16 weeks depending on complexity and integration requirements.',
+    note: undefined as string | undefined,
   },
   {
     num: '03',
-    title: 'Ongoing Partnership',
-    body: 'Continuous optimization, scaling, and system evolution after launch. We stay involved as your AI infrastructure grows — monitoring, improving, and adapting.',
+    title: 'Ongoing Optimization Partnership',
+    who: 'Organizations with a production AI system that needs to scale, improve, or adapt as usage grows — who want senior-level involvement without hiring a full-time AI infrastructure team.',
+    what: 'We monitor system performance against defined SLAs, identify optimization opportunities, and implement improvements on a quarterly delivery cadence. You define the scope. We deliver to it.',
+    receive: 'Quarterly deliverables, performance reports, and system improvements — scoped and priced in advance. No open-ended retainer. No ambiguous "ongoing support."',
+    timeline: undefined as string | undefined,
+    note: 'This engagement is optional. Every system we build is fully documented and handed over for your team to operate independently. Ongoing partnership is available — never required.',
   },
-] as const;
+];
 
 
 function ColLabel({ children, amber }: { children: React.ReactNode; amber?: boolean }) {
@@ -250,7 +262,7 @@ function ServicesHero() {
             }}
             className="text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] xl:text-[4rem] 2xl:text-[5.5rem] min-[1920px]:text-[7rem]"
           >
-            Enterprise AI Services That Go{' '}
+            AI Services Built for Production.{' '}
             <span
               style={{
                 background: 'var(--gradient-headline)',
@@ -262,7 +274,7 @@ function ServicesHero() {
                 boxDecorationBreak: 'clone',
               }}
             >
-              Beyond Tools
+              Not Proof of Concept.
             </span>
           </h1>
 
@@ -278,11 +290,7 @@ function ServicesHero() {
               opacity: 0,
             }}
           >
-            We design and build AI systems that integrate with your infrastructure,
-            data, and operations. From architecture strategy to production deployment,
-            Invisigent delivers AI systems built on LangGraph, Pinecone, FastAPI,
-            and your existing stack — not a proprietary platform you&apos;ll be locked
-            into forever.
+            Most AI services hand you a tool or a strategy deck. Invisigent designs and deploys production AI systems integrated with your existing infrastructure, compliant with your security requirements, and fully owned by your team from day one. No proprietary platform. No ongoing dependency. Just infrastructure that runs your operations without us in the room.
           </p>
 
           <div
@@ -309,7 +317,11 @@ function PositioningBlock() {
   const quoteRef   = useRef<HTMLParagraphElement>(null);
   const techRef    = useRef<HTMLParagraphElement>(null);
   const reducedMotion = useReducedMotion() ?? false;
-  const negations = ['No fragile demos.', 'No vendor lock-in.', 'No disconnected automation.'];
+  const negations = [
+    'No fragile demos. Production systems that run under real load, every day.',
+    'No vendor lock-in. Model-agnostic infrastructure you switch and scale without rebuilding.',
+    'No disconnected automation. Every agent, pipeline, and workflow connected to your actual operations.',
+  ];
 
   useGSAP(() => {
     const staticEls = [h2Ref.current, p1Ref.current, p2Ref.current, quoteRef.current, techRef.current];
@@ -411,26 +423,15 @@ function PositioningBlock() {
               fontFamily: 'var(--font-display)',
               color: 'var(--color-text-secondary)',
               lineHeight: 1.75,
-              margin: '0 0 0.75rem 0',
-            }}
-            className="text-sm sm:text-base 2xl:text-[1.125rem] min-[1920px]:text-[1.375rem]"
-          >
-            Most AI vendors sell tools, dashboards, or wrappers.
-          </p>
-
-          <p
-            ref={p2Ref}
-            style={{
-              fontFamily: 'var(--font-display)',
-              color: 'var(--color-text-secondary)',
-              lineHeight: 1.75,
               margin: '0 0 2rem 0',
             }}
             className="text-sm sm:text-base 2xl:text-[1.125rem] min-[1920px]:text-[1.375rem]"
           >
-            Invisigent builds infrastructure — the systems that connect models, data, and workflows into something your
-            organization can actually run.
+            Most AI vendors sell tools, dashboards, or wrappers  things your team has to operate around. Invisigent builds infrastructure: the systems that connect your models, data, and workflows into something your organization actually owns and runs.
           </p>
+
+          {/* p2Ref kept as invisible spacer so GSAP ref stays valid */}
+          <p ref={p2Ref} style={{ display: 'none' }} aria-hidden="true" />
 
           <div ref={negRef} style={{ marginBottom: '2rem' }}>
             {negations.map((line, i) => (
@@ -483,7 +484,7 @@ function PositioningBlock() {
             }}
             className="text-base sm:text-lg lg:text-[1.25rem] 2xl:text-[1.625rem] min-[1920px]:text-[2.125rem]"
           >
-            Only systems designed for production.
+            Only systems designed for production. Built to be owned, not rented.
           </p>
 
           <p
@@ -496,7 +497,8 @@ function PositioningBlock() {
               marginTop: '1.5rem',
             }}
           >
-            Built on: LangGraph · LangSmith · OpenAI API · Cohere · Pinecone · n8n · FastAPI · Node.js · MongoDB · Docker
+            Built on open frameworks your team can inspect, extend, and own:{' '}
+            LangGraph · LangSmith · OpenAI API · Cohere · Pinecone · n8n · FastAPI · Node.js · MongoDB · Docker
           </p>
         </div>
       </div>
@@ -1120,7 +1122,7 @@ function EngageCard({ item, index }: { item: (typeof ENGAGEMENTS)[number]; index
             fontFamily: 'var(--font-display)',
             fontWeight: 600,
             lineHeight: 1.25,
-            margin: '0 0 0.875rem 0',
+            margin: '0 0 1.25rem 0',
             color: isHovered ? '#FFFFFF' : 'var(--color-text-primary)',
             transition: 'color 0.3s ease',
           }}
@@ -1129,18 +1131,116 @@ function EngageCard({ item, index }: { item: (typeof ENGAGEMENTS)[number]; index
           {item.title}
         </h3>
 
-        <p
-          style={{
+        {/* WHO THIS IS FOR */}
+        <div style={{ marginBottom: '1rem' }}>
+          <div style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: 'clamp(9px, 0.55vw, 11px)',
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            color: 'var(--color-text-micro)',
+            marginBottom: '0.35rem',
+          }}>
+            Who this is for
+          </div>
+          <p style={{
             fontFamily: 'var(--font-display)',
             color: isHovered ? 'var(--color-text-secondary)' : '#6B7280',
-            lineHeight: 1.7,
+            lineHeight: 1.65,
             margin: 0,
-            fontSize: 'clamp(0.875rem, 0.9vw, 1.75rem)',
+            fontSize: 'clamp(0.8125rem, 0.85vw, 1.5rem)',
             transition: 'color 0.3s ease',
-          }}
-        >
-          {item.body}
-        </p>
+          }}>
+            {item.who}
+          </p>
+        </div>
+
+        {/* WHAT HAPPENS */}
+        <div style={{ marginBottom: '1rem' }}>
+          <div style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: 'clamp(9px, 0.55vw, 11px)',
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            color: 'var(--color-text-micro)',
+            marginBottom: '0.35rem',
+          }}>
+            What happens
+          </div>
+          <p style={{
+            fontFamily: 'var(--font-display)',
+            color: isHovered ? 'var(--color-text-secondary)' : '#6B7280',
+            lineHeight: 1.65,
+            margin: 0,
+            fontSize: 'clamp(0.8125rem, 0.85vw, 1.5rem)',
+            transition: 'color 0.3s ease',
+          }}>
+            {item.what}
+          </p>
+        </div>
+
+        {/* WHAT YOU RECEIVE */}
+        <div style={{ marginBottom: item.timeline || item.note ? '1rem' : 0 }}>
+          <div style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: 'clamp(9px, 0.55vw, 11px)',
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            color: 'var(--color-trust-amber)',
+            marginBottom: '0.35rem',
+          }}>
+            What you receive
+          </div>
+          <p style={{
+            fontFamily: 'var(--font-display)',
+            color: isHovered ? 'var(--color-text-secondary)' : '#6B7280',
+            lineHeight: 1.65,
+            margin: 0,
+            fontSize: 'clamp(0.8125rem, 0.85vw, 1.5rem)',
+            transition: 'color 0.3s ease',
+          }}>
+            {item.receive}
+          </p>
+        </div>
+
+        {/* TIMELINE */}
+        {item.timeline && (
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.4rem',
+            marginBottom: item.note ? '0.75rem' : 0,
+          }}>
+            <span style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: 'clamp(9px, 0.55vw, 11px)',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              color: 'var(--color-text-micro)',
+            }}>Timeline:</span>
+            <span style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: 'clamp(9px, 0.55vw, 11px)',
+              letterSpacing: '0.06em',
+              color: 'var(--color-text-tertiary)',
+            }}>{item.timeline}</span>
+          </div>
+        )}
+
+        {/* NOTE */}
+        {item.note && (
+          <p style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: 'clamp(0.75rem, 0.75vw, 1.25rem)',
+            color: 'var(--color-text-micro)',
+            lineHeight: 1.6,
+            margin: 0,
+            borderLeft: `2px solid rgba(${accentRgb}, 0.3)`,
+            paddingLeft: '0.625rem',
+          }}>
+            {item.note}
+          </p>
+        )}
       </div>
     </div>
   );
@@ -1245,7 +1345,7 @@ function HowToEngage() {
             }}
             className="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] 2xl:text-[3.75rem] min-[1920px]:text-[5rem]"
           >
-            How We Work With You
+            Three Ways to Engage With Invisigent
           </h2>
 
           <p
@@ -1258,8 +1358,7 @@ function HowToEngage() {
             }}
             className="text-sm sm:text-base 2xl:text-[1.125rem] min-[1920px]:text-[1.375rem]"
           >
-            Every engagement starts with understanding your environment. From there, we work in one of three ways
-            depending on where you are.
+            Where you start depends on where you are. If you have a problem but no plan, we start with strategy. If you have a plan and need it built, we build it. If you have a system running and need it to scale, we stay involved on your terms.
           </p>
         </div>
 
@@ -1478,9 +1577,7 @@ function ServicesCTA() {
           }}
           className="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] 2xl:text-[3.75rem] min-[1920px]:text-[5rem]"
         >
-          Ready to Build AI Systems
-          <br />
-          That Actually Work?
+          The Right System. Built Once. Owned Forever.
         </h2>
 
         <p
@@ -1494,8 +1591,7 @@ function ServicesCTA() {
           }}
           className="text-balance text-sm sm:text-base 2xl:text-[1.125rem] min-[1920px]:text-[1.375rem]"
         >
-          If you are moving beyond AI experiments and want production-ready systems that integrate with how your
-          organization actually operates — let&apos;s talk about what you are building.
+          If you have a defined operational problem and a team ready to own what gets built this is where that conversation starts. Invisigent takes on a limited number of system builds each quarter. Every engagement is handled directly by our founder, from architecture review through production deployment.
         </p>
 
         <div
@@ -1603,23 +1699,68 @@ function ServicesCTA() {
 }
 
 const COMPLIANCE_ITEMS = [
-  { code: 'GDPR', region: 'European Union', detail: 'Data residency controls, right-to-erasure architecture, and processing lawfulness design for EU deployments.' },
-  { code: 'DPDP Act', region: 'India', detail: 'Consent management architecture and data fiduciary obligations aligned with India\'s Digital Personal Data Protection Act 2023.' },
-  { code: 'EU AI Act', region: 'European Union', detail: 'Risk classification assessment and prohibited/high-risk AI system design review for EU-regulated deployments.' },
-  { code: 'ISO 42001', region: 'Global', detail: 'AI Management System documentation, policy frameworks, and operational controls aligned with international AI governance standards.' },
-  { code: 'SOC2', region: 'United States', detail: 'Security, availability, and confidentiality controls designed into system architecture from the first sprint.' },
-] as const;
+  {
+    code: 'GDPR',
+    region: 'European Union',
+    requires: 'Data residency controls, right-to-erasure architecture, and lawful processing design for AI systems handling EU personal data.',
+    builds: 'Vector store data residency configuration, deletion-compliant data pipelines, and processing lawfulness documentation designed in from the first sprint so your EU deployment never hits a regulatory block at review.',
+  },
+  {
+    code: 'DPDP Act',
+    region: 'India',
+    requires: 'Consent management architecture and data fiduciary obligations for AI systems processing Indian personal data under the Digital Personal Data Protection Act 2023.',
+    builds: 'Consent collection and withdrawal pipelines, data fiduciary documentation, and purpose-limitation controls built for Indian enterprises operating under DPDP obligations from day one.',
+  },
+  {
+    code: 'EU AI Act',
+    region: 'European Union',
+    requires: 'Risk classification assessment, transparency obligations, and prohibited or high-risk AI system design review for EU-regulated deployments.',
+    builds: 'Pre-build risk classification review, Article 13 transparency documentation, and system architecture aligned with high-risk AI requirements completed before a line of code is written.',
+  },
+  {
+    code: 'ISO 42001',
+    region: 'Global',
+    requires: 'An AI Management System with documented policies, operational controls, and governance frameworks aligned with international AI governance standards.',
+    builds: 'Policy documentation, operational control frameworks, and system governance architecture aligned with ISO 42001 giving organizations a credible foundation for AI governance certification.',
+  },
+  {
+    code: 'SOC2',
+    region: 'United States',
+    requires: 'Security, availability, and confidentiality controls designed into system architecture for US-market enterprise deployments and procurement requirements.',
+    builds: 'Security control architecture, availability monitoring, and confidentiality design built to SOC2 Trust Service Criteria so enterprise procurement reviews find nothing to flag.',
+  },
+];
 
 const FAQ_ITEMS = [
   {
     q: 'Which compliance frameworks do you support?',
-    a: 'We design systems aligned with GDPR, India\'s DPDP Act, EU AI Act risk classification requirements, ISO 42001, and SOC2. Compliance architecture is included in every system build — not offered as a separate add-on.',
+    a: 'We design systems aligned with GDPR for EU deployments, India\'s DPDP Act for Indian operations, EU AI Act risk classification requirements, ISO 42001 for AI governance documentation, and SOC2 for US enterprise procurement. Compliance architecture is included in every system build not offered as a separate add-on or reviewed at deployment.',
+  },
+  {
+    q: 'What does "compliance designed in" actually mean?',
+    a: 'It means compliance requirements are collected during discovery and built into the system architecture before development begins. Data residency controls, RBAC, audit trails, and governance documentation are designed from sprint one so by the time your security or legal team reviews the system, there is nothing left to retrofit.',
   },
   {
     q: 'What happens after the system is deployed?',
-    a: 'Deployment is not the end of the engagement. Every system we deliver includes operational runbooks, LangSmith monitoring configuration, and a defined performance baseline. For organizations on ongoing partnership engagements, we provide monthly performance reviews, model updates, and architecture evolution as usage scales.',
+    a: 'Every system ships with operational runbooks, monitoring configuration, defined performance baselines, and full documentation everything your team needs to run it without us. For organizations that want ongoing optimization and scaling support, we offer quarterly partnership engagements with defined deliverables. Ongoing involvement is always optional never a requirement.',
   },
-] as const;
+  {
+    q: 'Can I start with a strategy engagement and move to a full system build?',
+    a: 'Yes and this is a common progression. The strategy engagement produces a documented architecture plan your team can act on immediately. If you choose to move to a full system build, the architecture work completed in the strategy phase becomes the foundation no duplication, no restart.',
+  },
+  {
+    q: 'Do you build on our existing tech stack or replace it?',
+    a: 'We design around what you already run. Our infrastructure is model-agnostic and framework-flexible we integrate with your existing CRMs, databases, and internal tools rather than replacing them with a proprietary platform. If components of your current stack are creating bottlenecks, we will tell you during discovery before development begins.',
+  },
+  {
+    q: 'How do you handle system performance after deployment?',
+    a: 'Every system ships with defined SLAs and monitoring pipelines. For ongoing partnership engagements, we conduct quarterly performance reviews, identify optimization opportunities, and implement improvements against agreed deliverables. Performance baselines are set during deployment so you always have a clear reference point for what the system should be doing.',
+  },
+  {
+    q: 'What AI frameworks and infrastructure do you build on?',
+    a: 'We build on open frameworks your team can inspect, extend, and own LangGraph for agent orchestration, LangSmith for observability, Pinecone for vector retrieval, FastAPI and Node.js for backend infrastructure, and Docker for portable deployment. No proprietary platform. No lock-in. Every component is replaceable if a better option emerges.',
+  },
+];
 
 function ComplianceDeepDive() {
   const ref = useRef<HTMLElement>(null);
@@ -1688,7 +1829,7 @@ function ComplianceDeepDive() {
             }}
             className="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] 2xl:text-[3.75rem] min-[1920px]:text-[5rem]"
           >
-            Compliance Designed In, Not Bolted On
+            AI Compliance Architecture Built In From Sprint One
           </h2>
           <p
             style={{
@@ -1699,63 +1840,115 @@ function ComplianceDeepDive() {
             }}
             className="text-sm sm:text-base 2xl:text-[1.125rem] min-[1920px]:text-[1.375rem]"
           >
-            Every Invisigent engagement includes compliance architecture from the first sprint. No
-            separate compliance add-on. No retrofitting controls after your security team flags a
-            problem at deployment.
+            Every Invisigent system is designed to meet the compliance requirements of the jurisdictions it operates in before development begins — not after your security team flags a problem at deployment review. We cover five major frameworks across global markets.
           </p>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(0.5rem, 1vw, 1.5rem)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
           {COMPLIANCE_ITEMS.map((item) => (
             <div
               key={item.code}
               className="compliance-row"
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'clamp(80px, 10vw, 160px) clamp(80px, 10vw, 140px) 1fr',
+                gridTemplateColumns: 'clamp(80px, 10vw, 160px) 1fr 1fr',
                 gap: 'clamp(1rem, 2vw, 3rem)',
                 alignItems: 'start',
-                padding: 'clamp(1rem, 1.5vw, 2rem) 0',
+                padding: 'clamp(1.25rem, 1.75vw, 2.5rem) 0',
                 borderBottom: '1px solid rgba(255,255,255,0.06)',
               }}
             >
-              <span
-                style={{
+              <div>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: 'clamp(10px, 0.65vw, 13px)',
+                    fontWeight: 600,
+                    letterSpacing: '0.06em',
+                    color: 'var(--color-trust-amber)',
+                    display: 'block',
+                    marginBottom: '0.3rem',
+                  }}
+                >
+                  {item.code}
+                </span>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: 'clamp(9px, 0.55vw, 12px)',
+                    letterSpacing: '0.06em',
+                    color: 'var(--color-text-micro)',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  {item.region}
+                </span>
+              </div>
+
+              {/* What it requires */}
+              <div>
+                <div style={{
                   fontFamily: 'var(--font-mono)',
-                  fontSize: 'clamp(10px, 0.65vw, 13px)',
-                  fontWeight: 600,
-                  letterSpacing: '0.06em',
-                  color: 'var(--color-trust-amber)',
-                }}
-              >
-                {item.code}
-              </span>
-              <span
-                style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: 'clamp(9px, 0.55vw, 12px)',
-                  letterSpacing: '0.06em',
-                  color: 'var(--color-text-micro)',
+                  fontSize: 'clamp(9px, 0.5vw, 11px)',
+                  letterSpacing: '0.09em',
                   textTransform: 'uppercase',
-                  paddingTop: 2,
-                }}
-              >
-                {item.region}
-              </span>
-              <p
-                style={{
+                  color: 'var(--color-text-micro)',
+                  marginBottom: '0.35rem',
+                }}>
+                  What it requires
+                </div>
+                <p style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(0.875rem, 0.9vw, 1.75rem)',
+                  fontSize: 'clamp(0.8125rem, 0.85vw, 1.5rem)',
                   lineHeight: 1.65,
                   color: 'var(--color-text-secondary)',
                   margin: 0,
-                }}
-              >
-                {item.detail}
-              </p>
+                }}>
+                  {item.requires}
+                </p>
+              </div>
+
+              {/* What we build */}
+              <div>
+                <div style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: 'clamp(9px, 0.5vw, 11px)',
+                  letterSpacing: '0.09em',
+                  textTransform: 'uppercase',
+                  color: 'var(--color-trust-amber)',
+                  marginBottom: '0.35rem',
+                }}>
+                  What we build
+                </div>
+                <p style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: 'clamp(0.8125rem, 0.85vw, 1.5rem)',
+                  lineHeight: 1.65,
+                  color: 'var(--color-text-secondary)',
+                  margin: 0,
+                }}>
+                  {item.builds}
+                </p>
+              </div>
             </div>
           ))}
         </div>
+
+        {/* Closing line */}
+        <p
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: 'clamp(10px, 0.65vw, 13px)',
+            letterSpacing: '0.06em',
+            color: 'var(--color-text-micro)',
+            lineHeight: 1.65,
+            marginTop: 'clamp(1.5rem, 3vw, 4rem)',
+            borderLeft: '2px solid var(--color-trust-amber)',
+            paddingLeft: '0.75rem',
+          }}
+        >
+          Compliance requirements collected during discovery. Architecture designed to meet them before development begins. No surprises at deployment.
+        </p>
       </div>
     </section>
   );
@@ -1826,12 +2019,31 @@ function ServicesFAQ() {
               fontWeight: 500,
               color: 'var(--color-text-primary)',
               lineHeight: 1.1,
-              margin: 0,
+              margin: '0 0 1rem 0',
             }}
             className="text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] 2xl:text-[3.75rem] min-[1920px]:text-[5rem]"
           >
-            Common Questions
+            Technical Questions About Our Services
           </h2>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              color: 'var(--color-text-secondary)',
+              lineHeight: 1.7,
+              maxWidth: 'clamp(520px, 42vw, 900px)',
+              margin: 0,
+            }}
+            className="text-sm sm:text-base 2xl:text-[1.125rem] min-[1920px]:text-[1.375rem]"
+          >
+            For questions about fit, process, and working with us visit our{' '}
+            <a
+              href="/about"
+              style={{ color: 'var(--color-trust-amber)', textDecoration: 'none' }}
+            >
+              About page
+            </a>
+            .
+          </p>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column' }}>

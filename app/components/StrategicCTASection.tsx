@@ -306,9 +306,9 @@ export default function StrategicCTASection() {
                 lineHeight: 1.15,
               }}
             >
-              Build Your{' '}
-              <span style={{ color: 'var(--color-trust-amber)' }}>Enterprise AI</span>{' '}
-              Infrastructure
+              From AI Experiments to{' '}
+              <span style={{ color: 'var(--color-trust-amber)' }}>AI Infrastructure.</span>{' '}
+              This Is Where It Starts.
             </motion.h2>
 
             {/* Description */}
@@ -322,31 +322,13 @@ export default function StrategicCTASection() {
                 lineHeight: 1.7,
               }}
             >
-              Competitive advantage no longer comes from which AI model your
-              organization uses. It comes from how deeply AI is embedded into
-              your infrastructure, operations, and decision-making.
+              Competitive advantage no longer comes from which AI model you use. It comes from how deeply AI is embedded into your infrastructure, operations, and decision-making  and whether your team owns it or rents it.
               <br />
               <br />
-              Invisigent partners with 4 organizations per quarter — by design,
-              not by capacity. Every engagement gets full senior-level attention
-              from architecture through production deployment.
+              Invisigent works with 4 organizations per quarter. Not because of capacity because every engagement demands full senior-level attention from architecture through production deployment. You work directly with our founder. Not a project manager. Not a junior team assigned after your first call.
               <br />
               <br />
-              If you are moving from AI experiments to AI infrastructure, the
-              conversation starts here.
-            </motion.p>
-
-            {/* CTA intro + Buttons */}
-            <motion.p
-              variants={STRATEGIC_ITEM}
-              className="font-serif text-text-secondary"
-              style={{
-                marginTop: 'clamp(20px, 2.5vw, 28px)',
-                fontSize: 'clamp(15px, 1.1vw, 20px)',
-                lineHeight: 1.6,
-              }}
-            >
-              Discuss your AI architecture with Invisigent.
+              If you are ready to move from AI experiments to AI systems that run your business this is where that conversation begins.
             </motion.p>
             <motion.div
               variants={STRATEGIC_ITEM}

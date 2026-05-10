@@ -13,20 +13,23 @@ const PILLARS = [
   {
     number: '01',
     topBorder: 'amber' as const,
-    title: 'Architecture Before Automation',
-    body: 'We define the orchestration logic, data access patterns, failure handling, and monitoring architecture before any LangGraph agent or automation pipeline is instantiated. Infrastructure decisions made late are expensive. Made early, they are competitive advantages.',
+    title: 'Architecture First. Always.',
+    body: 'Before any agent is built, we define the orchestration logic, data access patterns, failure handling, and monitoring architecture. Infrastructure decisions made late cost weeks of rework and thousands in wasted compute. Made early, they become the competitive advantage your operations team actually feels.',
+    contrast: 'Most agencies start with the agent. We start with what the agent needs to survive production.',
   },
   {
     number: '02',
     topBorder: 'blue' as const,
-    title: 'Ownership Over Vendor Lock-In',
-    body: 'Invisigent builds model-agnostic infrastructure — OpenAI today, Claude or Llama tomorrow, on-prem the quarter after. No provider lock-in. No platform dependency. Your orchestration layer, your retrieval system, your deployment environment. Yours, permanently.',
+    title: 'Your Infrastructure. Not Ours. Not OpenAI\'s.',
+    body: 'We build model-agnostic orchestration layers — OpenAI today, Claude or Llama tomorrow, on-prem next quarter if your security team requires it. No provider dependency means you control your AI costs, your data, and your negotiating position. Permanently.',
+    contrast: 'Most AI systems are built around a vendor. Ours are built around your business.',
   },
   {
     number: '03',
     topBorder: 'amber' as const,
-    title: 'Production Systems Over Prototypes',
-    body: 'Every system includes defined SLAs, operational runbooks, LangSmith monitoring pipelines, and RBAC access controls. We do not hand over black-box systems. We hand over systems your operations team can run, your security team can audit, and your engineering team can extend.',
+    title: 'Every Delivery Is Production-Ready. Not Demo-Ready.',
+    body: 'Every system ships with defined SLAs, operational runbooks, monitoring pipelines, and RBAC access controls — fully documented for your operations team to run, your security team to audit, and your engineering team to extend. We do not hand over black boxes. We hand over infrastructure you own outright.',
+    contrast: 'A demo that cannot survive Monday morning is not a system. It is a liability.',
   },
 ];
 
@@ -83,7 +86,7 @@ export function PhilosophySection({ reducedMotion = false }: PhilosophySectionPr
               id="about-philosophy-heading"
               className="about-heading text-section-h font-serif font-medium text-[var(--color-text-primary)]"
             >
-              Our Engineering Philosophy
+              Three Principles Behind Every System We Ship
             </h2>
 
             <p
@@ -91,7 +94,7 @@ export function PhilosophySection({ reducedMotion = false }: PhilosophySectionPr
               className="about-description text-body mx-auto max-w-[480px] 2xl:max-w-[640px] min-[2800px]:max-w-[900px] font-display leading-[1.75] text-[var(--color-text-secondary)] text-center"
               style={{ textAlign: 'center' }}
             >
-              Three principles shape how we design every system we build.
+              Most AI agencies build fast and fix later. We do the opposite. Three principles shape every system we design — and each one exists because we have seen what happens when it is ignored.
             </p>
           </div>
 
@@ -112,6 +115,20 @@ export function PhilosophySection({ reducedMotion = false }: PhilosophySectionPr
                 </h3>
                 <p className="text-body font-display leading-[1.7] text-[var(--color-text-secondary)]">
                   {pillar.body}
+                </p>
+                <p
+                  className="font-mono text-[var(--color-text-tertiary)]"
+                  style={{
+                    marginTop: 'clamp(12px, 1.5vw, 20px)',
+                    fontSize: 'clamp(11px, 0.85vw, 13px)',
+                    fontWeight: 500,
+                    letterSpacing: '0.03em',
+                    lineHeight: 1.55,
+                    borderLeft: '2px solid var(--color-trust-amber)',
+                    paddingLeft: 10,
+                  }}
+                >
+                  {pillar.contrast}
                 </p>
               </AnimatedCard>
             ))}

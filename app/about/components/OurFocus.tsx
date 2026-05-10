@@ -10,10 +10,30 @@ import { AnimatedCard } from './shared/AnimatedCard';
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const FOCUS_CARDS = [
-  { tag: 'ORCH', number: '01', title: 'Agent Orchestration Systems',    body: 'LangGraph-based multi-agent frameworks that coordinate complex task sequences, manage state across agent runs, and execute multi-step reasoning pipelines in production environments.' },
-  { tag: 'AUTO', number: '02', title: 'AI Automation Infrastructure',   body: 'n8n and FastAPI-based automation pipelines that connect your existing systems to AI decision layers — eliminating manual workflows and enabling autonomous operations at scale.' },
-  { tag: 'KNOW', number: '03', title: 'Enterprise Knowledge Systems',   body: 'Pinecone and Cohere-powered RAG pipelines connected to your internal documents, databases, and knowledge bases. Sub-3-second retrieval latency. Audit-ready retrieval traces. No hallucinations.' },
-  { tag: 'PROD', number: '04', title: 'AI-Native Product Development',  body: 'AI infrastructure for copilots, intelligent assistants, and AI-first SaaS products — including backend API design, model integration, observability pipelines, and production deployment architecture.' },
+  {
+    tag: 'ORCH', number: '01',
+    title: 'Multi-Agent Orchestration Systems',
+    body: 'Complex task sequences coordinated across multiple AI agents with full state management, decision traceability, and production-grade failure handling. Built for workflows too complex for a single model and too critical for a black-box solution.',
+    outcome: 'Your operations run autonomously. Your team sees exactly what every agent did and why.',
+  },
+  {
+    tag: 'AUTO', number: '02',
+    title: 'AI Automation That Replaces Manual Workflows',
+    body: 'Automation pipelines that connect your existing systems CRMs, databases, internal tools to AI decision layers. Manual handoffs eliminated. Autonomous operations enabled. Built for scale, not just for demo conditions.',
+    outcome: 'Your team stops doing work that a well-built system should be doing instead.',
+  },
+  {
+    tag: 'KNOW', number: '03',
+    title: 'Your Internal Knowledge. Finally Retrievable.',
+    body: 'RAG pipelines connected to your internal documents, databases, and knowledge bases — delivering accurate, context-aware answers in under 3 seconds. Audit-ready retrieval traces included. Hallucinations engineered out, not hoped away.',
+    outcome: 'Your team stops digging through tabs. Your AI starts answering with your actual data.',
+  },
+  {
+    tag: 'PROD', number: '04',
+    title: 'AI Products Built for Production From Day One',
+    body: 'Copilots, intelligent assistants, and AI-first internal tools built with production infrastructure from the first sprint. Backend API design, model integration, observability pipelines, and deployment architecture included as standard, not added at the end.',
+    outcome: 'Your AI product ships with infrastructure that survives real users not just internal demos.',
+  },
 ];
 
 interface OurFocusProps {
@@ -64,14 +84,14 @@ export function OurFocus({ reducedMotion = false }: OurFocusProps) {
               id="about-focus-heading"
               className="about-heading text-section-h font-serif font-medium text-[var(--color-text-primary)]"
             >
-              Our Enterprise AI Focus Areas
+              What We Build
             </h2>
             <p
               ref={subtitleRef}
               className="about-description text-body mx-auto max-w-[560px] 2xl:max-w-[700px] min-[2800px]:max-w-[980px] font-display leading-[1.75] text-[var(--color-text-secondary)] text-center"
               style={{ textAlign: 'center' }}
             >
-              Invisigent specialises in four categories of enterprise AI infrastructure.
+              Four categories of production AI infrastructure — each designed to be owned, operated, and scaled by your team.
             </p>
           </div>
 
@@ -96,6 +116,20 @@ export function OurFocus({ reducedMotion = false }: OurFocusProps) {
                 </h3>
                 <p className="text-body font-display leading-[1.7] text-[var(--color-text-secondary)]">
                   {card.body}
+                </p>
+                <p
+                  className="font-mono text-[var(--color-text-tertiary)]"
+                  style={{
+                    marginTop: 'clamp(12px, 1.5vw, 18px)',
+                    fontSize: 'clamp(11px, 0.8vw, 13px)',
+                    fontWeight: 500,
+                    letterSpacing: '0.03em',
+                    lineHeight: 1.55,
+                    borderLeft: '2px solid var(--color-trust-amber)',
+                    paddingLeft: 10,
+                  }}
+                >
+                  {card.outcome}
                 </p>
               </AnimatedCard>
             ))}

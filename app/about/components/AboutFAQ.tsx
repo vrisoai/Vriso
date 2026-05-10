@@ -11,17 +11,37 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 const FAQ_ITEMS = [
   {
     q: 'What makes Invisigent different from other AI consulting firms?',
-    a: 'We build the infrastructure, not just the strategy deck. Most AI consultancies advise on what to build and hand it back to your team. Invisigent designs, builds, and deploys production AI systems — with monitoring, documentation, and compliance controls included. We also do not lock you into our platform or tooling; everything we build, you own.',
+    a: 'Most AI consultancies advise on what to build and hand the work back to your team. We design, build, and deploy production AI systems with monitoring, documentation, compliance controls, and operational runbooks included as standard. Everything we build, you own. No platform lock-in. No ongoing dependency on us to keep it running.',
   },
   {
-    q: 'How long does a typical AI infrastructure engagement take?',
-    a: 'Strategy engagements typically run 2–4 weeks and end with a documented architecture plan. Full system builds range from 6–16 weeks depending on complexity and integration requirements. Ongoing partnerships are scoped quarterly with defined deliverables.',
+    q: 'How much does an engagement cost?',
+    a: "Every engagement is scoped to the system being built not priced from a standard rate card. A focused architecture and strategy engagement looks very different from a full multi-agent system build with compliance requirements and third-party integrations. We scope every project during discovery and price it based on complexity, timeline, and what your team needs to own and operate at the end. If budget is a consideration, the discovery call is the right place to start we can tell you quickly whether the scope matches what you are working with.",
   },
   {
-    q: 'Do you work with organizations that have no existing AI infrastructure?',
-    a: 'Yes — and these are often the best engagements. Starting without legacy AI infrastructure means we can design the right architecture from the beginning rather than working around technical decisions made in a prototype phase. The discovery phase is specifically designed for organizations in this position.',
+    q: 'How long does a typical engagement take?',
+    a: 'Strategy engagements run 2–4 weeks and end with a documented architecture plan. Full system builds range from 6–16 weeks depending on complexity and integration requirements. Every engagement has defined milestones so you always know what is being delivered and when.',
   },
-] as const;
+  {
+    q: 'Do we need an existing technical team to work with you?',
+    a: 'No but you do need someone who can own what we build after delivery. We design every system with operational handoff in mind and include full documentation, monitoring access, and runbooks. If your team can manage a SaaS platform, they can run what we build. We scope the handoff during discovery so there are no surprises at deployment.',
+  },
+  {
+    q: 'What if we have no existing AI infrastructure?',
+    a: 'These are often our strongest engagements. Starting without legacy AI infrastructure means we design the right architecture from the beginning — rather than working around decisions made during a prototype phase. Our discovery process is specifically built for organizations at this stage.',
+  },
+  {
+    q: 'What happens after the system is deployed?',
+    a: 'You own it. We hand over full documentation, monitoring pipelines, and operational runbooks everything your team needs to run the system without us. For organizations that want ongoing optimization and scaling support, we offer quarterly partnerships with defined deliverables. But ongoing dependency on Invisigent is never a requirement.',
+  },
+  {
+    q: 'How do you handle compliance requirements like GDPR or DPDP?',
+    a: 'Compliance architecture is designed in from sprint one not reviewed at deployment. Every system includes audit trails, RBAC access controls, and data residency configurations appropriate for the jurisdictions it operates in. If your compliance team has specific requirements, we collect them during discovery and design to meet them before a single line of code is written.',
+  },
+  {
+    q: 'How do we know if we are ready to work with Invisigent?',
+    a: 'You are likely ready if you have a defined operational problem AI should be solving, a budget committed to infrastructure rather than experimentation, and a team that will own the system after delivery. If you are still exploring whether AI is the right solution, we are not the right partner yet and we will tell you that on the first call.',
+  },
+];
 
 interface AboutFAQProps {
   reducedMotion?: boolean;
@@ -76,8 +96,14 @@ export function AboutFAQ({ reducedMotion = false }: AboutFAQProps) {
               id="about-faq-heading"
               className="about-heading text-section-h font-serif font-medium text-[var(--color-text-primary)]"
             >
-              Frequently Asked Questions
+              Questions We Hear Before Every Engagement
             </h2>
+            <p
+              className="text-body font-display leading-[1.75] text-[var(--color-text-secondary)]"
+              style={{ marginTop: 'clamp(0.75rem, 1.5vw, 1.25rem)' }}
+            >
+              Honest answers because the right fit matters more than the next booking.
+            </p>
 
             <div style={{ marginTop: 'clamp(2rem, 3vw, 4rem)', display: 'flex', flexDirection: 'column' }}>
               {FAQ_ITEMS.map((item, i) => {

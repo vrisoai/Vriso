@@ -30,26 +30,30 @@ interface ValueCard {
   label: string;
   title: string;
   description: string;
+  outcome: string;
 }
 
 const CARDS: ValueCard[] = [
   {
     label: '[ INFRASTRUCTURE ]',
-    title: 'Production-First AI Infrastructure',
+    title: 'Infrastructure That Holds Under Real Workloads',
     description:
-      'We architect the orchestration layer, data pipelines, and monitoring systems before any agent is built. Infrastructure first. Automation second.',
+      'Before a single agent is built, we architect the orchestration layer, data pipelines, and monitoring systems your AI needs to run reliably at scale — not just in a demo environment.',
+    outcome: '→ Your AI runs in production on day one. Not month six.',
   },
   {
     label: '[ AUTOMATION ]',
-    title: 'Autonomous Workflows That Actually Run',
+    title: 'Autonomous Workflows You Can Actually See Inside',
     description:
-      'Multi-agent systems built with LangGraph and orchestrated with full observability via LangSmith — so you can see exactly what every agent did and why.',
+      'Multi-agent systems built with full observability — every agent action logged, traceable, and auditable. You see exactly what ran, what decided, and what changed. No black boxes.',
+    outcome: '→ Ops teams stop flying blind. Workflows stop breaking silently.',
   },
   {
     label: '[ INTELLIGENCE ]',
-    title: 'Knowledge Systems Grounded in Your Data',
+    title: 'Your Knowledge Base, Finally Useful',
     description:
-      'RAG pipelines connected to your internal documents, databases, and knowledge bases — context-aware answers, sub-3-second retrieval latency, no hallucinations.',
+      'RAG pipelines connected to your internal documents, databases, and knowledge systems — delivering context-aware answers in under 3 seconds with accuracy your compliance team can stand behind.',
+    outcome: '→ Your team stops digging. Your AI starts answering.',
   },
 ];
 
@@ -220,7 +224,7 @@ export function ValueProposition() {
               width: '100%',
             }}
           >
-            <span className="gradient-text">AI Systems</span>, Not AI Experiments
+            <span className="gradient-text">AI Systems</span> Built for Production Not Proof of Concept
           </h2>
 
           {/* Description — Framer FADE_UP unchanged */}
@@ -241,9 +245,7 @@ export function ValueProposition() {
             viewport={{ once: true, margin: '-60px' }}
             custom={2}
           >
-            Most AI projects die before they reach production. Not because the model
-            was wrong — because the infrastructure holding it together wasn&apos;t built
-            for real workloads.
+            Most AI projects never reach production — not because the technology failed, but because no one built the infrastructure to hold it together under real business conditions. That&apos;s the only problem we solve.
           </motion.p>
         </header>
 
@@ -272,6 +274,9 @@ export function ValueProposition() {
                 <div className="vp-card__back">
                   <div className="vp-card__back-blur" aria-hidden="true" />
                   <p className="vp-card__desc">{card.description}</p>
+                  <p className="vp-card__outcome font-mono" style={{ marginTop: 20, fontSize: 'clamp(11px, 0.85vw, 14px)', fontWeight: 600, letterSpacing: '0.04em', color: 'var(--color-action-accent)', lineHeight: 1.5 }}>
+                    {card.outcome}
+                  </p>
                 </div>
               </div>
             </article>

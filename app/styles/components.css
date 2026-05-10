@@ -485,8 +485,7 @@ a:focus-visible {
   border: 1px solid var(--color-border);
   border-radius: 12px;
   overflow: hidden;
-  min-height: 140px;
-  aspect-ratio: 5 / 3;
+  min-height: clamp(240px, 28vw, 420px);
   perspective: 1000px;
   /* No transition here — GSAP animates border/shadow on desktop; mobile gets it below */
 }
@@ -500,7 +499,7 @@ a:focus-visible {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 140px;
+  min-height: clamp(240px, 28vw, 420px);
   /* No transition here — GSAP owns the flip on desktop; mobile gets it below */
   transform-style: preserve-3d;
 }
@@ -558,7 +557,8 @@ a:focus-visible {
   opacity: 0.9;
 }
 
-.vp-card__back .vp-card__desc {
+.vp-card__back .vp-card__desc,
+.vp-card__back .vp-card__outcome {
   position: relative;
   z-index: 1;
   opacity: 0;
@@ -566,7 +566,8 @@ a:focus-visible {
   transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s;
 }
 
-.vp-card:hover .vp-card__back .vp-card__desc {
+.vp-card:hover .vp-card__back .vp-card__desc,
+.vp-card:hover .vp-card__back .vp-card__outcome {
   opacity: 1;
   transform: translateY(0);
 }
@@ -608,12 +609,11 @@ a:focus-visible {
 /* Mobile phones: reduce card height for section 2 */
 @media (max-width: 640px) {
   .vp-card {
-    min-height: 110px;
-    aspect-ratio: auto;
+    min-height: 260px;
   }
 
   .vp-card__inner {
-    min-height: 110px;
+    min-height: 260px;
   }
 
   .vp-card__front,
@@ -2144,6 +2144,7 @@ a:focus-visible {
 .about-page .about-cta .about-description,
 .about-page .about-focus .about-description,
 .about-page .about-philosophy .about-description,
+.about-page .about-who .about-description,
 .about-page .about-hero .about-description {
   text-align: center !important;
   margin-left: auto !important;
