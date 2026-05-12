@@ -103,13 +103,13 @@ export function HeroSection({ reducedMotion = false }: HeroSectionProps) {
   return (
     <section
       ref={sectionRef}
-      className="about-hero flex min-h-0 w-full flex-col items-center justify-center overflow-x-clip px-4 sm:px-[var(--section-px)]"
+      className="about-hero flex min-h-0 w-full flex-col items-center justify-center overflow-x-clip"
       style={{
         height: '100%',
-        /* svh-based padding shrinks on short laptop screens instead of
-           overflowing the fixed 88svh sticky container */
         paddingTop:    'clamp(1.25rem, 4svh, 4rem)',
         paddingBottom: 'clamp(1.25rem, 4svh, 4rem)',
+        paddingLeft:   'clamp(1.5rem, 5vw, var(--section-px, 4rem))',
+        paddingRight:  'clamp(1.5rem, 5vw, var(--section-px, 4rem))',
         background: 'var(--color-bg-primary)',
         backgroundImage:
           'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(45,91,255,0.06) 0%, transparent 60%)',

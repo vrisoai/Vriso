@@ -75,14 +75,14 @@ const insightsBlogSchema = {
       blogPost: [
         {
           '@type': 'BlogPosting',
-          headline: 'Why Mid-Market Companies Lose Revenue to Slow Internal Operations — And How AI Infrastructure Fixes It Permanently',
+          headline: 'Why Mid-Market Companies Lose Revenue to Slow Internal Operations And How AI Infrastructure Fixes It Permanently',
           url: 'https://invisigent.ai/insights/why-your-business-is-losing-customers-while-you-sleep',
           datePublished: '2026-04-23',
           image: 'https://invisigent.ai/blog-losing-customers-while-you-sleep.png',
         },
         {
           '@type': 'BlogPosting',
-          headline: 'The Real Reason AI Infrastructure Projects Fail — And It Has Nothing to Do With the Technology',
+          headline: 'The Real Reason AI Infrastructure Projects Fail And It Has Nothing to Do With the Technology',
           url: 'https://invisigent.ai/insights/the-real-reason-ai-tools-dont-work-for-most-small-businesses',
           datePublished: '2026-04-23',
           image: 'https://invisigent.ai/blog-ai-tools-dont-work-small-businesses.png',
@@ -96,10 +96,17 @@ const insightsBlogSchema = {
         },
         {
           '@type': 'BlogPosting',
-          headline: '7 AI Infrastructure Mistakes That Burn Budget — And How Mid-Market Organizations Avoid Them',
+          headline: '7 AI Infrastructure Mistakes That Burn Budget And How Mid-Market Organizations Avoid Them',
           url: 'https://invisigent.ai/insights/7-ai-implementation-mistakes-that-burn-budget-and-how-to-avoid-them',
           datePublished: '2026-05-04',
           image: 'https://invisigent.ai/blog-ai-implementation-mistakes.png',
+        },
+        {
+          '@type': 'BlogPosting',
+          headline: 'Why Enterprise AI Accuracy Is an Infrastructure Problem Not a Model Problem',
+          url: 'https://invisigent.ai/insights/why-enterprise-ai-accuracy-is-an-infrastructure-problem',
+          datePublished: '2026-05-12',
+          image: 'https://invisigent.ai/blog-ai-accuracy-infrastructure.svg',
         },
       ],
     },
@@ -191,18 +198,18 @@ export default function InsightsPage() {
             imageAlt="Mid-market operations dashboard showing slow internal workflows and revenue leakage points across departments"
             category="AI Infrastructure"
             readTime="10 min read"
-            heading="Why Mid-Market Companies Lose Revenue to Slow Internal Operations — And How AI Infrastructure Fixes It Permanently"
-            excerpt="Slow internal operations are a structural tax on revenue. Most mid-market companies feel it but can't locate it. AI infrastructure doesn't speed up broken processes — it rebuilds the layer beneath them."
+            heading="Why Mid-Market Companies Lose Revenue to Slow Internal Operations And How AI Infrastructure Fixes It Permanently"
+            excerpt="Slow internal operations are a structural tax on revenue. Most mid-market companies feel it but can't locate it. AI infrastructure doesn't speed up broken processes it rebuilds the layer beneath them."
             author="Invisigent Research"
             href="/insights/why-your-business-is-losing-customers-while-you-sleep"
           />
           <BlogCard
             imageSrc="/blog-ai-tools-dont-work-small-businesses.png"
-            imageAlt="Architecture diagram showing the gap between AI tool adoption and AI infrastructure — processes feeding tools with no underlying system"
+            imageAlt="Architecture diagram showing the gap between AI tool adoption and AI infrastructure processes feeding tools with no underlying system"
             category="AI Infrastructure"
             readTime="9 min read"
-            heading="The Real Reason AI Infrastructure Projects Fail — And It Has Nothing to Do With the Technology"
-            excerpt="Most AI projects fail in the first 90 days — not because the model was wrong, but because the process feeding it was never mapped. The failure is always upstream of the tool."
+            heading="The Real Reason AI Infrastructure Projects Fail And It Has Nothing to Do With the Technology"
+            excerpt="Most AI projects fail in the first 90 days not because the model was wrong, but because the process feeding it was never mapped. The failure is always upstream of the tool."
             author="Invisigent Research"
             href="/insights/the-real-reason-ai-tools-dont-work-for-most-small-businesses"
           />
@@ -212,7 +219,7 @@ export default function InsightsPage() {
             category="AI Infrastructure"
             readTime="9 min read"
             heading="How Mid-Market Companies Build Operational Leverage Against Larger Competitors Using AI Infrastructure"
-            excerpt="Larger competitors don't win because they have better people. They win because they have systems that compound. AI infrastructure gives mid-market companies the same structural advantage — without the headcount."
+            excerpt="Larger competitors don't win because they have better people. They win because they have systems that compound. AI infrastructure gives mid-market companies the same structural advantage without the headcount."
             author="Invisigent Research"
             href="/insights/how-a-2-person-team-can-compete-with-a-20-person-company-using-ai"
           />
@@ -221,10 +228,20 @@ export default function InsightsPage() {
             imageAlt="Executive reviewing AI infrastructure architecture with highlighted failure points and budget burn indicators across seven decision layers"
             category="AI Infrastructure"
             readTime="10 min read"
-            heading="7 AI Infrastructure Mistakes That Burn Budget — And How Mid-Market Organizations Avoid Them"
+            heading="7 AI Infrastructure Mistakes That Burn Budget And How Mid-Market Organizations Avoid Them"
             excerpt="Most AI budget failures trace back to seven structural mistakes made before a single line of code is written. The organizations that avoid them share one thing in common: they build infrastructure before they build features."
             author="Invisigent Research"
             href="/insights/7-ai-implementation-mistakes-that-burn-budget-and-how-to-avoid-them"
+          />
+          <BlogCard
+            imageSrc="/blog-ai-accuracy-infrastructure.svg"
+            imageAlt="Four-layer AI accuracy infrastructure stack showing retrieval architecture, data quality, guardrail design, and observability side by side with a degrading accuracy panel"
+            category="AI Infrastructure"
+            readTime="12 min read"
+            heading="Why Enterprise AI Accuracy Is an Infrastructure Problem Not a Model Problem"
+            excerpt="Most organizations debugging AI accuracy problems are looking in the wrong place. They audit the model, adjust the prompt, switch providers. The accuracy problem persists because it was never a model problem."
+            author="Invisigent Research"
+            href="/insights/why-enterprise-ai-accuracy-is-an-infrastructure-problem"
           />
         </div>
       </main>
